@@ -2,11 +2,11 @@ import { vinicuncaESLint } from '@vinicunca/eslint-config';
 
 export default vinicuncaESLint(
   {
-    formatters: false,
+    formatters: true,
     react: false,
     typescript: true,
-    unocss: false,
-    vue: false,
+    unocss: true,
+    vue: true,
   },
 
   {
