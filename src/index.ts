@@ -3,8 +3,13 @@ import type { CSSObject, Preset, Rule } from 'unocss';
 import { toKebabCase } from '@vinicunca/perkakas';
 import postcss from 'postcss';
 import { objectify, parse } from 'postcss-js';
+import { definePreset } from 'unocss';
+
+import type { VinicuncaOptions } from './types';
 
 import { animateCss } from './animate-css';
+import { getPreflights } from './core/preflights';
+import { resolveOptions } from './resolver';
 
 type CSSObjectEntries = Array<[string, CSSObject]>;
 
@@ -89,3 +94,18 @@ export function presetAnimation(): Preset {
     rules,
   };
 }
+
+export const presetVinicunca = definePreset((options: VinicuncaOptions = {}) => {
+  const resolvedOptions = resolveOptions(options);
+
+  const { presets } = resolvedOptions;
+
+  return {
+    name: 'unocss-preset-vinicunca',
+    layers: {
+      vinicunca: 2,
+    },
+    presets,
+    preflights: getPreflights(resolvedOptions),
+  };
+});
