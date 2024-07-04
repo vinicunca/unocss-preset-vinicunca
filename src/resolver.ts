@@ -5,12 +5,14 @@ import { presetIcons, presetUno, presetWebFonts } from 'unocss';
 
 import type { ResolvedOptions, VinicuncaOptions } from './types';
 
+import { getAnimationTheme } from './core/animation.theme';
+
 const defaultOptions: VinicuncaOptions = {
   uno: true,
   icons: true,
   webFonts: false,
   enableDefaultShortcuts: true,
-  enableMagicAnimations: true,
+  enableAnimations: true,
   enableResetStyles: true,
 };
 
@@ -44,8 +46,13 @@ export function resolveOptions(options: VinicuncaOptions): ResolvedOptions {
     }
   }
 
+  const animationTheme = optionsWithDefault.enableAnimations
+    ? getAnimationTheme()
+    : {};
+
   return {
     ...optionsWithDefault,
+    animationTheme,
     presets,
   };
 }

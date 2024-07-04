@@ -1,22 +1,23 @@
 import type { IconsOptions } from '@unocss/preset-icons';
+import type { ThemeAnimation } from '@unocss/preset-mini';
 import type { PresetUnoOptions } from '@unocss/preset-uno';
 import type { WebFontsOptions } from '@unocss/preset-web-fonts';
 import type { Preset } from 'unocss';
 
 export interface VinicuncaOptions {
   /**
+   * Enable animations
+   *
+   * @default true
+   */
+  enableAnimations?: boolean;
+
+  /**
    * Enable default shortcuts
    *
    * @default true
    */
   enableDefaultShortcuts?: boolean;
-
-  /**
-   * Enable magic animations
-   *
-   * @default true
-   */
-  enableMagicAnimations?: boolean;
 
   /**
    * Enable reset styles
@@ -45,6 +46,7 @@ export interface VinicuncaOptions {
 }
 
 export type ResolvedOptions = {
+  animationTheme: ThemeAnimation;
   presets: Array<Preset>;
   // shortcuts: CustomStaticShortcuts;
 } & Required<VinicuncaOptions>;
