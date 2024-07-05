@@ -8,7 +8,9 @@ import { objectify } from 'postcss-js';
 import animateData from '../data/animate.data';
 
 export function getAnimationTheme(): ThemeAnimation {
-  const theme: ThemeAnimation = {};
+  const theme: ThemeAnimation = {
+    counts: {},
+  };
 
   const root = postcss.parse(animateData);
   const obj = objectify(root);
@@ -24,9 +26,11 @@ export function getAnimationTheme(): ThemeAnimation {
 
     if (key.startsWith('@keyframes')) {
       const name = key.replace('@keyframes ', '');
+
       theme.keyframes = {
         ...theme.keyframes || {},
-        [name]: cssObjectToString(obj[key]),
+        [toKebabCase(name)]: `{${cssObjectToString(obj[key])}}`,
+
       };
     } else {
       const {
@@ -36,7 +40,7 @@ export function getAnimationTheme(): ThemeAnimation {
         ...properties
       } = obj[key];
 
-      const name = key.replace('.', '');
+      const name = toKebabCase(key.replace('.', ''));
 
       if (animationTimingFunction) {
         theme.timingFns = {
@@ -80,6 +84,7 @@ export function getAnimationTheme(): ThemeAnimation {
     }
   });
 
+  // console.log('🚀 ~ getAnimationTheme ~ theme:', theme);
   return theme;
 }
 
