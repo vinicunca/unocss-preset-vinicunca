@@ -1,23 +1,24 @@
 {
-  "name": "@vinicunca/unocss-preset-animation",
+  "name": "@vinicunca/unocss-preset-vinicunca",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "packageManager": "pnpm@9.4.0",
-  "description": "UnoCSS preset animations",
+  "description": "Opinionated UnoCSS preset",
   "author": "praburangki<https://github.com/praburangki>",
   "license": "MIT",
-  "homepage": "https://github.com/vinicunca/unocss-preset-animation#readme",
+  "homepage": "https://github.com/vinicunca/unocss-preset-vinicunca#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vinicunca/unocss-preset-animation.git"
+    "url": "git+https://github.com/vinicunca/unocss-preset-vinicunca.git"
   },
   "bugs": {
-    "url": "https://github.com/vinicunca/unocss-preset-animation/issues"
+    "url": "https://github.com/vinicunca/unocss-preset-vinicunca/issues"
   },
   "keywords": [
     "unocss",
     "unocss-preset",
-    "unocss-preset-animation"
+    "unocss-preset-animation",
+    "unocss-preset-fluid"
   ],
   "sideEffects": false,
   "exports": {
