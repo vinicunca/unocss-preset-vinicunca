@@ -1,27 +1,34 @@
-import type { Preset } from 'unocss';
+import type { DeepPartial, Preset } from 'unocss';
 
 import * as P from '@vinicunca/perkakas';
 import { presetIcons, presetUno, presetWebFonts } from 'unocss';
 
-import type { ResolvedOptions, VinicuncaOptions } from './types';
+import type { FluidOptions, ResolvedOptions, VinicuncaOptions } from './types';
 
 import { getAnimationTheme } from './core/animation.theme';
 
-const defaultOptions: VinicuncaOptions = {
+export const defaultFluidOptions: FluidOptions = {
+  maxWidth: 1440,
+  minWidth: 375,
+  remBase: 16,
+  useRemByDefault: false,
+  extendMaxWidth: null,
+  extendMinWidth: null,
+  ranges: null,
+  commentHelpers: false,
+};
+
+export const defaultOptions: VinicuncaOptions = {
   uno: true,
   icons: true,
   webFonts: false,
-  enableDefaultShortcuts: true,
   enableAnimations: true,
   enableResetStyles: true,
+  fluidOptions: defaultFluidOptions,
 };
 
-export function resolveOptions(options: VinicuncaOptions): ResolvedOptions {
-  const optionsWithDefault = Object.assign(
-    {},
-    defaultOptions,
-    options,
-  ) as Required<VinicuncaOptions>;
+export function resolveOptions(options: DeepPartial<VinicuncaOptions>): ResolvedOptions {
+  const optionsWithDefault = P.mergeDeep(defaultOptions, options) as VinicuncaOptions;
 
   const presets: Array<Preset> = [];
   const presetMap = {

@@ -1,14 +1,17 @@
+import type { DeepPartial } from 'unocss';
+
 import { definePreset } from 'unocss';
 
 import type { VinicuncaOptions } from './types';
 
 import { getPreflights } from './core/preflights';
+import { buildRulesFromUtilities } from './fluid/utils/rule.util';
 import { resolveOptions } from './resolver';
 
-export const presetVinicunca = definePreset((options: VinicuncaOptions = {}) => {
+export const presetVinicunca = definePreset((options: DeepPartial<VinicuncaOptions> = {}) => {
   const resolvedOptions = resolveOptions(options);
 
-  const { presets, animationTheme } = resolvedOptions;
+  const { presets, animationTheme, fluidOptions } = resolvedOptions;
 
   return {
     name: 'unocss-preset-vinicunca',
@@ -17,5 +20,8 @@ export const presetVinicunca = definePreset((options: VinicuncaOptions = {}) => 
     theme: {
       animation: animationTheme,
     },
+    rules: [
+      ...buildRulesFromUtilities(fluidOptions) as any,
+    ],
   };
 });

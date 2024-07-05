@@ -19,6 +19,9 @@ export default vinicuncaESLint(
   {
     rules: {
       'perfectionist/sort-objects': 'off',
+      'perfectionist/sort-object-types': 'off',
+      'perfectionist/sort-interfaces': 'off',
+      'sonar/no-duplicate-string': 'off',
     },
   },
 );
