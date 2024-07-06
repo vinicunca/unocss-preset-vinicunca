@@ -1,7 +1,7 @@
 import cssnano from 'cssnano';
 import fg from 'fast-glob';
-import fs from 'fs-extra';
 import { getPackageInfoSync } from 'local-pkg';
+import fs from 'node:fs';
 import path, { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import postcss from 'postcss';

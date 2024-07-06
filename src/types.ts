@@ -91,3 +91,7 @@ export type ResolvedOptions = {
   animationTheme: ThemeAnimation;
   presets: Array<Preset>;
 } & VinicuncaOptions;
+
+export type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};

@@ -12,8 +12,6 @@ export default defineBuildConfig({
   externals: [
     'unocss',
   ],
-  hooks: {
-  },
 
   failOnWarn: false,
 });

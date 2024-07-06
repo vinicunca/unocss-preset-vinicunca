@@ -84,7 +84,6 @@ export function getAnimationTheme(): ThemeAnimation {
     }
   });
 
-  // console.log('🚀 ~ getAnimationTheme ~ theme:', theme);
   return theme;
 }
 

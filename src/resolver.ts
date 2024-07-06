@@ -1,9 +1,9 @@
-import type { DeepPartial, Preset } from 'unocss';
+import type { Preset } from 'unocss';
 
 import * as P from '@vinicunca/perkakas';
 import { presetIcons, presetUno, presetWebFonts } from 'unocss';
 
-import type { FluidOptions, ResolvedOptions, VinicuncaOptions } from './types';
+import type { DeepPartial, FluidOptions, ResolvedOptions, VinicuncaOptions } from './types';
 
 import { getAnimationTheme } from './core/animation.theme';
 
