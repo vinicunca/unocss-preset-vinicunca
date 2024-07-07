@@ -25,4 +25,4 @@ export const presetVinicunca = definePreset((options: DeepPartial<VinicuncaOptio
       ...buildRulesFromUtilities(fluidOptions) as any,
     ],
   };
-}) as PresetFactory<Theme, VinicuncaOptions>;
+}) as PresetFactory<Theme, DeepPartial<VinicuncaOptions>>;
