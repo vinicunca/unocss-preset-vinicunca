@@ -57,7 +57,7 @@
     "publish:ci": "pnpm publish --access public --no-git-checks",
     "test": "vitest",
     "test:update": "vitest --update",
-    "postinstall": "esno scripts/animation.script.ts"
+    "gen:animation": "esno scripts/animation.script.ts"
   },
   "dependencies": {
     "@vinicunca/perkakas": "^1.0.2",
