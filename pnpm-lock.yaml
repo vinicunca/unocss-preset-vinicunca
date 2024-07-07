@@ -8,6 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@unocss/preset-icons':
+        specifier: ^0.61.2
+        version: 0.61.2
+      '@unocss/preset-mini':
+        specifier: ^0.61.2
+        version: 0.61.2
+      '@unocss/preset-uno':
+        specifier: ^0.61.2
+        version: 0.61.2
+      '@unocss/preset-web-fonts':
+        specifier: ^0.61.2
+        version: 0.61.2
       '@vinicunca/perkakas':
         specifier: ^1.0.2
         version: 1.0.2

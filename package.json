@@ -60,6 +60,10 @@
     "gen:animation": "esno scripts/animation.script.ts"
   },
   "dependencies": {
+    "@unocss/preset-icons": "^0.61.2",
+    "@unocss/preset-mini": "^0.61.2",
+    "@unocss/preset-uno": "^0.61.2",
+    "@unocss/preset-web-fonts": "^0.61.2",
     "@vinicunca/perkakas": "^1.0.2",
     "postcss": "^8.4.39",
     "postcss-js": "^4.0.1"
