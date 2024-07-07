@@ -1,3 +1,6 @@
+import type { Theme } from '@unocss/preset-mini';
+import type { PresetFactory } from 'unocss';
+
 import { definePreset } from 'unocss';
 
 import type { DeepPartial, VinicuncaOptions } from './types';
@@ -22,4 +25,4 @@ export const presetVinicunca = definePreset((options: DeepPartial<VinicuncaOptio
       ...buildRulesFromUtilities(fluidOptions) as any,
     ],
   };
-});
+}) as PresetFactory<Theme, VinicuncaOptions>;
