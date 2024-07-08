@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { resetPreflight } from '../src/core/preflights/reset';
+import { resetPreflight } from '../src/animation/preflights/reset';
 
 describe('presetVinicunca preflights', () => {
   it('output reset css', async () => {

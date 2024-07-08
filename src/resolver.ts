@@ -1,11 +1,11 @@
 import type { Preset } from 'unocss';
 
 import * as P from '@vinicunca/perkakas';
-import { presetIcons, presetUno, presetWebFonts } from 'unocss';
+import { presetIcons } from 'unocss';
 
 import type { DeepPartial, FluidOptions, ResolvedOptions, VinicuncaOptions } from './types';
 
-import { getAnimationTheme } from './core/animation.theme';
+import { getAnimationTheme } from './animation/animation.theme';
 
 export const defaultFluidOptions: FluidOptions = {
   maxWidth: 1440,
@@ -32,9 +32,7 @@ export function resolveOptions(options: DeepPartial<VinicuncaOptions>): Resolved
 
   const presets: Array<Preset> = [];
   const presetMap = {
-    uno: presetUno,
     icons: presetIcons,
-    webFonts: presetWebFonts,
   };
 
   for (const [key, preset] of Object.entries(presetMap)) {
