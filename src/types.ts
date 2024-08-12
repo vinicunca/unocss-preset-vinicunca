@@ -1,18 +1,9 @@
 import type { IconsOptions } from '@unocss/preset-icons';
-import type { ThemeAnimation } from '@unocss/preset-mini';
 import type { PresetUnoOptions } from '@unocss/preset-uno';
-import type { WebFontsOptions } from '@unocss/preset-web-fonts';
 import type { Preset } from 'unocss';
 
 // eslint-disable-next-line ts/consistent-type-definitions
-export type VinicuncaOptions = {
-  /**
-   * Enable animations
-   *
-   * @default true
-   */
-  enableAnimations: boolean;
-
+export type PresetVinicuncaOptions = {
   /**
    * Enable reset styles
    *
@@ -24,22 +15,62 @@ export type VinicuncaOptions = {
    * Enable icons preset and the options of it
    * @default true
    */
-  icons: IconsOptions | boolean;
+  icons: boolean | IconsOptions;
 
   /**
    * Enable the default preset
    * @default true
    */
-  uno: PresetUnoOptions | boolean;
+  uno: boolean | PresetUnoOptions;
 
-  /**
-   * Enable webFonts preset and the options of it
-   * @default false
-   */
-  webFonts: WebFontsOptions | boolean;
+  animationOptions: AnimationOptions;
 
   fluidOptions: FluidOptions;
 };
+
+export interface AnimationOptions {
+  /**
+   * The unit of time options
+   *
+   * @default 'ms'
+   */
+  unit?: 'ms' | 's';
+
+  /**
+   * Default delay of animations
+   */
+  delay?: number;
+
+  /**
+   * Default direction of animations
+   */
+  direction?: 'alternate' | 'alternate-reverse' | 'normal' | 'reverse';
+
+  /**
+   * Default duration of animations
+   */
+  duration?: number;
+
+  /**
+   * Default fill mode of animations
+   */
+  fillMode?: 'backwards' | 'both' | 'forwards' | 'none';
+
+  /**
+   * Default iteration count of animations
+   */
+  iterationCount?: 'infinite' | number;
+
+  /**
+   * Default play state of animations
+   */
+  playState?: 'paused' | 'running';
+
+  /**
+   * Default timing function of animations
+   */
+  timingFunction?: 'ease' | 'ease-in' | 'ease-in-out' | 'ease-out' | 'linear' | string;
+}
 
 export interface FluidOptions {
   /**
@@ -74,7 +105,7 @@ export interface FluidOptions {
    * A preset with predefined ranges of fluid spacing
    * @default undefined;
    */
-  ranges: Ranges | null;
+  ranges: null | Ranges;
 
   /**
    * Whether to add comment helpers to the generated CSS.
@@ -82,15 +113,13 @@ export interface FluidOptions {
    */
   commentHelpers: boolean;
 }
-
 interface Ranges {
   [key: string]: [number, number];
 }
 
 export type ResolvedOptions = {
-  animationTheme: ThemeAnimation;
   presets: Array<Preset>;
-} & VinicuncaOptions;
+} & PresetVinicuncaOptions;
 
 export type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;

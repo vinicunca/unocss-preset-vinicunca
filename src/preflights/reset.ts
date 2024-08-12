@@ -2,13 +2,9 @@ import type { Preflight } from 'unocss';
 
 const resetCSS = `
 /*
-Please read: https://github.com/unocss/unocss/blob/main/packages/reset/tailwind-compat.md
-*/
-
-/*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
-2. [UnoCSS]: allow to override the default border color with css var \`--un -default -border - color\`
+2. [UnoCSS]: allow to override the default border color with css var \`--un-default-border-color\`
 */
 
 *,
@@ -202,9 +198,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button; /* 1 */
-  /* Will affect the button style of most component libraries, so disable it */
-  /* https://github.com/unocss/unocss/issues/2127 */
-  /* background-color: transparent; !* 2 *! */
+  background-color: transparent; /* 2 */
   background-image: none; /* 2 */
 }
 
@@ -217,7 +211,7 @@ Use the modern Firefox focus style for all focusable elements.
 }
 
 /*
-Remove the additional \`: invalid\` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+Remove the additional \`:invalid\` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
 :-moz-ui-invalid {
@@ -356,7 +350,7 @@ Make sure disabled buttons don't get the pointer cursor.
 
 /*
 1. Make replaced elements \`display: block\` by default. (https://github.com/mozdevs/cssremedy/issues/14)
-2. Add \`vertical - align: middle\` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+2. Add \`vertical-align: middle\` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
    This can trigger a poorly considered lint error in some tools but is included by design.
 */
 
@@ -388,8 +382,7 @@ Make elements with the HTML hidden attribute stay hidden by default.
 
 [hidden] {
   display: none;
-}
-`.trim();
+}`.trim();
 
 function compressCSS(css: string) {
   return css.replace(/\s+/g, ' ').replace(/\/\*[\s\S]*?\*\//g, '');
