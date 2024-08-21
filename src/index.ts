@@ -19,17 +19,20 @@ export const presetVinicunca = definePreset((options: DeepPartial<PresetVinicunc
 
   return {
     name: 'unocss-preset-vinicunca',
+    layers: {
+      animation: 10,
+    },
     presets,
     preflights: getPreflights(resolvedOptions),
     theme: {
       animation: animationTheme,
     },
+    shortcuts: [
+      ...animationShortcuts(animationOptions),
+    ],
     rules: [
       ...animationRules,
       ...buildRulesFromUtilities(fluidOptions) as any,
-    ],
-    shortcuts: [
-      ...animationShortcuts(animationOptions),
     ],
   };
 }) as PresetFactory<Theme, DeepPartial<PresetVinicuncaOptions>>;

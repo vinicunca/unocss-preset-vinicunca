@@ -19,7 +19,7 @@ const fadeRules: Array<Rule<Theme>> = [
     ([, op]) => ({
       [`${CSS_VARIABLE_PREFIX}-enter-opacity`]: h.cssvar.percent(op || DEFAULT_FADE_OPACITY),
     }),
-    { autocomplete: 'fade-(in|out)-<percent>' },
+    { autocomplete: 'fade-(in|out)-<percent>', layer: 'animation' },
   ],
   [
     /^fade-out(?:-(.+))?$/,

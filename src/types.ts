@@ -1,5 +1,4 @@
 import type { IconsOptions } from '@unocss/preset-icons';
-import type { PresetUnoOptions } from '@unocss/preset-uno';
 import type { Preset } from 'unocss';
 
 // eslint-disable-next-line ts/consistent-type-definitions
@@ -16,12 +15,6 @@ export type PresetVinicuncaOptions = {
    * @default true
    */
   icons: boolean | IconsOptions;
-
-  /**
-   * Enable the default preset
-   * @default true
-   */
-  uno: boolean | PresetUnoOptions;
 
   animationOptions: AnimationOptions;
 

@@ -20,7 +20,7 @@ describe.concurrent('fade animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .fade-in-0{--vin-enter-opacity:0;}
           .fade-in-10{--vin-enter-opacity:0.1;}
           .fade-in-100{--vin-enter-opacity:1;}
@@ -42,7 +42,7 @@ describe.concurrent('fade animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .fade-in-0\\.1{--vin-enter-opacity:0.001;}
           .fade-in-10\\.1{--vin-enter-opacity:0.101;}
           .fade-in-52\\.1{--vin-enter-opacity:0.521;}
@@ -61,7 +61,7 @@ describe.concurrent('fade animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .fade-in-0\\.1\\%{--vin-enter-opacity:0.001;}
           .fade-in-0\\%{--vin-enter-opacity:0;}
           .fade-in-10\\.1\\%{--vin-enter-opacity:0.101;}
@@ -90,7 +90,7 @@ describe.concurrent('fade animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .fade-in-\\$foo{--vin-enter-opacity:var(--foo);}
           .fade-in-\\$foo-bar{--vin-enter-opacity:var(--foo-bar);}
           .fade-in-\\$fooBar{--vin-enter-opacity:var(--fooBar);}"

@@ -17,7 +17,6 @@ export const defaultFluidOptions: FluidOptions = {
 };
 
 export const defaultOptions: PresetVinicuncaOptions = {
-  uno: true,
   icons: true,
   enableResetStyles: true,
   fluidOptions: defaultFluidOptions,
