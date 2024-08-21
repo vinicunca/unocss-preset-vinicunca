@@ -20,7 +20,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-in--10{--vin-enter-rotate:-10deg;}
           .spin-in--100{--vin-enter-rotate:-100deg;}
           .spin-in--110{--vin-enter-rotate:-110deg;}
@@ -72,7 +72,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-in--0\\.1{--vin-enter-rotate:-0.1deg;}
           .spin-in--10\\.1{--vin-enter-rotate:-10.1deg;}
           .spin-in--180\\.37{--vin-enter-rotate:-180.37deg;}
@@ -103,7 +103,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-in--100deg{--vin-enter-rotate:-100deg;}
           .spin-in--100grad{--vin-enter-rotate:-100grad;}
           .spin-in--100rad{--vin-enter-rotate:-100rad;}
@@ -280,7 +280,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-in-0,
           .spin-in-0deg,
           .spin-in-0grad,
@@ -298,7 +298,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-in-\\$foo{--vin-enter-rotate:var(--foo);}
           .spin-in-\\$foo-bar{--vin-enter-rotate:var(--foo-bar);}
           .spin-in-\\$fooBar{--vin-enter-rotate:var(--fooBar);}"
@@ -322,7 +322,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-out--10{--vin-exit-rotate:-10deg;}
           .spin-out--100{--vin-exit-rotate:-100deg;}
           .spin-out--110{--vin-exit-rotate:-110deg;}
@@ -373,7 +373,7 @@ describe.concurrent('spin animation', () => {
         const { css } = await getUno.generate(classnames.join(' '));
 
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-out--0\\.1{--vin-exit-rotate:-0.1deg;}
           .spin-out--10\\.1{--vin-exit-rotate:-10.1deg;}
           .spin-out--180\\.37{--vin-exit-rotate:-180.37deg;}
@@ -404,7 +404,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-out--100deg{--vin-exit-rotate:-100deg;}
           .spin-out--100grad{--vin-exit-rotate:-100grad;}
           .spin-out--100rad{--vin-exit-rotate:-100rad;}
@@ -581,7 +581,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-out-0,
           .spin-out-0deg,
           .spin-out-0grad,
@@ -599,7 +599,7 @@ describe.concurrent('spin animation', () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: default */
+          "/* layer: animation */
           .spin-out-\\$foo{--vin-exit-rotate:var(--foo);}
           .spin-out-\\$foo-bar{--vin-exit-rotate:var(--foo-bar);}
           .spin-out-\\$fooBar{--vin-exit-rotate:var(--fooBar);}"

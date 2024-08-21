@@ -26,6 +26,7 @@ const fadeRules: Array<Rule<Theme>> = [
     ([, op]) => ({
       [`${CSS_VARIABLE_PREFIX}-exit-opacity`]: h.cssvar.percent(op || DEFAULT_FADE_OPACITY),
     }),
+    { layer: 'animation' },
   ],
 ];
 
@@ -35,13 +36,14 @@ const zoomRules: Array<Rule<Theme>> = [
     ([, scale]) => ({
       [`${CSS_VARIABLE_PREFIX}-enter-scale`]: h.cssvar.fraction.percent(scale || DEFAULT_ZOOM_SCALE),
     }),
-    { autocomplete: 'zoom-(in|out)-<percent>' },
+    { autocomplete: 'zoom-(in|out)-<percent>', layer: 'animation' },
   ],
   [
     /^zoom-out(?:-(.+))?$/,
     ([, scale]) => ({
       [`${CSS_VARIABLE_PREFIX}-exit-scale`]: h.cssvar.fraction.percent(scale || DEFAULT_ZOOM_SCALE),
     }),
+    { layer: 'animation' },
   ],
 ];
 
@@ -51,13 +53,14 @@ const spinRules: Array<Rule<Theme>> = [
     ([, deg]) => ({
       [`${CSS_VARIABLE_PREFIX}-enter-rotate`]: h.cssvar.degree(deg || DEFAULT_SPIN_DEGREE),
     }),
-    { autocomplete: 'spin-(in|out)-<percent>' },
+    { autocomplete: 'spin-(in|out)-<percent>', layer: 'animation' },
   ],
   [
     /^spin-out(?:-(.+))?$/,
     ([, deg]) => ({
       [`${CSS_VARIABLE_PREFIX}-exit-rotate`]: h.cssvar.degree(deg || DEFAULT_SPIN_DEGREE),
     }),
+    { layer: 'animation' },
   ],
 ];
 
@@ -89,6 +92,7 @@ const slideRules: Array<Rule<Theme>> = [
         `slide-in-from-${DIRECTIONS_AUTOCOMPLETE}-<percent>`,
         `slide-in-from-${DIRECTIONS_AUTOCOMPLETE}-full`,
       ],
+      layer: 'animation',
     },
   ],
 
@@ -117,6 +121,7 @@ const slideRules: Array<Rule<Theme>> = [
         `slide-out-to-${DIRECTIONS_AUTOCOMPLETE}-<percent>`,
         `slide-out-to-${DIRECTIONS_AUTOCOMPLETE}-full`,
       ],
+      layer: 'animation',
     },
   ],
 ];
