@@ -59,19 +59,19 @@
     "test:update": "vitest --update"
   },
   "dependencies": {
-    "@unocss/preset-icons": "^0.62.3",
-    "@unocss/preset-mini": "^0.62.3",
-    "@unocss/preset-uno": "^0.62.3",
+    "@unocss/preset-icons": "^0.62.4",
+    "@unocss/preset-mini": "^0.62.4",
+    "@unocss/preset-uno": "^0.62.4",
     "@vinicunca/perkakas": "^1.0.5"
   },
   "devDependencies": {
-    "@types/node": "^22.5.0",
-    "@vinicunca/eslint-config": "^2.9.4",
+    "@types/node": "^22.5.5",
+    "@vinicunca/eslint-config": "^2.11.2",
     "bumpp": "^9.5.2",
-    "eslint": "^9.9.1",
-    "typescript": "5.5.4",
+    "eslint": "^9.10.0",
+    "typescript": "5.6.2",
     "unbuild": "^3.0.0-rc.6",
-    "unocss": "^0.62.3",
-    "vitest": "^2.0.5"
+    "unocss": "^0.62.4",
+    "vitest": "^2.1.1"
   }
 }
