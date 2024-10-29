@@ -7,14 +7,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    CoreInputNumber: typeof import('./.vitepress/components/core-input-number.vue')['default']
-    DocsBox: typeof import('./.vitepress/components/docs-box.vue')['default']
-    DocsTooltip: typeof import('./.vitepress/components/docs-tooltip.vue')['default']
-    EslintConfigHeading: typeof import('./.vitepress/components/eslint-config-heading.vue')['default']
-    EslintIgnoreList: typeof import('./.vitepress/components/eslint-ignore-list.vue')['default']
-    EslintList: typeof import('./.vitepress/components/eslint-list.vue')['default']
-    EslintRuleItem: typeof import('./.vitepress/components/eslint-rule-item.vue')['default']
-    EslintRuleName: typeof import('./.vitepress/components/eslint-rule-name.vue')['default']
     FluidContainer: typeof import('./.vitepress/components/fluid-container.vue')['default']
     FluidGap: typeof import('./.vitepress/components/fluid-gap.vue')['default']
     FluidMargin: typeof import('./.vitepress/components/fluid-margin.vue')['default']
@@ -23,11 +15,6 @@ declare module 'vue' {
     FluidRanges: typeof import('./.vitepress/components/fluid-ranges.vue')['default']
     FluidTypography: typeof import('./.vitepress/components/fluid-typography.vue')['default']
     FluidWidthHeight: typeof import('./.vitepress/components/fluid-width-height.vue')['default']
-    PerkakasBadge: typeof import('./.vitepress/components/perkakas-badge.vue')['default']
-    PerkakasDesc: typeof import('./.vitepress/components/perkakas-desc.vue')['default']
-    PerkakasItem: typeof import('./.vitepress/components/perkakas-item.vue')['default']
-    PerkakasParameters: typeof import('./.vitepress/components/perkakas-parameters.vue')['default']
-    PerkakasTags: typeof import('./.vitepress/components/perkakas-tags.vue')['default']
     PresetAnimation: typeof import('./.vitepress/components/preset-animation.vue')['default']
   }
 }

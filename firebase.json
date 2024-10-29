@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "perkakas",
+      "target": "unocss",
       "public": "docs/.vitepress/dist",
       "ignore": [
         "firebase.json",

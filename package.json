@@ -57,7 +57,8 @@
     "publish:ci": "pnpm publish --access public --no-git-checks",
     "test": "vitest",
     "test:update": "vitest --update",
-    "build:docs": "pnpm --filter @vinicunca/unocss-docs build"
+    "build:docs": "pnpm --filter @vinicunca/unocss-docs build",
+    "fb:deploy": "firebase deploy --only hosting:unocss"
   },
   "dependencies": {
     "@unocss/preset-icons": "^0.63.6",

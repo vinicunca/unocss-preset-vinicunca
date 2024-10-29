@@ -74,5 +74,5 @@ interface VinicuncaOptions {
 Please refer to these pages for more information regarding the options:
 
 - [IconsOptions](https://unocss.dev/presets/icons#options)
-- [FluidOptions](/unocss-preset/fluid/usage)
-- [AnimationOptions](/unocss-preset/animations/usage)
+- [FluidOptions](/fluid/usage)
+- [AnimationOptions](/animations/usage)
