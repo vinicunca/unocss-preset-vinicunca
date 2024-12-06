@@ -1,29 +1,24 @@
-import type { UnoGenerator } from '@unocss/core';
-import type { Theme } from '@unocss/preset-mini';
-
+import type { PresetVinicuncaOptions } from '../packages/core/src/types';
 import { createGenerator } from '@unocss/core';
-import { presetUno } from 'unocss';
 
-import type { PresetVinicuncaOptions } from '../src/types';
+import { presetVinicunca } from '../packages/core/src';
 
-import { presetVinicunca } from '../src';
-
-export const getUno = generator();
-
-interface GeneratorOptions {
-  presetOptions?: Partial<PresetVinicuncaOptions>;
-  theme?: Theme;
-}
-
-export function generator(options: GeneratorOptions = {}): UnoGenerator<Theme> {
+export async function generateUno(options: PresetVinicuncaOptions = {}) {
   return createGenerator({
     presets: [
-      presetUno({ preflight: false }),
-      presetVinicunca({
-        enableResetStyles: false,
-        ...options.presetOptions,
-      }),
+      presetVinicunca(options),
     ],
-    theme: options.theme,
+  });
+}
+
+export async function getUnoWithoutPreflights(options: PresetVinicuncaOptions = {}) {
+  return generateUno({
+    ...options,
+
+    uno: {
+      preflight: false,
+    },
+
+    preflights: false,
   });
 }

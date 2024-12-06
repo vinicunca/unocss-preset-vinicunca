@@ -10,18 +10,14 @@ export default vinicuncaESLint(
   },
 
   {
-    files: ['**/tsconfig.**'],
     rules: {
-      'jsonc/sort-keys': 'off',
-    },
-  },
-
-  {
-    rules: {
-      'perfectionist/sort-objects': 'off',
-      'perfectionist/sort-object-types': 'off',
-      'perfectionist/sort-interfaces': 'off',
-      'sonar/no-duplicate-string': 'off',
+      'perfectionist/sort-modules': 'off',
+      'sonar/cognitive-complexity': 'off',
+      'sonar/slow-regex': 'off',
+      'sonar/regex-complexity': 'off',
+      'sonar/no-nested-functions': 'off',
+      'regexp/no-super-linear-backtracking': 'off',
+      'regexp/no-misleading-capturing-group': 'off',
     },
   },
 );

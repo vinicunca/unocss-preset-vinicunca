@@ -2,7 +2,7 @@ import prettier from 'prettier';
 import { createGenerator } from 'unocss';
 import { expect, it } from 'vitest';
 
-import { presetVinicunca } from '../src';
+import { presetVinicunca } from '../packages/core/src';
 
 function prettyCss(css: string) {
   return prettier.format(css, { parser: 'css' });

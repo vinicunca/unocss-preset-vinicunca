@@ -17,7 +17,7 @@ To set up the interactive documentation, follow these steps:
 - Copy the below code
 
 ```ts
-import { presetVinicunca } from '@vinicunca/unocss-preset-vinicunca';
+import { presetVinicunca } from '@vinicunca/unocss-preset';
 import { defineConfig, presetUno } from 'unocss';
 
 export default defineConfig({

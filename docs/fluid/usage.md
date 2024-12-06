@@ -5,7 +5,7 @@
 By defining the preset in your `uno.config.ts` file, you can use the fluid classes in your project. In this example we will display the default options where you don't need to implicitly define them.
 
 ```ts
-import { presetVinicunca } from '@vinicunca/unocss-preset-vinicunca';
+import { presetVinicunca } from '@vinicunca/unocss-preset';
 import { defineConfig, presetUno } from 'unocss';
 
 export default defineConfig({
@@ -43,16 +43,19 @@ export default defineConfig({
 By default the fluid classes use `px` as the unit of measurement. If you want to use `rem` as the default unit of measurement, you can set `useRemByDefault` to `true`.
 
 ```html
-<div class="fluid-w-16-32">...</div> <!-- Default from 16px to 32px -->
-<div class="fluid-w-1-2">...</div> <!-- remByDefault from 1rem to 2rem -->
+<div class="fluid-w-16-32">...</div>
+<!-- Default from 16px to 32px -->
+<div class="fluid-w-1-2">...</div>
+<!-- remByDefault from 1rem to 2rem -->
 ```
 
 #### `ranges`
+
 This option allows you to define recurring spacings using predefined names.
 For example:
 
 ```ts
-import { presetVinicunca } from '@vinicunca/unocss-preset-vinicunca';
+import { presetVinicunca } from '@vinicunca/unocss-preset';
 import { defineConfig, presetUno } from 'unocss';
 
 export default defineConfig({
@@ -76,6 +79,7 @@ export default defineConfig({
 You will be able to use it as aliases or shortcuts. Therefore, `fluid-w-sm` will become `fluid-w-10-30`.
 
 #### `commentHelpers`
+
 This option allows you to add comments to the generated css.
 After setting this to true, you will be able to see the generated css in the browser inspector.
 

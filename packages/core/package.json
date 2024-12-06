@@ -1,0 +1,69 @@
+{
+  "name": "@vinicunca/unocss-preset",
+  "type": "module",
+  "version": "0.2.10",
+  "description": "Opinionated UnoCSS preset",
+  "author": "praburangki<https://github.com/praburangki>",
+  "license": "MIT",
+  "homepage": "https://github.com/vinicunca/unocss-preset-vinicunca#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicunca/unocss-preset-vinicunca.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vinicunca/unocss-preset-vinicunca/issues"
+  },
+  "keywords": [
+    "unocss",
+    "unocss-preset",
+    "unocss-preset-animation",
+    "unocss-preset-fluid"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "prepublishOnly": "pnpm run build",
+    "publish:ci": "pnpm publish --access public --no-git-checks",
+    "stub": "unbuild --stub"
+  },
+  "peerDependencies": {
+    "@vinicunca/perkakas": "catalog:",
+    "unocss": "^0.65.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@unocss/core": "catalog:",
+    "@unocss/preset-icons": "catalog:",
+    "@unocss/preset-mini": "catalog:",
+    "@unocss/preset-typography": "catalog:",
+    "@unocss/preset-uno": "catalog:",
+    "@unocss/preset-web-fonts": "catalog:",
+    "@unocss/transformer-directives": "catalog:",
+    "@unocss/transformer-variant-group": "catalog:",
+    "postcss": "catalog:",
+    "postcss-js": "catalog:"
+  }
+}

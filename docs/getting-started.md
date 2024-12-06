@@ -7,15 +7,15 @@ Opinionated UnoCSS preset that adds animation classes and fluid utilities.
 ::: code-group
 
 ```sh [npm]
-$ npm add -D @vinicunca/unocss-preset-vinicunca
+$ npm add -D @vinicunca/unocss-preset
 ```
 
 ```sh [pnpm]
-$ pnpm add -D @vinicunca/unocss-preset-vinicunca
+$ pnpm add -D @vinicunca/unocss-preset
 ```
 
 ```sh [bun]
-$ bun add -D @vinicunca/unocss-preset-vinicunca
+$ bun add -D @vinicunca/unocss-preset
 ```
 
 :::
@@ -25,7 +25,7 @@ $ bun add -D @vinicunca/unocss-preset-vinicunca
 In your UnoCSS config, add this preset to the `presets` option:
 
 ```ts
-import { presetVinicunca } from '@vinicunca/unocss-preset-vinicunca'; // [!code ++]
+import { presetVinicunca } from '@vinicunca/unocss-preset'; // [!code ++]
 import { defineConfig, presetUno } from 'unocss';
 
 export default defineConfig({
