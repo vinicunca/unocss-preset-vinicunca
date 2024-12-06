@@ -1,7 +1,7 @@
 {
   "name": "@vinicunca/unocss-preset",
   "type": "module",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Opinionated UnoCSS preset",
   "author": "praburangki<https://github.com/praburangki>",
   "license": "MIT",
@@ -49,7 +49,7 @@
   },
   "peerDependencies": {
     "@vinicunca/perkakas": "catalog:",
-    "unocss": "^0.65.0"
+    "unocss": "catalog:"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
