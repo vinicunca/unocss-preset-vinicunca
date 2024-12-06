@@ -14,42 +14,42 @@ export interface AnimationOptions {
    *
    * @default 'ms'
    */
-  unit: 'ms' | 's';
+  unit?: 'ms' | 's';
 
   /**
    * Default delay of animations
    */
-  delay: number;
+  delay?: number;
 
   /**
    * Default direction of animations
    */
-  direction: 'alternate' | 'alternate-reverse' | 'normal' | 'reverse';
+  direction?: 'alternate' | 'alternate-reverse' | 'normal' | 'reverse';
 
   /**
    * Default duration of animations
    */
-  duration: number;
+  duration?: number;
 
   /**
    * Default fill mode of animations
    */
-  fillMode: 'backwards' | 'both' | 'forwards' | 'none';
+  fillMode?: 'backwards' | 'both' | 'forwards' | 'none';
 
   /**
    * Default iteration count of animations
    */
-  iterationCount: 'infinite' | number;
+  iterationCount?: 'infinite' | number;
 
   /**
    * Default play state of animations
    */
-  playState: 'paused' | 'running';
+  playState?: 'paused' | 'running';
 
   /**
    * Default timing function of animations
    */
-  timingFunction: 'ease' | 'ease-in' | 'ease-in-out' | 'ease-out' | 'linear' | string;
+  timingFunction?: 'ease' | 'ease-in' | 'ease-in-out' | 'ease-out' | 'linear' | string;
 }
 
 type CustomStaticShortcut = [Array<string> | string, StaticShortcut[1], StaticShortcut[2]] | [Array<string> | string, StaticShortcut[1]];
@@ -59,7 +59,7 @@ export type CustomStaticShortcuts = Array<CustomStaticShortcut>;
 type CssKeyframesRule = Record<string, CSSObject>;
 
 export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
-  keyframes: Record<string, CssKeyframesRule>;
+  keyframes?: Record<string, CssKeyframesRule>;
 
   /**
    * Different from the original, you can use the following formats:
@@ -68,11 +68,11 @@ export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
    * { name : 'name duration timing-function iteration-count' }
    * ```
    */
-  animation: Record<string, string>;
+  animation?: Record<string, string>;
 }
 
 export interface VinicuncaTheme extends Theme {
-  extend: VinicuncaExtends;
+  extend?: VinicuncaExtends;
 }
 
 interface PreflightOptions {

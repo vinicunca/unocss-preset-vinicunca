@@ -22,7 +22,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-in--10{--vin-enter-scale:-0.1;}
           .zoom-in--100{--vin-enter-scale:-1;}
           .zoom-in--110{--vin-enter-scale:-1.1;}
@@ -74,7 +74,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-in--0\\.1{--vin-enter-scale:-0.001;}
           .zoom-in--10\\.1{--vin-enter-scale:-0.101;}
           .zoom-in--180\\.37{--vin-enter-scale:-1.8037;}
@@ -101,7 +101,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-in--0\\.1\\%{--vin-enter-scale:-0.001;}
           .zoom-in--10\\.1\\%{--vin-enter-scale:-0.101;}
           .zoom-in--10\\%{--vin-enter-scale:-0.1;}
@@ -168,7 +168,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-in--1\\/3{--vin-enter-scale:-33.3333333333%;}
           .zoom-in--1\\/4{--vin-enter-scale:-25%;}
           .zoom-in--1\\/6{--vin-enter-scale:-16.6666666667%;}
@@ -188,7 +188,7 @@ describe.concurrent('zoom animation', async () => {
         const { css } = await getUno.generate('zoom-in-full');
 
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-in-full{--vin-enter-scale:100%;}"
         `);
       });
@@ -202,7 +202,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-in-\\$foo{--vin-enter-scale:var(--foo);}
           .zoom-in-\\$foo-bar{--vin-enter-scale:var(--foo-bar);}
           .zoom-in-\\$fooBar{--vin-enter-scale:var(--fooBar);}"
@@ -226,7 +226,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-out--10{--vin-exit-scale:-0.1;}
           .zoom-out--100{--vin-exit-scale:-1;}
           .zoom-out--110{--vin-exit-scale:-1.1;}
@@ -278,7 +278,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-out--0\\.1{--vin-exit-scale:-0.001;}
           .zoom-out--10\\.1{--vin-exit-scale:-0.101;}
           .zoom-out--180\\.37{--vin-exit-scale:-1.8037;}
@@ -305,7 +305,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-out--0\\.1\\%{--vin-exit-scale:-0.001;}
           .zoom-out--10\\.1\\%{--vin-exit-scale:-0.101;}
           .zoom-out--10\\%{--vin-exit-scale:-0.1;}
@@ -372,7 +372,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-out--1\\/3{--vin-exit-scale:-33.3333333333%;}
           .zoom-out--1\\/4{--vin-exit-scale:-25%;}
           .zoom-out--1\\/6{--vin-exit-scale:-16.6666666667%;}
@@ -392,7 +392,7 @@ describe.concurrent('zoom animation', async () => {
         const { css } = await getUno.generate('zoom-out-full');
 
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-out-full{--vin-exit-scale:100%;}"
         `);
       });
@@ -406,7 +406,7 @@ describe.concurrent('zoom animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .zoom-out-\\$foo{--vin-exit-scale:var(--foo);}
           .zoom-out-\\$foo-bar{--vin-exit-scale:var(--foo-bar);}
           .zoom-out-\\$fooBar{--vin-exit-scale:var(--fooBar);}"

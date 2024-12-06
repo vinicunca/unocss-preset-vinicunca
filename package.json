@@ -10,7 +10,7 @@
     "build": "pnpm -r -F=./packages/* run build",
     "stub": "pnpm -r -F=./packages/* --parallel run stub",
     "dev": "pnpm stub",
-    "release": "pnpm lint:fix && bumpp -r",
+    "release": "bumpp -r",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",

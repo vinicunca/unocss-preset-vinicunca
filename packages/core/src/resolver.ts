@@ -73,6 +73,7 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
     scrollbar: import('./presets/scrollbar').then((mod) => mod.presetScrollbar),
     magicCss: import('./presets/magic-css').then((mod) => mod.presetMagicss),
     animation: import('./presets/animation').then((mod) => mod.presetAnimation),
+    fluid: import('./presets/fluid').then((mod) => mod.presetFluid),
   };
 
   const transformerMap = {

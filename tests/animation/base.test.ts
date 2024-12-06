@@ -8,6 +8,7 @@ describe.concurrent('base', () => {
   describe('animate class names', () => {
     it('"animate-in" should generate enter keyframe and css variables', async ({ expect }) => {
       const uno = await getUnoWithoutPreflights();
+
       const { css } = await uno.generate('animate-in');
 
       expect(css).toMatchInlineSnapshot(`

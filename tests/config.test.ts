@@ -14,7 +14,11 @@ describe('config test', () => {
       'unocss-preset-vinicunca',
       '@unocss/preset-uno',
       'unocss-preset-animation',
+      'unocss-preset-fluid',
     ]);
+
+    const { css } = await uno.generate('h-screen grid place-items-center animate-in slide-in-top-full fade-in-0 animate-duration-1000 animate-delay-500 text-8xl');
+    expect(css).toMatchSnapshot();
   });
 
   it('custom config', async () => {
@@ -38,6 +42,7 @@ describe('config test', () => {
         '@unocss/preset-uno',
         '@unocss/preset-web-fonts',
         'unocss-preset-animation',
+        'unocss-preset-fluid',
         'coba-nae',
       ],
     );

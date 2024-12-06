@@ -1,4 +1,4 @@
-import type { RuleMeta, StaticShortcut } from '@unocss/core';
+import type { StaticShortcut } from '@unocss/core';
 import type { CustomStaticShortcuts } from '../types';
 import { layerMeta } from '../meta';
 
@@ -25,15 +25,12 @@ function normalizeShortcut(shortcut: CustomStaticShortcuts): Array<StaticShortcu
 }
 
 /**
- * We need to add the layers into the shortcuts
+ * We need to add the layers into the shortcuts.
+ * So we need to run this immediately.
  */
-normalizeShortcutMeta(layerMeta);
-
-export function normalizeShortcutMeta(ruleMeta: RuleMeta) {
-  for (const short of defaultShortcuts) {
-    short[2] = Object.assign(
-      short[2] || {},
-      ruleMeta,
-    );
-  }
+for (const short of defaultShortcuts) {
+  short[2] = Object.assign(
+    short[2] || {},
+    layerMeta,
+  );
 }

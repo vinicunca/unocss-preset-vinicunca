@@ -3,6 +3,7 @@ import type { Theme } from '@unocss/preset-mini';
 
 import { h } from '@unocss/preset-mini/utils';
 
+import { layerMeta } from '../../meta';
 import { CSS_VARIABLE_PREFIX } from './animation.entity';
 import { handleSlide } from './animation.util';
 
@@ -19,14 +20,15 @@ const fadeRules: Array<Rule<Theme>> = [
     ([, op]) => ({
       [`${CSS_VARIABLE_PREFIX}-enter-opacity`]: h.cssvar.percent(op || DEFAULT_FADE_OPACITY),
     }),
-    { autocomplete: 'fade-(in|out)-<percent>', layer: 'animation' },
+    {
+      autocomplete: 'fade-(in|out)-<percent>',
+    },
   ],
   [
     /^fade-out(?:-(.+))?$/,
     ([, op]) => ({
       [`${CSS_VARIABLE_PREFIX}-exit-opacity`]: h.cssvar.percent(op || DEFAULT_FADE_OPACITY),
     }),
-    { layer: 'animation' },
   ],
 ];
 
@@ -36,14 +38,15 @@ const zoomRules: Array<Rule<Theme>> = [
     ([, scale]) => ({
       [`${CSS_VARIABLE_PREFIX}-enter-scale`]: h.cssvar.fraction.percent(scale || DEFAULT_ZOOM_SCALE),
     }),
-    { autocomplete: 'zoom-(in|out)-<percent>', layer: 'animation' },
+    {
+      autocomplete: 'zoom-(in|out)-<percent>',
+    },
   ],
   [
     /^zoom-out(?:-(.+))?$/,
     ([, scale]) => ({
       [`${CSS_VARIABLE_PREFIX}-exit-scale`]: h.cssvar.fraction.percent(scale || DEFAULT_ZOOM_SCALE),
     }),
-    { layer: 'animation' },
   ],
 ];
 
@@ -60,7 +63,6 @@ const spinRules: Array<Rule<Theme>> = [
     ([, deg]) => ({
       [`${CSS_VARIABLE_PREFIX}-exit-rotate`]: h.cssvar.degree(deg || DEFAULT_SPIN_DEGREE),
     }),
-    { layer: 'animation' },
   ],
 ];
 
@@ -92,7 +94,6 @@ const slideRules: Array<Rule<Theme>> = [
         `slide-in-from-${DIRECTIONS_AUTOCOMPLETE}-<percent>`,
         `slide-in-from-${DIRECTIONS_AUTOCOMPLETE}-full`,
       ],
-      layer: 'animation',
     },
   ],
 
@@ -121,7 +122,6 @@ const slideRules: Array<Rule<Theme>> = [
         `slide-out-to-${DIRECTIONS_AUTOCOMPLETE}-<percent>`,
         `slide-out-to-${DIRECTIONS_AUTOCOMPLETE}-full`,
       ],
-      layer: 'animation',
     },
   ],
 ];
@@ -132,3 +132,14 @@ export const animationRules: Array<Rule<Theme>> = [
   ...spinRules,
   ...slideRules,
 ];
+
+/**
+ * We need to add the layers into the rules.
+ * So we need to run this immediately.
+ */
+for (const rule of animationRules) {
+  rule[2] = Object.assign(
+    rule[2] || {},
+    layerMeta,
+  );
+}

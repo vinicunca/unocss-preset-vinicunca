@@ -22,7 +22,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-in-0{--vin-enter-opacity:0;}
           .fade-in-10{--vin-enter-opacity:0.1;}
           .fade-in-100{--vin-enter-opacity:1;}
@@ -44,7 +44,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-in-0\\.1{--vin-enter-opacity:0.001;}
           .fade-in-10\\.1{--vin-enter-opacity:0.101;}
           .fade-in-52\\.1{--vin-enter-opacity:0.521;}
@@ -63,7 +63,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-in-0\\.1\\%{--vin-enter-opacity:0.001;}
           .fade-in-0\\%{--vin-enter-opacity:0;}
           .fade-in-10\\.1\\%{--vin-enter-opacity:0.101;}
@@ -92,7 +92,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-in-\\$foo{--vin-enter-opacity:var(--foo);}
           .fade-in-\\$foo-bar{--vin-enter-opacity:var(--foo-bar);}
           .fade-in-\\$fooBar{--vin-enter-opacity:var(--fooBar);}"
@@ -116,7 +116,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-out-0{--vin-exit-opacity:0;}
           .fade-out-10{--vin-exit-opacity:0.1;}
           .fade-out-100{--vin-exit-opacity:1;}
@@ -138,7 +138,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-out-0\\.1{--vin-exit-opacity:0.001;}
           .fade-out-10\\.1{--vin-exit-opacity:0.101;}
           .fade-out-52\\.1{--vin-exit-opacity:0.521;}
@@ -157,7 +157,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-out-0\\.1\\%{--vin-exit-opacity:0.001;}
           .fade-out-0\\%{--vin-exit-opacity:0;}
           .fade-out-10\\.1\\%{--vin-exit-opacity:0.101;}
@@ -186,7 +186,7 @@ describe.concurrent('fade animation', async () => {
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
-          "/* layer: animation */
+          "/* layer: vinicunca */
           .fade-out-\\$foo{--vin-exit-opacity:var(--foo);}
           .fade-out-\\$foo-bar{--vin-exit-opacity:var(--foo-bar);}
           .fade-out-\\$fooBar{--vin-exit-opacity:var(--fooBar);}"
