@@ -160,7 +160,7 @@ export default defineConfig({
 
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/vinicucna/unocss-preset-vinicunca/edit/main/docs/:path',
+      pattern: 'https://github.com/vinicunca/unocss-preset-vinicunca/edit/main/docs/:path',
       text: 'Suggest changes to this page',
     },
 
@@ -191,7 +191,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vinicunca' },
+      { icon: 'github', link: 'https://github.com/vinicunca/unocss-preset-vinicunca' },
     ],
   },
 
