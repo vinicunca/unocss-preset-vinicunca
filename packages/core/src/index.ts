@@ -21,7 +21,7 @@ export const presetVinicunca = definePreset(
       name: `unocss-preset-${PRESET_NAME}`,
 
       layers: {
-        [PRESET_NAME]: 2,
+        [PRESET_NAME]: 10,
       },
 
       theme,

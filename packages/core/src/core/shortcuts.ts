@@ -1,12 +1,11 @@
 import type { StaticShortcut } from '@unocss/core';
 import type { CustomStaticShortcuts } from '../types';
-import { layerMeta } from '../meta';
 
 const customShortcuts: CustomStaticShortcuts = [
   ['flex-center', 'flex justify-center items-center'],
   ['flex-x-center', 'flex justify-center'],
   ['flex-y-center', 'flex items-center'],
-  ['flex-col', 'flex flex-col'],
+  ['flex-vertical', 'flex flex-col'],
   ['flex-col-center', 'flex-center flex-col'],
 ];
 
@@ -27,10 +26,15 @@ function normalizeShortcut(shortcut: CustomStaticShortcuts): Array<StaticShortcu
 /**
  * We need to add the layers into the shortcuts.
  * So we need to run this immediately.
+ *
+ * We want these shortcuts to have the same layer as uno's default shortcuts
+ * so it doesn't clash with the cascade order with the default layer.
  */
 for (const short of defaultShortcuts) {
   short[2] = Object.assign(
     short[2] || {},
-    layerMeta,
+    {
+      layer: 'shortcuts',
+    },
   );
 }
