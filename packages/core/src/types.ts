@@ -7,6 +7,7 @@ import type { WebFontsOptions } from '@unocss/preset-web-fonts';
 import type { TransformerDirectivesOptions } from '@unocss/transformer-directives';
 import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group';
 import type { UnoPresetScrollbarOption } from './presets/scrollbar';
+import type { TransformerAliasOptions } from './transformer-alias';
 
 export interface AnimationOptions {
   /**
@@ -199,7 +200,7 @@ export interface PresetVinicuncaOptions {
   /**
    * Enable magicss preset
    *
-   * @about [unocss-preset-magicss](https://github.com/unpreset/unocss-preset-magicss)
+   * @about [Magic Animate](https://github.com/miniMAC/magic)
    * @default false
    */
   magicCss?: boolean;
@@ -234,6 +235,11 @@ export interface PresetVinicuncaOptions {
    * @default true
    */
   variantGroup?: boolean | TransformerVariantGroupOptions;
+
+  /**
+   * Enable transform alias transformer and the options of it
+   */
+  alias?: boolean | TransformerAliasOptions;
 }
 
 export type ResolvedOptions = Required<PresetVinicuncaOptions> & {

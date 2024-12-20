@@ -2,7 +2,7 @@
   "name": "@vinicunca/unocss-preset-monorepo",
   "type": "module",
   "version": "1.0.1",
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -30,6 +30,7 @@
     "bumpp": "catalog:",
     "eslint": "catalog:",
     "lint-staged": "catalog:",
+    "magic-string": "^0.30.17",
     "simple-git-hooks": "catalog:",
     "taze": "catalog:",
     "typescript": "catalog:",

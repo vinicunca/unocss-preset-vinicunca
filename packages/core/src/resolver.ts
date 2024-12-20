@@ -1,6 +1,13 @@
 /* eslint-disable no-await-in-loop */
 import type { Theme } from '@unocss/preset-mini';
-import type { AnimationOptions, CustomStaticShortcuts, FluidOptions, PresetVinicuncaOptions, ResolvedOptions, VinicuncaTheme } from './types';
+import type {
+  AnimationOptions,
+  CustomStaticShortcuts,
+  FluidOptions,
+  PresetVinicuncaOptions,
+  ResolvedOptions,
+  VinicuncaTheme,
+} from './types';
 import { isBoolean, isPlainObject, isString, mergeDeep } from '@vinicunca/perkakas';
 import { cssObj2StrSync, resolveAnimation } from './utils';
 
@@ -79,6 +86,7 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const transformerMap = {
     directives: import('unocss').then((mod) => mod.transformerDirectives),
     variantGroup: import('unocss').then((mod) => mod.transformerVariantGroup),
+    alias: import('./transformer-alias').then((mod) => mod.transformerAlias),
   };
 
   for (const [key, preset] of Object.entries(presetMap)) {
