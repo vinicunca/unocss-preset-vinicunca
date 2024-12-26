@@ -1,14 +1,13 @@
-import type { Postprocessor, PresetFactoryAwaitable, UserConfig } from '@unocss/core';
-import type { Theme } from '@unocss/preset-mini';
+import type { Postprocessor, Shortcut, UserConfig } from '@unocss/core';
 import type { PresetVinicuncaOptions, VinicuncaTheme } from './types';
 import { definePreset, mergeConfigs } from '@unocss/core';
 import { defaultShortcuts, getPreflights, postprocessWithUnColor } from './core';
 import { PRESET_NAME } from './meta';
 import { resolveOptions } from './resolver';
 
-export const presetVinicunca = definePreset(
-  async (options: PresetVinicuncaOptions = {}) => {
-    const resolvedOptions = await resolveOptions(options);
+export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaTheme>(
+  async (options) => {
+    const resolvedOptions = await resolveOptions(options ?? {});
 
     const {
       enableDefaultShortcuts,
@@ -29,7 +28,7 @@ export const presetVinicunca = definePreset(
       shortcuts: [
         ...enableDefaultShortcuts ? defaultShortcuts : [],
         ...meta.shortcuts,
-      ],
+      ] as Array<Shortcut>,
 
       postprocess: [
         unColor ? postprocessWithUnColor(unColor as string) : undefined,
@@ -42,7 +41,7 @@ export const presetVinicunca = definePreset(
       preflights: getPreflights(resolvedOptions),
     };
   },
-) as PresetFactoryAwaitable<Theme, PresetVinicuncaOptions>;
+);
 
 export function defineVinicuncaConfig<T extends object = VinicuncaTheme>(
   options: PresetVinicuncaOptions = {},
