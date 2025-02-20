@@ -15,7 +15,7 @@ export async function getUnoWithoutPreflights(options: PresetVinicuncaOptions = 
   return generateUno({
     ...options,
 
-    uno: {
+    wind: {
       preflight: false,
     },
 

@@ -21,7 +21,7 @@ export const defaultOptions: PresetVinicuncaOptions = {
   },
 
   // presets
-  uno: {
+  wind: {
     preflight: 'on-demand',
   },
   icons: true,
@@ -73,7 +73,7 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const transformers = [];
 
   const presetMap = {
-    uno: import('@unocss/preset-uno').then((mod) => mod.presetUno),
+    wind: import('@unocss/preset-wind3').then((mod) => mod.presetWind),
     icons: import('@unocss/preset-icons').then((mod) => mod.presetIcons),
     webFonts: import('@unocss/preset-web-fonts').then((mod) => mod.presetWebFonts),
     typography: import('@unocss/preset-typography').then((mod) => mod.presetTypography),

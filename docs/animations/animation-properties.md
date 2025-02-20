@@ -1,6 +1,6 @@
 # Animation Properties
 
-Animation property modifiers are supported by `@unocss/preset-wind` or `@unocss/preset-uno`.
+Animation property modifiers are supported by `@unocss/preset-wind3`.
 
 ## `animation-delay`
 
@@ -32,7 +32,7 @@ Animation property modifiers are supported by `@unocss/preset-wind` or `@unocss/
 ::: tip
 If no `animation-duration` is defined, it will fall back to `theme.duration.DEFAULT`.
 
-The value is `150ms` by default if unchanged, see [unocss/packages/preset-mini/src/_theme/misc.ts at main · unocss/unocss](https://github.com/unocss/unocss/blob/efdc358897a308323e1d943dd0f7c13e344e1495/packages/preset-mini/src/_theme/misc.ts#L37)
+The value is `150ms` by default if unchanged, see [unocss/packages/preset-mini/src/\_theme/misc.ts at main · unocss/unocss](https://github.com/unocss/unocss/blob/efdc358897a308323e1d943dd0f7c13e344e1495/packages/preset-mini/src/_theme/misc.ts#L37)
 :::
 
 ## `animation-fill-mode`
