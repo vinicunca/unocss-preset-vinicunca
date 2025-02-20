@@ -1,4 +1,4 @@
-import type { FluidOptions } from '../../packages/core/src/types';
+import type { RequiredFluidOptions } from '../../packages/core/src/types';
 
 import { describe, expect, it, vi } from 'vitest';
 
@@ -15,7 +15,7 @@ const ranges: {
   xl: [28, 56],
 };
 
-const optionsWithRanges: FluidOptions = {
+const optionsWithRanges: RequiredFluidOptions = {
   ...defaultFluidOptions,
   ranges,
 };
