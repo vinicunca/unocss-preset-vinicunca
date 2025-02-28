@@ -27,7 +27,7 @@ catalogs:
     '@unocss/preset-web-fonts':
       specifier: ^66.1.0-beta.3
       version: 66.1.0-beta.3
-    '@unocss/preset-wind3':
+    '@unocss/preset-wind4':
       specifier: ^66.1.0-beta.3
       version: 66.1.0-beta.3
     '@unocss/transformer-directives':
@@ -103,10 +103,6 @@ catalogs:
 importers:
 
   .:
-    dependencies:
-      '@unocss/preset-wind4':
-        specifier: 66.1.0-beta.3
-        version: 66.1.0-beta.3
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
@@ -189,7 +185,7 @@ importers:
       '@unocss/preset-web-fonts':
         specifier: 'catalog:'
         version: 66.1.0-beta.3
-      '@unocss/preset-wind3':
+      '@unocss/preset-wind4':
         specifier: 'catalog:'
         version: 66.1.0-beta.3
       '@unocss/transformer-directives':
