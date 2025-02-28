@@ -1,11 +1,15 @@
 import { describe, it } from 'vitest';
 
 import { CSS_VARIABLE_PREFIX } from '../../packages/core/src/presets/animation/animation.entity';
-import { getUnoWithoutPreflights } from '../utils';
+import { getCssFromUnoWithoutPreflights } from '../utils';
 import { CSS_VARIABLES, DECIMALS, FRACTIONS, INTEGERS } from './data';
 
 describe.concurrent('slide animation', async () => {
-  const getUno = await getUnoWithoutPreflights();
+  function getUno(code: string) {
+    return getCssFromUnoWithoutPreflights({
+      code,
+    });
+  }
 
   describe('slide-in', () => {
     describe('misc', () => {
@@ -17,7 +21,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -41,7 +45,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-from-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -65,7 +69,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -85,7 +89,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-bottom',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -101,7 +105,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -119,7 +123,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-left',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -135,7 +139,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -151,7 +155,7 @@ describe.concurrent('slide animation', async () => {
           'slide-in-left--10',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -166,7 +170,7 @@ describe.concurrent('slide animation', async () => {
       it('should convert any numbers to "rem" (x / 4rem) including negative', async ({ expect }) => {
         const classnames = INTEGERS.map((i) => `slide-in-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -218,7 +222,7 @@ describe.concurrent('slide animation', async () => {
       it('should also convert decimals including negative', async ({ expect }) => {
         const classnames = DECIMALS.map((i) => `slide-in-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -247,7 +251,7 @@ describe.concurrent('slide animation', async () => {
           ...DECIMALS.map((i) => `slide-in-top-${i}%`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -314,7 +318,7 @@ describe.concurrent('slide animation', async () => {
       it('should convert any fractions including negative', async ({ expect }) => {
         const classnames = FRACTIONS.map((i) => `slide-in-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -335,7 +339,7 @@ describe.concurrent('slide animation', async () => {
       });
 
       it('should convert "full" to "100%', async ({ expect }) => {
-        const { css } = await getUno.generate('slide-in-top-full');
+        const { css } = await getUno('slide-in-top-full');
 
         expect(css).toMatchInlineSnapshot(`
           "/* layer: vinicunca */
@@ -348,7 +352,7 @@ describe.concurrent('slide animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `slide-in-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -371,7 +375,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -391,7 +395,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -411,7 +415,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -431,7 +435,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-bottom',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -447,7 +451,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -465,7 +469,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-left',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -481,7 +485,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-right',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -497,7 +501,7 @@ describe.concurrent('slide animation', async () => {
           'slide-out-left--10',
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -512,7 +516,7 @@ describe.concurrent('slide animation', async () => {
       it('should convert any numbers to "rem" (x / 4rem) including negative', async ({ expect }) => {
         const classnames = INTEGERS.map((i) => `slide-out-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -564,7 +568,7 @@ describe.concurrent('slide animation', async () => {
       it('should also convert decimals including negative', async ({ expect }) => {
         const classnames = DECIMALS.map((i) => `slide-out-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -593,7 +597,7 @@ describe.concurrent('slide animation', async () => {
           ...DECIMALS.map((i) => `slide-out-top-${i}%`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -660,7 +664,7 @@ describe.concurrent('slide animation', async () => {
       it('should convert any fractions including negative', async ({ expect }) => {
         const classnames = FRACTIONS.map((i) => `slide-out-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -681,7 +685,7 @@ describe.concurrent('slide animation', async () => {
       });
 
       it('should convert "full" to "100%', async ({ expect }) => {
-        const { css } = await getUno.generate('slide-out-top-full');
+        const { css } = await getUno('slide-out-top-full');
 
         expect(css).toMatchInlineSnapshot(`
           "/* layer: vinicunca */
@@ -694,7 +698,7 @@ describe.concurrent('slide animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `slide-out-top-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`

@@ -1,15 +1,19 @@
 import { describe, it } from 'vitest';
 
 import { CSS_VARIABLE_PREFIX } from '../../packages/core/src/presets/animation/animation.entity';
-import { getUnoWithoutPreflights } from '../utils';
+import { getCssFromUnoWithoutPreflights } from '../utils';
 import { CSS_VARIABLES, DECIMALS, INTEGERS } from './data';
 
 describe.concurrent('spin animation', async () => {
-  const getUno = await getUnoWithoutPreflights();
+  function getUno(code: string | Array<string>) {
+    return getCssFromUnoWithoutPreflights({
+      code,
+    });
+  }
 
   describe('spin-in', () => {
     it(`should generate "${CSS_VARIABLE_PREFIX}-enter-rotate" css variable and default to "30deg"`, async ({ expect }) => {
-      const { css } = await getUno.generate('spin-in');
+      const { css } = await getUno('spin-in');
 
       expect(css).toContain(`.spin-in{${CSS_VARIABLE_PREFIX}-enter-rotate:30deg;}`);
     });
@@ -18,7 +22,7 @@ describe.concurrent('spin animation', async () => {
       it('should handle any numbers including negative and unit default to "deg"', async ({ expect }) => {
         const classnames = INTEGERS.map((i) => `spin-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -70,7 +74,7 @@ describe.concurrent('spin animation', async () => {
       it('should also handle decimals including negative', async ({ expect }) => {
         const classnames = DECIMALS.map((i) => `spin-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -101,7 +105,7 @@ describe.concurrent('spin animation', async () => {
           ...DATASET.map((i) => `spin-in-${i}turn`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -278,7 +282,7 @@ describe.concurrent('spin animation', async () => {
           'spin-in-0turn',
         ];
 
-        const { matched, css } = await getUno.generate(classnames);
+        const { matched, css } = await getUno(classnames);
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -296,7 +300,7 @@ describe.concurrent('spin animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `spin-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -311,7 +315,7 @@ describe.concurrent('spin animation', async () => {
 
   describe('spin-out', () => {
     it(`should generate "${CSS_VARIABLE_PREFIX}-exit-rotate" css variable and default to "30deg"`, async ({ expect }) => {
-      const { css } = await getUno.generate('spin-out');
+      const { css } = await getUno('spin-out');
 
       expect(css).toContain(`.spin-out{${CSS_VARIABLE_PREFIX}-exit-rotate:30deg;}`);
     });
@@ -320,7 +324,7 @@ describe.concurrent('spin animation', async () => {
       it('should handle any numbers including negative and unit default to "deg"', async ({ expect }) => {
         const classnames = INTEGERS.map((i) => `spin-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -372,7 +376,7 @@ describe.concurrent('spin animation', async () => {
       it('should also handle decimals including negative', async ({ expect }) => {
         const classnames = DECIMALS.map((i) => `spin-out-${i}`);
 
-        const { css } = await getUno.generate(classnames.join(' '));
+        const { css } = await getUno(classnames.join(' '));
 
         expect(css).toMatchInlineSnapshot(`
           "/* layer: vinicunca */
@@ -402,7 +406,7 @@ describe.concurrent('spin animation', async () => {
           ...DATASET.map((i) => `spin-out-${i}turn`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -579,7 +583,7 @@ describe.concurrent('spin animation', async () => {
           'spin-out-0turn',
         ];
 
-        const { matched, css } = await getUno.generate(classnames);
+        const { matched, css } = await getUno(classnames);
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -597,7 +601,7 @@ describe.concurrent('spin animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `spin-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`

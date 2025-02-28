@@ -1,15 +1,19 @@
 import { describe, it } from 'vitest';
 
 import { CSS_VARIABLE_PREFIX } from '../../packages/core/src/presets/animation/animation.entity';
-import { getUnoWithoutPreflights } from '../utils';
+import { getCssFromUnoWithoutPreflights } from '../utils';
 import { CSS_VARIABLES, DECIMALS_0_TO_100, INTEGERS_0_TO_100 } from './data';
 
 describe.concurrent('fade animation', async () => {
-  const getUno = await getUnoWithoutPreflights();
+  function getUno(code: string) {
+    return getCssFromUnoWithoutPreflights({
+      code,
+    });
+  }
 
   describe('fade-in', () => {
     it(`should generate "${CSS_VARIABLE_PREFIX}-enter-opacity" css variable and default to "0"`, async ({ expect }) => {
-      const { css } = await getUno.generate('fade-in');
+      const { css } = await getUno('fade-in');
 
       expect(css).toContain(`.fade-in{${CSS_VARIABLE_PREFIX}-enter-opacity:0;}`);
     });
@@ -18,7 +22,7 @@ describe.concurrent('fade animation', async () => {
       it('should convert percentages from "0" to "100"', async ({ expect }) => {
         const classnames = INTEGERS_0_TO_100.map((i) => `fade-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -40,7 +44,7 @@ describe.concurrent('fade animation', async () => {
       it('should also convert decimals', async ({ expect }) => {
         const classnames = DECIMALS_0_TO_100.map((i) => `fade-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -59,7 +63,7 @@ describe.concurrent('fade animation', async () => {
           ...DECIMALS_0_TO_100.map((i) => `fade-in-${i}%`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -88,7 +92,7 @@ describe.concurrent('fade animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `fade-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -103,7 +107,7 @@ describe.concurrent('fade animation', async () => {
 
   describe('fade-out', () => {
     it(`should generate "${CSS_VARIABLE_PREFIX}-exit-opacity" css variable and default to "0"`, async ({ expect }) => {
-      const { css } = await getUno.generate('fade-out');
+      const { css } = await getUno('fade-out');
 
       expect(css).toContain(`.fade-out{${CSS_VARIABLE_PREFIX}-exit-opacity:0;}`);
     });
@@ -112,7 +116,7 @@ describe.concurrent('fade animation', async () => {
       it('should convert percentages from "0" to "100"', async ({ expect }) => {
         const classnames = INTEGERS_0_TO_100.map((i) => `fade-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -134,7 +138,7 @@ describe.concurrent('fade animation', async () => {
       it('should also convert decimals', async ({ expect }) => {
         const classnames = DECIMALS_0_TO_100.map((i) => `fade-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -153,7 +157,7 @@ describe.concurrent('fade animation', async () => {
           ...DECIMALS_0_TO_100.map((i) => `fade-out-${i}%`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -182,7 +186,7 @@ describe.concurrent('fade animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `fade-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`

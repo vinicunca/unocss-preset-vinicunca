@@ -1,15 +1,13 @@
 import { escapeSelector } from 'unocss';
 import { describe, expect, it } from 'vitest';
 import { vinicuncaTargets } from './fixtures/index.targets';
-import { generateUno } from './utils';
+import { getCssFromUno } from './utils';
 
 describe('presetVinicunca', async () => {
-  const uno = await generateUno();
-
   it('targets', async () => {
     const code = vinicuncaTargets.join(' ');
-    const { css } = await uno.generate(code);
-    const { css: css2 } = await uno.generate(code);
+    const { css } = await getCssFromUno({ code });
+    const { css: css2 } = await getCssFromUno({ code });
 
     const unmatched: Array<string> = [];
     for (const i of vinicuncaTargets) {

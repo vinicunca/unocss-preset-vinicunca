@@ -111,10 +111,10 @@ interface PresetVinicuncaOptions {
    * Enable the default preset
    * Only works when `presets` is not specified
    *
-   * @about [@unocss/preset-wind3](https://unocss.dev/presets/wind)
+   * @about [@unocss/preset-wind4](https://unocss.dev/presets/wind)
    * @default true
    */
-  wind?: boolean | PresetUnoOptions;
+  wind?: boolean | PresetWind4Options;
 
   /**
    * Enable icons preset and the options of it

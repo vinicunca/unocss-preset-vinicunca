@@ -1,15 +1,19 @@
 import { describe, it } from 'vitest';
 
 import { CSS_VARIABLE_PREFIX } from '../../packages/core/src/presets/animation/animation.entity';
-import { getUnoWithoutPreflights } from '../utils';
+import { getCssFromUnoWithoutPreflights } from '../utils';
 import { CSS_VARIABLES, DECIMALS, FRACTIONS, INTEGERS } from './data';
 
 describe.concurrent('zoom animation', async () => {
-  const getUno = await getUnoWithoutPreflights();
+  function getUno(code: string | Array<string>) {
+    return getCssFromUnoWithoutPreflights({
+      code,
+    });
+  }
 
   describe('zoom-in', () => {
     it(`should generate "${CSS_VARIABLE_PREFIX}-enter-scale" css variable and default to "0"`, async ({ expect }) => {
-      const { css } = await getUno.generate('zoom-in');
+      const { css } = await getUno('zoom-in');
 
       expect(css).toContain(`.zoom-in{${CSS_VARIABLE_PREFIX}-enter-scale:0;}`);
     });
@@ -18,7 +22,7 @@ describe.concurrent('zoom animation', async () => {
       it('should convert any percentages including negative', async ({ expect }) => {
         const classnames = INTEGERS.map((i) => `zoom-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -70,7 +74,7 @@ describe.concurrent('zoom animation', async () => {
       it('should also convert decimals including negative', async ({ expect }) => {
         const classnames = DECIMALS.map((i) => `zoom-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -97,7 +101,7 @@ describe.concurrent('zoom animation', async () => {
           ...DECIMALS.map((i) => `zoom-in-${i}%`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -164,7 +168,7 @@ describe.concurrent('zoom animation', async () => {
       it('should convert any fractions including negative', async ({ expect }) => {
         const classnames = FRACTIONS.map((i) => `zoom-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -185,7 +189,7 @@ describe.concurrent('zoom animation', async () => {
       });
 
       it('should convert "full" to "100%', async ({ expect }) => {
-        const { css } = await getUno.generate('zoom-in-full');
+        const { css } = await getUno('zoom-in-full');
 
         expect(css).toMatchInlineSnapshot(`
           "/* layer: vinicunca */
@@ -198,7 +202,7 @@ describe.concurrent('zoom animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `zoom-in-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -213,7 +217,7 @@ describe.concurrent('zoom animation', async () => {
 
   describe('zoom-out', () => {
     it(`should generate "${CSS_VARIABLE_PREFIX}-exit-scale" css variable and default to "0"`, async ({ expect }) => {
-      const { css } = await getUno.generate('zoom-out');
+      const { css } = await getUno('zoom-out');
 
       expect(css).toContain(`.zoom-out{${CSS_VARIABLE_PREFIX}-exit-scale:0;}`);
     });
@@ -222,7 +226,7 @@ describe.concurrent('zoom animation', async () => {
       it('should convert any percentages including negative', async ({ expect }) => {
         const classnames = INTEGERS.map((i) => `zoom-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -274,7 +278,7 @@ describe.concurrent('zoom animation', async () => {
       it('should also convert decimals including negative', async ({ expect }) => {
         const classnames = DECIMALS.map((i) => `zoom-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -301,7 +305,7 @@ describe.concurrent('zoom animation', async () => {
           ...DECIMALS.map((i) => `zoom-out-${i}%`),
         ];
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -368,7 +372,7 @@ describe.concurrent('zoom animation', async () => {
       it('should convert any fractions including negative', async ({ expect }) => {
         const classnames = FRACTIONS.map((i) => `zoom-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`
@@ -389,7 +393,7 @@ describe.concurrent('zoom animation', async () => {
       });
 
       it('should convert "full" to "100%', async ({ expect }) => {
-        const { css } = await getUno.generate('zoom-out-full');
+        const { css } = await getUno('zoom-out-full');
 
         expect(css).toMatchInlineSnapshot(`
           "/* layer: vinicunca */
@@ -402,7 +406,7 @@ describe.concurrent('zoom animation', async () => {
       it('should handle css variables', async ({ expect }) => {
         const classnames = CSS_VARIABLES.map((i) => `zoom-out-${i}`);
 
-        const { matched, css } = await getUno.generate(classnames.join(' '));
+        const { matched, css } = await getUno(classnames.join(' '));
 
         expect(matched).toStrictEqual(new Set(classnames));
         expect(css).toMatchInlineSnapshot(`

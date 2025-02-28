@@ -11,14 +11,33 @@ export async function generateUno(options: PresetVinicuncaOptions = {}) {
   });
 }
 
-export async function getUnoWithoutPreflights(options: PresetVinicuncaOptions = {}) {
-  return generateUno({
-    ...options,
+export async function getCssFromUno(
+  { options = {}, code }:
+  { options?: PresetVinicuncaOptions; code: string | Array<string> },
+) {
+  const uno = await generateUno(options);
 
-    wind: {
-      preflight: false,
+  const generated = await uno.generate(code);
+
+  return {
+    ...generated,
+    css: cleanThemeLayerFromWind4(generated.css),
+  };
+}
+
+export async function getCssFromUnoWithoutPreflights(
+  { options = {}, code }:
+  { options?: PresetVinicuncaOptions; code: string | Array<string> },
+) {
+  return getCssFromUno({
+    options: {
+      ...options,
+      preflights: false,
     },
-
-    preflights: false,
+    code,
   });
+}
+
+function cleanThemeLayerFromWind4(css: string) {
+  return css.replace(/\/\* layer: theme \*\/[\s\S]*?(\/\*)/, '$1');
 }

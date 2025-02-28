@@ -1,21 +1,22 @@
 import { describe, expect, it } from 'vitest';
-import { generateUno } from './utils';
+import { getCssFromUno } from './utils';
 
 describe('postprocess with unColor', () => {
   const code = 'bg-red text-blue';
 
   it('base', async () => {
-    const uno = await generateUno({
-      unColor: true,
-      preflights: false,
+    const { css } = await getCssFromUno({
+      options: {
+        unColor: true,
+        preflights: false,
+      },
+      code,
     });
-
-    const { css } = await uno.generate(code);
 
     expect(css).toMatchInlineSnapshot(`
       "/* layer: default */
-      .bg-red{--un-color:248 113 113;--un-bg-opacity:1;background-color:rgb(var(--un-color) / var(--un-bg-opacity));}
-      .text-blue{--un-color:96 165 250;--un-text-opacity:1;color:rgb(var(--un-color) / var(--un-text-opacity));}"
+      .text-blue{--un-text-opacity:100%;color:color-mix(in oklch, var(--colors-blue-400) var(--un-text-opacity), transparent);}
+      .bg-red{--un-bg-opacity:100%;background-color:color-mix(in oklch, var(--colors-red-400) var(--un-bg-opacity), transparent);}"
     `);
   });
 });
