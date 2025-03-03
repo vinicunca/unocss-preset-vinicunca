@@ -35,11 +35,8 @@ export function getPreflights(options: ResolvedOptions): Array<Preflight> {
 function getMiniPreflights(): Preflight {
   const entries = Object.entries({
     ...miniTheme.preflightBase,
-    '--un-shadow-color': ' ',
     '--un-inset-shadow': '0 0 rgb(0 0 0 / 0)',
-    '--un-inset-shadow-color': ' ',
     '--un-ring-shadow': '0 0 rgb(0 0 0 / 0)',
-    '--un-inset-ring-color': ' ',
     '--un-inset-ring-shadow': '0 0 rgb(0 0 0 / 0)',
   });
   const css = entriesToCss(entries);
