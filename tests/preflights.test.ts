@@ -9,9 +9,16 @@ describe('presetVinicunca preflights', () => {
     const preflights = uno.config.preflights;
 
     /**
-     * There will be 2 preflights, one is for reset and the other is on demand from uno.
+     * There will be 3 preflights:
+     * - reset browser default styles
+     * - inject css variables (fork from preset-mini)
+     * - preflight from wind4 styles
      */
-    expect(preflights.length).toBe(2);
+    expect(preflights.length).toBe(3);
+
+    const { css } = await uno.generate('');
+
+    await expect(css).toMatchFileSnapshot('./fixtures/preflights.css');
   });
 
   it('output reset css', async () => {

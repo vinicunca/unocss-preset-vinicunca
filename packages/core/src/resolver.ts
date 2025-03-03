@@ -16,9 +16,7 @@ export const defaultOptions: PresetVinicuncaOptions = {
 
   enableDefaultShortcuts: true,
 
-  preflights: {
-    reset: true,
-  },
+  preflights: true,
 
   // presets
   wind: {

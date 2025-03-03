@@ -1,4 +1,5 @@
 import type { Preflight } from 'unocss';
+import { compressCSS } from './utils';
 
 const resetCSS = `
 /*
@@ -444,10 +445,6 @@ Make sure disabled buttons don't get the pointer cursor.
   cursor: default;
 }
 `.trim();
-
-function compressCSS(css: string) {
-  return css.replace(/\s+/g, ' ').replace(/\/\*[\s\S]*?\*\//g, '');
-}
 
 export const resetPreflight: Preflight = {
   layer: 'preflights',

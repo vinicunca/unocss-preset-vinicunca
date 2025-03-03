@@ -83,6 +83,12 @@ interface PreflightOptions {
    * @default true
    */
   reset: boolean;
+  /**
+   * Enable mini preflight
+   *
+   * @default true
+   */
+  mini?: boolean;
 }
 
 export interface PresetVinicuncaOptions {
