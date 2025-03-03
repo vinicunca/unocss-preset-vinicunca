@@ -33,7 +33,15 @@ export function getPreflights(options: ResolvedOptions): Array<Preflight> {
  * we need to include these preflights so it has all the transition and shadow css variables utilities.
  */
 function getMiniPreflights(): Preflight {
-  const entries = Object.entries(miniTheme.preflightBase);
+  const entries = Object.entries({
+    ...miniTheme.preflightBase,
+    '--un-shadow-color': ' ',
+    '--un-inset-shadow': '0 0 rgb(0 0 0 / 0)',
+    '--un-inset-shadow-color': ' ',
+    '--un-ring-shadow': '0 0 rgb(0 0 0 / 0)',
+    '--un-inset-ring-color': ' ',
+    '--un-inset-ring-shadow': '0 0 rgb(0 0 0 / 0)',
+  });
   const css = entriesToCss(entries);
 
   const roots = ['*,::before,::after', '::backdrop'];
