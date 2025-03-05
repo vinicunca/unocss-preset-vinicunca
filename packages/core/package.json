@@ -1,7 +1,7 @@
 {
   "name": "@vinicunca/unocss-preset",
   "type": "module",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "Opinionated UnoCSS preset",
   "author": "praburangki<https://github.com/praburangki>",
   "license": "MIT",
