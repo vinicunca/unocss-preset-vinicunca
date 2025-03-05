@@ -9,12 +9,11 @@ describe('presetVinicunca preflights', () => {
     const preflights = uno.config.preflights;
 
     /**
-     * There will be 3 preflights:
+     * There will be 2 preflights:
      * - reset browser default styles
      * - inject css variables (fork from preset-mini)
-     * - preflight from wind4 styles
      */
-    expect(preflights.length).toBe(3);
+    expect(preflights.length).toBe(2);
 
     const { css } = await uno.generate('');
 

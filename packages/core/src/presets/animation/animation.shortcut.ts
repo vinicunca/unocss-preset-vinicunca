@@ -5,9 +5,9 @@ import type { AnimationOptions } from '../../types';
 import { CSS_VARIABLE_PREFIX, ENTER_ANIMATION_NAME, EXIT_ANIMATION_NAME } from './animation.entity';
 
 export function animationShortcuts(options: AnimationOptions): Array<DynamicShortcut<Theme>> {
-  function getSharedAnimationProperties(): CSSObject {
+  function getSharedAnimationProperties(theme: Theme): CSSObject {
     return {
-      'animation-duration': options.duration ? `${options.duration}${options.unit}` : 'var(--defaults-transition-duration)',
+      'animation-duration': options.duration ? `${options.duration}${options.unit}` : theme.duration?.DEFAULT,
       ...options.delay && { 'animation-delay': `${options.delay}${options.unit}` },
       ...options.direction && { 'animation-direction': options.direction },
       ...options.fillMode && { 'animation-fill-mode': options.fillMode },
@@ -20,11 +20,11 @@ export function animationShortcuts(options: AnimationOptions): Array<DynamicShor
   return [
     [
       /^animate-in$/,
-      () => [
+      (_, { theme }) => [
         `keyframes-${ENTER_ANIMATION_NAME}`,
         {
           'animation-name': ENTER_ANIMATION_NAME,
-          ...getSharedAnimationProperties(),
+          ...getSharedAnimationProperties(theme),
           [`${CSS_VARIABLE_PREFIX}-enter-opacity`]: 'initial',
           [`${CSS_VARIABLE_PREFIX}-enter-scale`]: 'initial',
           [`${CSS_VARIABLE_PREFIX}-enter-rotate`]: 'initial',
@@ -36,11 +36,11 @@ export function animationShortcuts(options: AnimationOptions): Array<DynamicShor
     ],
     [
       /^animate-out$/,
-      () => [
+      (_, { theme }) => [
         `keyframes-${EXIT_ANIMATION_NAME}`,
         {
           'animation-name': EXIT_ANIMATION_NAME,
-          ...getSharedAnimationProperties(),
+          ...getSharedAnimationProperties(theme),
           [`${CSS_VARIABLE_PREFIX}-exit-opacity`]: 'initial',
           [`${CSS_VARIABLE_PREFIX}-exit-scale`]: 'initial',
           [`${CSS_VARIABLE_PREFIX}-exit-rotate`]: 'initial',

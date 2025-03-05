@@ -1,6 +1,6 @@
 # Animation Properties
 
-Animation property modifiers are supported by `@unocss/preset-wind4`.
+Animation property modifiers are supported by `@unocss/preset-wind3`.
 
 ## `animation-delay`
 

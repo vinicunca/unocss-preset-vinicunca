@@ -17,12 +17,7 @@ export async function getCssFromUno(
 ) {
   const uno = await generateUno(options);
 
-  const generated = await uno.generate(code);
-
-  return {
-    ...generated,
-    css: cleanThemeLayerFromWind4(generated.css),
-  };
+  return uno.generate(code);
 }
 
 export async function getCssFromUnoWithoutPreflights(
@@ -36,8 +31,4 @@ export async function getCssFromUnoWithoutPreflights(
     },
     code,
   });
-}
-
-function cleanThemeLayerFromWind4(css: string) {
-  return css.replace(/\/\* layer: theme \*\/[\s\S]*?(\/\*)/, '$1');
 }
