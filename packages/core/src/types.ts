@@ -240,6 +240,11 @@ export interface PresetVinicuncaOptions {
    * Enable transform alias transformer and the options of it
    */
   alias?: boolean | TransformerAliasOptions;
+
+  /**
+   * Enable akar preset
+   */
+  akar?: boolean;
 }
 
 export type ResolvedOptions = Required<PresetVinicuncaOptions> & {

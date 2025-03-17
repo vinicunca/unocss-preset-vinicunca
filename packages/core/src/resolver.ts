@@ -29,6 +29,7 @@ export const defaultOptions: PresetVinicuncaOptions = {
   magicCss: false,
   animation: true,
   fluid: true,
+  akar: false,
 
   // transformers
   directives: true,
@@ -79,6 +80,7 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
     magicCss: import('./presets/magic-css').then((mod) => mod.presetMagicss),
     animation: import('./presets/animation').then((mod) => mod.presetAnimation),
     fluid: import('./presets/fluid').then((mod) => mod.presetFluid),
+    akar: import('./presets/akar').then((mod) => mod.presetAkar),
   };
 
   const transformerMap = {
