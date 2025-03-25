@@ -55,6 +55,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "defu": "^6.1.4",
     "postcss": "catalog:",
     "postcss-js": "catalog:",
     "unocss": "catalog:"

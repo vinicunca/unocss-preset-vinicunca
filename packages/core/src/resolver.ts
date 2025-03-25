@@ -9,6 +9,7 @@ import type {
   VinicuncaTheme,
 } from './types';
 import { isBoolean, isPlainObject, isString, mergeDeep } from '@vinicunca/perkakas';
+import { defu } from 'defu';
 import { cssObj2StrSync, resolveAnimation } from './utils';
 
 export const defaultOptions: PresetVinicuncaOptions = {
@@ -56,10 +57,9 @@ const defaultPresetOptions: Record<string, any> = {
 };
 
 export async function resolveOptions(options: PresetVinicuncaOptions): Promise<ResolvedOptions> {
-  const optionsWithDefault = Object.assign(
-    {},
-    defaultOptions,
+  const optionsWithDefault = defu(
     options,
+    defaultOptions,
   ) as Required<PresetVinicuncaOptions>;
 
   if (!isString(optionsWithDefault.unColor)) {
