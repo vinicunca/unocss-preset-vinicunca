@@ -11,7 +11,7 @@ describe('presetVinicunca preflights', () => {
     /**
      * There will be 2 preflights:
      * - reset browser default styles
-     * - inject css variables (fork from preset-mini)
+     * - on demand theme from wind4 preset
      */
     expect(preflights.length).toBe(2);
 
