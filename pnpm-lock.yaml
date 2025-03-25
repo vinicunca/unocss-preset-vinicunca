@@ -12,6 +12,30 @@ catalogs:
     '@types/node':
       specifier: ^22.13.13
       version: 22.13.13
+    '@unocss/core':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
+    '@unocss/preset-icons':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
+    '@unocss/preset-mini':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
+    '@unocss/preset-typography':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
+    '@unocss/preset-web-fonts':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
+    '@unocss/preset-wind4':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
+    '@unocss/transformer-directives':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
+    '@unocss/transformer-variant-group':
+      specifier: ^66.1.0-beta.7
+      version: 66.1.0-beta.7
     '@vinicunca/eslint-config':
       specifier: ^3.10.0
       version: 3.10.0
@@ -24,6 +48,9 @@ catalogs:
     bumpp:
       specifier: ^10.1.0
       version: 10.1.0
+    defu:
+      specifier: ^6.1.4
+      version: 6.1.4
     eslint:
       specifier: ^9.23.0
       version: 9.23.0
@@ -149,11 +176,35 @@ importers:
 
   packages/core:
     dependencies:
+      '@unocss/core':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
+      '@unocss/preset-icons':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
+      '@unocss/preset-mini':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
+      '@unocss/preset-typography':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
+      '@unocss/preset-web-fonts':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
+      '@unocss/preset-wind4':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
+      '@unocss/transformer-directives':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
+      '@unocss/transformer-variant-group':
+        specifier: 'catalog:'
+        version: 66.1.0-beta.7
       '@vinicunca/perkakas':
         specifier: 'catalog:'
         version: 1.4.0
       defu:
-        specifier: ^6.1.4
+        specifier: 'catalog:'
         version: 6.1.4
       postcss:
         specifier: 'catalog:'
