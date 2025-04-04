@@ -3,18 +3,18 @@ packages:
   - docs
   - packages/**
 catalog:
-  '@iconify/json': ^2.2.320
-  '@types/node': ^22.13.13
-  '@unocss/core': ^66.1.0-beta.7
-  '@unocss/preset-icons': ^66.1.0-beta.7
-  '@unocss/preset-mini': ^66.1.0-beta.7
-  '@unocss/preset-typography': ^66.1.0-beta.7
-  '@unocss/preset-web-fonts': ^66.1.0-beta.7
-  '@unocss/preset-wind4': ^66.1.0-beta.7
-  '@unocss/transformer-directives': ^66.1.0-beta.7
-  '@unocss/transformer-variant-group': ^66.1.0-beta.7
+  '@iconify/json': ^2.2.323
+  '@types/node': ^22.14.0
+  '@unocss/core': ^66.1.0-beta.8
+  '@unocss/preset-icons': ^66.1.0-beta.8
+  '@unocss/preset-mini': ^66.1.0-beta.8
+  '@unocss/preset-typography': ^66.1.0-beta.8
+  '@unocss/preset-web-fonts': ^66.1.0-beta.8
+  '@unocss/preset-wind4': ^66.1.0-beta.8
+  '@unocss/transformer-directives': ^66.1.0-beta.8
+  '@unocss/transformer-variant-group': ^66.1.0-beta.8
   '@vinicunca/eslint-config': ^3.10.0
-  '@vinicunca/perkakas': ^1.4.0
+  '@vinicunca/perkakas': ^1.5.0
   '@vitejs/plugin-vue': ^5.2.3
   bumpp: ^10.1.0
   defu: ^6.1.4
@@ -26,13 +26,13 @@ catalog:
   postcss-nested: ^7.0.2
   radix-vue: ^1.9.17
   simple-git-hooks: ^2.12.1
-  taze: ^19.0.2
+  taze: ^19.0.4
   typescript: ^5.8.2
   unbuild: ^3.5.0
-  unocss: ^66.1.0-beta.7
+  unocss: ^66.1.0-beta.8
   unplugin-vue-components: ^28.4.1
-  vite: ^6.2.3
+  vite: ^6.2.5
   vitepress: ^1.6.3
-  vitest: ^3.0.9
+  vitest: ^3.1.1
   vue: ^3.5.13
   vue-tsc: ^2.2.8
