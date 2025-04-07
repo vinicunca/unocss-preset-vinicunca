@@ -72,7 +72,7 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const transformers = [];
 
   const presetMap = {
-    wind: import('@unocss/preset-wind4').then((mod) => mod.presetWind4),
+    wind: import('@unocss/preset-wind3').then((mod) => mod.presetWind3),
     icons: import('@unocss/preset-icons').then((mod) => mod.presetIcons),
     webFonts: import('@unocss/preset-web-fonts').then((mod) => mod.presetWebFonts),
     typography: import('@unocss/preset-typography').then((mod) => mod.presetTypography),

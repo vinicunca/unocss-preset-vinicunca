@@ -11,7 +11,7 @@ describe('presetVinicunca preflights', () => {
     /**
      * There will be 2 preflights:
      * - reset browser default styles
-     * - on demand theme from wind4 preset
+     * - on demand theme from wind3 preset
      */
     expect(preflights.length).toBe(2);
 

@@ -12,12 +12,12 @@ describe('config test', () => {
     expect(presetNames).toEqual([
       '@unocss/preset-icons',
       'unocss-preset-vinicunca',
-      '@unocss/preset-wind4',
+      '@unocss/preset-wind3',
       'unocss-preset-animation',
       'unocss-preset-fluid',
     ]);
 
-    const { css } = await uno.generate('h-screen grid place-items-center animate-in slide-in-top-full fade-in-0 animate-duration-1000 animate-delay-500 text-8xl');
+    const { css } = await uno.generate('p-2 h-screen grid place-items-center animate-in slide-in-top-full fade-in-0 animate-duration-1000 animate-delay-500 text-8xl');
     expect(css).toMatchSnapshot();
   });
 
@@ -39,7 +39,7 @@ describe('config test', () => {
     expect(presetNames).toEqual(
       [
         'unocss-preset-vinicunca',
-        '@unocss/preset-wind4',
+        '@unocss/preset-wind3',
         '@unocss/preset-web-fonts',
         'unocss-preset-animation',
         'unocss-preset-fluid',
