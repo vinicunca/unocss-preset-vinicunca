@@ -3,7 +3,7 @@ import type { IconsOptions } from '@unocss/preset-icons';
 import type { Theme } from '@unocss/preset-mini';
 import type { TypographyOptions } from '@unocss/preset-typography';
 import type { WebFontsOptions } from '@unocss/preset-web-fonts';
-import type { PresetWind4Options } from '@unocss/preset-wind4';
+import type { PresetWind3Options } from '@unocss/preset-wind3';
 import type { TransformerDirectivesOptions } from '@unocss/transformer-directives';
 import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group';
 import type { UnoPresetScrollbarOption } from './presets/scrollbar';
@@ -154,10 +154,10 @@ export interface PresetVinicuncaOptions {
    * Enable the default preset
    * Only works when `presets` is not specified
    *
-   * @about [@unocss/preset-wind4](https://unocss.dev/presets/wind)
+   * @about [@unocss/preset-wind3](https://unocss.dev/presets/wind)
    * @default true
    */
-  wind?: boolean | PresetWind4Options;
+  wind?: boolean | PresetWind3Options;
 
   /**
    * Enable icons preset and the options of it
