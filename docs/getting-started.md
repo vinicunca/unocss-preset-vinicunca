@@ -108,15 +108,6 @@ interface PresetVinicuncaOptions {
   theme?: VinicuncaTheme;
 
   /**
-   * Enable the default preset
-   * Only works when `presets` is not specified
-   *
-   * @about [@unocss/preset-wind3](https://unocss.dev/presets/wind)
-   * @default true
-   */
-  wind?: boolean | PresetWind3Options;
-
-  /**
    * Enable icons preset and the options of it
    * Only works when `presets` is not specified
    *

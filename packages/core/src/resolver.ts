@@ -20,9 +20,10 @@ export const defaultOptions: PresetVinicuncaOptions = {
   preflights: true,
 
   // presets
-  wind: {
-    reset: false,
+  mini: {
+    preflight: false,
   },
+  wind4: true,
   icons: true,
   webFonts: false,
   typography: false,
@@ -72,10 +73,11 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const transformers = [];
 
   const presetMap = {
-    wind: import('@unocss/preset-wind3').then((mod) => mod.presetWind3),
+    mini: import('@unocss/preset-mini').then((mod) => mod.presetMini),
     icons: import('@unocss/preset-icons').then((mod) => mod.presetIcons),
     webFonts: import('@unocss/preset-web-fonts').then((mod) => mod.presetWebFonts),
     typography: import('@unocss/preset-typography').then((mod) => mod.presetTypography),
+    wind4: import('./presets/wind4').then((mod) => mod.presetWind4),
     scrollbar: import('./presets/scrollbar').then((mod) => mod.presetScrollbar),
     magicCss: import('./presets/magic-css').then((mod) => mod.presetMagicss),
     animation: import('./presets/animation').then((mod) => mod.presetAnimation),

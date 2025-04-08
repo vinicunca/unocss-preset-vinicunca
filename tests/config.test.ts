@@ -12,7 +12,7 @@ describe('config test', () => {
     expect(presetNames).toEqual([
       '@unocss/preset-icons',
       'unocss-preset-vinicunca',
-      '@unocss/preset-wind3',
+      '@unocss/preset-mini',
       'unocss-preset-animation',
       'unocss-preset-fluid',
     ]);
@@ -39,7 +39,7 @@ describe('config test', () => {
     expect(presetNames).toEqual(
       [
         'unocss-preset-vinicunca',
-        '@unocss/preset-wind3',
+        '@unocss/preset-mini',
         '@unocss/preset-web-fonts',
         'unocss-preset-animation',
         'unocss-preset-fluid',

@@ -31,6 +31,7 @@
     "eslint": "catalog:",
     "lint-staged": "catalog:",
     "magic-string": "catalog:",
+    "prettier": "catalog:",
     "simple-git-hooks": "catalog:",
     "taze": "catalog:",
     "typescript": "catalog:",
