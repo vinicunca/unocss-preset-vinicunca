@@ -3,10 +3,10 @@ import type { IconsOptions } from '@unocss/preset-icons';
 import type { PresetMiniOptions, Theme } from '@unocss/preset-mini';
 import type { TypographyOptions } from '@unocss/preset-typography';
 import type { WebFontsOptions } from '@unocss/preset-web-fonts';
+import type { PresetWind4Options } from '@unocss/preset-wind4';
 import type { TransformerDirectivesOptions } from '@unocss/transformer-directives';
 import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group';
 import type { UnoPresetScrollbarOption } from './presets/scrollbar';
-import type { PresetWind4Options } from './presets/wind4';
 import type { TransformerAliasOptions } from './transformer-alias';
 
 export interface AnimationOptions {
@@ -163,9 +163,11 @@ export interface PresetVinicuncaOptions {
    * Enable the wind4 preset
    * Only works when `presets` is not specified
    *
-   * @default true
+   * @default preflights: {
+      reset: false,
+    }
    */
-  wind4?: boolean | PresetWind4Options;
+  wind4?: PresetWind4Options;
 
   /**
    * Enable icons preset and the options of it
