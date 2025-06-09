@@ -3,10 +3,13 @@ import parserCSS from 'prettier/parser-postcss';
 import prettier from 'prettier/standalone';
 
 export async function generateUno(uno: UnoGenerator, inputs: Array<string>) {
-  const { css } = await uno.generate(inputs.join(' '));
+  const { css, matched } = await uno.generate(inputs.join(' '));
 
-  return prettier.format(css, {
-    parser: 'css',
-    plugins: [parserCSS],
-  });
+  return {
+    css: await prettier.format(css, {
+      parser: 'css',
+      plugins: [parserCSS],
+    }),
+    matched,
+  };
 }
