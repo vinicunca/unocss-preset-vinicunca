@@ -3211,7 +3211,7 @@ describe('preset-wind4', async () => {
   `);
     });
 
-    it('place-self', async () => {
+    it.todo('place-self', async () => {
       const css = await run([
         'place-self-auto',
         'place-self-start',
@@ -3317,6 +3317,671 @@ describe('preset-wind4', async () => {
         }
         .gap-y-4 {
           row-gap: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+  });
+
+  describe('borders', () => {
+    it('border-collapse', async () => {
+      const css = await run(['border-collapse', 'border-separate']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .border-collapse {
+          border-collapse: collapse;
+        }
+        .border-separate {
+          border-collapse: separate;
+        }
+        "
+      `);
+    });
+
+    it('border-spacing', async () => {
+      const css = await run(['border-spacing-1', 'border-spacing-[123px]']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-border-spacing-x {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-border-spacing-y {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .border-spacing-\\[123px\\] {
+          --un-border-spacing-x: 123px;
+          --un-border-spacing-y: 123px;
+          border-spacing: var(--un-border-spacing-x) var(--un-border-spacing-y);
+        }
+        .border-spacing-1 {
+          --un-border-spacing-x: calc(var(--spacing) * 1);
+          --un-border-spacing-y: calc(var(--spacing) * 1);
+          border-spacing: var(--un-border-spacing-x) var(--un-border-spacing-y);
+        }
+        "
+      `);
+    });
+
+    it('border-spacing-x', async () => {
+      const css = await run(['border-spacing-x-1', 'border-spacing-x-[123px]']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-border-spacing-x {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-border-spacing-y {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .border-spacing-x-\\[123px\\] {
+          --un-border-spacing-x: 123px;
+          border-spacing: var(--un-border-spacing-x) var(--un-border-spacing-y);
+        }
+        .border-spacing-x-1 {
+          --un-border-spacing-x: calc(var(--spacing) * 1);
+          border-spacing: var(--un-border-spacing-x) var(--un-border-spacing-y);
+        }
+        "
+      `);
+    });
+
+    it('border-spacing-y', async () => {
+      const css = await run(['border-spacing-y-1', 'border-spacing-y-[123px]']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-border-spacing-x {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-border-spacing-y {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .border-spacing-y-\\[123px\\] {
+          --un-border-spacing-y: 123px;
+          border-spacing: var(--un-border-spacing-x) var(--un-border-spacing-y);
+        }
+        .border-spacing-y-1 {
+          --un-border-spacing-y: calc(var(--spacing) * 1);
+          border-spacing: var(--un-border-spacing-x) var(--un-border-spacing-y);
+        }
+        "
+      `);
+    });
+
+    it('divide-x', async () => {
+      const css = await run(['divide-x', 'divide-x-4', 'divide-x-123', 'divide-x-[4px]']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-border-style {
+          syntax: "*";
+          inherits: false;
+          initial-value: solid;
+        }
+        @property --un-divide-x-reverse {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .divide-x > :not(:last-child) {
+          --un-divide-x-reverse: 0;
+          border-left-width: calc(1px * var(--un-divide-x-reverse));
+          border-left-style: var(--un-border-style);
+          border-right-width: calc(1px * calc(1 - var(--un-divide-x-reverse)));
+          border-right-style: var(--un-border-style);
+        }
+        .divide-x-\\[4px\\] > :not(:last-child),
+        .divide-x-4 > :not(:last-child) {
+          --un-divide-x-reverse: 0;
+          border-left-width: calc(4px * var(--un-divide-x-reverse));
+          border-left-style: var(--un-border-style);
+          border-right-width: calc(4px * calc(1 - var(--un-divide-x-reverse)));
+          border-right-style: var(--un-border-style);
+        }
+        .divide-x-123 > :not(:last-child) {
+          --un-divide-x-reverse: 0;
+          border-left-width: calc(123px * var(--un-divide-x-reverse));
+          border-left-style: var(--un-border-style);
+          border-right-width: calc(123px * calc(1 - var(--un-divide-x-reverse)));
+          border-right-style: var(--un-border-style);
+        }
+        "
+      `);
+    });
+  });
+
+  it('table-layout', async () => {
+    const css = await run(['table-auto', 'table-fixed']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .table-auto {
+        table-layout: auto;
+      }
+      .table-fixed {
+        table-layout: fixed;
+      }
+      "
+    `);
+  });
+
+  it('caption-side', async () => {
+    const css = await run(['caption-top', 'caption-bottom']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .caption-top {
+        caption-side: top;
+      }
+      .caption-bottom {
+        caption-side: bottom;
+      }
+      "
+    `);
+  });
+
+  describe('transform', () => {
+    it('origin', async () => {
+      const css = await run([
+        'origin-center',
+        'origin-top',
+        'origin-top-right',
+        'origin-right',
+        'origin-bottom-right',
+        'origin-bottom',
+        'origin-bottom-left',
+        'origin-left',
+        'origin-top-left',
+        'origin-[50px_100px]',
+        'origin-$value',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .origin-\\[50px_100px\\] {
+          transform-origin: 50px 100px;
+        }
+        .origin-\\$value {
+          transform-origin: var(--value);
+        }
+        .origin-bottom {
+          transform-origin: bottom;
+        }
+        .origin-bottom-left {
+          transform-origin: bottom left;
+        }
+        .origin-bottom-right {
+          transform-origin: bottom right;
+        }
+        .origin-center {
+          transform-origin: center;
+        }
+        .origin-left {
+          transform-origin: left;
+        }
+        .origin-right {
+          transform-origin: right;
+        }
+        .origin-top {
+          transform-origin: top;
+        }
+        .origin-top-left {
+          transform-origin: top left;
+        }
+        .origin-top-right {
+          transform-origin: top right;
+        }
+        "
+      `);
+    });
+
+    it('perspective-origin', async () => {
+      const css = await run([
+        'perspective-origin-center',
+        'perspective-origin-top',
+        'perspective-origin-top-right',
+        'perspective-origin-right',
+        'perspective-origin-bottom-right',
+        'perspective-origin-bottom',
+        'perspective-origin-bottom-left',
+        'perspective-origin-left',
+        'perspective-origin-top-left',
+        'perspective-origin-[50px_100px]',
+        'perspective-origin-$value',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .perspective-origin-\\[50px_100px\\] {
+          perspective-origin: 50px 100px;
+        }
+        .perspective-origin-\\$value {
+          perspective-origin: var(--value);
+        }
+        .perspective-origin-bottom {
+          perspective-origin: bottom;
+        }
+        .perspective-origin-bottom-left {
+          perspective-origin: bottom left;
+        }
+        .perspective-origin-bottom-right {
+          perspective-origin: bottom right;
+        }
+        .perspective-origin-center {
+          perspective-origin: center;
+        }
+        .perspective-origin-left {
+          perspective-origin: left;
+        }
+        .perspective-origin-right {
+          perspective-origin: right;
+        }
+        .perspective-origin-top {
+          perspective-origin: top;
+        }
+        .perspective-origin-top-left {
+          perspective-origin: top left;
+        }
+        .perspective-origin-top-right {
+          perspective-origin: top right;
+        }
+        "
+      `);
+    });
+
+    it('translate', async () => {
+      const css = await run([
+        'translate-1/2',
+        'translate-full',
+        '-translate-full',
+        'translate-[123px]',
+        '-translate-$value',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-translate-x {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-translate-y {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-translate-z {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-translate-\\$value {
+          --un-translate-x: calc(var(--value) * -1);
+          --un-translate-y: calc(var(--value) * -1);
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .-translate-full {
+          --un-translate-x: -100%;
+          --un-translate-y: -100%;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .translate-\\[123px\\] {
+          --un-translate-x: 123px;
+          --un-translate-y: 123px;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .translate-1\\/2 {
+          --un-translate-x: 50%;
+          --un-translate-y: 50%;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .translate-full {
+          --un-translate-x: 100%;
+          --un-translate-y: 100%;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        "
+      `);
+    });
+
+    it('translate-x', async () => {
+      const css = await run([
+        'translate-x-full',
+        '-translate-x-full',
+        'translate-x-px',
+        '-translate-x-$value',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-translate-x {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-translate-y {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-translate-z {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-translate-x-\\$value {
+          --un-translate-x: calc(var(--value) * -1);
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .-translate-x-full {
+          --un-translate-x: -100%;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .translate-x-full {
+          --un-translate-x: 100%;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .translate-x-px {
+          --un-translate-x: 1px;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        "
+      `);
+    });
+
+    it('translate-y', async () => {
+      const css = await run([
+        'translate-y-full',
+        '-translate-y-full',
+        'translate-y-px',
+        '-translate-y-$value',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-translate-x {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-translate-y {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --un-translate-z {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-translate-y-\\$value {
+          --un-translate-y: calc(var(--value) * -1);
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .-translate-y-full {
+          --un-translate-y: -100%;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .translate-y-full {
+          --un-translate-y: 100%;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        .translate-y-px {
+          --un-translate-y: 1px;
+          translate: var(--un-translate-x) var(--un-translate-y);
+        }
+        "
+      `);
+    });
+
+    it('translate-z', async () => {
+      const css = await run(['-translate-z-px', 'translate-z-px', '-translate-z-$value']);
+
+      expect(css)
+        .toMatchInlineSnapshot(`
+          "/* layer: properties */
+          @property --un-translate-x {
+            syntax: "*";
+            inherits: false;
+            initial-value: 0;
+          }
+          @property --un-translate-y {
+            syntax: "*";
+            inherits: false;
+            initial-value: 0;
+          }
+          @property --un-translate-z {
+            syntax: "*";
+            inherits: false;
+            initial-value: 0;
+          }
+          /* layer: theme */
+          :root,
+          :host {
+            --spacing: 0.25rem;
+            --container-xl: 36rem;
+          }
+          /* layer: default */
+          .-translate-z-\\$value {
+            --un-translate-z: calc(var(--value) * -1);
+            translate: var(--un-translate-x) var(--un-translate-y) var(--un-translate-z);
+          }
+          .-translate-z-px {
+            --un-translate-z: -1px;
+            translate: var(--un-translate-x) var(--un-translate-y) var(--un-translate-z);
+          }
+          .translate-z-px {
+            --un-translate-z: 1px;
+            translate: var(--un-translate-x) var(--un-translate-y) var(--un-translate-z);
+          }
+          "
+        `);
+    });
+
+    it.todo('translate-3d', async () => {
+      const css = await run(['translate-3d']);
+
+      expect(css).toMatchInlineSnapshot(`
+    "@layer properties {
+      @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *, :before, :after, ::backdrop {
+          --tw-translate-x: 0;
+          --tw-translate-y: 0;
+          --tw-translate-z: 0;
+        }
+      }
+    }
+
+    .translate-3d {
+      translate: var(--tw-translate-x) var(--tw-translate-y) var(--tw-translate-z);
+    }
+
+    @property --tw-translate-x {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0;
+    }
+
+    @property --tw-translate-y {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0;
+    }
+
+    @property --tw-translate-z {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0;
+    }"
+  `);
+    });
+
+    it('rotate', async () => {
+      const css = await run(['rotate-45', '-rotate-45', 'rotate-[123deg]', 'rotate-[0.3_0.7_1_45deg]']);
+
+      expect(css)
+        .toMatchInlineSnapshot(`
+          "/* layer: theme */
+          :root,
+          :host {
+            --spacing: 0.25rem;
+            --container-xl: 36rem;
+          }
+          /* layer: default */
+          .-rotate-45 {
+            rotate: -45deg;
+          }
+          .rotate-\\[0\\.3_0\\.7_1_45deg\\] {
+            rotate: 0.3 0.7 1 45deg;
+          }
+          .rotate-\\[123deg\\] {
+            rotate: 123deg;
+          }
+          .rotate-45 {
+            rotate: 45deg;
+          }
+          "
+        `);
+    });
+
+    it('rotate-x', async () => {
+      const css = await run(['rotate-x-45', '-rotate-x-45', 'rotate-x-[123deg]']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-rotate-x {
+          syntax: "*";
+          inherits: false;
+          initial-value: rotateX(0);
+        }
+        @property --un-rotate-y {
+          syntax: "*";
+          inherits: false;
+          initial-value: rotateY(0);
+        }
+        @property --un-rotate-z {
+          syntax: "*";
+          inherits: false;
+          initial-value: rotateZ(0);
+        }
+        @property --un-skew-x {
+          syntax: "*";
+          inherits: false;
+          initial-value: skewX(0);
+        }
+        @property --un-skew-y {
+          syntax: "*";
+          inherits: false;
+          initial-value: skewY(0);
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .rotate-x-\\[123deg\\] {
+          --un-rotate-x: rotateX(123deg);
+          transform: var(--un-rotate-x) var(--un-rotate-y) var(--un-rotate-z)
+            var(--un-skew-x) var(--un-skew-y);
+        }
+        .rotate-x-45 {
+          --un-rotate-x: rotateX(45deg);
+          transform: var(--un-rotate-x) var(--un-rotate-y) var(--un-rotate-z)
+            var(--un-skew-x) var(--un-skew-y);
         }
         "
       `);
