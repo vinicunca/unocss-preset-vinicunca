@@ -235,96 +235,97 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: properties */
-      @property --un-inset-ring-color {
-        syntax: "*";
-        inherits: false;
-      }
-      @property --un-inset-ring-shadow {
-        syntax: "*";
-        inherits: false;
-        initial-value: 0 0 #0000;
-      }
-      @property --un-inset-shadow {
-        syntax: "*";
-        inherits: false;
-        initial-value: 0 0 #0000;
-      }
-      @property --un-inset-shadow-color {
-        syntax: "*";
-        inherits: false;
-      }
-      @property --un-ring-color {
-        syntax: "*";
-        inherits: false;
-      }
-      @property --un-ring-inset {
-        syntax: "*";
-        inherits: false;
-      }
-      @property --un-ring-offset-color {
-        syntax: "*";
-        inherits: false;
-      }
-      @property --un-ring-offset-shadow {
-        syntax: "*";
-        inherits: false;
-        initial-value: 0 0 #0000;
-      }
-      @property --un-ring-offset-width {
-        syntax: "<length>";
-        inherits: false;
-        initial-value: 0px;
-      }
-      @property --un-ring-shadow {
-        syntax: "*";
-        inherits: false;
-        initial-value: 0 0 #0000;
-      }
-      @property --un-shadow {
-        syntax: "*";
-        inherits: false;
-        initial-value: 0 0 #0000;
-      }
-      @property --un-shadow-color {
-        syntax: "*";
-        inherits: false;
-      }
-      /* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .inset-shadow-sm {
-        --un-shadow: inset 0 2px 4px var(--un-inset-shadow-color, rgb(0 0 0 / 0.05));
-        box-shadow:
-          var(--un-inset-shadow), var(--un-inset-ring-shadow),
-          var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);
-      }
-      .-inset-4 {
-        inset: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-inset-full {
-        inset: -100%;
-      }
-      .inset-\\[4px\\] {
-        inset: 4px;
-      }
-      .inset-3\\/4 {
-        inset: 75%;
-      }
-      .inset-4 {
-        inset: calc(var(--spacing) * 4);
-      }
-      .inset-auto {
-        inset: auto;
-      }
-      .inset-full {
-        inset: 100%;
-      }
-      "
-    `);
+        "/* layer: properties */
+        @property --un-inset-ring-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-inset-ring-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --un-inset-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --un-inset-shadow-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-ring-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-ring-inset {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-ring-offset-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-ring-offset-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --un-ring-offset-width {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0px;
+        }
+        @property --un-ring-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --un-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --un-shadow-color {
+          syntax: "*";
+          inherits: false;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+        }
+        /* layer: default */
+        .inset-shadow-sm {
+          --un-inset-shadow: inset 0 2px 4px
+            var(--un-inset-shadow-color, rgb(0 0 0 / 0.05));
+          box-shadow:
+            var(--un-inset-shadow), var(--un-inset-ring-shadow),
+            var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);
+        }
+        .-inset-4 {
+          inset: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-inset-full {
+          inset: -100%;
+        }
+        .inset-\\[4px\\] {
+          inset: 4px;
+        }
+        .inset-3\\/4 {
+          inset: 75%;
+        }
+        .inset-4 {
+          inset: calc(var(--spacing) * 4);
+        }
+        .inset-auto {
+          inset: auto;
+        }
+        .inset-full {
+          inset: 100%;
+        }
+        "
+      `);
     });
 
     it('inset-x', async () => {
@@ -673,7 +674,7 @@ describe('preset-wind4', async () => {
   });
 
   describe('grid', () => {
-    it.todo('col', async () => {
+    it('col', async () => {
       const css = await run([
         'col-11',
         '-col-12',
@@ -686,29 +687,38 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      } 
-      /* layer: default */
-      .col-\\[span_123\\/span_123\\] {
-        grid-column: span 123 / span 123;
-      }
-      .col-auto {
-        grid-column: auto;
-      }
-      .col-span-17 {
-        grid-column: span 17 / span 17;
-      }
-      .col-span-4 {
-        grid-column: span 4 / span 4;
-      }
-      .col-span-full {
-        grid-column: 1/-1;
-      }
-      "
-    `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+        }
+        /* layer: default */
+        .-col-12 {
+          grid-column: -12;
+        }
+        .col-\\[span_123\\/span_123\\] {
+          grid-column: span 123 / span 123;
+        }
+        .col-11 {
+          grid-column: 11;
+        }
+        .col-auto {
+          grid-column: auto;
+        }
+        .col-span-\\$my-variable {
+          grid-column: span var(--my-variable) / span var(--my-variable);
+        }
+        .col-span-17 {
+          grid-column: span 17 / span 17;
+        }
+        .col-span-4 {
+          grid-column: span 4 / span 4;
+        }
+        .col-span-full {
+          grid-column: 1/-1;
+        }
+        "
+      `);
     });
 
     it('col-start', async () => {
@@ -781,7 +791,7 @@ describe('preset-wind4', async () => {
     `);
     });
 
-    it.todo('row', async () => {
+    it('row', async () => {
       const css = await run([
         'row-11',
         '-row-12',
@@ -794,29 +804,38 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .row-\\[span_123\\/span_123\\] {
-        grid-row: span 123 / span 123;
-      }
-      .row-auto {
-        grid-row: auto;
-      }
-      .row-span-17 {
-        grid-row: span 17 / span 17;
-      }
-      .row-span-4 {
-        grid-row: span 4 / span 4;
-      }
-      .row-span-full {
-        grid-row: 1/-1;
-      }
-      "
-    `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+        }
+        /* layer: default */
+        .-row-12 {
+          grid-row: -12;
+        }
+        .row-\\[span_123\\/span_123\\] {
+          grid-row: span 123 / span 123;
+        }
+        .row-11 {
+          grid-row: 11;
+        }
+        .row-auto {
+          grid-row: auto;
+        }
+        .row-span-\\$my-variable {
+          grid-row: span var(--my-variable) / span var(--my-variable);
+        }
+        .row-span-17 {
+          grid-row: span 17 / span 17;
+        }
+        .row-span-4 {
+          grid-row: span 4 / span 4;
+        }
+        .row-span-full {
+          grid-row: 1/-1;
+        }
+        "
+      `);
     });
 
     it('row-start', async () => {
@@ -2814,7 +2833,7 @@ describe('preset-wind4', async () => {
   });
 
   describe('layout position', () => {
-    it.todo('align-content', async () => {
+    it('align-content', async () => {
       const css = await run([
         'content-around',
         'content-baseline',
@@ -2830,53 +2849,51 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".content-around {
-      align-content: space-around;
-    }
-
-    .content-baseline {
-      align-content: baseline;
-    }
-
-    .content-between {
-      align-content: space-between;
-    }
-
-    .content-center {
-      align-content: center;
-    }
-
-    .content-center-safe {
-      align-content: safe center;
-    }
-
-    .content-end {
-      align-content: flex-end;
-    }
-
-    .content-end-safe {
-      align-content: safe flex-end;
-    }
-
-    .content-evenly {
-      align-content: space-evenly;
-    }
-
-    .content-normal {
-      align-content: normal;
-    }
-
-    .content-start {
-      align-content: flex-start;
-    }
-
-    .content-stretch {
-      align-content: stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .content-center {
+          align-content: center;
+        }
+        .content-start {
+          align-content: flex-start;
+        }
+        .content-end {
+          align-content: flex-end;
+        }
+        .content-between {
+          align-content: space-between;
+        }
+        .content-around {
+          align-content: space-around;
+        }
+        .content-evenly {
+          align-content: space-evenly;
+        }
+        .content-baseline {
+          align-content: baseline;
+        }
+        .content-center-safe {
+          align-content: safe center;
+        }
+        .content-end-safe {
+          align-content: safe flex-end;
+        }
+        .content-stretch {
+          align-content: stretch;
+        }
+        .content-normal {
+          align-content: normal;
+        }
+        "
+      `);
     });
 
-    it.todo('items', async () => {
+    it('items', async () => {
       const css = await run([
         'items-start',
         'items-end',
@@ -2889,41 +2906,42 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".items-baseline {
-      align-items: baseline;
-    }
-
-    .items-baseline-last {
-      align-items: last baseline;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .items-center-safe {
-      align-items: safe center;
-    }
-
-    .items-end {
-      align-items: flex-end;
-    }
-
-    .items-end-safe {
-      align-items: safe flex-end;
-    }
-
-    .items-start {
-      align-items: flex-start;
-    }
-
-    .items-stretch {
-      align-items: stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .items-start {
+          align-items: flex-start;
+        }
+        .items-end {
+          align-items: flex-end;
+        }
+        .items-center {
+          align-items: center;
+        }
+        .items-baseline {
+          align-items: baseline;
+        }
+        .items-stretch {
+          align-items: stretch;
+        }
+        .items-baseline-last {
+          align-items: last baseline;
+        }
+        .items-center-safe {
+          align-items: safe center;
+        }
+        .items-end-safe {
+          align-items: safe flex-end;
+        }
+        "
+      `);
     });
 
-    it.todo('justify', async () => {
+    it('justify', async () => {
       const css = await run([
         'justify-normal',
         'justify-start',
@@ -2938,49 +2956,48 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".justify-around {
-      justify-content: space-around;
-    }
-
-    .justify-between {
-      justify-content: space-between;
-    }
-
-    .justify-center {
-      justify-content: center;
-    }
-
-    .justify-center-safe {
-      justify-content: safe center;
-    }
-
-    .justify-end {
-      justify-content: flex-end;
-    }
-
-    .justify-end-safe {
-      justify-content: safe flex-end;
-    }
-
-    .justify-evenly {
-      justify-content: space-evenly;
-    }
-
-    .justify-normal {
-      justify-content: normal;
-    }
-
-    .justify-start {
-      justify-content: flex-start;
-    }
-
-    .justify-stretch {
-      justify-content: stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .justify-start {
+          justify-content: flex-start;
+        }
+        .justify-end {
+          justify-content: flex-end;
+        }
+        .justify-center {
+          justify-content: center;
+        }
+        .justify-between {
+          justify-content: space-between;
+        }
+        .justify-around {
+          justify-content: space-around;
+        }
+        .justify-evenly {
+          justify-content: space-evenly;
+        }
+        .justify-stretch {
+          justify-content: stretch;
+        }
+        .justify-center-safe {
+          justify-content: safe center;
+        }
+        .justify-end-safe {
+          justify-content: safe flex-end;
+        }
+        .justify-normal {
+          justify-content: normal;
+        }
+        "
+      `);
     });
 
-    it.todo('justify-items', async () => {
+    it('justify-items', async () => {
       const css = await run([
         'justify-items-start',
         'justify-items-end',
@@ -2991,33 +3008,36 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".justify-items-center {
-      justify-items: center;
-    }
-
-    .justify-items-center-safe {
-      justify-items: safe center;
-    }
-
-    .justify-items-end {
-      justify-items: end;
-    }
-
-    .justify-items-end-safe {
-      justify-items: safe end;
-    }
-
-    .justify-items-start {
-      justify-items: start;
-    }
-
-    .justify-items-stretch {
-      justify-items: stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .justify-items-start {
+          justify-items: start;
+        }
+        .justify-items-end {
+          justify-items: end;
+        }
+        .justify-items-center {
+          justify-items: center;
+        }
+        .justify-items-stretch {
+          justify-items: stretch;
+        }
+        .justify-items-center-safe {
+          justify-items: safe center;
+        }
+        .justify-items-end-safe {
+          justify-items: safe flex-end;
+        }
+        "
+      `);
     });
 
-    it.todo('self', async () => {
+    it('self', async () => {
       const css = await run([
         'self-auto',
         'self-start',
@@ -3031,45 +3051,45 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".self-auto {
-      align-self: auto;
-    }
-
-    .self-baseline {
-      align-self: baseline;
-    }
-
-    .self-baseline-last {
-      align-self: last baseline;
-    }
-
-    .self-center {
-      align-self: center;
-    }
-
-    .self-center-safe {
-      align-self: safe center;
-    }
-
-    .self-end {
-      align-self: flex-end;
-    }
-
-    .self-end-safe {
-      align-self: safe flex-end;
-    }
-
-    .self-start {
-      align-self: flex-start;
-    }
-
-    .self-stretch {
-      align-self: stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .self-auto {
+          align-self: auto;
+        }
+        .self-start {
+          align-self: flex-start;
+        }
+        .self-end {
+          align-self: flex-end;
+        }
+        .self-center {
+          align-self: center;
+        }
+        .self-stretch {
+          align-self: stretch;
+        }
+        .self-baseline {
+          align-self: baseline;
+        }
+        .self-baseline-last {
+          align-self: last baseline;
+        }
+        .self-center-safe {
+          align-self: safe center;
+        }
+        .self-end-safe {
+          align-self: safe flex-end;
+        }
+        "
+      `);
     });
 
-    it.todo('justify-self', async () => {
+    it('justify-self', async () => {
       const css = await run([
         'justify-self-auto',
         'justify-self-start',
@@ -3082,37 +3102,42 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".justify-self-auto {
-      justify-self: auto;
-    }
-
-    .justify-self-center {
-      justify-self: center;
-    }
-
-    .justify-self-center-safe {
-      justify-self: safe center;
-    }
-
-    .justify-self-end {
-      justify-self: flex-end;
-    }
-
-    .justify-self-end-safe {
-      justify-self: safe flex-end;
-    }
-
-    .justify-self-start {
-      justify-self: flex-start;
-    }
-
-    .justify-self-stretch {
-      justify-self: stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .justify-self-auto {
+          justify-self: auto;
+        }
+        .justify-self-start {
+          justify-self: start;
+        }
+        .justify-self-end {
+          justify-self: end;
+        }
+        .justify-self-center {
+          justify-self: center;
+        }
+        .justify-self-stretch {
+          justify-self: stretch;
+        }
+        .justify-self-baseline {
+          justify-self: baseline;
+        }
+        .justify-self-center-safe {
+          justify-self: safe center;
+        }
+        .justify-self-end-safe {
+          justify-self: safe flex-end;
+        }
+        "
+      `);
     });
 
-    it.todo('place-content', async () => {
+    it('place-content', async () => {
       const css = await run([
         'place-content-center',
         'place-content-center-safe',
@@ -3127,49 +3152,48 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".place-content-around {
-      place-content: space-around;
-    }
-
-    .place-content-baseline {
-      place-content: baseline start;
-    }
-
-    .place-content-between {
-      place-content: space-between;
-    }
-
-    .place-content-center {
-      place-content: center;
-    }
-
-    .place-content-center-safe {
-      place-content: safe center;
-    }
-
-    .place-content-end {
-      place-content: end;
-    }
-
-    .place-content-end-safe {
-      place-content: safe end;
-    }
-
-    .place-content-evenly {
-      place-content: space-evenly;
-    }
-
-    .place-content-start {
-      place-content: start;
-    }
-
-    .place-content-stretch {
-      place-content: stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .place-content-center {
+          place-content: center;
+        }
+        .place-content-start {
+          place-content: start;
+        }
+        .place-content-end {
+          place-content: end;
+        }
+        .place-content-between {
+          place-content: space-between;
+        }
+        .place-content-around {
+          place-content: space-around;
+        }
+        .place-content-evenly {
+          place-content: space-evenly;
+        }
+        .place-content-stretch {
+          place-content: stretch;
+        }
+        .place-content-baseline {
+          place-content: baseline;
+        }
+        .place-content-center-safe {
+          place-content: safe center;
+        }
+        .place-content-end-safe {
+          place-content: safe flex-end;
+        }
+        "
+      `);
     });
 
-    it.todo('place-items', async () => {
+    it('place-items', async () => {
       const css = await run([
         'place-items-start',
         'place-items-end',
@@ -3181,37 +3205,39 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".place-items-baseline {
-      place-items: baseline;
-    }
-
-    .place-items-center {
-      place-items: center;
-    }
-
-    .place-items-center-safe {
-      place-items: safe center;
-    }
-
-    .place-items-end {
-      place-items: end;
-    }
-
-    .place-items-end-safe {
-      place-items: safe end;
-    }
-
-    .place-items-start {
-      place-items: start;
-    }
-
-    .place-items-stretch {
-      place-items: stretch stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .place-items-start {
+          place-items: start;
+        }
+        .place-items-end {
+          place-items: end;
+        }
+        .place-items-center {
+          place-items: center;
+        }
+        .place-items-stretch {
+          place-items: stretch;
+        }
+        .place-items-baseline {
+          place-items: baseline;
+        }
+        .place-items-center-safe {
+          place-items: safe center;
+        }
+        .place-items-end-safe {
+          place-items: safe flex-end;
+        }
+        "
+      `);
     });
 
-    it.todo('place-self', async () => {
+    it('place-self', async () => {
       const css = await run([
         'place-self-auto',
         'place-self-start',
@@ -3223,34 +3249,36 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-    ".place-self-auto {
-      place-self: auto;
-    }
-
-    .place-self-center {
-      place-self: center;
-    }
-
-    .place-self-center-safe {
-      place-self: safe center;
-    }
-
-    .place-self-end {
-      place-self: end;
-    }
-
-    .place-self-end-safe {
-      place-self: safe end;
-    }
-
-    .place-self-start {
-      place-self: start;
-    }
-
-    .place-self-stretch {
-      place-self: stretch stretch;
-    }"
-  `);
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .place-self-auto {
+          place-self: auto;
+        }
+        .place-self-start {
+          place-self: start;
+        }
+        .place-self-end {
+          place-self: end;
+        }
+        .place-self-center {
+          place-self: center;
+        }
+        .place-self-stretch {
+          place-self: stretch;
+        }
+        .place-self-center-safe {
+          place-self: safe center;
+        }
+        .place-self-end-safe {
+          place-self: safe flex-end;
+        }
+        "
+      `);
     });
 
     it('gap', async () => {
@@ -3986,5 +4014,344 @@ describe('preset-wind4', async () => {
         "
       `);
     });
+  });
+
+  it('cursor', async () => {
+    const css = await run([
+      'cursor-auto',
+      'cursor-default',
+      'cursor-pointer',
+      'cursor-wait',
+      'cursor-text',
+      'cursor-move',
+      'cursor-help',
+      'cursor-not-allowed',
+      'cursor-none',
+      'cursor-context-menu',
+      'cursor-progress',
+      'cursor-cell',
+      'cursor-crosshair',
+      'cursor-vertical-text',
+      'cursor-alias',
+      'cursor-copy',
+      'cursor-no-drop',
+      'cursor-grab',
+      'cursor-grabbing',
+      'cursor-all-scroll',
+      'cursor-col-resize',
+      'cursor-row-resize',
+      'cursor-n-resize',
+      'cursor-e-resize',
+      'cursor-s-resize',
+      'cursor-w-resize',
+      'cursor-ne-resize',
+      'cursor-nw-resize',
+      'cursor-se-resize',
+      'cursor-sw-resize',
+      'cursor-ew-resize',
+      'cursor-ns-resize',
+      'cursor-nesw-resize',
+      'cursor-nwse-resize',
+      'cursor-zoom-in',
+      'cursor-zoom-out',
+      'cursor-$value',
+      // TODO: consider to implement custom cursor like getting from an url of an image
+      // 'cursor-custom',
+    ]);
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .cursor-\\$value {
+        cursor: var(--value);
+      }
+      .cursor-auto {
+        cursor: auto;
+      }
+      .cursor-default {
+        cursor: default;
+      }
+      .cursor-none {
+        cursor: none;
+      }
+      .cursor-context-menu {
+        cursor: context-menu;
+      }
+      .cursor-help {
+        cursor: help;
+      }
+      .cursor-pointer {
+        cursor: pointer;
+      }
+      .cursor-progress {
+        cursor: progress;
+      }
+      .cursor-wait {
+        cursor: wait;
+      }
+      .cursor-cell {
+        cursor: cell;
+      }
+      .cursor-crosshair {
+        cursor: crosshair;
+      }
+      .cursor-text {
+        cursor: text;
+      }
+      .cursor-vertical-text {
+        cursor: vertical-text;
+      }
+      .cursor-alias {
+        cursor: alias;
+      }
+      .cursor-copy {
+        cursor: copy;
+      }
+      .cursor-move {
+        cursor: move;
+      }
+      .cursor-no-drop {
+        cursor: no-drop;
+      }
+      .cursor-not-allowed {
+        cursor: not-allowed;
+      }
+      .cursor-grab {
+        cursor: grab;
+      }
+      .cursor-grabbing {
+        cursor: grabbing;
+      }
+      .cursor-all-scroll {
+        cursor: all-scroll;
+      }
+      .cursor-col-resize {
+        cursor: col-resize;
+      }
+      .cursor-row-resize {
+        cursor: row-resize;
+      }
+      .cursor-n-resize {
+        cursor: n-resize;
+      }
+      .cursor-e-resize {
+        cursor: e-resize;
+      }
+      .cursor-s-resize {
+        cursor: s-resize;
+      }
+      .cursor-w-resize {
+        cursor: w-resize;
+      }
+      .cursor-ne-resize {
+        cursor: ne-resize;
+      }
+      .cursor-nw-resize {
+        cursor: nw-resize;
+      }
+      .cursor-se-resize {
+        cursor: se-resize;
+      }
+      .cursor-sw-resize {
+        cursor: sw-resize;
+      }
+      .cursor-ew-resize {
+        cursor: ew-resize;
+      }
+      .cursor-ns-resize {
+        cursor: ns-resize;
+      }
+      .cursor-nesw-resize {
+        cursor: nesw-resize;
+      }
+      .cursor-nwse-resize {
+        cursor: nwse-resize;
+      }
+      .cursor-zoom-in {
+        cursor: zoom-in;
+      }
+      .cursor-zoom-out {
+        cursor: zoom-out;
+      }
+      "
+    `);
+  });
+
+  describe('touch', () => {
+    it('touch-action', async () => {
+      const css = await run(['touch-auto', 'touch-none', 'touch-manipulation']);
+      expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .touch-auto {
+        touch-action: auto;
+      }
+      .touch-manipulation {
+        touch-action: manipulation;
+      }
+      .touch-none {
+        touch-action: none;
+      }
+      "
+    `);
+    });
+
+    it('touch-pan', async () => {
+      const css = await run([
+        'touch-pan-x',
+        'touch-pan-left',
+        'touch-pan-right',
+        'touch-pan-y',
+        'touch-pan-up',
+        'touch-pan-down',
+      ]);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-pan-x {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-pan-y {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-pinch-zoom {
+          syntax: "*";
+          inherits: false;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .touch-pan-left {
+          --un-pan-x: pan-left;
+          touch-action: var(--un-pan-x) var(--un-pan-y) var(--un-pinch-zoom);
+        }
+        .touch-pan-right {
+          --un-pan-x: pan-right;
+          touch-action: var(--un-pan-x) var(--un-pan-y) var(--un-pinch-zoom);
+        }
+        .touch-pan-x {
+          --un-pan-x: pan-x;
+          touch-action: var(--un-pan-x) var(--un-pan-y) var(--un-pinch-zoom);
+        }
+        .touch-pan-down {
+          --un-pan-y: pan-down;
+          touch-action: var(--un-pan-x) var(--un-pan-y) var(--un-pinch-zoom);
+        }
+        .touch-pan-up {
+          --un-pan-y: pan-up;
+          touch-action: var(--un-pan-x) var(--un-pan-y) var(--un-pinch-zoom);
+        }
+        .touch-pan-y {
+          --un-pan-y: pan-y;
+          touch-action: var(--un-pan-x) var(--un-pan-y) var(--un-pinch-zoom);
+        }
+        "
+      `);
+    });
+
+    it('touch-pinch-zoom', async () => {
+      const css = await run(['touch-pinch-zoom']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-pan-x {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-pan-y {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --un-pinch-zoom {
+          syntax: "*";
+          inherits: false;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .touch-pinch-zoom {
+          --un-pinch-zoom: pinch-zoom;
+          touch-action: var(--un-pan-x) var(--un-pan-y) var(--un-pinch-zoom);
+        }
+        "
+      `);
+    });
+  });
+
+  it('select', async () => {
+    const css = await run(['select-none', 'select-text', 'select-all', 'select-auto']);
+
+    expect(css)
+      .toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .select-auto {
+          -webkit-user-select: auto;
+          user-select: auto;
+        }
+        .select-all {
+          -webkit-user-select: all;
+          user-select: all;
+        }
+        .select-text {
+          -webkit-user-select: text;
+          user-select: text;
+        }
+        .select-none {
+          -webkit-user-select: none;
+          user-select: none;
+        }
+        "
+      `);
+  });
+
+  it('resize', async () => {
+    const css = await run(['resize-none', 'resize', 'resize-x', 'resize-y']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .resize-x {
+        resize: horizontal;
+      }
+      .resize-y {
+        resize: vertical;
+      }
+      .resize {
+        resize: both;
+      }
+      .resize-none {
+        resize: none;
+      }
+      "
+    `);
   });
 });
