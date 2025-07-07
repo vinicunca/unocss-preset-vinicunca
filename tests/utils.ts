@@ -28,6 +28,9 @@ export async function getCssFromUnoWithoutPreflights(
     options: {
       ...options,
       preflights: false,
+      wind: {
+        preflight: false,
+      },
     },
     code,
   });
