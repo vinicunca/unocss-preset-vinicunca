@@ -4354,4 +4354,1590 @@ describe('preset-wind4', async () => {
       "
     `);
   });
+
+  describe('scroll', () => {
+    it('scroll-snap-type', async () => {
+      const css = await run(['snap-none', 'snap-x', 'snap-y', 'snap-both']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-scroll-snap-strictness {
+          syntax: "*";
+          inherits: false;
+          initial-value: proximity;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .snap-both {
+          scroll-snap-type: both var(--un-scroll-snap-strictness);
+        }
+        .snap-x {
+          scroll-snap-type: x var(--un-scroll-snap-strictness);
+        }
+        .snap-y {
+          scroll-snap-type: y var(--un-scroll-snap-strictness);
+        }
+        .snap-none {
+          scroll-snap-type: none;
+        }
+        "
+      `);
+    });
+
+    it('--un-scroll-snap-strictness', async () => {
+      const css = await run(['snap-mandatory', 'snap-proximity']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-scroll-snap-strictness {
+          syntax: "*";
+          inherits: false;
+          initial-value: proximity;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .snap-mandatory {
+          --un-scroll-snap-strictness: mandatory;
+        }
+        .snap-proximity {
+          --un-scroll-snap-strictness: proximity;
+        }
+        "
+      `);
+    });
+
+    it('scroll-snap-align', async () => {
+      const css = await run(['snap-align-none', 'snap-start', 'snap-end', 'snap-center']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .snap-start {
+          scroll-snap-align: start;
+        }
+        .snap-end {
+          scroll-snap-align: end;
+        }
+        .snap-center {
+          scroll-snap-align: center;
+        }
+        .snap-align-none {
+          scroll-snap-align: none;
+        }
+        "
+      `);
+    });
+
+    it('scroll-snap-stop', async () => {
+      const css = await run(['snap-normal', 'snap-always']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .snap-normal {
+          scroll-snap-stop: normal;
+        }
+        .snap-always {
+          scroll-snap-stop: always;
+        }
+        "
+      `);
+    });
+
+    it('scroll-m', async () => {
+      const css = await run(['scroll-m-4', 'scroll-m-[4px]', '-scroll-m-4', '-scroll-m-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-m-\\$value {
+          scroll-margin: calc(var(--value) * -1);
+        }
+        .-scroll-m-4 {
+          scroll-margin: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-m-\\[4px\\] {
+          scroll-margin: 4px;
+        }
+        .scroll-m-4 {
+          scroll-margin: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-mx', async () => {
+      const css = await run(['scroll-mx-4', 'scroll-mx-[4px]', '-scroll-mx-4', '-scroll-mx-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-mx-\\$value {
+          scroll-margin-inline: calc(var(--value) * -1);
+        }
+        .-scroll-mx-4 {
+          scroll-margin-inline: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-mx-\\[4px\\] {
+          scroll-margin-inline: 4px;
+        }
+        .scroll-mx-4 {
+          scroll-margin-inline: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-my', async () => {
+      const css = await run(['scroll-my-4', 'scroll-my-[4px]', '-scroll-my-4', '-scroll-my-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-my-\\$value {
+          scroll-margin-block: calc(var(--value) * -1);
+        }
+        .-scroll-my-4 {
+          scroll-margin-block: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-my-\\[4px\\] {
+          scroll-margin-block: 4px;
+        }
+        .scroll-my-4 {
+          scroll-margin-block: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-mis', async () => {
+      const css = await run(['scroll-mis-4', 'scroll-mis-[4px]', '-scroll-mis-4', '-scroll-mis-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-mis-\\$value {
+          scroll-margin-inline-start: calc(var(--value) * -1);
+        }
+        .-scroll-mis-4 {
+          scroll-margin-inline-start: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-mis-\\[4px\\] {
+          scroll-margin-inline-start: 4px;
+        }
+        .scroll-mis-4 {
+          scroll-margin-inline-start: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-mie', async () => {
+      const css = await run(['scroll-mie-4', 'scroll-mie-[4px]', '-scroll-mie-4', '-scroll-mie-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-mie-\\$value {
+          scroll-margin-inline-end: calc(var(--value) * -1);
+        }
+        .-scroll-mie-4 {
+          scroll-margin-inline-end: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-mie-\\[4px\\] {
+          scroll-margin-inline-end: 4px;
+        }
+        .scroll-mie-4 {
+          scroll-margin-inline-end: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-mt', async () => {
+      const css = await run(['scroll-mt-4', 'scroll-mt-[4px]', '-scroll-mt-4', '-scroll-mt-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-mt-\\$value {
+          scroll-margin-top: calc(var(--value) * -1);
+        }
+        .-scroll-mt-4 {
+          scroll-margin-top: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-mt-\\[4px\\] {
+          scroll-margin-top: 4px;
+        }
+        .scroll-mt-4 {
+          scroll-margin-top: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-mr', async () => {
+      const css = await run(['scroll-mr-4', 'scroll-mr-[4px]', '-scroll-mr-4', '-scroll-mr-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-mr-\\$value {
+          scroll-margin-right: calc(var(--value) * -1);
+        }
+        .-scroll-mr-4 {
+          scroll-margin-right: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-mr-\\[4px\\] {
+          scroll-margin-right: 4px;
+        }
+        .scroll-mr-4 {
+          scroll-margin-right: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-mb', async () => {
+      const css = await run(['scroll-mb-4', 'scroll-mb-[4px]', '-scroll-mb-4', '-scroll-mb-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-mb-\\$value {
+          scroll-margin-bottom: calc(var(--value) * -1);
+        }
+        .-scroll-mb-4 {
+          scroll-margin-bottom: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-mb-\\[4px\\] {
+          scroll-margin-bottom: 4px;
+        }
+        .scroll-mb-4 {
+          scroll-margin-bottom: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-ml', async () => {
+      const css = await run(['scroll-ml-4', 'scroll-ml-[4px]', '-scroll-ml-4', '-scroll-ml-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-ml-\\$value {
+          scroll-margin-left: calc(var(--value) * -1);
+        }
+        .-scroll-ml-4 {
+          scroll-margin-left: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-ml-\\[4px\\] {
+          scroll-margin-left: 4px;
+        }
+        .scroll-ml-4 {
+          scroll-margin-left: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-p', async () => {
+      const css = await run(['scroll-p-4', 'scroll-p-[4px]', '-scroll-p-4', '-scroll-p-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-p-\\$value {
+          scroll-padding: calc(var(--value) * -1);
+        }
+        .-scroll-p-4 {
+          scroll-padding: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-p-\\[4px\\] {
+          scroll-padding: 4px;
+        }
+        .scroll-p-4 {
+          scroll-padding: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-px', async () => {
+      const css = await run(['scroll-px-4', 'scroll-px-[4px]', '-scroll-px-4', '-scroll-px-$value']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-px-\\$value {
+          scroll-padding-inline: calc(var(--value) * -1);
+        }
+        .-scroll-px-4 {
+          scroll-padding-inline: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-px-\\[4px\\] {
+          scroll-padding-inline: 4px;
+        }
+        .scroll-px-4 {
+          scroll-padding-inline: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-py', async () => {
+      const css = await run(['scroll-py-4', 'scroll-py-[4px]', '-scroll-py-4', '-scroll-py-$value']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-py-\\$value {
+          scroll-padding-block: calc(var(--value) * -1);
+        }
+        .-scroll-py-4 {
+          scroll-padding-block: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-py-\\[4px\\] {
+          scroll-padding-block: 4px;
+        }
+        .scroll-py-4 {
+          scroll-padding-block: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-pis', async () => {
+      const css = await run(['scroll-pis-4', 'scroll-pis-[4px]', '-scroll-pis-4', '-scroll-pis-$value']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-pis-\\$value {
+          scroll-padding-inline-start: calc(var(--value) * -1);
+        }
+        .-scroll-pis-4 {
+          scroll-padding-inline-start: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-pis-\\[4px\\] {
+          scroll-padding-inline-start: 4px;
+        }
+        .scroll-pis-4 {
+          scroll-padding-inline-start: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-pie', async () => {
+      const css = await run(['scroll-pie-4', 'scroll-pie-[4px]', '-scroll-pie-4', '-scroll-pie-$value']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-pie-\\$value {
+          scroll-padding-inline-end: calc(var(--value) * -1);
+        }
+        .-scroll-pie-4 {
+          scroll-padding-inline-end: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-pie-\\[4px\\] {
+          scroll-padding-inline-end: 4px;
+        }
+        .scroll-pie-4 {
+          scroll-padding-inline-end: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-pt', async () => {
+      const css = await run(['scroll-pt-4', 'scroll-pt-[4px]', '-scroll-pt-4', '-scroll-pt-$value']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-pt-\\$value {
+          scroll-padding-top: calc(var(--value) * -1);
+        }
+        .-scroll-pt-4 {
+          scroll-padding-top: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-pt-\\[4px\\] {
+          scroll-padding-top: 4px;
+        }
+        .scroll-pt-4 {
+          scroll-padding-top: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-pr', async () => {
+      const css = await run(['scroll-pr-4', 'scroll-pr-[4px]', '-scroll-pr-4', '-scroll-pr-$value']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-pr-\\$value {
+          scroll-padding-right: calc(var(--value) * -1);
+        }
+        .-scroll-pr-4 {
+          scroll-padding-right: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-pr-\\[4px\\] {
+          scroll-padding-right: 4px;
+        }
+        .scroll-pr-4 {
+          scroll-padding-right: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-pb', async () => {
+      const css = await run(['scroll-pb-4', 'scroll-pb-[4px]', '-scroll-pb-4', '-scroll-pb-$value']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-pb-\\$value {
+          scroll-padding-bottom: calc(var(--value) * -1);
+        }
+        .-scroll-pb-4 {
+          scroll-padding-bottom: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-pb-\\[4px\\] {
+          scroll-padding-bottom: 4px;
+        }
+        .scroll-pb-4 {
+          scroll-padding-bottom: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-pl', async () => {
+      const css = await run(['scroll-pl-4', 'scroll-pl-[4px]', '-scroll-pl-4', '-scroll-pl-$value']);
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-scroll-pl-\\$value {
+          scroll-padding-left: calc(var(--value) * -1);
+        }
+        .-scroll-pl-4 {
+          scroll-padding-left: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .scroll-pl-\\[4px\\] {
+          scroll-padding-left: 4px;
+        }
+        .scroll-pl-4 {
+          scroll-padding-left: calc(var(--spacing) * 4);
+        }
+        "
+      `);
+    });
+
+    it('scroll-behavior', async () => {
+      const css = await run(['scroll-auto', 'scroll-smooth']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .scroll-auto {
+          scroll-behavior: auto;
+        }
+        .scroll-smooth {
+          scroll-behavior: smooth;
+        }
+        "
+      `);
+    });
+  });
+
+  describe('list', () => {
+    it('list-style-position', async () => {
+      const css = await run(['list-inside', 'list-outside']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .list-outside {
+          list-style-position: outside;
+        }
+        .list-inside {
+          list-style-position: inside;
+        }
+        "
+      `);
+    });
+
+    it.todo('list', async () => {
+      const css = await run(['list-none', 'list-disc', 'list-decimal', 'list-$value']);
+      expect(css)
+        .toMatchInlineSnapshot(`
+      ".list-\\[var\\(--value\\)\\] {
+        list-style-type: var(--value);
+      }
+
+      .list-decimal {
+        list-style-type: decimal;
+      }
+
+      .list-disc {
+        list-style-type: disc;
+      }
+
+      .list-none {
+        list-style-type: none;
+      }"
+    `);
+    });
+
+    it.todo('list-image', async () => {
+      const css = await run(['list-image-none', 'list-image-$value']);
+      expect(css).toMatchInlineSnapshot(`
+    ".list-image-\\[var\\(--value\\)\\] {
+      list-style-image: var(--value);
+    }
+
+    .list-image-none {
+      list-style-image: none;
+    }"
+  `);
+    });
+  });
+
+  it('appearance', async () => {
+    const css = await run(['appearance-none', 'appearance-auto']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .appearance-auto {
+        -webkit-appearance: auto;
+        appearance: auto;
+      }
+      .appearance-none {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      "
+    `);
+  });
+
+  it('color-scheme', async () => {
+    const css = await run([
+      'scheme-normal',
+      'scheme-dark',
+      'scheme-light',
+      'scheme-light-dark',
+      'scheme-only-dark',
+      'scheme-only-light',
+    ]);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .scheme-dark {
+        color-scheme: dark;
+      }
+      .scheme-light {
+        color-scheme: light;
+      }
+      .scheme-light-dark {
+        color-scheme: light dark;
+      }
+      .scheme-normal {
+        color-scheme: normal;
+      }
+      .scheme-only-dark {
+        color-scheme: only dark;
+      }
+      .scheme-only-light {
+        color-scheme: only light;
+      }
+      "
+    `);
+  });
+
+  it.todo('columns', async () => {
+    const css = await run([
+      'columns-auto',
+      'columns-3xs',
+      'columns-7xl',
+      'columns-4',
+      'columns-99',
+      'columns-[123]',
+      // 'columns-$value',
+    ]);
+
+    expect(css).toMatchInlineSnapshot(`
+    ":root, :host {
+      --container-3xs: 16rem;
+      --container-7xl: 80rem;
+    }
+
+    .columns-3xs {
+      columns: var(--container-3xs);
+    }
+
+    .columns-4 {
+      columns: 4;
+    }
+
+    .columns-7xl {
+      columns: var(--container-7xl);
+    }
+
+    .columns-99 {
+      columns: 99;
+    }
+
+    .columns-\\[123\\] {
+      columns: 123;
+    }
+
+    .columns-\\[var\\(--value\\)\\] {
+      columns: var(--value);
+    }
+
+    .columns-auto {
+      columns: auto;
+    }"
+  `);
+  });
+
+  describe('break', async () => {
+    it('break-before', async () => {
+      const css = await run([
+        'break-before-auto',
+        'break-before-avoid',
+        'break-before-all',
+        'break-before-avoid-page',
+        'break-before-page',
+        'break-before-left',
+        'break-before-right',
+        'break-before-column',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .break-before-auto {
+          break-before: auto;
+        }
+        .break-before-avoid {
+          break-before: avoid;
+        }
+        .break-before-all {
+          break-before: all;
+        }
+        .break-before-avoid-page {
+          break-before: avoid-page;
+        }
+        .break-before-page {
+          break-before: page;
+        }
+        .break-before-left {
+          break-before: left;
+        }
+        .break-before-right {
+          break-before: right;
+        }
+        .break-before-column {
+          break-before: column;
+        }
+        "
+      `);
+    });
+
+    it('break-inside', async () => {
+      const css = await run([
+        'break-inside-auto',
+        'break-inside-avoid',
+        'break-inside-avoid-page',
+        'break-inside-avoid-column',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .break-inside-auto {
+          break-inside: auto;
+        }
+        .break-inside-avoid {
+          break-inside: avoid;
+        }
+        .break-inside-avoid-page {
+          break-inside: avoid-page;
+        }
+        .break-inside-avoid-column {
+          break-inside: avoid-column;
+        }
+        "
+      `);
+    });
+
+    it('break-after', async () => {
+      const css = await run([
+        'break-after-auto',
+        'break-after-avoid',
+        'break-after-all',
+        'break-after-avoid-page',
+        'break-after-page',
+        'break-after-left',
+        'break-after-right',
+        'break-after-column',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .break-after-auto {
+          break-after: auto;
+        }
+        .break-after-avoid {
+          break-after: avoid;
+        }
+        .break-after-all {
+          break-after: all;
+        }
+        .break-after-avoid-page {
+          break-after: avoid-page;
+        }
+        .break-after-page {
+          break-after: page;
+        }
+        .break-after-left {
+          break-after: left;
+        }
+        .break-after-right {
+          break-after: right;
+        }
+        .break-after-column {
+          break-after: column;
+        }
+        "
+      `);
+    });
+  });
+
+  describe('space', async () => {
+    it('space-x', async () => {
+      const css = await run(['space-x-4', 'space-x-[4px]', '-space-x-4']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-space-x-reverse {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .space-x-\\[4px\\] > :not(:last-child) {
+          --un-space-x-reverse: 0;
+          margin-inline-start: calc(4px * var(--un-space-x-reverse));
+          margin-inline-end: calc(4px * calc(1 - var(--un-space-x-reverse)));
+        }
+        .space-x-4 > :not(:last-child) {
+          --un-space-x-reverse: 0;
+          margin-inline-start: calc(
+            calc(var(--spacing) * 4) * var(--un-space-x-reverse)
+          );
+          margin-inline-end: calc(
+            calc(var(--spacing) * 4) * calc(1 - var(--un-space-x-reverse))
+          );
+        }
+        "
+      `);
+    });
+
+    it('space-y', async () => {
+      const css = await run(['space-y-4', 'space-y-[4px]', '-space-y-4']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-space-y-reverse {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .space-y-\\[4px\\] > :not(:last-child) {
+          --un-space-y-reverse: 0;
+          margin-block-start: calc(4px * var(--un-space-y-reverse));
+          margin-block-end: calc(4px * calc(1 - var(--un-space-y-reverse)));
+        }
+        .space-y-4 > :not(:last-child) {
+          --un-space-y-reverse: 0;
+          margin-block-start: calc(
+            calc(var(--spacing) * 4) * var(--un-space-y-reverse)
+          );
+          margin-block-end: calc(
+            calc(var(--spacing) * 4) * calc(1 - var(--un-space-y-reverse))
+          );
+        }
+        "
+      `);
+    });
+
+    it('space-x-reverse', async () => {
+      const css = await run(['space-x-reverse']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-space-x-reverse {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .space-x-reverse > :not(:last-child) {
+          --un-space-x-reverse: 1;
+        }
+        "
+      `);
+    });
+
+    it('space-y-reverse', async () => {
+      const css = await run(['space-y-reverse']);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @property --un-space-y-reverse {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        /* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .space-y-reverse > :not(:last-child) {
+          --un-space-y-reverse: 1;
+        }
+        "
+      `);
+    });
+  });
+
+  describe('overflows', async () => {
+    it('overflow', async () => {
+      const css = await run([
+        'overflow-auto',
+        'overflow-hidden',
+        'overflow-clip',
+        'overflow-visible',
+        'overflow-scroll',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .overflow-auto {
+          overflow: auto;
+        }
+        .overflow-clip {
+          overflow: clip;
+        }
+        .overflow-hidden {
+          overflow: hidden;
+        }
+        .overflow-scroll {
+          overflow: scroll;
+        }
+        .overflow-visible {
+          overflow: visible;
+        }
+        "
+      `);
+    });
+
+    it('overflow-x', async () => {
+      const css = await run([
+        'overflow-x-auto',
+        'overflow-x-hidden',
+        'overflow-x-clip',
+        'overflow-x-visible',
+        'overflow-x-scroll',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .overflow-x-auto {
+          overflow-x: auto;
+        }
+        .overflow-x-clip {
+          overflow-x: clip;
+        }
+        .overflow-x-hidden {
+          overflow-x: hidden;
+        }
+        .overflow-x-scroll {
+          overflow-x: scroll;
+        }
+        .overflow-x-visible {
+          overflow-x: visible;
+        }
+        "
+      `);
+    });
+
+    it('overflow-y', async () => {
+      const css = await run([
+        'overflow-y-auto',
+        'overflow-y-hidden',
+        'overflow-y-clip',
+        'overflow-y-visible',
+        'overflow-y-scroll',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .overflow-y-auto {
+          overflow-y: auto;
+        }
+        .overflow-y-clip {
+          overflow-y: clip;
+        }
+        .overflow-y-hidden {
+          overflow-y: hidden;
+        }
+        .overflow-y-scroll {
+          overflow-y: scroll;
+        }
+        .overflow-y-visible {
+          overflow-y: visible;
+        }
+        "
+      `);
+    });
+  });
+
+  describe('overscroll', async () => {
+    it('overscroll', async () => {
+      const css = await run(['overscroll-auto', 'overscroll-contain', 'overscroll-none']);
+
+      expect(css)
+        .toMatchInlineSnapshot(`
+          "/* layer: theme */
+          :root,
+          :host {
+            --spacing: 0.25rem;
+            --container-xl: 36rem;
+          }
+          /* layer: default */
+          .overscroll-auto {
+            overscroll-behavior: auto;
+          }
+          .overscroll-contain {
+            overscroll-behavior: contain;
+          }
+          .overscroll-none {
+            overscroll-behavior: none;
+          }
+          "
+        `);
+    });
+
+    it('overscroll-x', async () => {
+      const css = await run(['overscroll-x-auto', 'overscroll-x-contain', 'overscroll-x-none']);
+
+      expect(css)
+        .toMatchInlineSnapshot(`
+          "/* layer: theme */
+          :root,
+          :host {
+            --spacing: 0.25rem;
+            --container-xl: 36rem;
+          }
+          /* layer: default */
+          .overscroll-x-auto {
+            overscroll-behavior-x: auto;
+          }
+          .overscroll-x-contain {
+            overscroll-behavior-x: contain;
+          }
+          .overscroll-x-none {
+            overscroll-behavior-x: none;
+          }
+          "
+        `);
+    });
+
+    it('overscroll-y', async () => {
+      const css = await run(['overscroll-y-auto', 'overscroll-y-contain', 'overscroll-y-none']);
+
+      expect(css)
+        .toMatchInlineSnapshot(`
+          "/* layer: theme */
+          :root,
+          :host {
+            --spacing: 0.25rem;
+            --container-xl: 36rem;
+          }
+          /* layer: default */
+          .overscroll-y-auto {
+            overscroll-behavior-y: auto;
+          }
+          .overscroll-y-contain {
+            overscroll-behavior-y: contain;
+          }
+          .overscroll-y-none {
+            overscroll-behavior-y: none;
+          }
+          "
+        `);
+    });
+  });
+
+  it('truncate', async () => {
+    const css = await run(['truncate']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      "
+    `);
+  });
+
+  it('text-overflow', async () => {
+    const css = await run(['text-ellipsis', 'text-clip']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .text-ellipsis {
+        text-overflow: ellipsis;
+      }
+      .text-clip {
+        text-overflow: clip;
+      }
+      "
+    `);
+  });
+
+  it('hyphens', async () => {
+    const css = await run(['hyphens-none', 'hyphens-manual', 'hyphens-auto']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .hyphens-manual {
+        -webkit-hyphens: manual;
+        -ms-hyphens: manual;
+        hyphens: manual;
+      }
+      .hyphens-auto {
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+      }
+      .hyphens-none {
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+      "
+    `);
+  });
+
+  it('whitespace', async () => {
+    const css = await run([
+      'whitespace-normal',
+      'whitespace-nowrap',
+      'whitespace-pre',
+      'whitespace-pre-line',
+      'whitespace-pre-wrap',
+      'whitespace-break-spaces',
+    ]);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .whitespace-break-spaces {
+        white-space: break-spaces;
+      }
+      .whitespace-normal {
+        white-space: normal;
+      }
+      .whitespace-nowrap {
+        white-space: nowrap;
+      }
+      .whitespace-pre {
+        white-space: pre;
+      }
+      .whitespace-pre-line {
+        white-space: pre-line;
+      }
+      .whitespace-pre-wrap {
+        white-space: pre-wrap;
+      }
+      "
+    `);
+  });
+
+  it('text-wrap', async () => {
+    const css = await run(['text-wrap', 'text-nowrap', 'text-balance', 'text-pretty']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .text-wrap {
+        text-wrap: wrap;
+      }
+      .text-nowrap {
+        text-wrap: nowrap;
+      }
+      .text-balance {
+        text-wrap: balance;
+      }
+      .text-pretty {
+        text-wrap: pretty;
+      }
+      "
+    `);
+  });
+
+  it('word-break', async () => {
+    const css = await run(['break-normal', 'break-words', 'break-all', 'break-keep']);
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .break-normal {
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+      .break-words {
+        overflow-wrap: break-word;
+      }
+      .break-all {
+        word-break: break-all;
+      }
+      .break-keep {
+        word-break: keep-all;
+      }
+      "
+    `);
+  });
+
+  it('overflow-wrap', async () => {
+    expect(await run(['break-anywhere', 'break-words', 'break-normal'])).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .break-normal {
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+      .break-words {
+        overflow-wrap: break-word;
+      }
+      .break-anywhere {
+        overflow-wrap: anywhere;
+      }
+      "
+    `);
+  });
+
+  it('box-decoration', async () => {
+    expect(await run(['box-decoration-slice', 'box-decoration-clone'])).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root,
+      :host {
+        --spacing: 0.25rem;
+        --container-xl: 36rem;
+      }
+      /* layer: default */
+      .box-decoration-slice {
+        box-decoration-break: slice;
+      }
+      .box-decoration-clone {
+        box-decoration-break: clone;
+      }
+      "
+    `);
+  });
+
+  describe('typography', () => {
+    it('text-align', async () => {
+      expect(
+        await run(['text-left', 'text-center', 'text-right', 'text-justify', 'text-start', 'text-end']),
+      ).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .text-center {
+          text-align: center;
+        }
+        .text-left {
+          text-align: left;
+        }
+        .text-right {
+          text-align: right;
+        }
+        .text-justify {
+          text-align: justify;
+        }
+        .text-start {
+          text-align: start;
+        }
+        .text-end {
+          text-align: end;
+        }
+        "
+      `);
+    });
+
+    it('indent', async () => {
+      expect(await run(['indent-[4px]', '-indent-[4px]'])).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .-indent-\\[4px\\] {
+          text-indent: -4px;
+        }
+        .indent-\\[4px\\] {
+          text-indent: 4px;
+        }
+        "
+      `);
+    });
+
+    it('align', async () => {
+      expect(
+        await run([
+          'align-baseline',
+          'align-top',
+          'align-middle',
+          'align-bottom',
+          'align-text-top',
+          'align-text-bottom',
+          'align-sub',
+          'align-super',
+          'align-$value',
+        ]),
+      ).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+        }
+        /* layer: default */
+        .align-\\$value {
+          vertical-align: var(--value);
+        }
+        .align-baseline {
+          vertical-align: baseline;
+        }
+        .align-bottom {
+          vertical-align: bottom;
+        }
+        .align-middle {
+          vertical-align: middle;
+        }
+        .align-sub {
+          vertical-align: sub;
+        }
+        .align-super {
+          vertical-align: super;
+        }
+        .align-text-bottom {
+          vertical-align: text-bottom;
+        }
+        .align-text-top {
+          vertical-align: text-top;
+        }
+        .align-top {
+          vertical-align: top;
+        }
+        "
+      `);
+    });
+
+    it('font', async () => {
+      const css = await run([
+        // font-family
+        'font-sans',
+        'font-["arial_rounded"]',
+        'font-[ui-sans-serif]',
+        'font-$my-family',
+        // 'font-[family-name:var(--my-family)]',
+        // 'font-[generic-name:var(--my-family)]',
+
+        // font-weight
+        'font-bold',
+        'font-[100]',
+        'font-[number:var(--my-weight)]',
+      ]);
+
+      expect(css).toMatchInlineSnapshot(`
+        "/* layer: theme */
+        :root,
+        :host {
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+          --font-sans:
+            ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+            Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+          --fontWeight-bold: 700;
+        }
+        /* layer: default */
+        .font-\\[\\"arial_rounded\\"\\] {
+          font-family: "arial rounded";
+        }
+        .font-\\[100\\] {
+          --un-font-weight: 100;
+          font-weight: 100;
+        }
+        .font-\\[number\\:var\\(--my-weight\\)\\] {
+          --un-font-weight: var(--my-weight);
+          font-weight: var(--my-weight);
+        }
+        .font-\\[ui-sans-serif\\] {
+          font-family: ui-sans-serif;
+        }
+        .font-\\$my-family {
+          font-family: var(--my-family);
+        }
+        .font-bold {
+          --un-font-weight: var(--fontWeight-bold);
+          font-weight: var(--fontWeight-bold);
+        }
+        .font-sans {
+          font-family: var(--font-sans);
+        }
+        "
+      `);
+    });
+  });
 });
