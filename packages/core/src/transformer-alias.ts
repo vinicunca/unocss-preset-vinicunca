@@ -1,10 +1,8 @@
+import type { ShortcutValue, SourceCodeTransformer, UnoGenerator } from '@unocss/core';
 import type MagicString from 'magic-string';
 import {
   expandVariantGroup,
   isStaticShortcut,
-  type ShortcutValue,
-  type SourceCodeTransformer,
-  type UnoGenerator,
 } from '@unocss/core';
 import { isString } from '@vinicunca/perkakas';
 

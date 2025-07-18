@@ -11,9 +11,10 @@ describe('presetVinicunca preflights', () => {
     /**
      * There will be 2 preflights:
      * - reset browser default styles
-     * - on demand theme from wind3 preset
+     * - on demand theme from wind4 preset
+     * - properties layer from wind4 preset
      */
-    expect(preflights.length).toBe(2);
+    expect(preflights.length).toBe(3);
 
     const { css } = await uno.generate('');
 
@@ -32,7 +33,7 @@ describe('presetVinicunca preflights', () => {
 
     const preflights = uno.config.preflights;
 
-    expect(preflights.length).toBe(3);
+    expect(preflights.length).toBe(4);
 
     const { css } = await uno.generate('');
 
