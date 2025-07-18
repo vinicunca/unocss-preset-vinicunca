@@ -289,13 +289,23 @@ textarea,
 }
 
 /*
-  1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-  2. Set the default placeholder color to a semi-transparent version of the current text color.
+  Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
 */
 
 ::placeholder {
-  opacity: 1; /* 1 */
-  color: color-mix(in oklab, currentColor 50%, transparent); /* 2 */
+  opacity: 1;
+}
+
+/*
+  Set the default placeholder color to a semi-transparent version of the current text color in browsers that do not
+  crash when using \`color-mix(…)\` with \`currentcolor\`. (https://github.com/tailwindlabs/tailwindcss/issues/17194)
+*/
+
+@supports (not (-webkit-appearance: -apple-pay-button)) /* Not Safari */ or
+  (contain-intrinsic-size: 1px) /* Safari 17+ */ {
+  ::placeholder {
+    color: color-mix(in oklab, currentcolor 50%, transparent);
+  }
 }
 
 /*

@@ -13,6 +13,7 @@ function getPresetVinicunca(theme: VinicuncaTheme) {
     wind4: {
       preflights: {
         reset: false,
+        theme: false,
       },
     },
 
@@ -290,11 +291,6 @@ describe('preset-wind4', async () => {
           syntax: "*";
           inherits: false;
         }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
         /* layer: default */
         .inset-shadow-sm {
           --un-inset-shadow: inset 0 2px 4px
@@ -340,35 +336,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-inset-x-4 {
-        inset-inline: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-inset-x-full {
-        inset-inline: -100%;
-      }
-      .inset-x-\\[4px\\] {
-        inset-inline: 4px;
-      }
-      .inset-x-3\\/4 {
-        inset-inline: 75%;
-      }
-      .inset-x-4 {
-        inset-inline: calc(var(--spacing) * 4);
-      }
-      .inset-x-auto {
-        inset-inline: auto;
-      }
-      .inset-x-full {
-        inset-inline: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-inset-x-4 {
+          inset-inline: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-inset-x-full {
+          inset-inline: -100%;
+        }
+        .inset-x-\\[4px\\] {
+          inset-inline: 4px;
+        }
+        .inset-x-3\\/4 {
+          inset-inline: 75%;
+        }
+        .inset-x-4 {
+          inset-inline: calc(var(--spacing) * 4);
+        }
+        .inset-x-auto {
+          inset-inline: auto;
+        }
+        .inset-x-full {
+          inset-inline: 100%;
+        }
+        "
+      `);
     });
 
     it('inset-y', async () => {
@@ -383,35 +374,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-inset-y-4 {
-        inset-block: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-inset-y-full {
-        inset-block: -100%;
-      }
-      .inset-y-\\[4px\\] {
-        inset-block: 4px;
-      }
-      .inset-y-3\\/4 {
-        inset-block: 75%;
-      }
-      .inset-y-4 {
-        inset-block: calc(var(--spacing) * 4);
-      }
-      .inset-y-auto {
-        inset-block: auto;
-      }
-      .inset-y-full {
-        inset-block: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-inset-y-4 {
+          inset-block: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-inset-y-full {
+          inset-block: -100%;
+        }
+        .inset-y-\\[4px\\] {
+          inset-block: 4px;
+        }
+        .inset-y-3\\/4 {
+          inset-block: 75%;
+        }
+        .inset-y-4 {
+          inset-block: calc(var(--spacing) * 4);
+        }
+        .inset-y-auto {
+          inset-block: auto;
+        }
+        .inset-y-full {
+          inset-block: 100%;
+        }
+        "
+      `);
     });
 
     it('start', async () => {
@@ -426,35 +412,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-start-4 {
-        inset-inline-start: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-start-full {
-        inset-inline-start: -100%;
-      }
-      .start-\\[4px\\] {
-        inset-inline-start: 4px;
-      }
-      .start-3\\/4 {
-        inset-inline-start: 75%;
-      }
-      .start-4 {
-        inset-inline-start: calc(var(--spacing) * 4);
-      }
-      .start-auto {
-        inset-inline-start: auto;
-      }
-      .start-full {
-        inset-inline-start: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-start-4 {
+          inset-inline-start: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-start-full {
+          inset-inline-start: -100%;
+        }
+        .start-\\[4px\\] {
+          inset-inline-start: 4px;
+        }
+        .start-3\\/4 {
+          inset-inline-start: 75%;
+        }
+        .start-4 {
+          inset-inline-start: calc(var(--spacing) * 4);
+        }
+        .start-auto {
+          inset-inline-start: auto;
+        }
+        .start-full {
+          inset-inline-start: 100%;
+        }
+        "
+      `);
     });
 
     it('end', async () => {
@@ -469,35 +450,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-end-4 {
-        inset-inline-end: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-end-full {
-        inset-inline-end: -100%;
-      }
-      .end-\\[4px\\] {
-        inset-inline-end: 4px;
-      }
-      .end-3\\/4 {
-        inset-inline-end: 75%;
-      }
-      .end-4 {
-        inset-inline-end: calc(var(--spacing) * 4);
-      }
-      .end-auto {
-        inset-inline-end: auto;
-      }
-      .end-full {
-        inset-inline-end: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-end-4 {
+          inset-inline-end: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-end-full {
+          inset-inline-end: -100%;
+        }
+        .end-\\[4px\\] {
+          inset-inline-end: 4px;
+        }
+        .end-3\\/4 {
+          inset-inline-end: 75%;
+        }
+        .end-4 {
+          inset-inline-end: calc(var(--spacing) * 4);
+        }
+        .end-auto {
+          inset-inline-end: auto;
+        }
+        .end-full {
+          inset-inline-end: 100%;
+        }
+        "
+      `);
     });
 
     it('top', async () => {
@@ -512,35 +488,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-top-4 {
-        top: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-top-full {
-        top: -100%;
-      }
-      .top-\\[4px\\] {
-        top: 4px;
-      }
-      .top-3\\/4 {
-        top: 75%;
-      }
-      .top-4 {
-        top: calc(var(--spacing) * 4);
-      }
-      .top-auto {
-        top: auto;
-      }
-      .top-full {
-        top: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-top-4 {
+          top: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-top-full {
+          top: -100%;
+        }
+        .top-\\[4px\\] {
+          top: 4px;
+        }
+        .top-3\\/4 {
+          top: 75%;
+        }
+        .top-4 {
+          top: calc(var(--spacing) * 4);
+        }
+        .top-auto {
+          top: auto;
+        }
+        .top-full {
+          top: 100%;
+        }
+        "
+      `);
     });
 
     it('right', async () => {
@@ -555,35 +526,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-right-4 {
-        right: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-right-full {
-        right: -100%;
-      }
-      .right-\\[4px\\] {
-        right: 4px;
-      }
-      .right-3\\/4 {
-        right: 75%;
-      }
-      .right-4 {
-        right: calc(var(--spacing) * 4);
-      }
-      .right-auto {
-        right: auto;
-      }
-      .right-full {
-        right: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-right-4 {
+          right: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-right-full {
+          right: -100%;
+        }
+        .right-\\[4px\\] {
+          right: 4px;
+        }
+        .right-3\\/4 {
+          right: 75%;
+        }
+        .right-4 {
+          right: calc(var(--spacing) * 4);
+        }
+        .right-auto {
+          right: auto;
+        }
+        .right-full {
+          right: 100%;
+        }
+        "
+      `);
     });
 
     it('bottom', async () => {
@@ -598,35 +564,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-bottom-4 {
-        bottom: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-bottom-full {
-        bottom: -100%;
-      }
-      .bottom-\\[4px\\] {
-        bottom: 4px;
-      }
-      .bottom-3\\/4 {
-        bottom: 75%;
-      }
-      .bottom-4 {
-        bottom: calc(var(--spacing) * 4);
-      }
-      .bottom-auto {
-        bottom: auto;
-      }
-      .bottom-full {
-        bottom: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-bottom-4 {
+          bottom: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-bottom-full {
+          bottom: -100%;
+        }
+        .bottom-\\[4px\\] {
+          bottom: 4px;
+        }
+        .bottom-3\\/4 {
+          bottom: 75%;
+        }
+        .bottom-4 {
+          bottom: calc(var(--spacing) * 4);
+        }
+        .bottom-auto {
+          bottom: auto;
+        }
+        .bottom-full {
+          bottom: 100%;
+        }
+        "
+      `);
     });
 
     it('left', async () => {
@@ -641,35 +602,30 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-left-4 {
-        left: calc(calc(var(--spacing) * 4) * -1);
-      }
-      .-left-full {
-        left: -100%;
-      }
-      .left-\\[4px\\] {
-        left: 4px;
-      }
-      .left-3\\/4 {
-        left: 75%;
-      }
-      .left-4 {
-        left: calc(var(--spacing) * 4);
-      }
-      .left-auto {
-        left: auto;
-      }
-      .left-full {
-        left: 100%;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-left-4 {
+          left: calc(calc(var(--spacing) * 4) * -1);
+        }
+        .-left-full {
+          left: -100%;
+        }
+        .left-\\[4px\\] {
+          left: 4px;
+        }
+        .left-3\\/4 {
+          left: 75%;
+        }
+        .left-4 {
+          left: calc(var(--spacing) * 4);
+        }
+        .left-auto {
+          left: auto;
+        }
+        .left-full {
+          left: 100%;
+        }
+        "
+      `);
     });
   });
 
@@ -687,12 +643,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-col-12 {
           grid-column: -12;
         }
@@ -731,29 +682,24 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-col-start-4 {
-        grid-column-start: -4;
-      }
-      .col-start-\\[123\\] {
-        grid-column-start: 123;
-      }
-      .col-start-4 {
-        grid-column-start: 4;
-      }
-      .col-start-99 {
-        grid-column-start: 99;
-      }
-      .col-start-auto {
-        grid-column-start: auto;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-col-start-4 {
+          grid-column-start: -4;
+        }
+        .col-start-\\[123\\] {
+          grid-column-start: 123;
+        }
+        .col-start-4 {
+          grid-column-start: 4;
+        }
+        .col-start-99 {
+          grid-column-start: 99;
+        }
+        .col-start-auto {
+          grid-column-start: auto;
+        }
+        "
+      `);
     });
 
     it('col-end', async () => {
@@ -766,29 +712,24 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
-      .-col-end-4 {
-        grid-column-end: -4;
-      }
-      .col-end-\\[123\\] {
-        grid-column-end: 123;
-      }
-      .col-end-4 {
-        grid-column-end: 4;
-      }
-      .col-end-99 {
-        grid-column-end: 99;
-      }
-      .col-end-auto {
-        grid-column-end: auto;
-      }
-      "
-    `);
+        "/* layer: default */
+        .-col-end-4 {
+          grid-column-end: -4;
+        }
+        .col-end-\\[123\\] {
+          grid-column-end: 123;
+        }
+        .col-end-4 {
+          grid-column-end: 4;
+        }
+        .col-end-99 {
+          grid-column-end: 99;
+        }
+        .col-end-auto {
+          grid-column-end: auto;
+        }
+        "
+      `);
     });
 
     it('row', async () => {
@@ -804,12 +745,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-row-12 {
           grid-row: -12;
         }
@@ -848,12 +784,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-row-start-4 {
           grid-row-start: -4;
         }
@@ -883,12 +814,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-row-end-4 {
           grid-row-end: -4;
         }
@@ -918,12 +844,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .auto-cols-\\[2fr\\] {
           grid-auto-columns: 2fr;
         }
@@ -953,12 +874,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .grid-flow-col {
           grid-auto-flow: column;
         }
@@ -988,12 +904,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .auto-rows-\\[2fr\\] {
           grid-auto-rows: 2fr;
         }
@@ -1023,12 +934,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .grid-cols-\\[123\\] {
           grid-template-columns: 123;
         }
@@ -1058,12 +964,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .grid-rows-\\[123\\] {
           grid-template-rows: 123;
         }
@@ -1095,12 +996,7 @@ describe('preset-wind4', async () => {
 
     expect(css)
       .toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .float-left {
           float: left;
         }
@@ -1131,12 +1027,7 @@ describe('preset-wind4', async () => {
     ]);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
+      "/* layer: default */
       .clear-left {
         clear: left;
       }
@@ -1170,12 +1061,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-m-\\$value {
           margin: calc(var(--value) * -1);
         }
@@ -1210,12 +1096,7 @@ describe('preset-wind4', async () => {
         '-mx-$my-var',
       ]);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-mx-\\[4px\\] {
           margin-inline: -4px;
         }
@@ -1269,12 +1150,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-my-\\[4px\\] {
           margin-block: -4px;
         }
@@ -1328,12 +1204,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-mt-\\[4px\\] {
           margin-top: -4px;
         }
@@ -1387,12 +1258,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-ms-\\[4px\\] {
           margin-inline-start: -4px;
         }
@@ -1446,12 +1312,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-me-\\[4px\\] {
           margin-inline-end: -4px;
         }
@@ -1505,12 +1366,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-mr-\\[4px\\] {
           margin-right: -4px;
         }
@@ -1564,12 +1420,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-mb-\\[4px\\] {
           margin-bottom: -4px;
         }
@@ -1623,12 +1474,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .-ml-\\[4px\\] {
           margin-left: -4px;
         }
@@ -1680,12 +1526,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .m-4 {
           margin: calc(var(--spacing) * 4);
         }
@@ -1723,12 +1564,7 @@ describe('preset-wind4', async () => {
       const css = await run(['p-1', 'p-4', 'p-99', 'p-big', 'p-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .p-\\[4px\\] {
           padding: 4px;
         }
@@ -1752,12 +1588,7 @@ describe('preset-wind4', async () => {
       const css = await run(['px-1', 'px-2.5', 'px-99', 'px-big', 'px-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .px-\\[4px\\] {
           padding-inline: 4px;
         }
@@ -1781,12 +1612,7 @@ describe('preset-wind4', async () => {
       const css = await run(['py-1', 'py-4', 'py-99', 'py-big', 'py-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .py-\\[4px\\] {
           padding-block: 4px;
         }
@@ -1810,12 +1636,7 @@ describe('preset-wind4', async () => {
       const css = await run(['pt-1', 'pt-4', 'pt-99', 'pt-big', 'pt-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .pt-\\[4px\\] {
           padding-top: 4px;
         }
@@ -1838,12 +1659,7 @@ describe('preset-wind4', async () => {
     it('ps', async () => {
       const css = await run(['ps-1', 'ps-4', 'ps-99', 'ps-big', 'ps-[4px]']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .ps-\\[4px\\] {
           padding-inline-start: 4px;
         }
@@ -1867,12 +1683,7 @@ describe('preset-wind4', async () => {
       const css = await run(['pe-1', 'pe-4', 'pe-99', 'pe-big', 'pe-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .pe-\\[4px\\] {
           padding-inline-end: 4px;
         }
@@ -1896,12 +1707,7 @@ describe('preset-wind4', async () => {
       const css = await run(['pr-1', 'pr-4', 'pr-99', 'pr-big', 'pr-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .pr-\\[4px\\] {
           padding-right: 4px;
         }
@@ -1925,12 +1731,7 @@ describe('preset-wind4', async () => {
       const css = await run(['pb-1', 'pb-4', 'pb-99', 'pb-big', 'pb-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .pb-\\[4px\\] {
           padding-bottom: 4px;
         }
@@ -1954,12 +1755,7 @@ describe('preset-wind4', async () => {
       const css = await run(['pl-1', 'pl-4', 'pl-99', 'pl-big', 'pl-[4px]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .pl-\\[4px\\] {
           padding-left: 4px;
         }
@@ -1984,12 +1780,7 @@ describe('preset-wind4', async () => {
     const css = await run(['box-border', 'box-content']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
+      "/* layer: default */
       .box-border {
         box-sizing: border-box;
       }
@@ -2004,12 +1795,7 @@ describe('preset-wind4', async () => {
     const css = await run(['line-clamp-4', 'line-clamp-99', 'line-clamp-none']);
     expect(css)
       .toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .line-clamp-4 {
           overflow: hidden;
           display: -webkit-box;
@@ -2058,12 +1844,7 @@ describe('preset-wind4', async () => {
     ]);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
+      "/* layer: default */
       .flex {
         display: flex;
       }
@@ -2138,12 +1919,7 @@ describe('preset-wind4', async () => {
     ]);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
+      "/* layer: default */
       .field-sizing-fixed {
         field-sizing: fixed;
       }
@@ -2162,12 +1938,7 @@ describe('preset-wind4', async () => {
     ]);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-      }
-      /* layer: default */
+      "/* layer: default */
       .aspect-\\[10\\/9\\] {
         aspect-ratio: 10/9;
       }
@@ -2195,12 +1966,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .size-\\[4px\\] {
           width: 4px;
           height: 4px;
@@ -2255,13 +2021,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .w-\\[4px\\] {
           width: 4px;
         }
@@ -2318,13 +2078,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .min-w-\\[4px\\] {
           min-width: 4px;
         }
@@ -2365,13 +2119,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .max-w-\\[4px\\] {
           max-width: 4px;
         }
@@ -2414,13 +2162,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .h-\\[4px\\] {
           height: 4px;
         }
@@ -2477,13 +2219,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .min-h-\\[4px\\] {
           min-height: 4px;
         }
@@ -2537,13 +2273,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .max-h-\\[4px\\] {
           max-height: 4px;
         }
@@ -2587,13 +2317,7 @@ describe('preset-wind4', async () => {
       const css = await run(['w-1/2', 'container', 'max-w-$breakpoint-sm']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: shortcuts */
+        "/* layer: shortcuts */
         .container {
           width: 100%;
         }
@@ -2666,13 +2390,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .flex-\\[123\\] {
           flex: 123;
         }
@@ -2699,13 +2417,7 @@ describe('preset-wind4', async () => {
       const css = await run(['shrink', 'shrink-0', 'shrink-[123]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .shrink {
           flex-shrink: 1;
         }
@@ -2723,13 +2435,7 @@ describe('preset-wind4', async () => {
       const css = await run(['grow', 'grow-0', 'grow-[123]']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .grow {
           flex-grow: 1;
         }
@@ -2753,13 +2459,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .basis-\\[123px\\] {
           flex-basis: 123px;
         }
@@ -2780,13 +2480,7 @@ describe('preset-wind4', async () => {
       const css = await run(['flex-row', 'flex-row-reverse', 'flex-col', 'flex-col-reverse']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .flex-row {
           flex-direction: row;
         }
@@ -2811,13 +2505,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .flex-wrap {
           flex-wrap: wrap;
         }
@@ -2849,13 +2537,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .content-center {
           align-content: center;
         }
@@ -2906,13 +2588,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .items-start {
           align-items: flex-start;
         }
@@ -2956,13 +2632,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .justify-start {
           justify-content: flex-start;
         }
@@ -3008,13 +2678,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .justify-items-start {
           justify-items: start;
         }
@@ -3051,13 +2715,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .self-auto {
           align-self: auto;
         }
@@ -3102,13 +2760,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .justify-self-auto {
           justify-self: auto;
         }
@@ -3152,13 +2804,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .place-content-center {
           place-content: center;
         }
@@ -3205,13 +2851,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .place-items-start {
           place-items: start;
         }
@@ -3249,13 +2889,7 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .place-self-auto {
           place-self: auto;
         }
@@ -3287,13 +2921,7 @@ describe('preset-wind4', async () => {
         'gap-[4px]',
       ]);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .gap-\\[4px\\] {
           gap: 4px;
         }
@@ -3310,13 +2938,7 @@ describe('preset-wind4', async () => {
         'gap-x-[4px]',
       ]);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .gap-x-\\[4px\\] {
           column-gap: 4px;
         }
@@ -3333,13 +2955,7 @@ describe('preset-wind4', async () => {
         'gap-y-[4px]',
       ]);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .gap-y-\\[4px\\] {
           row-gap: 4px;
         }
@@ -3355,13 +2971,7 @@ describe('preset-wind4', async () => {
     it('border-collapse', async () => {
       const css = await run(['border-collapse', 'border-separate']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
-        /* layer: default */
+        "/* layer: default */
         .border-collapse {
           border-collapse: collapse;
         }
@@ -3377,6 +2987,16 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+          }
+        }
         @property --un-border-spacing-x {
           syntax: "<length>";
           inherits: false;
@@ -3386,12 +3006,6 @@ describe('preset-wind4', async () => {
           syntax: "<length>";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .border-spacing-\\[123px\\] {
@@ -3413,6 +3027,16 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+          }
+        }
         @property --un-border-spacing-x {
           syntax: "<length>";
           inherits: false;
@@ -3422,12 +3046,6 @@ describe('preset-wind4', async () => {
           syntax: "<length>";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .border-spacing-x-\\[123px\\] {
@@ -3447,6 +3065,16 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+          }
+        }
         @property --un-border-spacing-x {
           syntax: "<length>";
           inherits: false;
@@ -3456,12 +3084,6 @@ describe('preset-wind4', async () => {
           syntax: "<length>";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .border-spacing-y-\\[123px\\] {
@@ -3481,6 +3103,18 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+          }
+        }
         @property --un-border-style {
           syntax: "*";
           inherits: false;
@@ -3490,12 +3124,6 @@ describe('preset-wind4', async () => {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .divide-x > :not(:last-child) {
@@ -3529,11 +3157,18 @@ describe('preset-wind4', async () => {
     const css = await run(['table-auto', 'table-fixed']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+        }
       }
       /* layer: default */
       .table-auto {
@@ -3550,11 +3185,18 @@ describe('preset-wind4', async () => {
     const css = await run(['caption-top', 'caption-bottom']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+        }
       }
       /* layer: default */
       .caption-top {
@@ -3584,11 +3226,18 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+          }
         }
         /* layer: default */
         .origin-\\[50px_100px\\] {
@@ -3644,11 +3293,18 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+          }
         }
         /* layer: default */
         .perspective-origin-\\[50px_100px\\] {
@@ -3699,6 +3355,21 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+          }
+        }
         @property --un-translate-x {
           syntax: "*";
           inherits: false;
@@ -3713,12 +3384,6 @@ describe('preset-wind4', async () => {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .-translate-\\$value {
@@ -3760,6 +3425,21 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+          }
+        }
         @property --un-translate-x {
           syntax: "*";
           inherits: false;
@@ -3774,12 +3454,6 @@ describe('preset-wind4', async () => {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .-translate-x-\\$value {
@@ -3812,6 +3486,21 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+          }
+        }
         @property --un-translate-x {
           syntax: "*";
           inherits: false;
@@ -3826,12 +3515,6 @@ describe('preset-wind4', async () => {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .-translate-y-\\$value {
@@ -3860,6 +3543,21 @@ describe('preset-wind4', async () => {
       expect(css)
         .toMatchInlineSnapshot(`
           "/* layer: properties */
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --un-border-spacing-x: 0;
+              --un-border-spacing-y: 0;
+              --un-divide-x-reverse: initial;
+              --un-border-style: solid;
+              --un-translate-x: initial;
+              --un-translate-y: initial;
+              --un-translate-z: initial;
+            }
+          }
           @property --un-translate-x {
             syntax: "*";
             inherits: false;
@@ -3874,12 +3572,6 @@ describe('preset-wind4', async () => {
             syntax: "*";
             inherits: false;
             initial-value: 0;
-          }
-          /* layer: theme */
-          :root,
-          :host {
-            --spacing: 0.25rem;
-            --container-xl: 36rem;
           }
           /* layer: default */
           .-translate-z-\\$value {
@@ -3941,11 +3633,21 @@ describe('preset-wind4', async () => {
 
       expect(css)
         .toMatchInlineSnapshot(`
-          "/* layer: theme */
-          :root,
-          :host {
-            --spacing: 0.25rem;
-            --container-xl: 36rem;
+          "/* layer: properties */
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --un-border-spacing-x: 0;
+              --un-border-spacing-y: 0;
+              --un-divide-x-reverse: initial;
+              --un-border-style: solid;
+              --un-translate-x: initial;
+              --un-translate-y: initial;
+              --un-translate-z: initial;
+            }
           }
           /* layer: default */
           .-rotate-45 {
@@ -3969,6 +3671,26 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
+        }
         @property --un-rotate-x {
           syntax: "*";
           inherits: false;
@@ -3993,12 +3715,6 @@ describe('preset-wind4', async () => {
           syntax: "*";
           inherits: false;
           initial-value: skewY(0);
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .rotate-x-\\[123deg\\] {
@@ -4059,11 +3775,26 @@ describe('preset-wind4', async () => {
       // 'cursor-custom',
     ]);
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+        }
       }
       /* layer: default */
       .cursor-\\$value {
@@ -4185,24 +3916,39 @@ describe('preset-wind4', async () => {
     it('touch-action', async () => {
       const css = await run(['touch-auto', 'touch-none', 'touch-manipulation']);
       expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
-      }
-      /* layer: default */
-      .touch-auto {
-        touch-action: auto;
-      }
-      .touch-manipulation {
-        touch-action: manipulation;
-      }
-      .touch-none {
-        touch-action: none;
-      }
-      "
-    `);
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
+        }
+        /* layer: default */
+        .touch-auto {
+          touch-action: auto;
+        }
+        .touch-manipulation {
+          touch-action: manipulation;
+        }
+        .touch-none {
+          touch-action: none;
+        }
+        "
+      `);
     });
 
     it('touch-pan', async () => {
@@ -4216,6 +3962,26 @@ describe('preset-wind4', async () => {
       ]);
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
+        }
         @property --un-pan-x {
           syntax: "*";
           inherits: false;
@@ -4227,12 +3993,6 @@ describe('preset-wind4', async () => {
         @property --un-pinch-zoom {
           syntax: "*";
           inherits: false;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .touch-pan-left {
@@ -4268,6 +4028,26 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
+        }
         @property --un-pan-x {
           syntax: "*";
           inherits: false;
@@ -4279,12 +4059,6 @@ describe('preset-wind4', async () => {
         @property --un-pinch-zoom {
           syntax: "*";
           inherits: false;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .touch-pinch-zoom {
@@ -4301,11 +4075,26 @@ describe('preset-wind4', async () => {
 
     expect(css)
       .toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .select-auto {
@@ -4332,11 +4121,26 @@ describe('preset-wind4', async () => {
     const css = await run(['resize-none', 'resize', 'resize-x', 'resize-y']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+        }
       }
       /* layer: default */
       .resize-x {
@@ -4361,26 +4165,40 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
+        }
         @property --un-scroll-snap-strictness {
           syntax: "*";
           inherits: false;
           initial-value: proximity;
         }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-        }
         /* layer: default */
-        .snap-both {
-          scroll-snap-type: both var(--un-scroll-snap-strictness);
-        }
         .snap-x {
           scroll-snap-type: x var(--un-scroll-snap-strictness);
         }
         .snap-y {
           scroll-snap-type: y var(--un-scroll-snap-strictness);
+        }
+        .snap-both {
+          scroll-snap-type: both var(--un-scroll-snap-strictness);
         }
         .snap-none {
           scroll-snap-type: none;
@@ -4394,16 +4212,30 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
+        }
         @property --un-scroll-snap-strictness {
           syntax: "*";
           inherits: false;
           initial-value: proximity;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .snap-mandatory {
@@ -4420,11 +4252,26 @@ describe('preset-wind4', async () => {
       const css = await run(['snap-align-none', 'snap-start', 'snap-end', 'snap-center']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .snap-start {
@@ -4447,11 +4294,26 @@ describe('preset-wind4', async () => {
       const css = await run(['snap-normal', 'snap-always']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .snap-normal {
@@ -4468,11 +4330,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-m-4', 'scroll-m-[4px]', '-scroll-m-4', '-scroll-m-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-m-\\$value {
@@ -4495,11 +4372,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-mx-4', 'scroll-mx-[4px]', '-scroll-mx-4', '-scroll-mx-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-mx-\\$value {
@@ -4522,11 +4414,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-my-4', 'scroll-my-[4px]', '-scroll-my-4', '-scroll-my-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-my-\\$value {
@@ -4549,11 +4456,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-mis-4', 'scroll-mis-[4px]', '-scroll-mis-4', '-scroll-mis-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-mis-\\$value {
@@ -4576,11 +4498,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-mie-4', 'scroll-mie-[4px]', '-scroll-mie-4', '-scroll-mie-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-mie-\\$value {
@@ -4603,11 +4540,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-mt-4', 'scroll-mt-[4px]', '-scroll-mt-4', '-scroll-mt-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-mt-\\$value {
@@ -4630,11 +4582,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-mr-4', 'scroll-mr-[4px]', '-scroll-mr-4', '-scroll-mr-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-mr-\\$value {
@@ -4657,11 +4624,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-mb-4', 'scroll-mb-[4px]', '-scroll-mb-4', '-scroll-mb-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-mb-\\$value {
@@ -4684,11 +4666,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-ml-4', 'scroll-ml-[4px]', '-scroll-ml-4', '-scroll-ml-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-ml-\\$value {
@@ -4711,11 +4708,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-p-4', 'scroll-p-[4px]', '-scroll-p-4', '-scroll-p-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-p-\\$value {
@@ -4738,11 +4750,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-px-4', 'scroll-px-[4px]', '-scroll-px-4', '-scroll-px-$value']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-px-\\$value {
@@ -4764,11 +4791,26 @@ describe('preset-wind4', async () => {
     it('scroll-py', async () => {
       const css = await run(['scroll-py-4', 'scroll-py-[4px]', '-scroll-py-4', '-scroll-py-$value']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-py-\\$value {
@@ -4790,11 +4832,26 @@ describe('preset-wind4', async () => {
     it('scroll-pis', async () => {
       const css = await run(['scroll-pis-4', 'scroll-pis-[4px]', '-scroll-pis-4', '-scroll-pis-$value']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-pis-\\$value {
@@ -4816,11 +4873,26 @@ describe('preset-wind4', async () => {
     it('scroll-pie', async () => {
       const css = await run(['scroll-pie-4', 'scroll-pie-[4px]', '-scroll-pie-4', '-scroll-pie-$value']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-pie-\\$value {
@@ -4842,11 +4914,26 @@ describe('preset-wind4', async () => {
     it('scroll-pt', async () => {
       const css = await run(['scroll-pt-4', 'scroll-pt-[4px]', '-scroll-pt-4', '-scroll-pt-$value']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-pt-\\$value {
@@ -4868,11 +4955,26 @@ describe('preset-wind4', async () => {
     it('scroll-pr', async () => {
       const css = await run(['scroll-pr-4', 'scroll-pr-[4px]', '-scroll-pr-4', '-scroll-pr-$value']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-pr-\\$value {
@@ -4894,11 +4996,26 @@ describe('preset-wind4', async () => {
     it('scroll-pb', async () => {
       const css = await run(['scroll-pb-4', 'scroll-pb-[4px]', '-scroll-pb-4', '-scroll-pb-$value']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-pb-\\$value {
@@ -4920,11 +5037,26 @@ describe('preset-wind4', async () => {
     it('scroll-pl', async () => {
       const css = await run(['scroll-pl-4', 'scroll-pl-[4px]', '-scroll-pl-4', '-scroll-pl-$value']);
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .-scroll-pl-\\$value {
@@ -4947,11 +5079,26 @@ describe('preset-wind4', async () => {
       const css = await run(['scroll-auto', 'scroll-smooth']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .scroll-auto {
@@ -4970,11 +5117,26 @@ describe('preset-wind4', async () => {
       const css = await run(['list-inside', 'list-outside']);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .list-outside {
@@ -5027,11 +5189,26 @@ describe('preset-wind4', async () => {
     const css = await run(['appearance-none', 'appearance-auto']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+        }
       }
       /* layer: default */
       .appearance-auto {
@@ -5057,11 +5234,26 @@ describe('preset-wind4', async () => {
     ]);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+        }
       }
       /* layer: default */
       .scheme-dark {
@@ -5147,11 +5339,26 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .break-before-auto {
@@ -5191,11 +5398,26 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .break-inside-auto {
@@ -5227,11 +5449,26 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+          }
         }
         /* layer: default */
         .break-after-auto {
@@ -5269,16 +5506,31 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+          }
+        }
         @property --un-space-x-reverse {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .space-x-\\[4px\\] > :not(:last-child) {
@@ -5304,16 +5556,32 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
+        }
         @property --un-space-y-reverse {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .space-y-\\[4px\\] > :not(:last-child) {
@@ -5339,16 +5607,32 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
+        }
         @property --un-space-x-reverse {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .space-x-reverse > :not(:last-child) {
@@ -5363,16 +5647,32 @@ describe('preset-wind4', async () => {
 
       expect(css).toMatchInlineSnapshot(`
         "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
+        }
         @property --un-space-y-reverse {
           syntax: "*";
           inherits: false;
           initial-value: 0;
-        }
-        /* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
         }
         /* layer: default */
         .space-y-reverse > :not(:last-child) {
@@ -5394,11 +5694,28 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
         }
         /* layer: default */
         .overflow-auto {
@@ -5430,11 +5747,28 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
         }
         /* layer: default */
         .overflow-x-auto {
@@ -5466,11 +5800,28 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
         }
         /* layer: default */
         .overflow-y-auto {
@@ -5499,11 +5850,28 @@ describe('preset-wind4', async () => {
 
       expect(css)
         .toMatchInlineSnapshot(`
-          "/* layer: theme */
-          :root,
-          :host {
-            --spacing: 0.25rem;
-            --container-xl: 36rem;
+          "/* layer: properties */
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --un-border-spacing-x: 0;
+              --un-border-spacing-y: 0;
+              --un-divide-x-reverse: initial;
+              --un-border-style: solid;
+              --un-translate-x: initial;
+              --un-translate-y: initial;
+              --un-translate-z: initial;
+              --un-rotate-x: rotateX(0);
+              --un-rotate-y: rotateY(0);
+              --un-rotate-z: rotateZ(0);
+              --un-skew-x: skewX(0);
+              --un-skew-y: skewY(0);
+              --un-space-x-reverse: initial;
+              --un-space-y-reverse: initial;
+            }
           }
           /* layer: default */
           .overscroll-auto {
@@ -5524,11 +5892,28 @@ describe('preset-wind4', async () => {
 
       expect(css)
         .toMatchInlineSnapshot(`
-          "/* layer: theme */
-          :root,
-          :host {
-            --spacing: 0.25rem;
-            --container-xl: 36rem;
+          "/* layer: properties */
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --un-border-spacing-x: 0;
+              --un-border-spacing-y: 0;
+              --un-divide-x-reverse: initial;
+              --un-border-style: solid;
+              --un-translate-x: initial;
+              --un-translate-y: initial;
+              --un-translate-z: initial;
+              --un-rotate-x: rotateX(0);
+              --un-rotate-y: rotateY(0);
+              --un-rotate-z: rotateZ(0);
+              --un-skew-x: skewX(0);
+              --un-skew-y: skewY(0);
+              --un-space-x-reverse: initial;
+              --un-space-y-reverse: initial;
+            }
           }
           /* layer: default */
           .overscroll-x-auto {
@@ -5549,11 +5934,28 @@ describe('preset-wind4', async () => {
 
       expect(css)
         .toMatchInlineSnapshot(`
-          "/* layer: theme */
-          :root,
-          :host {
-            --spacing: 0.25rem;
-            --container-xl: 36rem;
+          "/* layer: properties */
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --un-border-spacing-x: 0;
+              --un-border-spacing-y: 0;
+              --un-divide-x-reverse: initial;
+              --un-border-style: solid;
+              --un-translate-x: initial;
+              --un-translate-y: initial;
+              --un-translate-z: initial;
+              --un-rotate-x: rotateX(0);
+              --un-rotate-y: rotateY(0);
+              --un-rotate-z: rotateZ(0);
+              --un-skew-x: skewX(0);
+              --un-skew-y: skewY(0);
+              --un-space-x-reverse: initial;
+              --un-space-y-reverse: initial;
+            }
           }
           /* layer: default */
           .overscroll-y-auto {
@@ -5574,11 +5976,28 @@ describe('preset-wind4', async () => {
     const css = await run(['truncate']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .truncate {
@@ -5594,11 +6013,28 @@ describe('preset-wind4', async () => {
     const css = await run(['text-ellipsis', 'text-clip']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .text-ellipsis {
@@ -5615,11 +6051,28 @@ describe('preset-wind4', async () => {
     const css = await run(['hyphens-none', 'hyphens-manual', 'hyphens-auto']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .hyphens-manual {
@@ -5652,11 +6105,28 @@ describe('preset-wind4', async () => {
     ]);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .whitespace-break-spaces {
@@ -5685,11 +6155,28 @@ describe('preset-wind4', async () => {
     const css = await run(['text-wrap', 'text-nowrap', 'text-balance', 'text-pretty']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .text-wrap {
@@ -5712,11 +6199,28 @@ describe('preset-wind4', async () => {
     const css = await run(['break-normal', 'break-words', 'break-all', 'break-keep']);
 
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .break-normal {
@@ -5738,11 +6242,28 @@ describe('preset-wind4', async () => {
 
   it('overflow-wrap', async () => {
     expect(await run(['break-anywhere', 'break-words', 'break-normal'])).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .break-normal {
@@ -5761,11 +6282,28 @@ describe('preset-wind4', async () => {
 
   it('box-decoration', async () => {
     expect(await run(['box-decoration-slice', 'box-decoration-clone'])).toMatchInlineSnapshot(`
-      "/* layer: theme */
-      :root,
-      :host {
-        --spacing: 0.25rem;
-        --container-xl: 36rem;
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --un-border-spacing-x: 0;
+          --un-border-spacing-y: 0;
+          --un-divide-x-reverse: initial;
+          --un-border-style: solid;
+          --un-translate-x: initial;
+          --un-translate-y: initial;
+          --un-translate-z: initial;
+          --un-rotate-x: rotateX(0);
+          --un-rotate-y: rotateY(0);
+          --un-rotate-z: rotateZ(0);
+          --un-skew-x: skewX(0);
+          --un-skew-y: skewY(0);
+          --un-space-x-reverse: initial;
+          --un-space-y-reverse: initial;
+        }
       }
       /* layer: default */
       .box-decoration-slice {
@@ -5783,11 +6321,28 @@ describe('preset-wind4', async () => {
       expect(
         await run(['text-left', 'text-center', 'text-right', 'text-justify', 'text-start', 'text-end']),
       ).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
         }
         /* layer: default */
         .text-center {
@@ -5814,11 +6369,28 @@ describe('preset-wind4', async () => {
 
     it('indent', async () => {
       expect(await run(['indent-[4px]', '-indent-[4px]'])).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
         }
         /* layer: default */
         .-indent-\\[4px\\] {
@@ -5845,11 +6417,28 @@ describe('preset-wind4', async () => {
           'align-$value',
         ]),
       ).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
         }
         /* layer: default */
         .align-\\$value {
@@ -5890,6 +6479,7 @@ describe('preset-wind4', async () => {
         'font-["arial_rounded"]',
         'font-[ui-sans-serif]',
         'font-$my-family',
+        // TODO: implement this one
         // 'font-[family-name:var(--my-family)]',
         // 'font-[generic-name:var(--my-family)]',
 
@@ -5900,16 +6490,28 @@ describe('preset-wind4', async () => {
       ]);
 
       expect(css).toMatchInlineSnapshot(`
-        "/* layer: theme */
-        :root,
-        :host {
-          --spacing: 0.25rem;
-          --container-xl: 36rem;
-          --font-sans:
-            ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-            Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-          --fontWeight-bold: 700;
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
         }
         /* layer: default */
         .font-\\[\\"arial_rounded\\"\\] {
@@ -5939,5 +6541,442 @@ describe('preset-wind4', async () => {
         "
       `);
     });
+
+    it('text-transform', async () => {
+      expect(await run(['uppercase', 'lowercase', 'capitalize', 'normal-case'])).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
+        }
+        /* layer: default */
+        .uppercase {
+          text-transform: uppercase;
+        }
+        .lowercase {
+          text-transform: lowercase;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+        .normal-case {
+          text-transform: none;
+        }
+        "
+      `);
+    });
+
+    it('font-style', async () => {
+      expect(await run(['italic', 'not-italic'])).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+          }
+        }
+        /* layer: default */
+        .italic {
+          font-style: italic;
+        }
+        .not-italic {
+          font-style: normal;
+        }
+        "
+      `);
+    });
+
+    it('font-stretch', async () => {
+      expect(await run([
+        'font-stretch-ultra-expanded',
+        'font-stretch-[50%]',
+        'font-stretch-[200%]',
+      ]))
+        .toMatchInlineSnapshot(`
+          "/* layer: properties */
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --un-border-spacing-x: 0;
+              --un-border-spacing-y: 0;
+              --un-divide-x-reverse: initial;
+              --un-border-style: solid;
+              --un-translate-x: initial;
+              --un-translate-y: initial;
+              --un-translate-z: initial;
+              --un-rotate-x: rotateX(0);
+              --un-rotate-y: rotateY(0);
+              --un-rotate-z: rotateZ(0);
+              --un-skew-x: skewX(0);
+              --un-skew-y: skewY(0);
+              --un-space-x-reverse: initial;
+              --un-space-y-reverse: initial;
+            }
+          }
+          /* layer: default */
+          .font-stretch-ultra-expanded {
+            font-stretch: ultra-expanded;
+          }
+          .font-stretch-\\[200\\%\\] {
+            font-stretch: 200%;
+          }
+          .font-stretch-\\[50\\%\\] {
+            font-stretch: 50%;
+          }
+          "
+        `);
+    });
+
+    it('text-decoration-line', async () => {
+      expect(await run(['underline', 'overline', 'line-through', 'no-underline']))
+        .toMatchInlineSnapshot(`
+          "/* layer: properties */
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --un-border-spacing-x: 0;
+              --un-border-spacing-y: 0;
+              --un-divide-x-reverse: initial;
+              --un-border-style: solid;
+              --un-translate-x: initial;
+              --un-translate-y: initial;
+              --un-translate-z: initial;
+              --un-rotate-x: rotateX(0);
+              --un-rotate-y: rotateY(0);
+              --un-rotate-z: rotateZ(0);
+              --un-skew-x: skewX(0);
+              --un-skew-y: skewY(0);
+              --un-space-x-reverse: initial;
+              --un-space-y-reverse: initial;
+            }
+          }
+          /* layer: default */
+          .line-through {
+            text-decoration-line: line-through;
+          }
+          .overline {
+            text-decoration-line: overline;
+          }
+          .underline {
+            text-decoration-line: underline;
+          }
+          .no-underline {
+            text-decoration: none;
+          }
+          "
+        `);
+    });
   });
+
+  describe('colors', () => {
+    it('accent', async () => {
+      expect(
+        await run([
+          'accent-red-500',
+          'accent-red-500/50',
+          'accent-red-500/2.25',
+          'accent-red-500/2.5',
+          'accent-red-500/2.75',
+          'accent-red-500/[0.5]',
+          'accent-red-500/[50%]',
+          'accent-current',
+          'accent-current/50',
+          'accent-current/[0.5]',
+          'accent-current/[50%]',
+          'accent-inherit',
+          'accent-transparent',
+          'accent-[#0088cc]',
+          'accent-[#0088cc]/50',
+          'accent-[#0088cc]/[0.5]',
+          'accent-[#0088cc]/[50%]',
+        ]),
+      ).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+            --un-accent-opacity: 100%;
+          }
+        }
+        @property --un-accent-opacity {
+          syntax: "<percentage>";
+          inherits: false;
+          initial-value: 100%;
+        }
+        /* layer: default */
+        .accent-\\[\\#0088cc\\] {
+          accent-color: color-mix(
+            in oklab,
+            #0088cc var(--un-accent-opacity),
+            transparent
+          );
+        }
+        .accent-\\[\\#0088cc\\]\\/\\[0\\.5\\] {
+          accent-color: color-mix(in oklab, #0088cc 0.5, transparent);
+        }
+        .accent-\\[\\#0088cc\\]\\/\\[50\\%\\],
+        .accent-\\[\\#0088cc\\]\\/50 {
+          accent-color: color-mix(in oklab, #0088cc 50%, transparent);
+        }
+        .accent-current,
+        .accent-current\\/\\[0\\.5\\],
+        .accent-current\\/\\[50\\%\\],
+        .accent-current\\/50 {
+          accent-color: currentColor;
+        }
+        .accent-inherit {
+          accent-color: inherit;
+        }
+        .accent-red-500 {
+          accent-color: color-mix(
+            in srgb,
+            var(--colors-red-500) var(--un-accent-opacity),
+            transparent
+          );
+        }
+        .accent-red-500\\/\\[0\\.5\\] {
+          accent-color: color-mix(in srgb, var(--colors-red-500) 0.5, transparent);
+        }
+        .accent-red-500\\/\\[50\\%\\],
+        .accent-red-500\\/50 {
+          accent-color: color-mix(in srgb, var(--colors-red-500) 50%, transparent);
+        }
+        .accent-red-500\\/2\\.25 {
+          accent-color: color-mix(in srgb, var(--colors-red-500) 2.25%, transparent);
+        }
+        .accent-red-500\\/2\\.5 {
+          accent-color: color-mix(in srgb, var(--colors-red-500) 2.5%, transparent);
+        }
+        .accent-red-500\\/2\\.75 {
+          accent-color: color-mix(in srgb, var(--colors-red-500) 2.75%, transparent);
+        }
+        .accent-transparent {
+          accent-color: transparent;
+        }
+        @supports (color: color-mix(in lab, red, red)) {
+          .accent-red-500 {
+            accent-color: color-mix(
+              in oklab,
+              var(--colors-red-500) var(--un-accent-opacity),
+              transparent
+            );
+          }
+          .accent-red-500\\/\\[0\\.5\\] {
+            accent-color: color-mix(in oklab, var(--colors-red-500) 0.5, transparent);
+          }
+          .accent-red-500\\/\\[50\\%\\] {
+            accent-color: color-mix(in oklab, var(--colors-red-500) 50%, transparent);
+          }
+          .accent-red-500\\/2\\.25 {
+            accent-color: color-mix(in oklab, var(--colors-red-500) 2.25%, transparent);
+          }
+          .accent-red-500\\/2\\.5 {
+            accent-color: color-mix(in oklab, var(--colors-red-500) 2.5%, transparent);
+          }
+          .accent-red-500\\/2\\.75 {
+            accent-color: color-mix(in oklab, var(--colors-red-500) 2.75%, transparent);
+          }
+          .accent-red-500\\/50 {
+            accent-color: color-mix(in oklab, var(--colors-red-500) 50%, transparent);
+          }
+        }
+        "
+      `);
+    });
+
+    it('caret', async () => {
+      expect(
+        await run([
+          'caret-red-500',
+          'caret-red-500/50',
+          'caret-red-500/2.25',
+          'caret-red-500/2.5',
+          'caret-red-500/2.75',
+          'caret-red-500/[0.5]',
+          'caret-red-500/[50%]',
+          'caret-current',
+          'caret-current/50',
+          'caret-current/[0.5]',
+          'caret-current/[50%]',
+          'caret-inherit',
+          'caret-transparent',
+          'caret-[#0088cc]',
+          'caret-[#0088cc]/50',
+          'caret-[#0088cc]/[0.5]',
+          'caret-[#0088cc]/[50%]',
+        ],
+        ),
+      ).toMatchInlineSnapshot(`
+        "/* layer: properties */
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --un-border-spacing-x: 0;
+            --un-border-spacing-y: 0;
+            --un-divide-x-reverse: initial;
+            --un-border-style: solid;
+            --un-translate-x: initial;
+            --un-translate-y: initial;
+            --un-translate-z: initial;
+            --un-rotate-x: rotateX(0);
+            --un-rotate-y: rotateY(0);
+            --un-rotate-z: rotateZ(0);
+            --un-skew-x: skewX(0);
+            --un-skew-y: skewY(0);
+            --un-space-x-reverse: initial;
+            --un-space-y-reverse: initial;
+            --un-accent-opacity: 100%;
+            --un-caret-opacity: 100%;
+          }
+        }
+        @property --un-caret-opacity {
+          syntax: "<percentage>";
+          inherits: false;
+          initial-value: 100%;
+        }
+        /* layer: default */
+        .caret-\\[\\#0088cc\\] {
+          caret-color: color-mix(
+            in oklab,
+            #0088cc var(--un-caret-opacity),
+            transparent
+          );
+        }
+        .caret-\\[\\#0088cc\\]\\/\\[0\\.5\\] {
+          caret-color: color-mix(in oklab, #0088cc 0.5, transparent);
+        }
+        .caret-\\[\\#0088cc\\]\\/\\[50\\%\\],
+        .caret-\\[\\#0088cc\\]\\/50 {
+          caret-color: color-mix(in oklab, #0088cc 50%, transparent);
+        }
+        .caret-current,
+        .caret-current\\/\\[0\\.5\\],
+        .caret-current\\/\\[50\\%\\],
+        .caret-current\\/50 {
+          caret-color: currentColor;
+        }
+        .caret-inherit {
+          caret-color: inherit;
+        }
+        .caret-red-500 {
+          caret-color: color-mix(
+            in srgb,
+            var(--colors-red-500) var(--un-caret-opacity),
+            transparent
+          );
+        }
+        .caret-red-500\\/\\[0\\.5\\] {
+          caret-color: color-mix(in srgb, var(--colors-red-500) 0.5, transparent);
+        }
+        .caret-red-500\\/\\[50\\%\\],
+        .caret-red-500\\/50 {
+          caret-color: color-mix(in srgb, var(--colors-red-500) 50%, transparent);
+        }
+        .caret-red-500\\/2\\.25 {
+          caret-color: color-mix(in srgb, var(--colors-red-500) 2.25%, transparent);
+        }
+        .caret-red-500\\/2\\.5 {
+          caret-color: color-mix(in srgb, var(--colors-red-500) 2.5%, transparent);
+        }
+        .caret-red-500\\/2\\.75 {
+          caret-color: color-mix(in srgb, var(--colors-red-500) 2.75%, transparent);
+        }
+        .caret-transparent {
+          caret-color: transparent;
+        }
+        @supports (color: color-mix(in lab, red, red)) {
+          .caret-red-500 {
+            caret-color: color-mix(
+              in oklab,
+              var(--colors-red-500) var(--un-caret-opacity),
+              transparent
+            );
+          }
+          .caret-red-500\\/\\[0\\.5\\] {
+            caret-color: color-mix(in oklab, var(--colors-red-500) 0.5, transparent);
+          }
+          .caret-red-500\\/\\[50\\%\\] {
+            caret-color: color-mix(in oklab, var(--colors-red-500) 50%, transparent);
+          }
+          .caret-red-500\\/2\\.25 {
+            caret-color: color-mix(in oklab, var(--colors-red-500) 2.25%, transparent);
+          }
+          .caret-red-500\\/2\\.5 {
+            caret-color: color-mix(in oklab, var(--colors-red-500) 2.5%, transparent);
+          }
+          .caret-red-500\\/2\\.75 {
+            caret-color: color-mix(in oklab, var(--colors-red-500) 2.75%, transparent);
+          }
+          .caret-red-500\\/50 {
+            caret-color: color-mix(in oklab, var(--colors-red-500) 50%, transparent);
+          }
+        }
+        "
+      `);
+    });
+  });
+
+  // describe('background', () => {
+
+  // })
 });
