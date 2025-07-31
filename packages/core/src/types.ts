@@ -1,9 +1,8 @@
 import type { CSSObject, Preset, SourceCodeTransformer, StaticShortcut } from '@unocss/core';
 import type { IconsOptions } from '@unocss/preset-icons';
-import type { PresetMiniOptions, Theme } from '@unocss/preset-mini';
 import type { TypographyOptions } from '@unocss/preset-typography';
 import type { WebFontsOptions } from '@unocss/preset-web-fonts';
-import type { PresetWind4Options } from '@unocss/preset-wind4';
+import type { PresetWind4Options, Theme } from '@unocss/preset-wind4';
 import type { TransformerDirectivesOptions } from '@unocss/transformer-directives';
 import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group';
 import type { UnoPresetScrollbarOption } from './presets/scrollbar';
@@ -149,15 +148,6 @@ export interface PresetVinicuncaOptions {
    *
    */
   theme?: VinicuncaTheme;
-
-  /**
-   * Enable the default preset
-   * Only works when `presets` is not specified
-   *
-   * @about [@unocss/preset-mini](https://unocss.dev/presets/mini)
-   * @default true
-   */
-  mini?: boolean | PresetMiniOptions;
 
   /**
    * Enable the wind4 preset

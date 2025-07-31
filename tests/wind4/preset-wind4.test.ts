@@ -9,7 +9,6 @@ function getPresetVinicunca(theme: VinicuncaTheme) {
     preflights: {
       reset: false,
     },
-    mini: false,
     wind4: {
       preflights: {
         reset: false,
