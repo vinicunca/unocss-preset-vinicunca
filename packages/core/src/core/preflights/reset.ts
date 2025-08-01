@@ -6,7 +6,6 @@ const resetCSS = `
   1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
   2. Remove default margins and padding
   3. Reset all borders
-  4. [UnoCSS]: allow to override the default border color with css var \`--un-default-border-color\`
 */
 
 *,
@@ -19,7 +18,6 @@ const resetCSS = `
   padding: 0; /* 2 */
   border-width: 0; /* 3 */
   border-style: solid; /* 3 */
-  border-color: var(--un-default-border-color, #e5e7eb); /* 4 */
 }
 
 /*
@@ -39,7 +37,7 @@ html,
   -moz-tab-size: 4; /* 3 */
   tab-size: 4; /* 3 */
   font-family: var(
-    --default-font-family,
+    --defaults-font-family,
     ui-sans-serif,
     system-ui,
     sans-serif,
@@ -48,8 +46,8 @@ html,
     'Segoe UI Symbol',
     'Noto Color Emoji'
   ); /* 4 */
-  font-feature-settings: var(--default-font-feature-settings, normal); /* 5 */
-  font-variation-settings: var(--default-font-variation-settings, normal); /* 6 */
+  font-feature-settings: var(--defaults-font-feature-settings, normal); /* 5 */
+  font-variation-settings: var(--defaults-font-variation-settings, normal); /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
 }
 
@@ -127,7 +125,7 @@ kbd,
 samp,
 pre {
   font-family: var(
-    --default-mono-font-family,
+    --defaults-mono-font-family,
     ui-monospace,
     SFMono-Regular,
     Menlo,
@@ -137,8 +135,8 @@ pre {
     'Courier New',
     monospace
   ); /* 1 */
-  font-feature-settings: var(--default-mono-font-feature-settings, normal); /* 2 */
-  font-variation-settings: var(--default-mono-font-variation-settings, normal); /* 3 */
+  font-feature-settings: var(--defaults-mono-font-feature-settings, normal); /* 2 */
+  font-variation-settings: var(--defaults-mono-font-variation-settings, normal); /* 3 */
   font-size: 1em; /* 4 */
 }
 
@@ -291,13 +289,23 @@ textarea,
 }
 
 /*
-  1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-  2. Set the default placeholder color to a semi-transparent version of the current text color.
+  Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
 */
 
 ::placeholder {
-  opacity: 1; /* 1 */
-  color: color-mix(in oklab, currentColor 50%, transparent); /* 2 */
+  opacity: 1;
+}
+
+/*
+  Set the default placeholder color to a semi-transparent version of the current text color in browsers that do not
+  crash when using \`color-mix(…)\` with \`currentcolor\`. (https://github.com/tailwindlabs/tailwindcss/issues/17194)
+*/
+
+@supports (not (-webkit-appearance: -apple-pay-button)) /* Not Safari */ or
+  (contain-intrinsic-size: 1px) /* Safari 17+ */ {
+  ::placeholder {
+    color: color-mix(in oklab, currentcolor 50%, transparent);
+  }
 }
 
 /*

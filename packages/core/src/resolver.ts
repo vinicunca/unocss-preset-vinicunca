@@ -1,5 +1,5 @@
 /* eslint-disable no-await-in-loop */
-import type { Theme } from '@unocss/preset-mini';
+import type { Theme } from '@unocss/preset-wind4';
 import type {
   AnimationOptions,
   CustomStaticShortcuts,
@@ -20,8 +20,10 @@ export const defaultOptions: PresetVinicuncaOptions = {
   preflights: true,
 
   // presets
-  wind: {
-    reset: false,
+  wind4: {
+    preflights: {
+      reset: false,
+    },
   },
   icons: true,
   webFonts: false,
@@ -72,10 +74,10 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const transformers = [];
 
   const presetMap = {
-    wind: import('@unocss/preset-wind3').then((mod) => mod.presetWind3),
     icons: import('@unocss/preset-icons').then((mod) => mod.presetIcons),
     webFonts: import('@unocss/preset-web-fonts').then((mod) => mod.presetWebFonts),
     typography: import('@unocss/preset-typography').then((mod) => mod.presetTypography),
+    wind4: import('@unocss/preset-wind4').then((mod) => mod.presetWind4),
     scrollbar: import('./presets/scrollbar').then((mod) => mod.presetScrollbar),
     magicCss: import('./presets/magic-css').then((mod) => mod.presetMagicss),
     animation: import('./presets/animation').then((mod) => mod.presetAnimation),
