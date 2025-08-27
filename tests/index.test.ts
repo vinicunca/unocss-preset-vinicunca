@@ -6,8 +6,28 @@ import { getCssFromUno } from './utils';
 describe('presetVinicunca', async () => {
   it('targets', async () => {
     const code = vinicuncaTargets.join(' ');
-    const { css } = await getCssFromUno({ code });
-    const { css: css2 } = await getCssFromUno({ code });
+    const { css } = await getCssFromUno({
+      code,
+      options: {
+        theme: {
+          containers: {
+            padding: '16px',
+            center: true,
+          },
+        },
+      },
+    });
+    const { css: css2 } = await getCssFromUno({
+      code,
+      options: {
+        theme: {
+          containers: {
+            padding: '16px',
+            center: true,
+          },
+        },
+      },
+    });
 
     const unmatched: Array<string> = [];
     for (const i of vinicuncaTargets) {

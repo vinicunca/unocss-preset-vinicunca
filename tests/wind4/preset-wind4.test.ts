@@ -1106,7 +1106,7 @@ describe('preset-wind4', async () => {
           margin-inline: calc(calc(var(--spacing) * 4) * -1);
         }
         .-mx-big {
-          margin-inline: calc(calc(var(--spacing) * 400) * -1);
+          margin-inline: calc(var(--spacing-big) * -1);
         }
         .mx-\\[4px\\] {
           margin-inline: 4px;
@@ -1127,7 +1127,7 @@ describe('preset-wind4', async () => {
           margin-inline: auto;
         }
         .mx-big {
-          margin-inline: calc(var(--spacing) * 400);
+          margin-inline: var(--spacing-big);
         }
         "
       `);
@@ -1163,7 +1163,7 @@ describe('preset-wind4', async () => {
           margin-block: calc(calc(var(--spacing) * 4) * -1);
         }
         .-my-big {
-          margin-block: calc(calc(var(--spacing) * 400) * -1);
+          margin-block: calc(var(--spacing-big) * -1);
         }
         .my-\\[4px\\] {
           margin-block: 4px;
@@ -1181,7 +1181,7 @@ describe('preset-wind4', async () => {
           margin-block: calc(var(--spacing) * 99);
         }
         .my-big {
-          margin-block: calc(var(--spacing) * 400);
+          margin-block: var(--spacing-big);
         }
         "
       `);
@@ -1217,7 +1217,7 @@ describe('preset-wind4', async () => {
           margin-top: calc(calc(var(--spacing) * 4) * -1);
         }
         .-mt-big {
-          margin-top: calc(calc(var(--spacing) * 400) * -1);
+          margin-top: calc(var(--spacing-big) * -1);
         }
         .mt-\\[4px\\] {
           margin-top: 4px;
@@ -1235,7 +1235,7 @@ describe('preset-wind4', async () => {
           margin-top: calc(var(--spacing) * 99);
         }
         .mt-big {
-          margin-top: calc(var(--spacing) * 400);
+          margin-top: var(--spacing-big);
         }
         "
       `);
@@ -1271,7 +1271,7 @@ describe('preset-wind4', async () => {
           margin-inline-start: calc(calc(var(--spacing) * 4) * -1);
         }
         .-ms-big {
-          margin-inline-start: calc(calc(var(--spacing) * 400) * -1);
+          margin-inline-start: calc(var(--spacing-big) * -1);
         }
         .ms-\\[4px\\] {
           margin-inline-start: 4px;
@@ -1289,7 +1289,7 @@ describe('preset-wind4', async () => {
           margin-inline-start: calc(var(--spacing) * 99);
         }
         .ms-big {
-          margin-inline-start: calc(var(--spacing) * 400);
+          margin-inline-start: var(--spacing-big);
         }
         "
       `);
@@ -1325,7 +1325,7 @@ describe('preset-wind4', async () => {
           margin-inline-end: calc(calc(var(--spacing) * 4) * -1);
         }
         .-me-big {
-          margin-inline-end: calc(calc(var(--spacing) * 400) * -1);
+          margin-inline-end: calc(var(--spacing-big) * -1);
         }
         .me-\\[4px\\] {
           margin-inline-end: 4px;
@@ -1343,7 +1343,7 @@ describe('preset-wind4', async () => {
           margin-inline-end: calc(var(--spacing) * 99);
         }
         .me-big {
-          margin-inline-end: calc(var(--spacing) * 400);
+          margin-inline-end: var(--spacing-big);
         }
         "
       `);
@@ -1379,7 +1379,7 @@ describe('preset-wind4', async () => {
           margin-right: calc(calc(var(--spacing) * 4) * -1);
         }
         .-mr-big {
-          margin-right: calc(calc(var(--spacing) * 400) * -1);
+          margin-right: calc(var(--spacing-big) * -1);
         }
         .mr-\\[4px\\] {
           margin-right: 4px;
@@ -1397,7 +1397,7 @@ describe('preset-wind4', async () => {
           margin-right: calc(var(--spacing) * 99);
         }
         .mr-big {
-          margin-right: calc(var(--spacing) * 400);
+          margin-right: var(--spacing-big);
         }
         "
       `);
@@ -1433,7 +1433,7 @@ describe('preset-wind4', async () => {
           margin-bottom: calc(calc(var(--spacing) * 4) * -1);
         }
         .-mb-big {
-          margin-bottom: calc(calc(var(--spacing) * 400) * -1);
+          margin-bottom: calc(var(--spacing-big) * -1);
         }
         .mb-\\[4px\\] {
           margin-bottom: 4px;
@@ -1451,7 +1451,7 @@ describe('preset-wind4', async () => {
           margin-bottom: calc(var(--spacing) * 99);
         }
         .mb-big {
-          margin-bottom: calc(var(--spacing) * 400);
+          margin-bottom: var(--spacing-big);
         }
         "
       `);
@@ -1487,7 +1487,7 @@ describe('preset-wind4', async () => {
           margin-left: calc(calc(var(--spacing) * 4) * -1);
         }
         .-ml-big {
-          margin-left: calc(calc(var(--spacing) * 400) * -1);
+          margin-left: calc(var(--spacing-big) * -1);
         }
         .ml-\\[4px\\] {
           margin-left: 4px;
@@ -1505,7 +1505,7 @@ describe('preset-wind4', async () => {
           margin-left: calc(var(--spacing) * 99);
         }
         .ml-big {
-          margin-left: calc(var(--spacing) * 400);
+          margin-left: var(--spacing-big);
         }
         "
       `);
@@ -1577,7 +1577,7 @@ describe('preset-wind4', async () => {
           padding: calc(var(--spacing) * 99);
         }
         .p-big {
-          padding: calc(var(--spacing) * 400);
+          padding: var(--spacing-big);
         }
         "
       `);
@@ -1601,7 +1601,7 @@ describe('preset-wind4', async () => {
           padding-inline: calc(var(--spacing) * 99);
         }
         .px-big {
-          padding-inline: calc(var(--spacing) * 400);
+          padding-inline: var(--spacing-big);
         }
         "
       `);
@@ -1625,7 +1625,7 @@ describe('preset-wind4', async () => {
           padding-block: calc(var(--spacing) * 99);
         }
         .py-big {
-          padding-block: calc(var(--spacing) * 400);
+          padding-block: var(--spacing-big);
         }
         "
       `);
@@ -1649,7 +1649,7 @@ describe('preset-wind4', async () => {
           padding-top: calc(var(--spacing) * 99);
         }
         .pt-big {
-          padding-top: calc(var(--spacing) * 400);
+          padding-top: var(--spacing-big);
         }
         "
       `);
@@ -1672,7 +1672,7 @@ describe('preset-wind4', async () => {
           padding-inline-start: calc(var(--spacing) * 99);
         }
         .ps-big {
-          padding-inline-start: calc(var(--spacing) * 400);
+          padding-inline-start: var(--spacing-big);
         }
         "
       `);
@@ -1696,7 +1696,7 @@ describe('preset-wind4', async () => {
           padding-inline-end: calc(var(--spacing) * 99);
         }
         .pe-big {
-          padding-inline-end: calc(var(--spacing) * 400);
+          padding-inline-end: var(--spacing-big);
         }
         "
       `);
@@ -1720,7 +1720,7 @@ describe('preset-wind4', async () => {
           padding-right: calc(var(--spacing) * 99);
         }
         .pr-big {
-          padding-right: calc(var(--spacing) * 400);
+          padding-right: var(--spacing-big);
         }
         "
       `);
@@ -1744,7 +1744,7 @@ describe('preset-wind4', async () => {
           padding-bottom: calc(var(--spacing) * 99);
         }
         .pb-big {
-          padding-bottom: calc(var(--spacing) * 400);
+          padding-bottom: var(--spacing-big);
         }
         "
       `);
@@ -1768,7 +1768,7 @@ describe('preset-wind4', async () => {
           padding-left: calc(var(--spacing) * 99);
         }
         .pl-big {
-          padding-left: calc(var(--spacing) * 400);
+          padding-left: var(--spacing-big);
         }
         "
       `);
