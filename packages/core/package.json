@@ -23,12 +23,11 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
@@ -43,9 +42,9 @@
   ],
   "scripts": {
     "build": "tsdown",
+    "stub": "tsdown --stub",
     "prepublishOnly": "pnpm run build",
-    "publish:ci": "pnpm publish --access public --no-git-checks",
-    "stub": "tsdown --stub"
+    "publish:ci": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
     "@vinicunca/perkakas": "catalog:",

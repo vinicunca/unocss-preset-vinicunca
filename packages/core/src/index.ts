@@ -5,6 +5,8 @@ import { defaultShortcuts, getPreflights, postprocessWithUnColor } from './core'
 import { PRESET_NAME } from './meta';
 import { resolveOptions } from './resolver';
 
+export type { VinicuncaTheme };
+
 export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaTheme>(
   async (options) => {
     const resolvedOptions = await resolveOptions(options ?? {});
