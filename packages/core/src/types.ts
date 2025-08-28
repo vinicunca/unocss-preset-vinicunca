@@ -2,7 +2,8 @@ import type { CSSObject, Preset, SourceCodeTransformer, StaticShortcut } from '@
 import type { IconsOptions } from '@unocss/preset-icons';
 import type { TypographyOptions } from '@unocss/preset-typography';
 import type { WebFontsOptions } from '@unocss/preset-web-fonts';
-import type { PresetWind4Options, Theme } from '@unocss/preset-wind4';
+import type { PresetWind3Options, Theme as ThemeWind3 } from '@unocss/preset-wind3';
+import type { PresetWind4Options, Theme as ThemeWind4 } from '@unocss/preset-wind4';
 import type { TransformerDirectivesOptions } from '@unocss/transformer-directives';
 import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group';
 import type { UnoPresetScrollbarOption } from './presets/scrollbar';
@@ -71,7 +72,7 @@ export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
   animation?: Record<string, string>;
 }
 
-export interface VinicuncaTheme extends Theme {
+export interface VinicuncaTheme extends Omit<ThemeWind3, 'container' | 'containers'>, ThemeWind4 {
   extend?: VinicuncaExtends;
 }
 
@@ -150,6 +151,15 @@ export interface PresetVinicuncaOptions {
   theme?: VinicuncaTheme;
 
   /**
+   * Enable the default preset for preset-wind3
+   * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-wind3](https://unocss.dev/presets/wind3)
+   * @default false
+   */
+  wind3?: boolean | PresetWind3Options;
+
+  /**
    * Enable the wind4 preset
    * Only works when `presets` is not specified
    *
@@ -157,7 +167,7 @@ export interface PresetVinicuncaOptions {
       reset: false,
     }
    */
-  wind4?: PresetWind4Options;
+  wind4?: boolean | PresetWind4Options;
 
   /**
    * Enable icons preset and the options of it
