@@ -2,7 +2,7 @@
   "name": "@vinicunca/unocss-preset-monorepo",
   "type": "module",
   "version": "1.19.0",
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.15.0",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -34,8 +34,8 @@
     "prettier": "catalog:",
     "simple-git-hooks": "catalog:",
     "taze": "catalog:",
+    "tsdown": "catalog:",
     "typescript": "catalog:",
-    "unbuild": "catalog:",
     "unocss": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"

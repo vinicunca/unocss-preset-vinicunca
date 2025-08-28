@@ -42,10 +42,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "tsdown",
     "prepublishOnly": "pnpm run build",
     "publish:ci": "pnpm publish --access public --no-git-checks",
-    "stub": "unbuild --stub"
+    "stub": "tsdown --stub"
   },
   "peerDependencies": {
     "@vinicunca/perkakas": "catalog:",
