@@ -16,7 +16,7 @@
     "test": "vitest",
     "test:update": "vitest --update",
     "play": "pnpm -C playground run dev",
-    "taze": "taze major -wIr",
+    "taze": "taze major -wIrl",
     "typecheck": "tsc --noEmit",
     "publish:ci": "pnpm -F=./packages/core run publish:ci",
     "build:docs": "pnpm -F=./docs run build",

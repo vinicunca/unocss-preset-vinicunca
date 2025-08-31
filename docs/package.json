@@ -7,10 +7,12 @@
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
+  "dependencies": {
+    "akar": "catalog:"
+  },
   "devDependencies": {
     "@iconify/json": "catalog:",
     "postcss-nested": "catalog:",
-    "radix-vue": "catalog:",
     "unplugin-vue-components": "catalog:",
     "vitepress": "catalog:"
   }
