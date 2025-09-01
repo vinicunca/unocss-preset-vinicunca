@@ -1,5 +1,5 @@
 import type { Preflight } from 'unocss';
-import { compressCSS } from './utils';
+import { compressCSS } from '../../utils';
 
 const resetCSS = `
 /*

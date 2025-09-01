@@ -101,3 +101,7 @@ export function stringifyObj(obj: CSSObject) {
 function camelToHyphen(str: string): string {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
+
+export function compressCSS(css: string) {
+  return css.replace(/\s+/g, ' ').replace(/\/\*[\s\S]*?\*\//g, '');
+}
