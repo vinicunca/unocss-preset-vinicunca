@@ -41,6 +41,8 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
       transformers: meta.transformers,
 
       preflights: getPreflights(resolvedOptions),
+
+      safelist: meta.safelist,
     };
   },
 );

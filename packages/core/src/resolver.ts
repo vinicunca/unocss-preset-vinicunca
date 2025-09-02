@@ -39,6 +39,68 @@ export const defaultOptions: PresetVinicuncaOptions = {
   variantGroup: true,
 };
 
+const defaultAkarAnimations = {
+  keyframes: {
+    'drawer-fade-in': {
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+    },
+    'drawer-fade-out': {
+      to: { opacity: 0 },
+    },
+    'drawer-slide-from-bottom': {
+      from: { transform: 'translate3d(0, var(--akar-drawer-initial-transform, 100%), 0)' },
+      to: { transform: 'translate3d(0, 0, 0)' },
+    },
+    'drawer-slide-to-bottom': {
+      to: { transform: 'translate3d(0, var(--akar-drawer-initial-transform, 100%), 0)' },
+    },
+    'drawer-slide-from-top': {
+      from: { transform: 'translate3d(0, calc(var(--akar-drawer-initial-transform, 100%) * -1), 0)' },
+      to: { transform: 'translate3d(0, 0, 0)' },
+    },
+    'drawer-slide-to-top': {
+      to: { transform: 'translate3d(0, calc(var(--akar-drawer-initial-transform, 100%) * -1), 0)' },
+    },
+    'drawer-slide-from-left': {
+      from: { transform: 'translate3d(calc(var(--akar-drawer-initial-transform, 100%) * -1), 0, 0)' },
+      to: { transform: 'translate3d(0, 0, 0)' },
+    },
+    'drawer-slide-to-left': {
+      to: { transform: 'translate3d(calc(var(--akar-drawer-initial-transform, 100%) * -1), 0, 0)' },
+    },
+    'drawer-slide-from-right': {
+      from: { transform: 'translate3d(var(--akar-drawer-initial-transform, 100%), 0, 0)' },
+      to: { transform: 'translate3d(0, 0, 0)' },
+    },
+    'drawer-slide-to-right': {
+      to: { transform: 'translate3d(var(--akar-drawer-initial-transform, 100%), 0, 0)' },
+    },
+    'accordion-down': {
+      from: { height: 0 },
+      to: { height: 'var(--akar-accordion-content-height)' },
+    },
+    'accordion-up': {
+      from: { height: 'var(--akar-accordion-content-height)' },
+      to: { height: 0 },
+    },
+    'collapsible-down': {
+      from: { height: 0 },
+      to: { height: 'var(--akar-collapsible-content-height)' },
+    },
+    'collapsible-up': {
+      from: { height: 'var(--akar-collapsible-content-height)' },
+      to: { height: 0 },
+    },
+  },
+  animation: {
+    'collapsible-down': 'collapsible-down 0.2s ease-in-out',
+    'collapsible-up': 'collapsible-up 0.2s ease-in-out',
+    'accordion-down': 'accordion-down 0.2s ease-out',
+    'accordion-up': 'accordion-up 0.2s ease-out',
+  },
+};
+
 export const defaultFluidOptions: Required<FluidOptions> = {
   maxWidth: 1440,
   minWidth: 375,
@@ -77,8 +139,12 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
 
   const presets = await resolvePresets(optionsWithDefault);
   const transformers = await resolveTransformers(optionsWithDefault);
+  const {
+    theme: themeExtend,
+    shortcuts,
+    safelist,
+  } = resolveExtend(optionsWithDefault);
 
-  const { theme: themeExtend, shortcuts } = resolveExtend(optionsWithDefault.theme.extend ?? {});
   const theme_ = mergeDeep(
     themeExtend,
     optionsWithDefault.theme,
@@ -95,6 +161,7 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
       presets,
       shortcuts,
       transformers,
+      safelist,
     },
   };
 }
@@ -154,12 +221,42 @@ async function resolveTransformers(options: Required<PresetVinicuncaOptions>) {
   return transformers;
 }
 
-export function resolveExtend(extend: VinicuncaTheme['extend']) {
+export function resolveExtend(options: PresetVinicuncaOptions) {
   const shortcuts_: CustomStaticShortcuts = [];
-  const { animation, keyframes = {} } = extend!;
+  let {
+    animation = {},
+    keyframes = {},
+  } = options.theme?.extend ?? {};
+  const safelist: Array<string> = [];
+
+  const enableAkar = Boolean(options.akar);
+
+  /**
+   * If akar is enabled we want to safelist all default animations
+   */
+  if (enableAkar) {
+    animation = mergeDeep(
+      animation,
+      defaultAkarAnimations.animation,
+    );
+
+    keyframes = mergeDeep(
+      keyframes,
+      defaultAkarAnimations.keyframes,
+    );
+
+    const animationKeys = Object.keys(defaultAkarAnimations.animation ?? {});
+    const keyframesKeys = Object.keys(defaultAkarAnimations.keyframes ?? {});
+
+    keyframesKeys.forEach((frameKey) => {
+      if (!animationKeys.includes(frameKey)) {
+        safelist.push(`animate-${frameKey}`);
+      }
+    });
+  }
 
   // animation
-  const { animation: resolvedAnimation, shortcuts } = resolveAnimation(animation ?? {});
+  const { animation: resolvedAnimation, shortcuts } = resolveAnimation(animation);
   shortcuts_.push(...shortcuts);
 
   // keyframes
@@ -172,5 +269,6 @@ export function resolveExtend(extend: VinicuncaTheme['extend']) {
   return {
     theme: { animation: resolvedAnimation } as VinicuncaTheme,
     shortcuts: shortcuts_,
+    safelist,
   };
 }

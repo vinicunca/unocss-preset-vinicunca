@@ -262,6 +262,7 @@ export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
     presets: Array<Preset>;
     shortcuts: CustomStaticShortcuts;
     transformers: Array<SourceCodeTransformer>;
+    safelist: Array<string>;
   };
 };
 
