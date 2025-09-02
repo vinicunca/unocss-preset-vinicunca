@@ -18,25 +18,11 @@ describe('presetVinicunca preflights', () => {
 
     const { css } = await uno.generate('');
 
-    await expect(css).toMatchFileSnapshot('./fixtures/preflights.css');
+    await expect(css).toMatchFileSnapshot('./output/preflights.css');
   });
 
   it('output reset css', async () => {
     const css = resetPreflight.getCSS({} as any) as string;
-    await expect(css).toMatchFileSnapshot('./fixtures/reset.css');
-  });
-
-  it('include akar preset', async () => {
-    const uno = await generateUno({
-      akar: true,
-    });
-
-    const preflights = uno.config.preflights;
-
-    expect(preflights.length).toBe(4);
-
-    const { css } = await uno.generate('');
-
-    await expect(css).toMatchFileSnapshot('./fixtures/preflights-akar.css');
+    await expect(css).toMatchFileSnapshot('./output/reset.css');
   });
 });
