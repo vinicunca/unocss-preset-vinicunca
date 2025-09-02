@@ -31,7 +31,6 @@ describe('presetVinicunca theme', () => {
     const uno_ = await createGenerator<VinicuncaTheme>({
       presets: [
         presetVinicunca({
-          enableDefaultShortcuts: false,
           theme: {
             extend,
           },

@@ -9,9 +9,9 @@ const customShortcuts: CustomStaticShortcuts = [
   ['flex-col-center', 'flex-center flex-col'],
 ];
 
-export const defaultShortcuts = normalizeShortcut(customShortcuts);
+export const defaultShortcuts = normalizeShortcuts(customShortcuts);
 
-function normalizeShortcut(shortcut: CustomStaticShortcuts): Array<StaticShortcut> {
+function normalizeShortcuts(shortcut: CustomStaticShortcuts): Array<StaticShortcut> {
   return shortcut.flatMap((short) => {
     if (Array.isArray(short[0])) {
       return short[0].map(
@@ -21,20 +21,4 @@ function normalizeShortcut(shortcut: CustomStaticShortcuts): Array<StaticShortcu
 
     return [short] as Array<StaticShortcut>;
   });
-}
-
-/**
- * We need to add the layers into the shortcuts.
- * So we need to run this immediately.
- *
- * We want these shortcuts to have the same layer as uno's default shortcuts
- * so it doesn't clash with the cascade order with the default layer.
- */
-for (const short of defaultShortcuts) {
-  short[2] = Object.assign(
-    short[2] || {},
-    {
-      layer: 'shortcuts',
-    },
-  );
 }
