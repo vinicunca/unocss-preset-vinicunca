@@ -3125,27 +3125,41 @@ describe('preset-wind4', async () => {
           initial-value: 0;
         }
         /* layer: default */
-        .divide-x > :not(:last-child) {
-          --un-divide-x-reverse: 0;
-          border-left-width: calc(1px * var(--un-divide-x-reverse));
-          border-left-style: var(--un-border-style);
-          border-right-width: calc(1px * calc(1 - var(--un-divide-x-reverse)));
-          border-right-style: var(--un-border-style);
+        .divide-x {
+          :where(& > :not(:last-child)) {
+            --un-divide-x-reverse: 0;
+            border-left-width: calc(1px * var(--un-divide-x-reverse));
+            border-left-style: var(--un-border-style);
+            border-right-width: calc(1px * calc(1 - var(--un-divide-x-reverse)));
+            border-right-style: var(--un-border-style);
+          }
         }
-        .divide-x-\\[4px\\] > :not(:last-child),
-        .divide-x-4 > :not(:last-child) {
-          --un-divide-x-reverse: 0;
-          border-left-width: calc(4px * var(--un-divide-x-reverse));
-          border-left-style: var(--un-border-style);
-          border-right-width: calc(4px * calc(1 - var(--un-divide-x-reverse)));
-          border-right-style: var(--un-border-style);
+        .divide-x-\\[4px\\] {
+          :where(& > :not(:last-child)) {
+            --un-divide-x-reverse: 0;
+            border-left-width: calc(4px * var(--un-divide-x-reverse));
+            border-left-style: var(--un-border-style);
+            border-right-width: calc(4px * calc(1 - var(--un-divide-x-reverse)));
+            border-right-style: var(--un-border-style);
+          }
         }
-        .divide-x-123 > :not(:last-child) {
-          --un-divide-x-reverse: 0;
-          border-left-width: calc(123px * var(--un-divide-x-reverse));
-          border-left-style: var(--un-border-style);
-          border-right-width: calc(123px * calc(1 - var(--un-divide-x-reverse)));
-          border-right-style: var(--un-border-style);
+        .divide-x-123 {
+          :where(& > :not(:last-child)) {
+            --un-divide-x-reverse: 0;
+            border-left-width: calc(123px * var(--un-divide-x-reverse));
+            border-left-style: var(--un-border-style);
+            border-right-width: calc(123px * calc(1 - var(--un-divide-x-reverse)));
+            border-right-style: var(--un-border-style);
+          }
+        }
+        .divide-x-4 {
+          :where(& > :not(:last-child)) {
+            --un-divide-x-reverse: 0;
+            border-left-width: calc(4px * var(--un-divide-x-reverse));
+            border-left-style: var(--un-border-style);
+            border-right-width: calc(4px * calc(1 - var(--un-divide-x-reverse)));
+            border-right-style: var(--un-border-style);
+          }
         }
         "
       `);
@@ -5532,19 +5546,23 @@ describe('preset-wind4', async () => {
           initial-value: 0;
         }
         /* layer: default */
-        .space-x-\\[4px\\] > :not(:last-child) {
-          --un-space-x-reverse: 0;
-          margin-inline-start: calc(4px * var(--un-space-x-reverse));
-          margin-inline-end: calc(4px * calc(1 - var(--un-space-x-reverse)));
+        .space-x-\\[4px\\] {
+          :where(& > :not(:last-child)) {
+            --un-space-x-reverse: 0;
+            margin-inline-start: calc(4px * var(--un-space-x-reverse));
+            margin-inline-end: calc(4px * calc(1 - var(--un-space-x-reverse)));
+          }
         }
-        .space-x-4 > :not(:last-child) {
-          --un-space-x-reverse: 0;
-          margin-inline-start: calc(
-            calc(var(--spacing) * 4) * var(--un-space-x-reverse)
-          );
-          margin-inline-end: calc(
-            calc(var(--spacing) * 4) * calc(1 - var(--un-space-x-reverse))
-          );
+        .space-x-4 {
+          :where(& > :not(:last-child)) {
+            --un-space-x-reverse: 0;
+            margin-inline-start: calc(
+              calc(var(--spacing) * 4) * var(--un-space-x-reverse)
+            );
+            margin-inline-end: calc(
+              calc(var(--spacing) * 4) * calc(1 - var(--un-space-x-reverse))
+            );
+          }
         }
         "
       `);
@@ -5583,19 +5601,23 @@ describe('preset-wind4', async () => {
           initial-value: 0;
         }
         /* layer: default */
-        .space-y-\\[4px\\] > :not(:last-child) {
-          --un-space-y-reverse: 0;
-          margin-block-start: calc(4px * var(--un-space-y-reverse));
-          margin-block-end: calc(4px * calc(1 - var(--un-space-y-reverse)));
+        .space-y-\\[4px\\] {
+          :where(& > :not(:last-child)) {
+            --un-space-y-reverse: 0;
+            margin-block-start: calc(4px * var(--un-space-y-reverse));
+            margin-block-end: calc(4px * calc(1 - var(--un-space-y-reverse)));
+          }
         }
-        .space-y-4 > :not(:last-child) {
-          --un-space-y-reverse: 0;
-          margin-block-start: calc(
-            calc(var(--spacing) * 4) * var(--un-space-y-reverse)
-          );
-          margin-block-end: calc(
-            calc(var(--spacing) * 4) * calc(1 - var(--un-space-y-reverse))
-          );
+        .space-y-4 {
+          :where(& > :not(:last-child)) {
+            --un-space-y-reverse: 0;
+            margin-block-start: calc(
+              calc(var(--spacing) * 4) * var(--un-space-y-reverse)
+            );
+            margin-block-end: calc(
+              calc(var(--spacing) * 4) * calc(1 - var(--un-space-y-reverse))
+            );
+          }
         }
         "
       `);
@@ -5634,8 +5656,10 @@ describe('preset-wind4', async () => {
           initial-value: 0;
         }
         /* layer: default */
-        .space-x-reverse > :not(:last-child) {
-          --un-space-x-reverse: 1;
+        .space-x-reverse {
+          :where(& > :not(:last-child)) {
+            --un-space-x-reverse: 1;
+          }
         }
         "
       `);
@@ -5674,8 +5698,10 @@ describe('preset-wind4', async () => {
           initial-value: 0;
         }
         /* layer: default */
-        .space-y-reverse > :not(:last-child) {
-          --un-space-y-reverse: 1;
+        .space-y-reverse {
+          :where(& > :not(:last-child)) {
+            --un-space-y-reverse: 1;
+          }
         }
         "
       `);
