@@ -46,11 +46,8 @@ export function resolveAnimation(extendAnimation: Record<string, string>) {
   > = ['durations', 'timingFns', 'counts'];
   const shortcuts: CustomStaticShortcuts = [];
 
-  // TODO: replace for in with for of to remove the no-restricted-syntax eslint rule
-  // eslint-disable-next-line no-restricted-syntax
-  for (const key_ in extendAnimation) {
-    const val = extendAnimation[key_];
-    const match = val.match(RE_ANIMATION);
+  for (const [key_, val_] of Object.entries(extendAnimation)) {
+    const match = val_.match(RE_ANIMATION);
 
     if (match != null) {
       const [, name, duration, timing, count] = match;
