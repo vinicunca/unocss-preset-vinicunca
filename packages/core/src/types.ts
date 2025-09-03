@@ -76,6 +76,12 @@ export interface VinicuncaTheme extends Omit<ThemeWind3, 'container' | 'containe
   extend?: VinicuncaExtends;
 }
 
+export interface VinicuncaAkarOptions {
+  keyframes?: VinicuncaExtends['keyframes'];
+  animation?: VinicuncaExtends['animation'];
+  brands?: ThemeWind4['colors'];
+}
+
 interface PreflightOptions {
   /**
    * Enable reset styles
@@ -254,7 +260,7 @@ export interface PresetVinicuncaOptions {
   /**
    * Enable akar preset
    */
-  akar?: boolean;
+  akar?: boolean | VinicuncaAkarOptions;
 }
 
 export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
