@@ -1,7 +1,7 @@
 {
   "name": "@vinicunca/unocss-docs",
   "type": "module",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "scripts": {
     "dev": "vitepress dev --open",
     "build": "vitepress build",
