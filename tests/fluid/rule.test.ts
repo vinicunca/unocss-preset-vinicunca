@@ -2,9 +2,8 @@ import type { RequiredFluidOptions } from '../../packages/core/src/types';
 
 import { describe, expect, it } from 'vitest';
 
+import { DEFAULT_FLUID_OPTIONS } from '../../packages/core/src/constants';
 import { buildFluidRules, buildMultiplePropertiesRule, buildRule, buildSinglePropertyRule, FLUID_UTILITIES, REGEX_PATTERNS_NUMERIC_VALUES, REGEX_PATTERNS_RANGE_VALUES } from '../../packages/core/src/presets/fluid/utils';
-
-import { defaultFluidOptions } from '../../packages/core/src/resolver';
 
 const ranges: {
   [key: string]: [number, number];
@@ -17,12 +16,12 @@ const ranges: {
 };
 
 const optionsWithRanges: RequiredFluidOptions = {
-  ...defaultFluidOptions,
+  ...DEFAULT_FLUID_OPTIONS,
   ranges,
 };
 
 const optionsWithRangesAndComments: RequiredFluidOptions = {
-  ...defaultFluidOptions,
+  ...DEFAULT_FLUID_OPTIONS,
   commentHelpers: true,
   ranges,
 };
@@ -32,7 +31,7 @@ describe('buildSinglePropertyRule', () => {
     expect(
       buildSinglePropertyRule({
         match: ['fluid-text-10-20', '-10', '-20', '', ''],
-        config: defaultFluidOptions,
+        config: DEFAULT_FLUID_OPTIONS,
         property: 'font-size',
       }),
     ).toMatchObject({
@@ -81,7 +80,7 @@ describe('buildMultiplePropertiesRule', () => {
   it('build multiple property rule', () => {
     expect(buildMultiplePropertiesRule({
       match: ['fluid-mx-10-20', '-10', '-20', '', ''],
-      config: defaultFluidOptions,
+      config: DEFAULT_FLUID_OPTIONS,
       properties: ['margin-left', 'margin-right'],
     })).toMatchObject({
       'margin-left': 'clamp(0.625rem, 0.4049rem + 0.9390vw, 1.25rem)',
@@ -130,7 +129,7 @@ describe('buildRules', () => {
     const rule = buildRule({
       name: ruleUtility,
       properties: ['margin-left', 'margin-right'],
-      config: defaultFluidOptions,
+      config: DEFAULT_FLUID_OPTIONS,
     });
 
     const regexPatternNumericValues = `^${ruleUtility}${REGEX_PATTERNS_NUMERIC_VALUES}`;
@@ -142,7 +141,7 @@ describe('buildRules', () => {
   });
 
   it('build rules from utilities', () => {
-    const rules = buildFluidRules(defaultFluidOptions);
+    const rules = buildFluidRules(DEFAULT_FLUID_OPTIONS);
     // @ts-expect-error overload regex type
     const rulesRegex = rules.map((rule) => new RegExp(rule[0]));
 
@@ -166,7 +165,7 @@ describe('buildRules', () => {
 });
 
 describe('build rules from utilities', () => {
-  const rules = buildFluidRules(defaultFluidOptions);
+  const rules = buildFluidRules(DEFAULT_FLUID_OPTIONS);
   // @ts-expect-error overload regex type
   const rulesRegex = rules.map((rule) => new RegExp(rule[0]));
 

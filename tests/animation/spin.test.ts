@@ -47,7 +47,7 @@ describe.concurrent('spin animation', async () => {
           .spin-in--70{--vin-enter-rotate:-70deg;}
           .spin-in--80{--vin-enter-rotate:-80deg;}
           .spin-in--90{--vin-enter-rotate:-90deg;}
-          .spin-in-0{--vin-enter-rotate:0;}
+          .spin-in-0{--vin-enter-rotate:0deg;}
           .spin-in-10{--vin-enter-rotate:10deg;}
           .spin-in-100{--vin-enter-rotate:100deg;}
           .spin-in-110{--vin-enter-rotate:110deg;}
@@ -291,7 +291,7 @@ describe.concurrent('spin animation', async () => {
           .spin-in-0deg,
           .spin-in-0grad,
           .spin-in-0rad,
-          .spin-in-0turn{--vin-enter-rotate:0;}"
+          .spin-in-0turn{--vin-enter-rotate:0deg;}"
         `);
       });
     });
@@ -349,7 +349,7 @@ describe.concurrent('spin animation', async () => {
           .spin-out--70{--vin-exit-rotate:-70deg;}
           .spin-out--80{--vin-exit-rotate:-80deg;}
           .spin-out--90{--vin-exit-rotate:-90deg;}
-          .spin-out-0{--vin-exit-rotate:0;}
+          .spin-out-0{--vin-exit-rotate:0deg;}
           .spin-out-10{--vin-exit-rotate:10deg;}
           .spin-out-100{--vin-exit-rotate:100deg;}
           .spin-out-110{--vin-exit-rotate:110deg;}
@@ -592,7 +592,7 @@ describe.concurrent('spin animation', async () => {
           .spin-out-0deg,
           .spin-out-0grad,
           .spin-out-0rad,
-          .spin-out-0turn{--vin-exit-rotate:0;}"
+          .spin-out-0turn{--vin-exit-rotate:0deg;}"
         `);
       });
     });

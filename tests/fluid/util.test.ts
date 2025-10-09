@@ -1,8 +1,9 @@
-/* eslint-disable ts/no-loss-of-precision */
-import type { FluidOptions } from '../../packages/core/src/types';
+/* eslint-disable no-loss-of-precision */
+import type { RequiredFluidOptions } from '../../packages/core/src/types';
 
 import { describe, expect, it } from 'vitest';
 
+import { DEFAULT_FLUID_OPTIONS } from '../../packages/core/src/constants';
 import {
   calculateRelativeSize,
   extractRemBoundsFromMatch,
@@ -16,10 +17,9 @@ import {
   invertAndParseNumber,
   toRem,
 } from '../../packages/core/src/presets/fluid/utils';
-import { defaultFluidOptions } from '../../packages/core/src/resolver';
 
-const extendedOptions: FluidOptions = {
-  ...defaultFluidOptions,
+const extendedOptions: RequiredFluidOptions = {
+  ...DEFAULT_FLUID_OPTIONS,
   extendMaxWidth: 1920,
   extendMinWidth: 300,
 };
@@ -34,35 +34,35 @@ const ranges: {
   xl: [28, 56],
 };
 
-const optionsWithRanges: FluidOptions = {
-  ...defaultFluidOptions,
+const optionsWithRanges: RequiredFluidOptions = {
+  ...DEFAULT_FLUID_OPTIONS,
   ranges,
 };
 
 describe('fluid utils', () => {
   describe('rem utilities', () => {
     it('getRemMinWidth', () => {
-      expect(getRemMinWidth(defaultFluidOptions)).toBe(23.4375);
+      expect(getRemMinWidth(DEFAULT_FLUID_OPTIONS)).toBe(23.4375);
 
       // Extended options
       expect(getRemMinWidth(extendedOptions)).toBe(18.75);
     });
 
     it('getRemMaxWidth with extended options', () => {
-      expect(getRemMaxWidth(defaultFluidOptions)).toBe(90);
+      expect(getRemMaxWidth(DEFAULT_FLUID_OPTIONS)).toBe(90);
 
       // Extended options
       expect(getRemMaxWidth(extendedOptions)).toBe(120);
     });
 
     it('toRem', () => {
-      expect(toRem(16, defaultFluidOptions)).toBe(1);
+      expect(toRem(16, DEFAULT_FLUID_OPTIONS)).toBe(1);
     });
 
     it('toRem with different remBase', () => {
       expect(
         toRem(20, {
-          ...defaultFluidOptions,
+          ...DEFAULT_FLUID_OPTIONS,
           remBase: 20,
         }),
       ).toBe(1);
@@ -71,7 +71,7 @@ describe('fluid utils', () => {
     it('extract rem bounds from match positive values', () => {
       const { min, max } = extractRemBoundsFromMatch({
         match: ['', '-16', '-32', '', ''],
-        config: defaultFluidOptions,
+        config: DEFAULT_FLUID_OPTIONS,
       });
       expect(min).toBe(1);
       expect(max).toBe(2);
@@ -80,7 +80,7 @@ describe('fluid utils', () => {
     it('extract rem bounds from match negative values', () => {
       const { min, max } = extractRemBoundsFromMatch({
         match: ['', '16', '32', '', ''],
-        config: defaultFluidOptions,
+        config: DEFAULT_FLUID_OPTIONS,
       });
       expect(min).toBe(-1);
       expect(max).toBe(-2);
@@ -89,7 +89,7 @@ describe('fluid utils', () => {
     it('extract rem bounds from match mixed values', () => {
       const { min, max } = extractRemBoundsFromMatch({
         match: ['', '-16', '32', '', ''],
-        config: defaultFluidOptions,
+        config: DEFAULT_FLUID_OPTIONS,
       });
       expect(min).toBe(1);
       expect(max).toBe(-2);
@@ -113,15 +113,15 @@ describe('fluid utils', () => {
   describe('clamp utilities', () => {
     it('slope', () => {
       expect(
-        getSlope({ min: 10, max: 20, config: defaultFluidOptions }),
+        getSlope({ min: 10, max: 20, config: DEFAULT_FLUID_OPTIONS }),
       ).toBe(0.15023474178403756);
 
       expect(
-        getSlope({ min: 25, max: 50, config: defaultFluidOptions }),
+        getSlope({ min: 25, max: 50, config: DEFAULT_FLUID_OPTIONS }),
       ).toBe(0.3755868544600939);
 
       expect(
-        getSlope({ min: 0.5, max: 1, config: defaultFluidOptions }),
+        getSlope({ min: 0.5, max: 1, config: DEFAULT_FLUID_OPTIONS }),
       ).toBe(0.007511737089201878);
 
       // Extended options
@@ -138,13 +138,13 @@ describe('fluid utils', () => {
 
     it('slope percentage', () => {
       expect(
-        getSlopePercentage({ min: 10, max: 20, config: defaultFluidOptions }),
+        getSlopePercentage({ min: 10, max: 20, config: DEFAULT_FLUID_OPTIONS }),
       ).toBe(15.023474178403756);
       expect(
-        getSlopePercentage({ min: 25, max: 50, config: defaultFluidOptions }),
+        getSlopePercentage({ min: 25, max: 50, config: DEFAULT_FLUID_OPTIONS }),
       ).toBe(37.558685446009385);
       expect(
-        getSlopePercentage({ min: 0.5, max: 1, config: defaultFluidOptions }),
+        getSlopePercentage({ min: 0.5, max: 1, config: DEFAULT_FLUID_OPTIONS }),
       ).toBe(0.7511737089201878);
 
       // Extended options
@@ -165,10 +165,10 @@ describe('fluid utils', () => {
     });
 
     it('clamp', () => {
-      expect(getClamp({ min: 1, max: 10, config: defaultFluidOptions })).toBe('clamp(1rem, -2.1690rem + 13.5211vw, 10rem)');
-      expect(getClamp({ min: -1, max: -10, config: defaultFluidOptions })).toBe('clamp(-10rem, 2.1690rem + -13.5211vw, -1rem)');
-      expect(getClamp({ min: -1, max: 10, config: defaultFluidOptions })).toBe('clamp(-1rem, -4.8732rem + 16.5258vw, 10rem)');
-      expect(getClamp({ min: 1, max: -10, config: defaultFluidOptions })).toBe('clamp(-10rem, 4.8732rem + -16.5258vw, 1rem)');
+      expect(getClamp({ min: 1, max: 10, config: DEFAULT_FLUID_OPTIONS })).toBe('clamp(1rem, -2.1690rem + 13.5211vw, 10rem)');
+      expect(getClamp({ min: -1, max: -10, config: DEFAULT_FLUID_OPTIONS })).toBe('clamp(-10rem, 2.1690rem + -13.5211vw, -1rem)');
+      expect(getClamp({ min: -1, max: 10, config: DEFAULT_FLUID_OPTIONS })).toBe('clamp(-1rem, -4.8732rem + 16.5258vw, 10rem)');
+      expect(getClamp({ min: 1, max: -10, config: DEFAULT_FLUID_OPTIONS })).toBe('clamp(-10rem, 4.8732rem + -16.5258vw, 1rem)');
 
       // Extended options
       expect(getClamp({ min: 1, max: 10, config: extendedOptions })).toBe('clamp(1rem, -0.6667rem + 8.8889vw, 10rem)');
@@ -181,7 +181,7 @@ describe('fluid utils', () => {
       expect(
         getClampComment({
           match: ['fluid-w-16-32', '-16', '-32', '', ''],
-          config: defaultFluidOptions,
+          config: DEFAULT_FLUID_OPTIONS,
         }),
       ).toBe('');
     });
@@ -191,7 +191,7 @@ describe('fluid utils', () => {
         getClampComment({
           match: ['fluid-w-16-32', '-16', '-32', '', ''],
           config: {
-            ...defaultFluidOptions,
+            ...DEFAULT_FLUID_OPTIONS,
             commentHelpers: true,
           },
         }),
@@ -203,7 +203,7 @@ describe('fluid utils', () => {
         getClampComment({
           match: ['fluid-w--16--32', '16', '32', '', ''],
           config: {
-            ...defaultFluidOptions,
+            ...DEFAULT_FLUID_OPTIONS,
             commentHelpers: true,
           },
         }),
@@ -215,7 +215,7 @@ describe('fluid utils', () => {
         getClampComment({
           match: ['fluid-w-16--32', '-16', '32', '', ''],
           config: {
-            ...defaultFluidOptions,
+            ...DEFAULT_FLUID_OPTIONS,
             commentHelpers: true,
           },
         }),
@@ -227,7 +227,7 @@ describe('fluid utils', () => {
         getClampComment({
           match: ['fluid-w-1-2', '-1', '-2', '', ''],
           config: {
-            ...defaultFluidOptions,
+            ...DEFAULT_FLUID_OPTIONS,
             commentHelpers: true,
             useRemByDefault: true,
           },

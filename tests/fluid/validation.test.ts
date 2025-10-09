@@ -2,8 +2,8 @@ import type { RequiredFluidOptions } from '../../packages/core/src/types';
 
 import { describe, expect, it, vi } from 'vitest';
 
+import { DEFAULT_FLUID_OPTIONS } from '../../packages/core/src/constants';
 import { extractRemBoundsFromMatch, validateUtilityName } from '../../packages/core/src/presets/fluid/utils';
-import { defaultFluidOptions } from '../../packages/core/src/resolver';
 
 const ranges: {
   [key: string]: [number, number];
@@ -16,7 +16,7 @@ const ranges: {
 };
 
 const optionsWithRanges: RequiredFluidOptions = {
-  ...defaultFluidOptions,
+  ...DEFAULT_FLUID_OPTIONS,
   ranges,
 };
 
@@ -34,7 +34,7 @@ describe('fluid validation', () => {
     expect(() =>
       extractRemBoundsFromMatch({
         match: ['fluid-text-10xl', '', '', '', '10xl'],
-        config: defaultFluidOptions,
+        config: DEFAULT_FLUID_OPTIONS,
       }))
       .toThrowError('[unocss-vinicunca fluid] (fluid-text-10xl) Trying to use predefined range 10xl but no ranges are defined.');
   });
@@ -55,7 +55,7 @@ describe('fluid validation', () => {
 
     validateUtilityName({
       match: ['fluid-text-10xl', '', '', '', '10xl'],
-      config: defaultFluidOptions,
+      config: DEFAULT_FLUID_OPTIONS,
     });
     expect(consoleMock).toHaveBeenCalledOnce();
     expect(consoleMock).toHaveBeenLastCalledWith('[unocss-vinicunca fluid] (fluid-text-10xl) Trying to use predefined range 10xl but no ranges are defined.');

@@ -1,4 +1,4 @@
-import type { AnimationOptions, FluidOptions, PresetVinicuncaOptions, VinicuncaAkarOptions } from './types';
+import type { AnimationOptions, PresetVinicuncaOptions, RequiredFluidOptions, VinicuncaAkarOptions } from './types';
 
 export const DEFAULT_OPTIONS: PresetVinicuncaOptions = {
   theme: {},
@@ -99,7 +99,7 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
   },
 };
 
-export const DEFAULT_FLUID_OPTIONS: Required<FluidOptions> = {
+export const DEFAULT_FLUID_OPTIONS: RequiredFluidOptions = {
   maxWidth: 1440,
   minWidth: 375,
   remBase: 16,
