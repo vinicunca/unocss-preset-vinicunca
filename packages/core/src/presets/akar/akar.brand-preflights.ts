@@ -1,7 +1,13 @@
 import type { Preflight } from 'unocss';
 import type { VinicuncaAkarOptions } from '../../types';
+import { isString } from '@vinicunca/perkakas';
 import { theme } from 'unocss/preset-wind4';
 import { compressCSS } from '../../utils';
+
+function isHexColor(value: string) {
+  // eslint-disable-next-line regexp/no-unused-capturing-group
+  return /^#([A-F0-9]{6}|[A-F0-9]{3})$/i.test(value);
+}
 
 export function getBrandPreflight(options: VinicuncaAkarOptions): Preflight {
   return {
@@ -14,12 +20,25 @@ export function getBrandPreflight(options: VinicuncaAkarOptions): Preflight {
 
       Object.entries(brands).forEach(
         ([brandName, value]) => {
-          const colorValue = theme.colors[value as keyof typeof theme.colors];
+          let lightBrand, darkBrand;
+
+          /**
+           * If the value is a hex color, use it directly.
+           */
+          if (isString(value) && isHexColor(value)) {
+            lightBrand = value;
+            darkBrand = value;
+          } else {
+            const colorValue = theme.colors[value as keyof typeof theme.colors];
+            lightBrand = colorValue?.[500];
+            darkBrand = colorValue?.[400];
+          }
+
           lightVars.push(
-            `--akar-brand-${brandName}: ${colorValue[500]};`,
+            `--akar-brand-${brandName}: ${lightBrand};`,
           );
           darkVars.push(
-            `--akar-brand-${brandName}: ${colorValue[400]};`,
+            `--akar-brand-${brandName}: ${darkBrand};`,
           );
         },
       );
