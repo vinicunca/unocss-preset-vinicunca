@@ -4,17 +4,17 @@ packages:
   - packages/**
 
 catalog:
-  '@iconify/json': ^2.2.393
-  '@types/node': ^24.7.0
-  '@unocss/core': 66.5.2
-  '@unocss/preset-icons': 66.5.2
-  '@unocss/preset-mini': 66.5.2
-  '@unocss/preset-typography': 66.5.2
-  '@unocss/preset-web-fonts': 66.5.2
-  '@unocss/preset-wind4': 66.5.2
-  '@unocss/transformer-directives': 66.5.2
-  '@unocss/transformer-variant-group': 66.5.2
-  '@vinicunca/eslint-config': ^3.27.0
+  '@iconify/json': ^2.2.394
+  '@types/node': ^24.7.1
+  '@unocss/core': 66.5.3
+  '@unocss/preset-icons': 66.5.3
+  '@unocss/preset-mini': 66.5.3
+  '@unocss/preset-typography': 66.5.3
+  '@unocss/preset-web-fonts': 66.5.3
+  '@unocss/preset-wind4': 66.5.3
+  '@unocss/transformer-directives': 66.5.3
+  '@unocss/transformer-variant-group': 66.5.3
+  '@vinicunca/eslint-config': ^3.28.0
   '@vinicunca/perkakas': ^1.7.1
   '@vitejs/plugin-vue': ^6.0.1
   akar: ^1.11.0
@@ -31,7 +31,7 @@ catalog:
   taze: ^19.7.0
   tsdown: ^0.15.6
   typescript: ^5.9.3
-  unocss: 66.5.2
+  unocss: 66.5.3
   unplugin-vue-components: ^29.1.0
   vite: ^7.1.9
   vitepress: ^1.6.4
