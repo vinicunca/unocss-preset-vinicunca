@@ -166,12 +166,13 @@ export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
   } = options.theme.extend ?? {};
   const safelist: Array<string> = [];
 
-  const enableAkar = Boolean(options.akar);
-
   /**
-   * If akar is enabled we want to safelist all default animations
+   * If akar is enabled we want to safelist the drawer animations.
+   * The drawer preflight uses these animations but they are not
+   * directly referenced in the code so we need to safelist them
+   * to ensure they are included in the final CSS.
    */
-  if (enableAkar) {
+  if (isObjectType(options.akar) && options.akar.enableDrawer) {
     animation = mergeDeep(
       animation,
       DEFAULT_AKAR_OPTIONS.animation ?? {},

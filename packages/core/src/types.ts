@@ -80,6 +80,7 @@ export interface VinicuncaAkarOptions {
   keyframes?: VinicuncaExtends['keyframes'];
   animation?: VinicuncaExtends['animation'];
   brands?: ThemeWind4['colors'];
+  enableDrawer?: boolean;
 }
 
 interface PreflightOptions {
