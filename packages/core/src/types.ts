@@ -81,6 +81,14 @@ export interface VinicuncaAkarOptions {
   animation?: VinicuncaExtends['animation'];
   brands?: ThemeWind4['colors'];
   enableDrawer?: boolean;
+
+  pohonThemes?: boolean | {
+    variables?: {
+      light?: Record<string, string>;
+      dark?: Record<string, string>;
+    };
+    themes?: ThemeWind4['colors'];
+  };
 }
 
 interface PreflightOptions {

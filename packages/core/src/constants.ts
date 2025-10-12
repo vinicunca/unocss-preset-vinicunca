@@ -1,4 +1,9 @@
-import type { AnimationOptions, PresetVinicuncaOptions, RequiredFluidOptions, VinicuncaAkarOptions } from './types';
+import type {
+  AnimationOptions,
+  PresetVinicuncaOptions,
+  RequiredFluidOptions,
+  VinicuncaAkarOptions,
+} from './types';
 
 export const DEFAULT_OPTIONS: PresetVinicuncaOptions = {
   theme: {},
@@ -169,6 +174,7 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
       },
     },
   },
+
   animation: {
     'collapsible-down': 'collapsible-down 0.2s ease-in-out',
     'collapsible-up': 'collapsible-up 0.2s ease-in-out',
@@ -189,6 +195,7 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
     'elastic': 'elastic 2s ease-in-out infinite',
     'elastic-vertical': 'elastic-vertical 2s ease-in-out infinite',
   },
+
   brands: {
     primary: 'violet',
     secondary: 'blue',
@@ -198,7 +205,10 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
     error: 'red',
     neutral: 'slate',
   },
-  enableDrawer: false,
+
+  pohonThemes: true,
+
+  enableDrawer: true,
 };
 
 export const DEFAULT_FLUID_OPTIONS: RequiredFluidOptions = {

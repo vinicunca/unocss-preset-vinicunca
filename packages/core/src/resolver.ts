@@ -3,6 +3,7 @@ import type {
   CustomStaticShortcuts,
   PresetVinicuncaOptions,
   ResolvedOptions,
+  VinicuncaAkarOptions,
   VinicuncaTheme,
 } from './types';
 import {
@@ -172,19 +173,29 @@ export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
    * directly referenced in the code so we need to safelist them
    * to ensure they are included in the final CSS.
    */
-  if (isObjectType(options.akar) && options.akar.enableDrawer) {
+  const enableAkar = Boolean(options.akar);
+  let akarOptions = {} as VinicuncaAkarOptions;
+
+  if (enableAkar) {
+    akarOptions = defu(
+      options.akar,
+      DEFAULT_AKAR_OPTIONS,
+    );
+  }
+
+  if (enableAkar && akarOptions.enableDrawer) {
     animation = mergeDeep(
       animation,
-      DEFAULT_AKAR_OPTIONS.animation ?? {},
+      akarOptions.animation ?? {},
     );
 
     keyframes = mergeDeep(
       keyframes,
-      DEFAULT_AKAR_OPTIONS.keyframes ?? {},
+      akarOptions.keyframes ?? {},
     );
 
-    let akarAnimation = DEFAULT_AKAR_OPTIONS.animation ?? {};
-    let akarKeyframes = DEFAULT_AKAR_OPTIONS.keyframes ?? {};
+    let akarAnimation = akarOptions.animation ?? {};
+    let akarKeyframes = akarOptions.keyframes ?? {};
 
     if (isObjectType(options.akar)) {
       akarAnimation = mergeDeep(

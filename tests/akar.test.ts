@@ -1,5 +1,6 @@
 import type { PresetVinicuncaOptions, VinicuncaAkarOptions } from '../packages/core/src/types';
 import { describe } from 'node:test';
+import { pick } from '@vinicunca/perkakas';
 import { createGenerator } from 'unocss';
 import { expect, it } from 'vitest';
 import { presetVinicunca } from '../packages/core/src';
@@ -25,7 +26,11 @@ describe('akar preset', () => {
         // This is only to reduce the output size for snapshot testing
         preflights: false,
       },
-      {},
+      {
+        // This is only to reduce the output size for snapshot testing
+        enableDrawer: false,
+        pohonThemes: false,
+      },
     );
 
     const { css } = await uno.generate(
@@ -58,6 +63,9 @@ describe('akar preset', () => {
         preflights: false,
       },
       {
+        // This is only to reduce the output size for snapshot testing
+        enableDrawer: false,
+        pohonThemes: false,
         brands: {
           primary: '#ff0000',
           secondary: 'blue',
@@ -88,14 +96,14 @@ describe('akar preset', () => {
     `);
   });
 
-  it('enable drawer preflight', async () => {
+  it('default drawer preflight', async () => {
     const uno = await getGenerator(
       {
         // This is only to reduce the output size for snapshot testing
         preflights: false,
       },
       {
-        enableDrawer: true,
+        pohonThemes: false,
       },
     );
 
@@ -127,6 +135,91 @@ describe('akar preset', () => {
       .animate-drawer-slide-to-left{animation:drawer-slide-to-left 1s linear 1;}
       .animate-drawer-slide-to-right{animation:drawer-slide-to-right 1s linear 1;}
       .animate-drawer-slide-to-top{animation:drawer-slide-to-top 1s linear 1;}"
+    `);
+  });
+
+  it('default pohon themes', async () => {
+    const uno = await getGenerator(
+      {
+        // This is only to reduce the output size for snapshot testing
+        preflights: false,
+      },
+      {
+        enableDrawer: false,
+      },
+    );
+
+    const themeColors = uno.config.theme.colors ?? {};
+    const pohonColorKeys = pick(
+      themeColors,
+      ['text', 'background', 'border', 'ring', 'divide', 'outline', 'stroke', 'fill'],
+    );
+
+    expect(pohonColorKeys).toMatchInlineSnapshot(`
+      {
+        "background": {
+          "DEFAULT": "var(--pohon-bg)",
+          "accented": "var(--pohon-bg-accented)",
+          "border": "var(--pohon-border)",
+          "elevated": "var(--pohon-bg-elevated)",
+          "inverted": "var(--pohon-bg-inverted)",
+          "muted": "var(--pohon-bg-muted)",
+        },
+        "border": {
+          "DEFAULT": "var(--pohon-border)",
+          "accented": "var(--pohon-border-accented)",
+          "bg": "var(--pohon-bg)",
+          "inverted": "var(--pohon-border-inverted)",
+          "muted": "var(--pohon-border-muted)",
+        },
+        "divide": {
+          "DEFAULT": "var(--pohon-border)",
+          "accented": "var(--pohon-border-accented)",
+          "inverted": "var(--pohon-border-inverted)",
+          "muted": "var(--pohon-border-muted)",
+        },
+        "fill": {
+          "DEFAULT": "var(--pohon-border)",
+          "inverted": "var(--pohon-border-inverted)",
+        },
+        "outline": {
+          "DEFAULT": "var(--pohon-border)",
+          "inverted": "var(--pohon-border-inverted)",
+        },
+        "ring": {
+          "DEFAULT": "var(--pohon-border)",
+          "accented": "var(--pohon-border-accented)",
+          "bg": "var(--pohon-bg)",
+          "inverted": "var(--pohon-border-inverted)",
+          "muted": "var(--pohon-border-muted)",
+          "offset": {
+            "DEFAULT": "var(--pohon-border)",
+            "accented": "var(--pohon-border-accented)",
+            "bg": "var(--pohon-bg)",
+            "inverted": "var(--pohon-border-inverted)",
+            "muted": "var(--pohon-border-muted)",
+          },
+        },
+        "stroke": {
+          "DEFAULT": "var(--pohon-border)",
+          "inverted": "var(--pohon-border-inverted)",
+        },
+        "text": {
+          "DEFAULT": "var(--pohon-text)",
+          "dimmed": "var(--pohon-text-dimmed)",
+          "highlighted": "var(--pohon-text-highlighted)",
+          "inverted": "var(--pohon-text-inverted)",
+          "muted": "var(--pohon-text-muted)",
+          "toned": "var(--pohon-text-toned)",
+        },
+      }
+    `);
+
+    const { css } = await uno.generate('');
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+       :root { --akar-brand-primary: oklch(60.6% 0.25 292.717); --akar-brand-secondary: oklch(62.3% 0.214 259.815); --akar-brand-success: oklch(72.3% 0.219 149.579); --akar-brand-info: oklch(62.3% 0.214 259.815); --akar-brand-warning: oklch(79.5% 0.184 86.047); --akar-brand-error: oklch(63.7% 0.237 25.331); --akar-brand-neutral: oklch(55.4% 0.046 257.417); --pohon-text-muted: oklch(55.4% 0.046 257.417) --pohon-text-toned: oklch(44.6% 0.043 257.281) --pohon-text: oklch(37.2% 0.044 257.287) --pohon-text-highlighted: oklch(20.8% 0.042 265.755) --pohon-text-inverted: oklch(96.8% 0.007 247.896) --pohon-bg: oklch(96.8% 0.007 247.896) --pohon-bg-muted: oklch(98.4% 0.003 247.858) --pohon-bg-elevated: oklch(96.8% 0.007 247.896) --pohon-bg-accented: oklch(92.9% 0.013 255.508) --pohon-bg-inverted: oklch(20.8% 0.042 265.755) --pohon-border: oklch(92.9% 0.013 255.508) --pohon-border-muted: oklch(92.9% 0.013 255.508) --pohon-border-accented: oklch(86.9% 0.022 252.894) --pohon-border-inverted: oklch(20.8% 0.042 265.755) } .dark { --akar-brand-primary: oklch(70.2% 0.183 293.541); --akar-brand-secondary: oklch(70.7% 0.165 254.624); --akar-brand-success: oklch(79.2% 0.209 151.711); --akar-brand-info: oklch(70.7% 0.165 254.624); --akar-brand-warning: oklch(85.2% 0.199 91.936); --akar-brand-error: oklch(70.4% 0.191 22.216); --akar-brand-neutral: oklch(70.4% 0.04 256.788); --pohon-text-dimmed: oklch(55.4% 0.046 257.417) --pohon-text-muted: oklch(70.4% 0.04 256.788) --pohon-text-toned: oklch(86.9% 0.022 252.894) --pohon-text: oklch(92.9% 0.013 255.508) --pohon-text-highlighted: oklch(96.8% 0.007 247.896) --pohon-text-inverted: oklch(20.8% 0.042 265.755) --pohon-bg: oklch(20.8% 0.042 265.755) --pohon-bg-muted: oklch(27.9% 0.041 260.031) --pohon-bg-elevated: oklch(27.9% 0.041 260.031) --pohon-bg-accented: oklch(37.2% 0.044 257.287) --pohon-bg-inverted: oklch(96.8% 0.007 247.896) --pohon-border: oklch(27.9% 0.041 260.031) --pohon-border-muted: oklch(37.2% 0.044 257.287) --pohon-border-accented: oklch(37.2% 0.044 257.287) --pohon-border-inverted: oklch(96.8% 0.007 247.896) } "
     `);
   });
 });
