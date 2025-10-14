@@ -19,7 +19,7 @@ import {
   DEFAULT_OPTIONS,
   DEFAULT_PRESET_OPTIONS,
 } from './constants';
-import { getAkarTheme } from './presets/akar/akar.theme';
+import { getAkarBrandColors } from './presets/akar/akar.theme';
 import { cssObj2StrSync, resolveAnimation } from './utils';
 
 export async function resolveOptions(options: PresetVinicuncaOptions): Promise<ResolvedOptions> {
@@ -78,21 +78,12 @@ function resolveTheme(options: Required<PresetVinicuncaOptions>) {
     return baseTheme;
   }
 
-  let akarBrands = DEFAULT_AKAR_OPTIONS.brands ?? {};
-
-  if (isObjectType(options.akar)) {
-    akarBrands = mergeDeep(
-      akarBrands,
-      options.akar.brands ?? {},
-    );
-  }
-
-  const akarTheme = getAkarTheme(akarBrands);
+  const akarBrands = getAkarBrandColors(options);
 
   baseTheme = mergeDeep(
     baseTheme,
     {
-      colors: akarTheme,
+      colors: akarBrands,
     },
   );
 
