@@ -88,6 +88,39 @@ describe('akar preset', () => {
     `);
   });
 
+  it('use enable dynamic', async () => {
+    const uno = await getGenerator(
+      {
+        // This is only to reduce the output size for snapshot testing
+        preflights: false,
+      },
+      {
+        // This is only to reduce the output size for snapshot testing
+        enableDrawer: false,
+        pohonThemes: false,
+
+        enableDynamicBrands: true,
+      },
+    );
+
+    const { css } = await uno.generate('color-primary color-primary-700');
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: properties */
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*, ::before, ::after, ::backdrop{--un-text-opacity:100%;}}
+      @property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
+      /* layer: theme */
+      :root, :host { --colors-primary-DEFAULT: var(--akar-primary); --colors-primary-700: var(--akar-primary-700); }
+      /* layer: default */
+      .color-primary{color:color-mix(in srgb, var(--colors-primary-DEFAULT) var(--un-text-opacity), transparent);}
+      .color-primary-700{color:color-mix(in srgb, var(--colors-primary-700) var(--un-text-opacity), transparent);}
+      @supports (color: color-mix(in lab, red, red)){
+      .color-primary{color:color-mix(in oklab, var(--colors-primary-DEFAULT) var(--un-text-opacity), transparent);}
+      .color-primary-700{color:color-mix(in oklab, var(--colors-primary-700) var(--un-text-opacity), transparent);}
+      }"
+    `);
+  });
+
   it('default drawer preflight', async () => {
     const uno = await getGenerator(
       {

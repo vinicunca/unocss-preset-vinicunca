@@ -209,6 +209,8 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
   pohonThemes: true,
 
   enableDrawer: true,
+
+  enableDynamicBrands: false,
 };
 
 export const DEFAULT_FLUID_OPTIONS: RequiredFluidOptions = {

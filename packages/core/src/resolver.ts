@@ -19,7 +19,6 @@ import {
   DEFAULT_OPTIONS,
   DEFAULT_PRESET_OPTIONS,
 } from './constants';
-import { getAkarBrandColors } from './presets/akar/akar.theme';
 import { cssObj2StrSync, resolveAnimation } from './utils';
 
 export async function resolveOptions(options: PresetVinicuncaOptions): Promise<ResolvedOptions> {
@@ -46,11 +45,10 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
     shortcuts,
     safelist,
   } = resolveExtend(optionsWithDefault);
-  const resolvedTheme = resolveTheme(optionsWithDefault);
 
   const theme_ = mergeDeep(
+    optionsWithDefault.theme,
     themeExtend,
-    resolvedTheme,
   );
 
   return {
@@ -67,27 +65,6 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
       safelist,
     },
   };
-}
-
-function resolveTheme(options: Required<PresetVinicuncaOptions>) {
-  const enableAkar = Boolean(options.akar);
-
-  let baseTheme = options.theme;
-
-  if (!enableAkar) {
-    return baseTheme;
-  }
-
-  const akarBrands = getAkarBrandColors(options);
-
-  baseTheme = mergeDeep(
-    baseTheme,
-    {
-      colors: akarBrands,
-    },
-  );
-
-  return baseTheme;
 }
 
 async function resolvePresets(options: Required<PresetVinicuncaOptions>) {
