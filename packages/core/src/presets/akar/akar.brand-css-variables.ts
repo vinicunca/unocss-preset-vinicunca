@@ -13,16 +13,19 @@ export function getAkarPreflight(options: VinicuncaAkarOptions): Preflight {
       }
 
       const lightVars = [
+        '--pohon-text-dimmed: var(--akar-neutral-400);',
         '--pohon-text-muted: var(--akar-neutral-500);',
         '--pohon-text-toned: var(--akar-neutral-600);',
         '--pohon-text: var(--akar-neutral-700);',
         '--pohon-text-highlighted: var(--akar-neutral-900);',
         '--pohon-text-inverted: var(--colors-white);',
+
         '--pohon-bg: var(--colors-white);',
         '--pohon-bg-muted: var(--akar-neutral-50);',
         '--pohon-bg-elevated: var(--akar-neutral-100);',
         '--pohon-bg-accented: var(--akar-neutral-200);',
         '--pohon-bg-inverted: var(--akar-neutral-900);',
+
         '--pohon-border: var(--akar-neutral-200);',
         '--pohon-border-muted: var(--akar-neutral-200);',
         '--pohon-border-accented: var(--akar-neutral-300);',
@@ -36,11 +39,13 @@ export function getAkarPreflight(options: VinicuncaAkarOptions): Preflight {
         '--pohon-text: var(--akar-neutral-200);',
         '--pohon-text-highlighted: var(--colors-white);',
         '--pohon-text-inverted: var(--akar-neutral-900);',
+
         '--pohon-bg: var(--akar-neutral-900);',
         '--pohon-bg-muted: var(--akar-neutral-800);',
         '--pohon-bg-elevated: var(--akar-neutral-800);',
         '--pohon-bg-accented: var(--akar-neutral-700);',
         '--pohon-bg-inverted: var(--colors-white);',
+
         '--pohon-border: var(--akar-neutral-800);',
         '--pohon-border-muted: var(--akar-neutral-700);',
         '--pohon-border-accented: var(--akar-neutral-700);',
