@@ -313,6 +313,8 @@ export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
     shortcuts: CustomStaticShortcuts;
     transformers: Array<SourceCodeTransformer>;
     safelist: Array<string>;
+    layers: Preset['layers'];
+    variants: Preset['variants'];
   };
 };
 

@@ -254,4 +254,30 @@ describe('akar preset', () => {
       }"
     `);
   });
+
+  it('layer is present', async () => {
+    const uno = await getGenerator(
+      {
+        // This is only to reduce the output size for snapshot testing
+        preflights: false,
+      },
+      {
+        // This is only to reduce the output size for snapshot testing
+        enableDrawer: false,
+        pohonThemes: false,
+      },
+    );
+
+    expect(uno.config.layers.akar).toBe(10);
+
+    const { css } = await uno.generate('akar:p-4 uno-layer-akar:p-2');
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: theme */
+      :root, :host { --spacing: 0.25rem; }
+      /* layer: akar */
+      .akar\\:p-4{padding:calc(var(--spacing) * 4);}
+      .uno-layer-akar\\:p-2{padding:calc(var(--spacing) * 2);}"
+    `);
+  });
 });

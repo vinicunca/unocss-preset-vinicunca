@@ -1,4 +1,5 @@
 /* eslint-disable no-await-in-loop */
+import type { Preset } from 'unocss';
 import type {
   CustomStaticShortcuts,
   PresetVinicuncaOptions,
@@ -51,6 +52,28 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
     themeExtend,
   );
 
+  const enableAkar = Boolean(options.akar);
+
+  const layers: Preset['layers'] = {};
+
+  if (enableAkar) {
+    layers.akar = 10;
+  }
+
+  const variants: Preset['variants'] = [];
+
+  if (enableAkar) {
+    variants.push(
+      (matcher) => {
+        if (matcher.startsWith('akar:')) {
+          return {
+            matcher: matcher.replace('akar:', 'uno-layer-akar:'),
+          };
+        }
+      },
+    );
+  }
+
   return {
     ...optionsWithDefault,
 
@@ -63,6 +86,8 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
       shortcuts,
       transformers,
       safelist,
+      layers,
+      variants,
     },
   };
 }

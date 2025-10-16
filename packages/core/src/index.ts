@@ -21,10 +21,6 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
     return {
       name: `unocss-preset-${PRESET_NAME}`,
 
-      layers: {
-        [PRESET_NAME]: 10,
-      },
-
       theme,
 
       shortcuts: [
@@ -43,6 +39,10 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
       preflights: getPreflights(resolvedOptions),
 
       safelist: meta.safelist,
+
+      variants: meta.variants,
+
+      layers: meta.layers,
     };
   },
 );
