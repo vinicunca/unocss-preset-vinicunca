@@ -5,7 +5,6 @@ import type {
   PresetVinicuncaOptions,
   ResolvedOptions,
   VinicuncaAkarOptions,
-  VinicuncaTheme,
 } from './types';
 import {
   isBoolean,
@@ -42,15 +41,10 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const presets = await resolvePresets(optionsWithDefault);
   const transformers = await resolveTransformers(optionsWithDefault);
   const {
-    theme: themeExtend,
+    extendedTheme,
     shortcuts,
     safelist,
   } = resolveExtend(optionsWithDefault);
-
-  const theme_ = mergeDeep(
-    optionsWithDefault.theme,
-    themeExtend,
-  );
 
   const enableAkar = Boolean(options.akar);
 
@@ -77,11 +71,8 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   return {
     ...optionsWithDefault,
 
-    theme: {
-      ...theme_,
-    },
-
     meta: {
+      extendedTheme,
       presets,
       shortcuts,
       transformers,
@@ -157,7 +148,7 @@ export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
   let {
     animation = {},
     keyframes = {},
-  } = options.theme.extend ?? {};
+  } = options.extendedTheme ?? {};
   const safelist: Array<string> = [];
 
   /**
@@ -224,7 +215,7 @@ export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
   }
 
   return {
-    theme: { animation: resolvedAnimation } as VinicuncaTheme,
+    extendedTheme: { animation: resolvedAnimation },
     shortcuts: shortcuts_,
     safelist,
   };

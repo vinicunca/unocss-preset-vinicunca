@@ -6,7 +6,7 @@ import type {
 } from './types';
 
 export const DEFAULT_OPTIONS: PresetVinicuncaOptions = {
-  theme: {},
+  extendedTheme: {},
 
   enableDefaultShortcuts: true,
 

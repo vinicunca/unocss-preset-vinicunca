@@ -5,7 +5,7 @@ import { presetVinicunca } from '../packages/core/src';
 import { RE_ANIMATION } from '../packages/core/src/utils';
 
 describe('presetVinicunca theme', () => {
-  const extend: VinicuncaExtends = {
+  const extendedTheme: VinicuncaExtends = {
     animation: {
       'spin': 'spin 1s linear infinite',
       'bounce': 'bounce 2s ease-in-out 3',
@@ -31,9 +31,7 @@ describe('presetVinicunca theme', () => {
     const uno_ = await createGenerator<VinicuncaTheme>({
       presets: [
         presetVinicunca({
-          theme: {
-            extend,
-          },
+          extendedTheme,
         }),
       ],
     });

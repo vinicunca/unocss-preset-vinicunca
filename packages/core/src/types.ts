@@ -1,5 +1,6 @@
 import type { CSSObject, Preset, SourceCodeTransformer, StaticShortcut } from '@unocss/core';
 import type { IconsOptions } from '@unocss/preset-icons';
+import type { ThemeAnimation } from '@unocss/preset-mini';
 import type { TypographyOptions } from '@unocss/preset-typography';
 import type { WebFontsOptions } from '@unocss/preset-web-fonts';
 import type { PresetWind3Options, Theme as ThemeWind3 } from '@unocss/preset-wind3';
@@ -59,7 +60,7 @@ export type CustomStaticShortcuts = Array<CustomStaticShortcut>;
 
 type CssKeyframesRule = Record<string, CSSObject>;
 
-export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
+export interface VinicuncaExtends {
   keyframes?: Record<string, CssKeyframesRule>;
 
   /**
@@ -72,9 +73,10 @@ export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
   animation?: Record<string, string>;
 }
 
-export interface VinicuncaTheme extends Omit<ThemeWind3, 'container' | 'containers'>, ThemeWind4 {
-  extend?: VinicuncaExtends;
-}
+export type VinicuncaTheme = ThemeWind4 & Omit<
+  ThemeWind3,
+  'container' | 'containers'
+>;
 
 export interface VinicuncaAkarOptions {
   keyframes?: VinicuncaExtends['keyframes'];
@@ -169,13 +171,11 @@ export interface PresetVinicuncaOptions {
    * @example
    *
    * ```ts
-   * theme: {
-   *   extend: {
-   *     animation: {
-   *      shape: 'shape 5s linear infinite'
-   *     },
-   *     // ...
-   *   }
+   * extendedTheme: {
+   *   animation: {
+   *    shape: 'shape 5s linear infinite'
+   *   },
+   *   // ...
    * }
    * ```
    * You can choose to use special symbols as placeholders, to indicate whether to inject this property into the uno theme
@@ -186,19 +186,17 @@ export interface PresetVinicuncaOptions {
    * @example
    *
    * ```ts
-   * theme: {
-   *   extend: {
-   *     animation: {
-   *      foo: 'foo 1s * 3',
-   *      bar: 'bar 1s +',
-   *     },
-   *     // ...
-   *   }
+   * extendedTheme: {
+   *   animation: {
+   *    foo: 'foo 1s * 3',
+   *    bar: 'bar 1s +',
+   *   },
+   *   // ...
    * }
    * ```
    *
    */
-  theme?: VinicuncaTheme;
+  extendedTheme?: VinicuncaExtends;
 
   /**
    * Enable the default preset for preset-wind3
@@ -315,6 +313,9 @@ export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
     safelist: Array<string>;
     layers: Preset['layers'];
     variants: Preset['variants'];
+    extendedTheme: {
+      animation: ThemeAnimation;
+    };
   };
 };
 

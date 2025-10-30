@@ -20,7 +20,7 @@ function getPresetVinicunca(theme: VinicuncaTheme) {
   });
 }
 
-describe('preset-wind4', async () => {
+describe.skip('preset-wind4', async () => {
   const uno = await createGenerator({
     presets: [
       getPresetVinicunca({

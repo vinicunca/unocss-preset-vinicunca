@@ -1,21 +1,30 @@
-import type { PresetVinicuncaOptions } from '../packages/core/src/types';
+import type { PresetVinicuncaOptions, VinicuncaTheme } from '../packages/core/src/types';
 import { createGenerator } from '@unocss/core';
 
 import { presetVinicunca } from '../packages/core/src';
 
-export async function generateUno(options: PresetVinicuncaOptions = {}) {
+export async function generateUno(
+  options: PresetVinicuncaOptions = {},
+  theme: VinicuncaTheme = {},
+) {
   return createGenerator({
     presets: [
       presetVinicunca(options),
     ],
+
+    theme,
   });
 }
 
 export async function getCssFromUno(
-  { options = {}, code }:
-  { options?: PresetVinicuncaOptions; code: string | Array<string> },
+  { options = {}, code, theme = {} }:
+  {
+    options?: PresetVinicuncaOptions;
+    code: string | Array<string>;
+    theme?: VinicuncaTheme;
+  },
 ) {
-  const uno = await generateUno(options);
+  const uno = await generateUno(options, theme);
 
   return uno.generate(code);
 }

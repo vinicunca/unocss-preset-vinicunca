@@ -8,23 +8,19 @@ describe('presetVinicunca', async () => {
     const code = vinicuncaTargets.join(' ');
     const { css } = await getCssFromUno({
       code,
-      options: {
-        theme: {
-          containers: {
-            padding: '16px',
-            center: true,
-          },
+      theme: {
+        containers: {
+          padding: '16px',
+          center: true,
         },
       },
     });
     const { css: css2 } = await getCssFromUno({
       code,
-      options: {
-        theme: {
-          containers: {
-            padding: '16px',
-            center: true,
-          },
+      theme: {
+        containers: {
+          padding: '16px',
+          center: true,
         },
       },
     });
