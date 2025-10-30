@@ -23,8 +23,8 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
 
       extendTheme: (oriTheme: VinicuncaTheme) => {
         const mergedTheme = defu(
-          oriTheme,
           meta.extendedTheme,
+          oriTheme,
         );
 
         return mergedTheme;

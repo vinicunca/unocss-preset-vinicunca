@@ -280,4 +280,18 @@ describe('akar preset', () => {
       .uno-layer-akar\\:p-2{padding:calc(var(--spacing) * 2);}"
     `);
   });
+
+  it('overwrite animation theme', async () => {
+    const uno = await getGenerator(
+      {
+        // This is only to reduce the output size for snapshot testing
+        preflights: false,
+      },
+      {
+        enableDynamicBrands: true,
+      },
+    );
+
+    expect(uno.config.theme.animation).toMatchSnapshot();
+  });
 });
