@@ -3,7 +3,7 @@ import type { ThemeAnimation } from '@unocss/preset-mini';
 import type { CustomStaticShortcuts } from './types';
 
 // name duration timing-function iteration-count
-export const RE_ANIMATION = /^([a-z-]+)\s+([0-9.]+m?s?|[*+])?\s?([a-z-]+(?:\([^)]+\))?|[*+])?\s*([a-z0-9-]+|[*+])?$/i;
+export const RE_ANIMATION = /^([a-z-]+)\s+([0-9.]+m?s?|var\([^)]+\)|[*+])?\s?([a-z-]+(?:\([^)]+\))?|[*+])?\s*([a-z0-9-]+|var\([^)]+\)|[*+])?$/i;
 
 /**
  * Normalize custom animate usage to UnoCSS animations theme.

@@ -173,6 +173,46 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
         'margin-top': '5%',
       },
     },
+
+    'marquee': {
+      from: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+
+      to: {
+        transform: 'translate3d(calc(-100% - var(--gap)), 0, 0)',
+      },
+    },
+
+    'marquee-rtl': {
+      from: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+
+      to: {
+        transform: 'translate3d(calc(100% + var(--gap)), 0, 0)',
+      },
+    },
+
+    'marquee-vertical': {
+      from: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+
+      to: {
+        transform: 'translate3d(0, calc(-100% - var(--gap)), 0)',
+      },
+    },
+
+    'marquee-vertical-rtl': {
+      from: {
+        transform: 'translate3d(0, calc(-100% - var(--gap)), 0)',
+      },
+
+      to: {
+        transform: 'translate3d(0, calc(-100% * var(--gap)), 0)',
+      },
+    },
   },
 
   animation: {
@@ -194,6 +234,10 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
     'swing-vertical': 'swing-vertical 2s ease-in-out infinite',
     'elastic': 'elastic 2s ease-in-out infinite',
     'elastic-vertical': 'elastic-vertical 2s ease-in-out infinite',
+    'marquee': 'marquee var(--duration) linear infinite',
+    'marquee-rtl': 'marquee-rtl var(--duration) linear infinite',
+    'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+    'marquee-vertical-rtl': 'marquee-vertical-rtl var(--duration) linear infinite',
   },
 
   brands: {
