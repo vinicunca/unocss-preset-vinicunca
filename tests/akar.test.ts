@@ -1,6 +1,5 @@
 import type { PresetVinicuncaOptions, VinicuncaAkarOptions } from '../packages/core/src/types';
 import { describe } from 'node:test';
-import { pick } from '@vinicunca/perkakas';
 import { createGenerator } from 'unocss';
 import { expect, it } from 'vitest';
 import { presetVinicunca } from '../packages/core/src';
@@ -29,7 +28,6 @@ describe('akar preset', () => {
       {
         // This is only to reduce the output size for snapshot testing
         enableDrawer: false,
-        pohonThemes: false,
       },
     );
 
@@ -40,7 +38,7 @@ describe('akar preset', () => {
       @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*, ::before, ::after, ::backdrop{--un-text-opacity:100%;}}
       @property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
       /* layer: theme */
-      :root, :host { --colors-primary-DEFAULT: oklch(70.2% 0.183 293.541); }
+      :root, :host { --colors-primary-DEFAULT: oklch(71.4% 0.203 305.504); }
       /* layer: default */
       .color-primary{color:color-mix(in srgb, var(--colors-primary-DEFAULT) var(--un-text-opacity), transparent);}
       @supports (color: color-mix(in lab, red, red)){
@@ -58,7 +56,6 @@ describe('akar preset', () => {
       {
         // This is only to reduce the output size for snapshot testing
         enableDrawer: false,
-        pohonThemes: false,
         brands: {
           primary: '#ff0000',
           secondary: 'blue',
@@ -97,7 +94,6 @@ describe('akar preset', () => {
       {
         // This is only to reduce the output size for snapshot testing
         enableDrawer: false,
-        pohonThemes: false,
 
         enableDynamicBrands: true,
       },
@@ -128,7 +124,6 @@ describe('akar preset', () => {
         preflights: false,
       },
       {
-        pohonThemes: false,
       },
     );
 
@@ -161,100 +156,6 @@ describe('akar preset', () => {
     `);
   });
 
-  it('default pohon themes', async () => {
-    const uno = await getGenerator(
-      {
-        // This is only to reduce the output size for snapshot testing
-        preflights: false,
-      },
-      {
-        enableDrawer: false,
-      },
-    );
-
-    const themeColors = uno.config.theme.colors ?? {};
-    const pohonColorKeys = pick(
-      themeColors,
-      ['text', 'background', 'border', 'ring', 'divide', 'outline', 'stroke', 'fill'],
-    );
-
-    expect(pohonColorKeys).toMatchInlineSnapshot(`
-      {
-        "background": {
-          "DEFAULT": "var(--pohon-bg)",
-          "accented": "var(--pohon-bg-accented)",
-          "border": "var(--pohon-border)",
-          "elevated": "var(--pohon-bg-elevated)",
-          "inverted": "var(--pohon-bg-inverted)",
-          "muted": "var(--pohon-bg-muted)",
-        },
-        "border": {
-          "DEFAULT": "var(--pohon-border)",
-          "accented": "var(--pohon-border-accented)",
-          "bg": "var(--pohon-bg)",
-          "inverted": "var(--pohon-border-inverted)",
-          "muted": "var(--pohon-border-muted)",
-        },
-        "divide": {
-          "DEFAULT": "var(--pohon-border)",
-          "accented": "var(--pohon-border-accented)",
-          "inverted": "var(--pohon-border-inverted)",
-          "muted": "var(--pohon-border-muted)",
-        },
-        "fill": {
-          "DEFAULT": "var(--pohon-border)",
-          "inverted": "var(--pohon-border-inverted)",
-        },
-        "outline": {
-          "DEFAULT": "var(--pohon-border)",
-          "inverted": "var(--pohon-border-inverted)",
-        },
-        "ring": {
-          "DEFAULT": "var(--pohon-border)",
-          "accented": "var(--pohon-border-accented)",
-          "bg": "var(--pohon-bg)",
-          "inverted": "var(--pohon-border-inverted)",
-          "muted": "var(--pohon-border-muted)",
-          "offset": {
-            "DEFAULT": "var(--pohon-border)",
-            "accented": "var(--pohon-border-accented)",
-            "bg": "var(--pohon-bg)",
-            "inverted": "var(--pohon-border-inverted)",
-            "muted": "var(--pohon-border-muted)",
-          },
-        },
-        "stroke": {
-          "DEFAULT": "var(--pohon-border)",
-          "inverted": "var(--pohon-border-inverted)",
-        },
-        "text": {
-          "DEFAULT": "var(--pohon-text)",
-          "dimmed": "var(--pohon-text-dimmed)",
-          "highlighted": "var(--pohon-text-highlighted)",
-          "inverted": "var(--pohon-text-inverted)",
-          "muted": "var(--pohon-text-muted)",
-          "toned": "var(--pohon-text-toned)",
-        },
-      }
-    `);
-
-    const { css } = await uno.generate('color-text');
-
-    expect(css).toMatchInlineSnapshot(`
-      "/* layer: properties */
-      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*, ::before, ::after, ::backdrop{--un-text-opacity:100%;}}
-      @property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
-      /* layer: theme */
-      :root, :host { --colors-text-DEFAULT: var(--pohon-text); }
-       :root { --pohon-text-dimmed: var(--akar-neutral-400); --pohon-text-muted: var(--akar-neutral-500); --pohon-text-toned: var(--akar-neutral-600); --pohon-text: var(--akar-neutral-700); --pohon-text-highlighted: var(--akar-neutral-900); --pohon-text-inverted: var(--colors-white); --pohon-bg: var(--colors-white); --pohon-bg-muted: var(--akar-neutral-50); --pohon-bg-elevated: var(--akar-neutral-100); --pohon-bg-accented: var(--akar-neutral-200); --pohon-bg-inverted: var(--akar-neutral-900); --pohon-border: var(--akar-neutral-200); --pohon-border-muted: var(--akar-neutral-200); --pohon-border-accented: var(--akar-neutral-300); --pohon-border-inverted: var(--akar-neutral-900); } .dark { --pohon-text-dimmed: var(--akar-neutral-500); --pohon-text-muted: var(--akar-neutral-400); --pohon-text-toned: var(--akar-neutral-300); --pohon-text: var(--akar-neutral-200); --pohon-text-highlighted: var(--colors-white); --pohon-text-inverted: var(--akar-neutral-900); --pohon-bg: var(--akar-neutral-900); --pohon-bg-muted: var(--akar-neutral-800); --pohon-bg-elevated: var(--akar-neutral-800); --pohon-bg-accented: var(--akar-neutral-700); --pohon-bg-inverted: var(--colors-white); --pohon-border: var(--akar-neutral-800); --pohon-border-muted: var(--akar-neutral-700); --pohon-border-accented: var(--akar-neutral-700); --pohon-border-inverted: var(--colors-white); } 
-      /* layer: default */
-      .color-text{color:color-mix(in srgb, var(--colors-text-DEFAULT) var(--un-text-opacity), transparent);}
-      @supports (color: color-mix(in lab, red, red)){
-      .color-text{color:color-mix(in oklab, var(--colors-text-DEFAULT) var(--un-text-opacity), transparent);}
-      }"
-    `);
-  });
-
   it('layer is present', async () => {
     const uno = await getGenerator(
       {
@@ -264,7 +165,6 @@ describe('akar preset', () => {
       {
         // This is only to reduce the output size for snapshot testing
         enableDrawer: false,
-        pohonThemes: false,
       },
     );
 

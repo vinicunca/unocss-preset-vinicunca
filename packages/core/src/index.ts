@@ -2,7 +2,7 @@ import type { Postprocessor, Shortcut, UserConfig } from '@unocss/core';
 import type { PresetVinicuncaOptions, VinicuncaTheme } from './types';
 import { definePreset, mergeConfigs } from '@unocss/core';
 import { defu } from 'defu';
-import { defaultShortcuts, getPreflights, postprocessWithUnColor } from './core';
+import { getPreflights, postprocessWithUnColor } from './core';
 import { PRESET_NAME } from './meta';
 import { resolveOptions } from './resolver';
 
@@ -13,7 +13,6 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
     const resolvedOptions = await resolveOptions(options ?? {});
 
     const {
-      enableDefaultShortcuts,
       unColor,
       meta,
     } = resolvedOptions;
@@ -31,7 +30,6 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
       },
 
       shortcuts: [
-        ...enableDefaultShortcuts ? defaultShortcuts : [],
         ...meta.shortcuts,
       ] as Array<Shortcut>,
 

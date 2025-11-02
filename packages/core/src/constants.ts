@@ -8,8 +8,6 @@ import type {
 export const DEFAULT_OPTIONS: PresetVinicuncaOptions = {
   extendedTheme: {},
 
-  enableDefaultShortcuts: true,
-
   preflights: true,
 
   // presets
@@ -241,7 +239,7 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
   },
 
   brands: {
-    primary: 'violet',
+    primary: 'purple',
     secondary: 'blue',
     success: 'green',
     info: 'blue',
@@ -249,8 +247,6 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
     error: 'red',
     neutral: 'slate',
   },
-
-  pohonThemes: true,
 
   enableDrawer: true,
 
