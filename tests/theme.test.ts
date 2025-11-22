@@ -1,8 +1,8 @@
-import type { VinicuncaExtends, VinicuncaTheme } from '../packages/core/src/types';
+import type { VinicuncaExtends, VinicuncaTheme } from '../src/types';
 import { createGenerator } from 'unocss';
 import { describe, expect, it } from 'vitest';
-import { presetVinicunca } from '../packages/core/src';
-import { RE_ANIMATION } from '../packages/core/src/utils';
+import { presetVinicunca } from '../src';
+import { RE_ANIMATION } from '../src/utils';
 
 describe('presetVinicunca theme', () => {
   const extendedTheme: VinicuncaExtends = {

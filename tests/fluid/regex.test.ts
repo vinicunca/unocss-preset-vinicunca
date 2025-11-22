@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { REGEX_PATTERNS_NUMERIC_VALUES, REGEX_PATTERNS_RANGE_VALUES } from '../../packages/core/src/presets/fluid/utils/regex.util';
+import { REGEX_PATTERNS_NUMERIC_VALUES, REGEX_PATTERNS_RANGE_VALUES } from '../../src/presets/fluid/utils/regex.util';
 
 describe('fluid regex', () => {
   it('regex catch utility with numeric values', () => {

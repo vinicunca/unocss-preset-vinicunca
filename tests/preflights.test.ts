@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { resetPreflight } from '../packages/core/src/core/preflights/reset';
+import { resetPreflight } from '../src/core/preflights/reset';
 import { generateUno } from './utils';
 
 describe('presetVinicunca preflights', () => {

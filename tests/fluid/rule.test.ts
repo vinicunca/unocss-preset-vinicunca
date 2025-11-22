@@ -1,9 +1,9 @@
-import type { RequiredFluidOptions } from '../../packages/core/src/types';
+import type { RequiredFluidOptions } from '../../src/types';
 
 import { describe, expect, it } from 'vitest';
 
-import { DEFAULT_FLUID_OPTIONS } from '../../packages/core/src/constants';
-import { buildFluidRules, buildMultiplePropertiesRule, buildRule, buildSinglePropertyRule, FLUID_UTILITIES, REGEX_PATTERNS_NUMERIC_VALUES, REGEX_PATTERNS_RANGE_VALUES } from '../../packages/core/src/presets/fluid/utils';
+import { DEFAULT_FLUID_OPTIONS } from '../../src/constants';
+import { buildFluidRules, buildMultiplePropertiesRule, buildRule, buildSinglePropertyRule, FLUID_UTILITIES, REGEX_PATTERNS_NUMERIC_VALUES, REGEX_PATTERNS_RANGE_VALUES } from '../../src/presets/fluid/utils';
 
 const ranges: {
   [key: string]: [number, number];

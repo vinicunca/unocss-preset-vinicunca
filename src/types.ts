@@ -111,24 +111,13 @@ export interface VinicuncaAkarOptions {
   enableDrawer?: boolean;
 }
 
-interface PreflightOptions {
-  /**
-   * Enable reset styles
-   *
-   * @default true
-   */
-  reset: boolean;
-}
-
 export interface PresetVinicuncaOptions {
   /**
    * Enable preflights
    *
-   * @default {
-   *  reset: true
-   * }
+   * @default true
    */
-  preflights?: boolean | PreflightOptions;
+  preflights?: boolean;
 
   /**
    * Extract rgba color in css variable
@@ -245,7 +234,7 @@ export interface PresetVinicuncaOptions {
    * @about inspired by [tailwin-animate](https://github.com/jamiebuilds/tailwindcss-animate)
    * @default true
    */
-  animation?: AnimationOptions | boolean;
+  animation?: boolean | AnimationOptions;
 
   /**
    * Enable fluid preset

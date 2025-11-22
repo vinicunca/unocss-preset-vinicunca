@@ -88,14 +88,14 @@ async function resolvePresets(options: Required<PresetVinicuncaOptions>) {
 
   const presetMap = {
     icons: import('@unocss/preset-icons').then((mod) => mod.presetIcons),
+    wind4: import('unocss').then((m) => m.presetWind4),
+    wind3: import('unocss').then((m) => m.presetWind3),
+    fluid: import('./presets/fluid').then((mod) => mod.presetFluid),
+    animation: import('./presets/animation').then((mod) => mod.presetAnimation),
     webFonts: import('@unocss/preset-web-fonts').then((mod) => mod.presetWebFonts),
     typography: import('@unocss/preset-typography').then((mod) => mod.presetTypography),
-    wind3: import('unocss').then((m) => m.presetWind3),
-    wind4: import('unocss').then((m) => m.presetWind4),
     scrollbar: import('./presets/scrollbar').then((mod) => mod.presetScrollbar),
     magicCss: import('./presets/magic-css').then((mod) => mod.presetMagicss),
-    animation: import('./presets/animation').then((mod) => mod.presetAnimation),
-    fluid: import('./presets/fluid').then((mod) => mod.presetFluid),
     akar: import('./presets/akar').then((mod) => mod.presetAkar),
   };
 

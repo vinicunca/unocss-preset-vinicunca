@@ -2,7 +2,7 @@ import { expect, it } from 'vitest';
 
 import { getCssFromUnoWithoutPreflights } from './utils';
 
-it('preset-animatecss', async () => {
+it('preset-fluid', async () => {
   const { css } = await getCssFromUnoWithoutPreflights({
     options: {
       fluid: {

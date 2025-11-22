@@ -1,15 +1,49 @@
 {
-  "name": "@vinicunca/unocss-preset-monorepo",
+  "name": "@vinicunca/unocss-preset",
   "type": "module",
   "version": "1.35.0",
-  "packageManager": "pnpm@10.18.3",
-  "engines": {
-    "node": ">=20.0.0"
+  "description": "Opinionated UnoCSS preset",
+  "author": "praburangki<https://github.com/praburangki>",
+  "license": "MIT",
+  "homepage": "https://github.com/vinicunca/unocss-preset-vinicunca#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicunca/unocss-preset-vinicunca.git"
   },
+  "bugs": {
+    "url": "https://github.com/vinicunca/unocss-preset-vinicunca/issues"
+  },
+  "keywords": [
+    "unocss",
+    "unocss-preset",
+    "unocss-preset-animation",
+    "unocss-preset-fluid"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "pnpm -r -F=./packages/* run build",
-    "stub": "pnpm -r -F=./packages/* --parallel run stub",
-    "dev": "pnpm stub",
+    "build": "tsdown",
+    "dev": "tsdown --stub",
+    "prepublishOnly": "pnpm run build",
     "release": "bumpp -r",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -18,19 +52,35 @@
     "play": "pnpm -C playground run dev",
     "taze": "taze major -wIrl",
     "typecheck": "tsc --noEmit",
-    "publish:ci": "pnpm -F=./packages/core run publish:ci",
-    "build:docs": "pnpm -F=./docs run build",
-    "fb:deploy": "firebase deploy --only hosting:unocss"
+    "publish:ci": "pnpm publish --access public --no-git-checks"
   },
-  "devDependencies": {
+  "peerDependencies": {
+    "@vinicunca/perkakas": "catalog:",
+    "unocss": "catalog:"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
     "@types/node": "catalog:",
+    "@unocss/core": "catalog:",
+    "@unocss/preset-icons": "catalog:",
+    "@unocss/preset-mini": "catalog:",
+    "@unocss/preset-typography": "catalog:",
+    "@unocss/preset-web-fonts": "catalog:",
+    "@unocss/preset-wind4": "catalog:",
+    "@unocss/transformer-directives": "catalog:",
+    "@unocss/transformer-variant-group": "catalog:",
     "@vinicunca/eslint-config": "catalog:",
     "@vinicunca/perkakas": "catalog:",
     "@vinicunca/unocss-preset": "workspace:*",
     "bumpp": "catalog:",
+    "defu": "catalog:",
     "eslint": "catalog:",
     "lint-staged": "catalog:",
     "magic-string": "catalog:",
+    "postcss": "catalog:",
+    "postcss-js": "catalog:",
     "prettier": "catalog:",
     "simple-git-hooks": "catalog:",
     "taze": "catalog:",

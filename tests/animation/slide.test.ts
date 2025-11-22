@@ -1,6 +1,6 @@
 import { describe, it } from 'vitest';
 
-import { CSS_VARIABLE_PREFIX } from '../../packages/core/src/presets/animation/animation.entity';
+import { CSS_VARIABLE_PREFIX } from '../../src/presets/animation/animation.entity';
 import { getCssFromUnoWithoutPreflights } from '../utils';
 import { CSS_VARIABLES, DECIMALS, FRACTIONS, INTEGERS } from './data';
 

@@ -1,6 +1,6 @@
-import type { Postprocessor, Shortcut, UserConfig } from '@unocss/core';
+import type { Postprocessor, Shortcut } from '@unocss/core';
 import type { PresetVinicuncaOptions, VinicuncaTheme } from './types';
-import { definePreset, mergeConfigs } from '@unocss/core';
+import { definePreset } from '@unocss/core';
 import { defu } from 'defu';
 import { getPreflights, postprocessWithUnColor } from './core';
 import { PRESET_NAME } from './meta';
@@ -51,23 +51,3 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
     };
   },
 );
-
-export function defineVinicuncaConfig<T extends object = VinicuncaTheme>(
-  options: PresetVinicuncaOptions = {},
-  config: UserConfig<T> = {},
-) {
-  return mergeConfigs([
-    defineConfig<T>({
-      presets: [
-        presetVinicunca(options) as any,
-      ],
-    }),
-    config,
-  ]);
-}
-
-export function defineConfig<T extends object = VinicuncaTheme>(
-  config: UserConfig<T>,
-) {
-  return config;
-}

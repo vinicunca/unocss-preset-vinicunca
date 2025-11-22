@@ -1,9 +1,9 @@
 import type { UnoGenerator } from '@unocss/core';
-import type { KeepOption } from '../packages/core/src/transformer-alias';
+import type { KeepOption } from '../src/transformer-alias';
 import { createGenerator } from '@unocss/core';
 import MagicString from 'magic-string';
 import { describe, expect, it } from 'vitest';
-import { expandShortcut, transformAlias } from '../packages/core/src/transformer-alias';
+import { expandShortcut, transformAlias } from '../src/transformer-alias';
 
 describe('transformer alias', async () => {
   const uno = await createGenerator({

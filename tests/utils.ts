@@ -1,7 +1,7 @@
-import type { PresetVinicuncaOptions, VinicuncaTheme } from '../packages/core/src/types';
+import type { PresetVinicuncaOptions, VinicuncaTheme } from '../src/types';
 import { createGenerator } from '@unocss/core';
 
-import { presetVinicunca } from '../packages/core/src';
+import { presetVinicunca } from '../src';
 
 export async function generateUno(
   options: PresetVinicuncaOptions = {},

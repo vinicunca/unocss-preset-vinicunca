@@ -1,9 +1,9 @@
 /* eslint-disable no-loss-of-precision */
-import type { RequiredFluidOptions } from '../../packages/core/src/types';
+import type { RequiredFluidOptions } from '../../src/types';
 
 import { describe, expect, it } from 'vitest';
 
-import { DEFAULT_FLUID_OPTIONS } from '../../packages/core/src/constants';
+import { DEFAULT_FLUID_OPTIONS } from '../../src/constants';
 import {
   calculateRelativeSize,
   extractRemBoundsFromMatch,
@@ -16,7 +16,7 @@ import {
   getSlopePercentage,
   invertAndParseNumber,
   toRem,
-} from '../../packages/core/src/presets/fluid/utils';
+} from '../../src/presets/fluid/utils';
 
 const extendedOptions: RequiredFluidOptions = {
   ...DEFAULT_FLUID_OPTIONS,

@@ -1,6 +1,6 @@
 import { defineConfig } from 'unocss';
 
-import { presetVinicunca } from './packages/core/src';
+import { presetVinicunca } from './src';
 
 export default defineConfig({
   presets: [

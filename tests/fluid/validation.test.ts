@@ -1,9 +1,9 @@
-import type { RequiredFluidOptions } from '../../packages/core/src/types';
+import type { RequiredFluidOptions } from '../../src/types';
 
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { DEFAULT_FLUID_OPTIONS } from '../../packages/core/src/constants';
-import { extractRemBoundsFromMatch, validateUtilityName } from '../../packages/core/src/presets/fluid/utils';
+import { DEFAULT_FLUID_OPTIONS } from '../../src/constants';
+import { extractRemBoundsFromMatch, validateUtilityName } from '../../src/presets/fluid/utils';
 
 const ranges: {
   [key: string]: [number, number];
@@ -21,6 +21,10 @@ const optionsWithRanges: RequiredFluidOptions = {
 };
 
 describe('fluid validation', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('extract rem bounds from invalid match ranges', () => {
     expect(() =>
       extractRemBoundsFromMatch({

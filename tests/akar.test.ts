@@ -1,8 +1,8 @@
-import type { PresetVinicuncaOptions, VinicuncaAkarOptions } from '../packages/core/src/types';
+import type { PresetVinicuncaOptions, VinicuncaAkarOptions } from '../src/types';
 import { describe } from 'node:test';
 import { createGenerator } from 'unocss';
 import { expect, it } from 'vitest';
-import { presetVinicunca } from '../packages/core/src';
+import { presetVinicunca } from '../src';
 
 async function getGenerator(
   options: PresetVinicuncaOptions,
@@ -105,15 +105,9 @@ describe('akar preset', () => {
       "/* layer: properties */
       @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*, ::before, ::after, ::backdrop{--un-text-opacity:100%;}}
       @property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
-      /* layer: theme */
-      :root, :host { --colors-primary-DEFAULT: var(--akar-primary); --colors-primary-700: var(--akar-primary-700); }
       /* layer: default */
-      .color-primary{color:color-mix(in srgb, var(--colors-primary-DEFAULT) var(--un-text-opacity), transparent);}
-      .color-primary-700{color:color-mix(in srgb, var(--colors-primary-700) var(--un-text-opacity), transparent);}
-      @supports (color: color-mix(in lab, red, red)){
-      .color-primary{color:color-mix(in oklab, var(--colors-primary-DEFAULT) var(--un-text-opacity), transparent);}
-      .color-primary-700{color:color-mix(in oklab, var(--colors-primary-700) var(--un-text-opacity), transparent);}
-      }"
+      .color-primary{color:color-mix(in srgb, var(--akar-primary) var(--un-text-opacity), transparent);}
+      .color-primary-700{color:color-mix(in srgb, var(--akar-primary-700) var(--un-text-opacity), transparent);}"
     `);
   });
 

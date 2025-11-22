@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`preset-animatecss 1`] = `
+exports[`preset-fluid 1`] = `
 "/* layer: default */
 .fluid-text-32-64{font-size:clamp(2rem, 1.2958rem + 3.0047vw, 4rem)/* 32px -> 64px */;}
 .fluid-w-100-200{width:clamp(6.25rem, 4.0493rem + 9.3897vw, 12.5rem)/* 100px -> 200px */;}

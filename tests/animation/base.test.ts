@@ -1,4 +1,4 @@
-import type { AnimationOptions } from '../../packages/core/src/types';
+import type { AnimationOptions } from '../../src/types';
 
 import { describe, it } from 'vitest';
 

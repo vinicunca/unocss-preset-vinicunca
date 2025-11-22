@@ -1,11 +1,15 @@
 import { describe } from 'node:test';
 import { createGenerator } from '@unocss/core';
 import { expect, it } from 'vitest';
-import { defineVinicuncaConfig } from '../packages/core/src';
+import { presetVinicunca } from '../src';
 
 describe('config test', () => {
   it('base config', async () => {
-    const uno = await createGenerator(defineVinicuncaConfig());
+    const uno = await createGenerator({
+      presets: [
+        presetVinicunca(),
+      ],
+    });
 
     const presetNames = uno.config.presets.map((pre) => pre.name);
 
@@ -13,8 +17,8 @@ describe('config test', () => {
       '@unocss/preset-icons',
       'unocss-preset-vinicunca',
       '@unocss/preset-wind4',
-      'unocss-preset-animation',
       'unocss-preset-fluid',
+      'unocss-preset-animation',
     ]);
 
     const { css } = await uno.generate('p-2 h-screen grid place-items-center animate-in slide-in-top-full fade-in-0 animate-duration-1000 animate-delay-500 text-8xl');
@@ -22,41 +26,39 @@ describe('config test', () => {
   });
 
   it('custom config', async () => {
-    const uno = await createGenerator(
-      defineVinicuncaConfig(
-        {
+    const uno = await createGenerator({
+      presets: [
+        presetVinicunca({
           webFonts: true,
           icons: false,
-        },
-        {
-          presets: [{ name: 'coba-nae' }],
-        },
-      ),
-    );
+        }),
+        { name: 'coba-nae' },
+      ],
+    });
 
     const presetNames = uno.config.presets.map((pre) => pre.name);
 
     expect(presetNames).toEqual(
       [
         'unocss-preset-vinicunca',
-        '@unocss/preset-web-fonts',
         '@unocss/preset-wind4',
-        'unocss-preset-animation',
         'unocss-preset-fluid',
+        'unocss-preset-animation',
+        '@unocss/preset-web-fonts',
         'coba-nae',
       ],
     );
   });
 
   it('using wind3', async () => {
-    const uno = await createGenerator(
-      defineVinicuncaConfig(
-        {
+    const uno = await createGenerator({
+      presets: [
+        presetVinicunca({
           wind3: true,
           wind4: false,
-        },
-      ),
-    );
+        }),
+      ],
+    });
 
     const presetNames = uno.config.presets.map((pre) => pre.name);
 
@@ -65,8 +67,8 @@ describe('config test', () => {
         '@unocss/preset-icons',
         'unocss-preset-vinicunca',
         '@unocss/preset-wind3',
-        'unocss-preset-animation',
         'unocss-preset-fluid',
+        'unocss-preset-animation',
       ],
     );
 
