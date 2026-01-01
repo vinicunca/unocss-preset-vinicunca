@@ -3,35 +3,35 @@ packages:
   - docs
 
 catalog:
-  '@types/node': ^24.10.1
-  '@unocss/core': 66.5.10
-  '@unocss/preset-icons': 66.5.10
-  '@unocss/preset-mini': 66.5.10
-  '@unocss/preset-typography': 66.5.10
-  '@unocss/preset-web-fonts': 66.5.10
-  '@unocss/preset-wind4': 66.5.10
-  '@unocss/transformer-directives': 66.5.10
-  '@unocss/transformer-variant-group': 66.5.10
-  '@vinicunca/eslint-config': 3.30.0
-  '@vinicunca/perkakas': ^1.9.0
-  '@vitejs/plugin-vue': ^6.0.2
+  '@types/node': ^24.10.4
+  '@unocss/core': 66.5.12
+  '@unocss/preset-icons': 66.5.12
+  '@unocss/preset-mini': 66.5.12
+  '@unocss/preset-typography': 66.5.12
+  '@unocss/preset-web-fonts': 66.5.12
+  '@unocss/preset-wind4': 66.5.12
+  '@unocss/transformer-directives': 66.5.12
+  '@unocss/transformer-variant-group': 66.5.12
+  '@vinicunca/eslint-config': 4.2.0
+  '@vinicunca/perkakas': ^1.12.0
+  '@vitejs/plugin-vue': ^6.0.3
   bumpp: ^10.3.2
   defu: ^6.1.4
-  eslint: ^9.39.1
+  eslint: ^9.39.2
   lint-staged: ^16.2.7
   magic-string: ^0.30.21
   postcss: ^8.5.6
-  postcss-js: ^5.0.1
+  postcss-js: ^5.0.3
   prettier: ^3.7.4
   simple-git-hooks: ^2.13.1
   taze: ^19.9.2
   tsdown: ^0.16.8
   typescript: ^5.9.3
-  unocss: 66.5.10
-  vite: ^7.2.6
-  vitest: ^4.0.15
-  vue: ^3.5.25
-  vue-tsc: ^3.1.5
+  unocss: 66.5.12
+  vite: ^7.3.0
+  vitest: ^4.0.16
+  vue: ^3.5.26
+  vue-tsc: ^3.2.1
 
 onlyBuiltDependencies:
   - esbuild
