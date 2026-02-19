@@ -1,7 +1,6 @@
 import type { PresetVinicuncaOptions, VinicuncaAkarOptions } from '../src/types';
-import { describe } from 'node:test';
 import { createGenerator } from 'unocss';
-import { expect, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { presetVinicunca } from '../src';
 
 async function getGenerator(
@@ -57,7 +56,19 @@ describe('akar preset', () => {
         // This is only to reduce the output size for snapshot testing
         enableDrawer: false,
         brands: {
-          primary: '#ff0000',
+          primary: {
+            50: 'oklch(97.00% 0.030 245.30)',
+            100: 'oklch(91.44% 0.059 245.30)',
+            200: 'oklch(85.88% 0.087 245.30)',
+            300: 'oklch(80.32% 0.116 245.30)',
+            400: 'oklch(74.75% 0.145 245.30)',
+            500: 'oklch(69.19% 0.173 245.30)',
+            600: 'oklch(59.75% 0.155 245.30)',
+            700: 'oklch(50.32% 0.136 245.30)',
+            800: 'oklch(40.88% 0.117 245.30)',
+            900: 'oklch(31.44% 0.099 245.30)',
+            950: 'oklch(22.00% 0.080 245.30)',
+          },
           secondary: 'blue',
         },
       },
@@ -65,7 +76,7 @@ describe('akar preset', () => {
 
     const { css } = await uno.generate(
       `
-      :root {
+      .anu {
         @apply color-primary;
       }
     `,
@@ -76,7 +87,7 @@ describe('akar preset', () => {
       @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*, ::before, ::after, ::backdrop{--un-text-opacity:100%;}}
       @property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
       /* layer: theme */
-      :root, :host { --colors-primary-DEFAULT: #ff0000; }
+      :root, :host { --colors-primary-DEFAULT: oklch(69.19% 0.173 245.30); }
       /* layer: default */
       .color-primary{color:color-mix(in srgb, var(--colors-primary-DEFAULT) var(--un-text-opacity), transparent);}
       @supports (color: color-mix(in lab, red, red)){

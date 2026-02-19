@@ -90,6 +90,9 @@
     "vite": "catalog:",
     "vitest": "catalog:"
   },
+  "devDependencies": {
+    "culori": "catalog:"
+  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },

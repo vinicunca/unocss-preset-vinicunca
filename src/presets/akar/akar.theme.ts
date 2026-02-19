@@ -1,9 +1,11 @@
 import type { Theme } from 'unocss/preset-wind4';
 import type { VinicuncaAkarOptions } from '../../types';
-import { isString } from '@vinicunca/perkakas';
+import { isObjectType, isString } from '@vinicunca/perkakas';
 import { defu } from 'defu';
 import { theme } from 'unocss/preset-wind4';
 import { DEFAULT_AKAR_OPTIONS } from '../../constants';
+
+const SHADES = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
 export function resolveAkarThemeColors(options: VinicuncaAkarOptions) {
   const enableAkar = Boolean(options);
@@ -40,37 +42,68 @@ export function resolveAkarThemeColors(options: VinicuncaAkarOptions) {
 function getAkarBrandColors(options: VinicuncaAkarOptions) {
   const enableDynamic = Boolean(options.enableDynamicBrands);
 
-  // We just need the keys of one of the color to get the shades
-  const shades = Object.keys(theme.colors.amber);
-
   const brandTheme = Object.entries(options.brands ?? {})
     .reduce(
       (acc, [brandKey, brandValue]) => {
-        if (isString(brandValue) && isHexColor(brandValue)) {
-          acc[brandKey] = {
-            DEFAULT: brandValue,
-          };
-        } else if (enableDynamic) {
-          acc[brandKey] = shades.reduce(
-            (shadeAcc, shade) => {
-              if (shade === 'DEFAULT') {
-                shadeAcc[shade] = `var(--akar-${brandKey})`;
-              } else {
-                shadeAcc[shade] = `var(--akar-${brandKey}-${shade})`;
-              }
-              return shadeAcc;
-            },
-            {} as NonNullable<Theme['colors']>,
-          );
-        } else {
-          acc[brandKey] = theme.colors[brandValue as keyof typeof theme.colors];
-        }
+        acc[brandKey] = resolveBrandColor({
+          brandKey,
+          brandValue,
+          enableDynamic,
+        });
         return acc;
       },
       {} as NonNullable<Theme['colors']>,
     );
 
   return brandTheme;
+}
+
+type AkarBrandValue = NonNullable<VinicuncaAkarOptions['brands']>[string];
+
+function resolveBrandColor(
+  {
+    brandKey,
+    brandValue,
+    enableDynamic,
+  }: {
+    brandKey: string;
+    brandValue: AkarBrandValue;
+    enableDynamic: boolean;
+  },
+) {
+  if (isString(brandValue) && isHexColor(brandValue)) {
+    return {
+      DEFAULT: brandValue,
+    };
+  }
+
+  if (isObjectType(brandValue)) {
+    return {
+      ...brandValue,
+      DEFAULT: brandValue['500'],
+    };
+  }
+
+  if (enableDynamic) {
+    return generateDynamicShades(brandKey);
+  }
+
+  return theme.colors[brandValue as keyof typeof theme.colors];
+}
+
+function generateDynamicShades(brandKey: string) {
+  const shadeObject = SHADES.reduce(
+    (shadeAcc, shade) => {
+      shadeAcc[shade] = `var(--akar-${brandKey}-${shade})`;
+
+      return shadeAcc;
+    },
+    {} as NonNullable<Theme['colors']>,
+  );
+
+  shadeObject.DEFAULT = `var(--akar-${brandKey})`;
+
+  return shadeObject;
 }
 
 function isHexColor(value: string) {

@@ -85,7 +85,7 @@ export interface VinicuncaAkarOptions {
   /**
    * Define brand colors for Akar
    *
-   * @see DEFAULT_AKAR_OPTIONS.brands
+   * @see `DEFAULT_AKAR_OPTIONS.brands`
    */
   brands?: ThemeWind4['colors'];
 

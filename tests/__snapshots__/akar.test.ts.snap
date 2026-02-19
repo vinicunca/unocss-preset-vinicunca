@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`overwrite animation theme 1`] = `
+exports[`akar preset > overwrite animation theme 1`] = `
 {
   "category": {
     "back-in-down": "Back Entrances",
