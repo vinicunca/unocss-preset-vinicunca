@@ -28,6 +28,7 @@ const resetCSS = `
   5. Use the user's configured \`sans\` font-feature-settings by default.
   6. Use the user's configured \`sans\` font-variation-settings by default.
   7. Disable tap highlights on iOS.
+  8. Improve text rendering.
 */
 
 html,
@@ -49,6 +50,7 @@ html,
   font-feature-settings: var(--defaults-font-feature-settings, normal); /* 5 */
   font-variation-settings: var(--defaults-font-variation-settings, normal); /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
+  -webkit-font-smoothing: antialiased; /* 8 */
 }
 
 /*
@@ -92,6 +94,23 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
+}
+
+/*
+  Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  Improve line wrapping
+*/
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
 }
 
 /*
@@ -219,7 +238,6 @@ menu {
   2. Add \`vertical-align: middle\` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
     This can trigger a poorly considered lint error in some tools but is included by design.
 */
-
 img,
 svg,
 video,
@@ -235,9 +253,7 @@ object {
 /*
   Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
-
-img,
-video {
+img, picture, video, canvas, svg {
   max-width: 100%;
   height: auto;
 }
@@ -248,7 +264,6 @@ video {
   3. Remove background color in all browsers.
   4. Ensure consistent opacity for disabled states in all browsers.
 */
-
 button,
 input,
 optgroup,
