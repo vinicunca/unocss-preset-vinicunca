@@ -1,10 +1,10 @@
-import type { ShortcutValue, SourceCodeTransformer, UnoGenerator } from '@unocss/core';
 import type MagicString from 'magic-string';
+import type { ShortcutValue, SourceCodeTransformer, UnoGenerator } from 'unocss';
+import { isString } from '@vinicunca/perkakas';
 import {
   expandVariantGroup,
   isStaticShortcut,
-} from '@unocss/core';
-import { isString } from '@vinicunca/perkakas';
+} from 'unocss';
 
 export interface KeepOption {
   /**
@@ -70,7 +70,7 @@ export async function transformAlias(
   const extraRE = new RegExp(`(${escapeRegExp(prefix)}|${escapeRegExp(keep.prefix)})([\\w-:]+)`, 'g');
   const map = new Map<string, ShortcutValue | false>();
 
-  for (const item of Array.from(code.original.matchAll(extraRE))) {
+  for (const item of [...code.original.matchAll(extraRE)]) {
     let result = map.get(item[0]);
     if (result === false) {
       continue;

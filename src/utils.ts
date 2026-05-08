@@ -1,5 +1,5 @@
-import type { CSSObject } from '@unocss/core';
 import type { ThemeAnimation } from '@unocss/preset-mini';
+import type { CSSObject } from 'unocss';
 import type { CustomStaticShortcuts } from './types';
 
 // name duration timing-function iteration-count

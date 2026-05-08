@@ -1,4 +1,4 @@
-import type { Preflight, Preset } from '@unocss/core';
+import type { Preflight, Preset } from 'unocss';
 import type { VinicuncaAkarOptions } from '../../types';
 import { drawerPreflight } from './akar.drawer-preflights';
 import { resolveAkarThemeColors } from './akar.theme';

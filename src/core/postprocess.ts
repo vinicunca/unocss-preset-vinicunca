@@ -1,4 +1,4 @@
-import type { Postprocessor } from '@unocss/core';
+import type { Postprocessor } from 'unocss';
 import { isString } from '@vinicunca/perkakas';
 
 const RE_RGB = /rgb\(([\d\s]+?)\s*\/\s*([^)]+)\)/;

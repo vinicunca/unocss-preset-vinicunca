@@ -1,7 +1,7 @@
-import type { UnoGenerator } from '@unocss/core';
+import type { UnoGenerator } from 'unocss';
 import type { KeepOption } from '../src/transformer-alias';
-import { createGenerator } from '@unocss/core';
 import MagicString from 'magic-string';
+import { createGenerator } from 'unocss';
 import { describe, expect, it } from 'vitest';
 import { expandShortcut, transformAlias } from '../src/transformer-alias';
 

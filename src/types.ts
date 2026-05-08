@@ -1,4 +1,3 @@
-import type { CSSObject, Preset, SourceCodeTransformer, StaticShortcut } from '@unocss/core';
 import type { IconsOptions } from '@unocss/preset-icons';
 import type { ThemeAnimation } from '@unocss/preset-mini';
 import type { TypographyOptions } from '@unocss/preset-typography';
@@ -7,6 +6,7 @@ import type { PresetWind3Options, Theme as ThemeWind3 } from '@unocss/preset-win
 import type { PresetWind4Options, Theme as ThemeWind4 } from '@unocss/preset-wind4';
 import type { TransformerDirectivesOptions } from '@unocss/transformer-directives';
 import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group';
+import type { CSSObject, Preset, SourceCodeTransformer, StaticShortcut } from 'unocss';
 import type { UnoPresetScrollbarOption } from './presets/scrollbar';
 import type { TransformerAliasOptions } from './transformer-alias';
 

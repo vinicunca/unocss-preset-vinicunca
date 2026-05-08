@@ -1,5 +1,5 @@
-import type { Rule } from '@unocss/core';
 import type { Theme } from '@unocss/preset-mini';
+import type { Rule } from 'unocss';
 
 import { h } from '@unocss/preset-mini/utils';
 

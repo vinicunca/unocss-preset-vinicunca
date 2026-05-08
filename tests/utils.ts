@@ -1,5 +1,5 @@
 import type { PresetVinicuncaOptions, VinicuncaTheme } from '../src/types';
-import { createGenerator } from '@unocss/core';
+import { createGenerator } from 'unocss';
 
 import { presetVinicunca } from '../src';
 

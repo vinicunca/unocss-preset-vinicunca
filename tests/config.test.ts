@@ -1,6 +1,5 @@
-import { describe } from 'node:test';
-import { createGenerator } from '@unocss/core';
-import { expect, it } from 'vitest';
+import { createGenerator } from 'unocss';
+import { describe, expect, it } from 'vitest';
 import { presetVinicunca } from '../src';
 
 describe('config test', () => {

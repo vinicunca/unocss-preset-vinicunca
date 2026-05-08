@@ -1,4 +1,4 @@
-import type { Preset } from '@unocss/core';
+import type { Preset } from 'unocss';
 import type { AnimationOptions } from '../../types';
 import { animationRules } from './animation.rule';
 import { animationShortcuts } from './animation.shortcut';
