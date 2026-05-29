@@ -19,6 +19,7 @@ export default vinicuncaESLint(
       'sonar/no-nested-functions': 'off',
       'regexp/no-super-linear-backtracking': 'off',
       'regexp/no-misleading-capturing-group': 'off',
+      'pnpm/yaml-enforce-settings': 'off',
     },
   },
 );
