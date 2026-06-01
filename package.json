@@ -62,7 +62,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "dependencies": {
+  "devDependencies": {
     "@types/node": "catalog:",
     "@unocss/preset-icons": "catalog:",
     "@unocss/preset-mini": "catalog:",
@@ -75,6 +75,7 @@
     "@vinicunca/perkakas": "catalog:",
     "@vinicunca/unocss-preset": "workspace:*",
     "bumpp": "catalog:",
+    "culori": "catalog:",
     "defu": "catalog:",
     "eslint": "catalog:",
     "lint-staged": "catalog:",
@@ -88,9 +89,6 @@
     "unocss": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"
-  },
-  "devDependencies": {
-    "culori": "catalog:"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
