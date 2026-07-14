@@ -99,6 +99,10 @@ function camelToHyphen(str: string): string {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
-export function compressCSS(css: string) {
-  return css.replace(/\s+/g, ' ').replace(/\/\*[\s\S]*?\*\//g, '');
+export function compressCSS(css: string, isDev = false) {
+  if (isDev) {
+    return css.trim();
+  }
+
+  return css.trim().replace(/\s+/g, ' ').replace(/\/\*[\s\S]*?\*\//g, '');
 }

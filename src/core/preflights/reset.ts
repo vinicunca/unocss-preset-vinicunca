@@ -5,7 +5,7 @@ const resetCSS = `
 /*
   1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
   2. Remove default margins and padding
-  3. Reset all borders
+  3. Reset all borders.
 */
 
 *,
@@ -16,8 +16,7 @@ const resetCSS = `
   box-sizing: border-box; /* 1 */
   margin: 0; /* 2 */
   padding: 0; /* 2 */
-  border-width: 0; /* 3 */
-  border-style: solid; /* 3 */
+  border: 0 solid; /* 3 */
 }
 
 /*
@@ -35,10 +34,9 @@ html,
 :host {
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  -moz-tab-size: 4; /* 3 */
   tab-size: 4; /* 3 */
   font-family: var(
-    --defaults-font-family,
+    --default-font-family,
     ui-sans-serif,
     system-ui,
     sans-serif,
@@ -47,8 +45,8 @@ html,
     'Segoe UI Symbol',
     'Noto Color Emoji'
   ); /* 4 */
-  font-feature-settings: var(--defaults-font-feature-settings, normal); /* 5 */
-  font-variation-settings: var(--defaults-font-variation-settings, normal); /* 6 */
+  font-feature-settings: var(--default-font-featureSettings, normal); /* 5 */
+  font-variation-settings: var(--default-font-variationSettings, normal); /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
   -webkit-font-smoothing: antialiased; /* 8 */
 }
@@ -64,7 +62,7 @@ body {
 /*
   1. Add the correct height in Firefox.
   2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
-  3. Ensure horizontal rules are visible by default.
+  3. Reset the default border style to a 1px solid border.
 */
 
 hr {
@@ -144,7 +142,7 @@ kbd,
 samp,
 pre {
   font-family: var(
-    --defaults-mono-font-family,
+    --default-monoFont-family,
     ui-monospace,
     SFMono-Regular,
     Menlo,
@@ -154,8 +152,8 @@ pre {
     'Courier New',
     monospace
   ); /* 1 */
-  font-feature-settings: var(--defaults-mono-font-feature-settings, normal); /* 2 */
-  font-variation-settings: var(--defaults-mono-font-variation-settings, normal); /* 3 */
+  font-feature-settings: var(--default-monoFont-featureSettings, normal); /* 2 */
+  font-variation-settings: var(--default-monoFont-variationSettings, normal); /* 3 */
   font-size: 1em; /* 4 */
 }
 
@@ -236,8 +234,9 @@ menu {
 /*
   1. Make replaced elements \`display: block\` by default. (https://github.com/mozdevs/cssremedy/issues/14)
   2. Add \`vertical-align: middle\` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
-    This can trigger a poorly considered lint error in some tools but is included by design.
+      This can trigger a poorly considered lint error in some tools but is included by design.
 */
+
 img,
 svg,
 video,
@@ -264,6 +263,7 @@ img, picture, video, canvas, svg {
   3. Remove background color in all browsers.
   4. Ensure consistent opacity for disabled states in all browsers.
 */
+
 button,
 input,
 optgroup,
@@ -273,6 +273,7 @@ textarea,
   font: inherit; /* 1 */
   font-feature-settings: inherit; /* 1 */
   font-variation-settings: inherit; /* 1 */
+  letter-spacing: inherit; /* 1 */
   color: inherit; /* 1 */
   border-radius: 0; /* 2 */
   background-color: transparent; /* 3 */
@@ -378,6 +379,14 @@ textarea {
 }
 
 /*
+  Center dropdown marker shown on inputs with paired \`<datalist>\`s in Chrome. (https://github.com/tailwindlabs/tailwindcss/issues/18499)
+*/
+
+::-webkit-calendar-picker-indicator {
+  line-height: 1;
+}
+
+/*
   Remove the additional \`:invalid\` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
@@ -408,7 +417,7 @@ input:where([type='button'], [type='reset'], [type='submit']),
   Make elements with the HTML hidden attribute stay hidden by default.
 */
 
-[hidden]:where(:not([hidden='until-found'])) {
+[hidden]:where(:not([hidden~='until-found'])) {
   display: none !important;
 }
 
@@ -448,7 +457,6 @@ input:where([type='button'], [type='reset'], [type='submit']),
 input::placeholder,
 textarea::placeholder {
   opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
 }
 
 /*
@@ -467,9 +475,11 @@ Make sure disabled buttons don't get the pointer cursor.
 :disabled {
   cursor: default;
 }
-`.trim();
+`;
 
 export const resetPreflight: Preflight = {
   layer: 'preflights',
-  getCSS: () => compressCSS(resetCSS),
+  getCSS: ({ generator }) => {
+    return compressCSS(resetCSS, generator.config.envMode === 'dev');
+  },
 };

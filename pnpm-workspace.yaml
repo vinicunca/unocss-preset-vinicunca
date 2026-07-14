@@ -6,33 +6,33 @@ packages:
 
 catalog:
   '@types/node': ^26.0.1
-  '@unocss/preset-icons': 66.7.2
-  '@unocss/preset-mini': 66.7.2
-  '@unocss/preset-typography': 66.7.2
-  '@unocss/preset-web-fonts': 66.7.2
-  '@unocss/preset-wind4': 66.7.2
-  '@unocss/transformer-directives': 66.7.2
-  '@unocss/transformer-variant-group': 66.7.2
-  '@vinicunca/eslint-config': 5.2.0
+  '@unocss/preset-icons': 66.7.5
+  '@unocss/preset-mini': 66.7.5
+  '@unocss/preset-typography': 66.7.5
+  '@unocss/preset-web-fonts': 66.7.5
+  '@unocss/preset-wind4': 66.7.5
+  '@unocss/transformer-directives': 66.7.5
+  '@unocss/transformer-variant-group': 66.7.5
+  '@vinicunca/eslint-config': 5.4.0
   '@vinicunca/perkakas': ^1.16.0
   '@vitejs/plugin-vue': ^6.0.7
   bumpp: ^11.1.0
   culori: ^4.0.2
   defu: ^6.1.7
-  eslint: ^10.5.0
+  eslint: ^10.7.0
   lint-staged: ^17.0.8
   magic-string: ^0.30.21
-  postcss: ^8.5.15
+  postcss: ^8.5.18
   postcss-js: ^5.1.0
-  prettier: ^3.8.4
+  prettier: ^3.9.5
   simple-git-hooks: ^2.13.1
-  tsdown: ^0.22.3
+  tsdown: ^0.22.5
   typescript: ^6.0.3
-  unocss: 66.7.2
-  vite: ^8.1.0
-  vitest: ^4.1.9
-  vue: ^3.5.38
-  vue-tsc: ^3.3.5
+  unocss: 66.7.5
+  vite: ^8.1.4
+  vitest: ^4.1.10
+  vue: ^3.5.39
+  vue-tsc: ^3.3.7
 
 allowBuilds:
   esbuild: true
