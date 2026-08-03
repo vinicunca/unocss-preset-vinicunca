@@ -1,0 +1,12 @@
+/* layer: properties */
+@property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
+/* layer: shortcuts */
+.fluid-gap-x-md{--fluid-gap-x-min:24;--fluid-gap-x-max:32;column-gap:clamp(calc(var(--fluid-gap-x-unit, 1px) * var(--fluid-gap-x-min, 16)), calc(var(--fluid-gap-x-unit, 1px) * var(--fluid-gap-x-min, 16) + (var(--fluid-gap-x-max, 16) - var(--fluid-gap-x-min, 16)) * (var(--fluid-gap-x-container, 100vw) - (var(--fluid-gap-x-unit, 1px) * var(--fluid-gap-x-min-container, 320))) / (var(--fluid-gap-x-max-container, 1920) - var(--fluid-gap-x-min-container, 320))), calc(var(--fluid-gap-x-unit, 1px) * var(--fluid-gap-x-max, 16)));}
+/* layer: default */
+[text~="xl"]{font-size:var(--text-xl-fontSize);line-height:var(--un-leading, var(--text-xl-lineHeight));}
+[text~="blue"]{color:color-mix(in srgb, var(--colors-blue-DEFAULT) var(--un-text-opacity), transparent);}
+[flex~="\~"]{display:flex;}
+[text~="fluid-lg"]{--fluid-text-min:16;--fluid-text-max:18;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+@supports (color: color-mix(in lab, red, red)){
+[text~="blue"]{color:color-mix(in oklab, var(--colors-blue-DEFAULT) var(--un-text-opacity), transparent);}
+}

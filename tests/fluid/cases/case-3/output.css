@@ -1,0 +1,221 @@
+/* layer: properties */
+@property --un-inset-ring-color{syntax:"*";inherits:false;}
+@property --un-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000;}
+@property --un-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000;}
+@property --un-inset-shadow-color{syntax:"*";inherits:false;}
+@property --un-ring-color{syntax:"*";inherits:false;}
+@property --un-ring-inset{syntax:"*";inherits:false;}
+@property --un-ring-offset-color{syntax:"*";inherits:false;}
+@property --un-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000;}
+@property --un-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0px;}
+@property --un-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000;}
+@property --un-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000;}
+@property --un-shadow-color{syntax:"*";inherits:false;}
+/* layer: shortcuts */
+.container,
+[container=""]{width:100%;}
+.fluid-text-2xl,
+[fluid-text-2xl=""]{--fluid-text-min:22;--fluid-text-max:26;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-2xs,
+[fluid-text-2xs=""]{--fluid-text-min:10;--fluid-text-max:12;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-3xl,
+[fluid-text-3xl=""]{--fluid-text-min:26;--fluid-text-max:32;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-4xl,
+[fluid-text-4xl=""]{--fluid-text-min:32;--fluid-text-max:44;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-lg,
+[fluid-text-lg=""]{--fluid-text-min:16;--fluid-text-max:18;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-md,
+[fluid-text-md=""]{--fluid-text-min:16;--fluid-text-max:16;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-sm,
+[fluid-text-sm=""]{--fluid-text-min:14;--fluid-text-max:16;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-xl,
+[fluid-text-xl=""]{--fluid-text-min:18;--fluid-text-max:22;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-xs,
+[fluid-text-xs=""]{--fluid-text-min:12;--fluid-text-max:14;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-mt-lg{--fluid-mt-min:32;--fluid-mt-max:48;margin-top:clamp(calc(var(--fluid-mt-unit, 1px) * var(--fluid-mt-min, 16)), calc(var(--fluid-mt-unit, 1px) * var(--fluid-mt-min, 16) + (var(--fluid-mt-max, 16) - var(--fluid-mt-min, 16)) * (var(--fluid-mt-container, 100vw) - (var(--fluid-mt-unit, 1px) * var(--fluid-mt-min-container, 320))) / (var(--fluid-mt-max-container, 1920) - var(--fluid-mt-min-container, 320))), calc(var(--fluid-mt-unit, 1px) * var(--fluid-mt-max, 16)));}
+.fluid-m-lg{--fluid-m-min:32;--fluid-m-max:48;margin:clamp(calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16)), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16) + (var(--fluid-m-max, 16) - var(--fluid-m-min, 16)) * (var(--fluid-m-container, 100vw) - (var(--fluid-m-unit, 1px) * var(--fluid-m-min-container, 320))) / (var(--fluid-m-max-container, 1920) - var(--fluid-m-min-container, 320))), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-max, 16)));}
+.fluid-m-md{--fluid-m-min:24;--fluid-m-max:32;margin:clamp(calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16)), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16) + (var(--fluid-m-max, 16) - var(--fluid-m-min, 16)) * (var(--fluid-m-container, 100vw) - (var(--fluid-m-unit, 1px) * var(--fluid-m-min-container, 320))) / (var(--fluid-m-max-container, 1920) - var(--fluid-m-min-container, 320))), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-max, 16)));}
+.fluid-m-sm{--fluid-m-min:16;--fluid-m-max:24;margin:clamp(calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16)), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16) + (var(--fluid-m-max, 16) - var(--fluid-m-min, 16)) * (var(--fluid-m-container, 100vw) - (var(--fluid-m-unit, 1px) * var(--fluid-m-min-container, 320))) / (var(--fluid-m-max-container, 1920) - var(--fluid-m-min-container, 320))), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-max, 16)));}
+.fluid-m-xl{--fluid-m-min:48;--fluid-m-max:72;margin:clamp(calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16)), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16) + (var(--fluid-m-max, 16) - var(--fluid-m-min, 16)) * (var(--fluid-m-container, 100vw) - (var(--fluid-m-unit, 1px) * var(--fluid-m-min-container, 320))) / (var(--fluid-m-max-container, 1920) - var(--fluid-m-min-container, 320))), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-max, 16)));}
+.fluid-m-xs{--fluid-m-min:12;--fluid-m-max:16;margin:clamp(calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16)), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-min, 16) + (var(--fluid-m-max, 16) - var(--fluid-m-min, 16)) * (var(--fluid-m-container, 100vw) - (var(--fluid-m-unit, 1px) * var(--fluid-m-min-container, 320))) / (var(--fluid-m-max-container, 1920) - var(--fluid-m-min-container, 320))), calc(var(--fluid-m-unit, 1px) * var(--fluid-m-max, 16)));}
+.fluid-p-lg{--fluid-p-min:32;--fluid-p-max:48;padding:clamp(calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16)), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16) + (var(--fluid-p-max, 16) - var(--fluid-p-min, 16)) * (var(--fluid-p-container, 100vw) - (var(--fluid-p-unit, 1px) * var(--fluid-p-min-container, 320))) / (var(--fluid-p-max-container, 1920) - var(--fluid-p-min-container, 320))), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-max, 16)));}
+.fluid-p-md{--fluid-p-min:24;--fluid-p-max:32;padding:clamp(calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16)), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16) + (var(--fluid-p-max, 16) - var(--fluid-p-min, 16)) * (var(--fluid-p-container, 100vw) - (var(--fluid-p-unit, 1px) * var(--fluid-p-min-container, 320))) / (var(--fluid-p-max-container, 1920) - var(--fluid-p-min-container, 320))), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-max, 16)));}
+.fluid-p-sm{--fluid-p-min:16;--fluid-p-max:24;padding:clamp(calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16)), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16) + (var(--fluid-p-max, 16) - var(--fluid-p-min, 16)) * (var(--fluid-p-container, 100vw) - (var(--fluid-p-unit, 1px) * var(--fluid-p-min-container, 320))) / (var(--fluid-p-max-container, 1920) - var(--fluid-p-min-container, 320))), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-max, 16)));}
+.fluid-p-xl{--fluid-p-min:48;--fluid-p-max:72;padding:clamp(calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16)), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16) + (var(--fluid-p-max, 16) - var(--fluid-p-min, 16)) * (var(--fluid-p-container, 100vw) - (var(--fluid-p-unit, 1px) * var(--fluid-p-min-container, 320))) / (var(--fluid-p-max-container, 1920) - var(--fluid-p-min-container, 320))), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-max, 16)));}
+.fluid-p-xs{--fluid-p-min:12;--fluid-p-max:16;padding:clamp(calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16)), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16) + (var(--fluid-p-max, 16) - var(--fluid-p-min, 16)) * (var(--fluid-p-container, 100vw) - (var(--fluid-p-unit, 1px) * var(--fluid-p-min-container, 320))) / (var(--fluid-p-max-container, 1920) - var(--fluid-p-min-container, 320))), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-max, 16)));}
+.fluid-gap-lg{--fluid-gap-min:32;--fluid-gap-max:48;gap:clamp(calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16)), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16) + (var(--fluid-gap-max, 16) - var(--fluid-gap-min, 16)) * (var(--fluid-gap-container, 100vw) - (var(--fluid-gap-unit, 1px) * var(--fluid-gap-min-container, 320))) / (var(--fluid-gap-max-container, 1920) - var(--fluid-gap-min-container, 320))), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-max, 16)));}
+.fluid-gap-md{--fluid-gap-min:24;--fluid-gap-max:32;gap:clamp(calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16)), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16) + (var(--fluid-gap-max, 16) - var(--fluid-gap-min, 16)) * (var(--fluid-gap-container, 100vw) - (var(--fluid-gap-unit, 1px) * var(--fluid-gap-min-container, 320))) / (var(--fluid-gap-max-container, 1920) - var(--fluid-gap-min-container, 320))), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-max, 16)));}
+.fluid-gap-sm{--fluid-gap-min:16;--fluid-gap-max:24;gap:clamp(calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16)), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16) + (var(--fluid-gap-max, 16) - var(--fluid-gap-min, 16)) * (var(--fluid-gap-container, 100vw) - (var(--fluid-gap-unit, 1px) * var(--fluid-gap-min-container, 320))) / (var(--fluid-gap-max-container, 1920) - var(--fluid-gap-min-container, 320))), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-max, 16)));}
+.fluid-gap-xl{--fluid-gap-min:48;--fluid-gap-max:72;gap:clamp(calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16)), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16) + (var(--fluid-gap-max, 16) - var(--fluid-gap-min, 16)) * (var(--fluid-gap-container, 100vw) - (var(--fluid-gap-unit, 1px) * var(--fluid-gap-min-container, 320))) / (var(--fluid-gap-max-container, 1920) - var(--fluid-gap-min-container, 320))), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-max, 16)));}
+.fluid-gap-xs{--fluid-gap-min:12;--fluid-gap-max:16;gap:clamp(calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16)), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-min, 16) + (var(--fluid-gap-max, 16) - var(--fluid-gap-min, 16)) * (var(--fluid-gap-container, 100vw) - (var(--fluid-gap-unit, 1px) * var(--fluid-gap-min-container, 320))) / (var(--fluid-gap-max-container, 1920) - var(--fluid-gap-min-container, 320))), calc(var(--fluid-gap-unit, 1px) * var(--fluid-gap-max, 16)));}
+.fluid-rounded-2xl{--fluid-rounded-min:16;--fluid-rounded-max:24;border-radius:clamp(calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16)), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16) + (var(--fluid-rounded-max, 16) - var(--fluid-rounded-min, 16)) * (var(--fluid-rounded-container, 100vw) - (var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min-container, 320))) / (var(--fluid-rounded-max-container, 1920) - var(--fluid-rounded-min-container, 320))), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-max, 16)));}
+.fluid-rounded-lg{--fluid-rounded-min:8;--fluid-rounded-max:12;border-radius:clamp(calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16)), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16) + (var(--fluid-rounded-max, 16) - var(--fluid-rounded-min, 16)) * (var(--fluid-rounded-container, 100vw) - (var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min-container, 320))) / (var(--fluid-rounded-max-container, 1920) - var(--fluid-rounded-min-container, 320))), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-max, 16)));}
+.fluid-rounded-md{--fluid-rounded-min:6;--fluid-rounded-max:8;border-radius:clamp(calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16)), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16) + (var(--fluid-rounded-max, 16) - var(--fluid-rounded-min, 16)) * (var(--fluid-rounded-container, 100vw) - (var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min-container, 320))) / (var(--fluid-rounded-max-container, 1920) - var(--fluid-rounded-min-container, 320))), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-max, 16)));}
+.fluid-rounded-sm{--fluid-rounded-min:4;--fluid-rounded-max:6;border-radius:clamp(calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16)), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16) + (var(--fluid-rounded-max, 16) - var(--fluid-rounded-min, 16)) * (var(--fluid-rounded-container, 100vw) - (var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min-container, 320))) / (var(--fluid-rounded-max-container, 1920) - var(--fluid-rounded-min-container, 320))), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-max, 16)));}
+.fluid-rounded-xl{--fluid-rounded-min:12;--fluid-rounded-max:16;border-radius:clamp(calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16)), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16) + (var(--fluid-rounded-max, 16) - var(--fluid-rounded-min, 16)) * (var(--fluid-rounded-container, 100vw) - (var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min-container, 320))) / (var(--fluid-rounded-max-container, 1920) - var(--fluid-rounded-min-container, 320))), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-max, 16)));}
+.fluid-rounded-xs{--fluid-rounded-min:2;--fluid-rounded-max:4;border-radius:clamp(calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16)), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16) + (var(--fluid-rounded-max, 16) - var(--fluid-rounded-min, 16)) * (var(--fluid-rounded-container, 100vw) - (var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min-container, 320))) / (var(--fluid-rounded-max-container, 1920) - var(--fluid-rounded-min-container, 320))), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-max, 16)));}
+.fluid-shadow-lg{--fluid-shadow-min:32;--fluid-shadow-max:48;box-shadow:clamp(calc(var(--fluid-shadow-unit, 1px) * var(--fluid-shadow-min, 16)), calc(var(--fluid-shadow-unit, 1px) * var(--fluid-shadow-min, 16) + (var(--fluid-shadow-max, 16) - var(--fluid-shadow-min, 16)) * (var(--fluid-shadow-container, 100vw) - (var(--fluid-shadow-unit, 1px) * var(--fluid-shadow-min-container, 320))) / (var(--fluid-shadow-max-container, 1920) - var(--fluid-shadow-min-container, 320))), calc(var(--fluid-shadow-unit, 1px) * var(--fluid-shadow-max, 16)));}
+@media (min-width: 40rem){
+.container,
+[container=""]{max-width:40rem;}
+}
+@media (min-width: 48rem){
+.container,
+[container=""]{max-width:48rem;}
+}
+@media (min-width: 64rem){
+.container,
+[container=""]{max-width:64rem;}
+}
+@media (min-width: 80rem){
+.container,
+[container=""]{max-width:80rem;}
+}
+@media (min-width: 96rem){
+.container,
+[container=""]{max-width:96rem;}
+}
+/* layer: default */
+[text-xl=""]{font-size:var(--text-xl-fontSize);line-height:var(--un-leading, var(--text-xl-lineHeight));}
+[m-lg=""]{margin:var(--spacing-lg);}
+[m-sm=""]{margin:var(--spacing-sm);}
+[m-xl=""]{margin:var(--spacing-xl);}
+[m-xs=""]{margin:var(--spacing-xs);}
+[mt-lg=""]{margin-top:var(--spacing-lg);}
+[p-lg=""]{padding:var(--spacing-lg);}
+[p-sm=""]{padding:var(--spacing-sm);}
+[p-xl=""]{padding:var(--spacing-xl);}
+[p-xs=""]{padding:var(--spacing-xs);}
+[rounded-2xl=""]{border-radius:var(--radius-2xl);}
+[rounded-lg=""]{border-radius:var(--radius-lg);}
+[rounded-md=""]{border-radius:var(--radius-md);}
+[rounded-sm=""]{border-radius:var(--radius-sm);}
+[rounded-xl=""]{border-radius:var(--radius-xl);}
+[rounded-xs=""]{border-radius:var(--radius-xs);}
+[gap-lg=""]{gap:var(--spacing-lg);}
+[gap-sm=""]{gap:var(--spacing-sm);}
+[gap-xl=""]{gap:var(--spacing-xl);}
+[gap-xs=""]{gap:var(--spacing-xs);}
+[size-max-200=""]{max-width:calc(var(--spacing) * 200);max-height:calc(var(--spacing) * 200);}
+[size-min-100=""]{min-width:calc(var(--spacing) * 100);min-height:calc(var(--spacing) * 100);}
+[max-h-150=""]{max-height:calc(var(--spacing) * 150);}
+[max-w-300=""]{max-width:calc(var(--spacing) * 300);}
+[min-h-50=""]{min-height:calc(var(--spacing) * 50);}
+[min-w-100=""]{min-width:calc(var(--spacing) * 100);}
+.ring,
+[ring=""]{--un-ring-shadow:var(--un-ring-inset,) 0 0 0 calc(1px + var(--un-ring-offset-width)) var(--un-ring-color, currentColor);box-shadow:var(--un-inset-shadow), var(--un-inset-ring-shadow), var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);}
+[shadow-lg=""]{--un-shadow:0 10px 15px -3px var(--un-shadow-color, rgb(0 0 0 / 0.1)),0 4px 6px -4px var(--un-shadow-color, rgb(0 0 0 / 0.1));box-shadow:var(--un-inset-shadow), var(--un-inset-ring-shadow), var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);}
+.transform{transform:var(--un-rotate-x) var(--un-rotate-y) var(--un-rotate-z) var(--un-skew-x) var(--un-skew-y);}
+.fluid-text-min-12,
+[fluid-text-min-12=""],
+[fluid-text~="min-12"]{--fluid-text-min:12;}
+.fluid-text-12\/16{--fluid-text-min:12;--fluid-text-max:16;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-14\/18{--fluid-text-min:14;--fluid-text-max:18;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-16\/20{--fluid-text-min:16;--fluid-text-max:20;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-18\/24{--fluid-text-min:18;--fluid-text-max:24;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-2xl"]{--fluid-text-min:22;--fluid-text-max:26;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-2xs"]{--fluid-text-min:10;--fluid-text-max:12;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-3xl"]{--fluid-text-min:26;--fluid-text-max:32;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-4xl"]{--fluid-text-min:32;--fluid-text-max:44;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-lg"]{--fluid-text-min:16;--fluid-text-max:18;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-md"]{--fluid-text-min:16;--fluid-text-max:16;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-sm"]{--fluid-text-min:14;--fluid-text-max:16;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-xl"]{--fluid-text-min:18;--fluid-text-max:22;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+[text~="fluid-xs"]{--fluid-text-min:12;--fluid-text-max:14;font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-min-container-0{--fluid-text-min-container:0;}
+.fluid-text-min-container-320,
+[fluid-text-min-container-320=""]{--fluid-text-min-container:320;}
+.fluid-text-max-24,
+[fluid-text-max-24=""],
+[fluid-text~="max-24"]{--fluid-text-max:24;}
+.fluid-text-max-container-1920,
+[fluid-text-max-container-1920=""]{--fluid-text-max-container:1920;}
+.fluid-text-max-container-2000{--fluid-text-max-container:2000;}
+.fluid-text,
+[fluid-text=""]{font-size:clamp(calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16)), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-min, 16) + (var(--fluid-text-max, 16) - var(--fluid-text-min, 16)) * (var(--fluid-text-container, 100vw) - (var(--fluid-text-unit, 1px) * var(--fluid-text-min-container, 320))) / (var(--fluid-text-max-container, 1920) - var(--fluid-text-min-container, 320))), calc(var(--fluid-text-unit, 1px) * var(--fluid-text-max, 16)));}
+.fluid-text-base-em,
+[fluid-text-base-em=""]{--fluid-text-unit:1em;}
+.fluid-text-base-rem,
+[fluid-text-base-rem=""]{--fluid-text-unit:1rem;}
+.fluid-text-base-vh{--fluid-text-unit:1vh;}
+.fluid-text-base-vmax{--fluid-text-unit:1vmax;}
+.fluid-text-base-vmin{--fluid-text-unit:1vmin;}
+.fluid-text-base-vw{--fluid-text-unit:1vw;}
+.fluid-text-container,
+[fluid-text-container=""]{--fluid-undefined-container:100cqw;}
+.fluid-w-min-100{--fluid-w-min:100;}
+.fluid-w-max-300{--fluid-w-max:300;}
+.fluid-h-min-50{--fluid-h-min:50;}
+.fluid-h-max-150{--fluid-h-max:150;}
+.fluid-my-min-10{--fluid-my-min:10;}
+.fluid-my-max-20{--fluid-my-max:20;}
+.fluid-mx-min-10{--fluid-mx-min:10;}
+.fluid-mx-max-20{--fluid-mx-max:20;}
+.fluid-pt-min-10{--fluid-pt-min:10;}
+.fluid-pt-max-20{--fluid-pt-max:20;}
+.fluid-pb-min-10{--fluid-pb-min:10;}
+.fluid-pb-max-20{--fluid-pb-max:20;}
+.fluid-pl-min-10{--fluid-pl-min:10;}
+.fluid-pl-max-20{--fluid-pl-max:20;}
+.fluid-pr-min-10{--fluid-pr-min:10;}
+.fluid-pr-max-20{--fluid-pr-max:20;}
+.fluid-mt-min-10{--fluid-mt-min:10;}
+.fluid-mt-10\/20{--fluid-mt-min:10;--fluid-mt-max:20;margin-top:clamp(calc(var(--fluid-mt-unit, 1px) * var(--fluid-mt-min, 16)), calc(var(--fluid-mt-unit, 1px) * var(--fluid-mt-min, 16) + (var(--fluid-mt-max, 16) - var(--fluid-mt-min, 16)) * (var(--fluid-mt-container, 100vw) - (var(--fluid-mt-unit, 1px) * var(--fluid-mt-min-container, 320))) / (var(--fluid-mt-max-container, 1920) - var(--fluid-mt-min-container, 320))), calc(var(--fluid-mt-unit, 1px) * var(--fluid-mt-max, 16)));}
+.fluid-mt-max-20{--fluid-mt-max:20;}
+.fluid-mb-min-10{--fluid-mb-min:10;}
+.fluid-mb-max-20{--fluid-mb-max:20;}
+.fluid-ml-min-10{--fluid-ml-min:10;}
+.fluid-ml-max-20{--fluid-ml-max:20;}
+.fluid-mr-min-10{--fluid-mr-min:10;}
+.fluid-mr-max-20{--fluid-mr-max:20;}
+.fluid-top-min-0{--fluid-top-min:0;}
+.fluid-top-max-100{--fluid-top-max:100;}
+.fluid-bottom-min-0{--fluid-bottom-min:0;}
+.fluid-bottom-max-100{--fluid-bottom-max:100;}
+.fluid-left-min-0{--fluid-left-min:0;}
+.fluid-left-max-100{--fluid-left-max:100;}
+.fluid-right-min-0{--fluid-right-min:0;}
+.fluid-right-max-100{--fluid-right-max:100;}
+.fluid-m-min-10{--fluid-m-min:10;}
+.fluid-m-max-20{--fluid-m-max:20;}
+.fluid-p-8\/16{--fluid-p-min:8;--fluid-p-max:16;padding:clamp(calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16)), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-min, 16) + (var(--fluid-p-max, 16) - var(--fluid-p-min, 16)) * (var(--fluid-p-container, 100vw) - (var(--fluid-p-unit, 1px) * var(--fluid-p-min-container, 320))) / (var(--fluid-p-max-container, 1920) - var(--fluid-p-min-container, 320))), calc(var(--fluid-p-unit, 1px) * var(--fluid-p-max, 16)));}
+.fluid-t-min-0{--fluid-t-min:0;}
+.fluid-t-max-100{--fluid-t-max:100;}
+.fluid-b-min-0{--fluid-b-min:0;}
+.fluid-b-max-100{--fluid-b-max:100;}
+.fluid-l-min-0{--fluid-l-min:0;}
+.fluid-l-max-100{--fluid-l-max:100;}
+.fluid-r-min-0{--fluid-r-min:0;}
+.fluid-r-max-100{--fluid-r-max:100;}
+.fluid-gap-min-10{--fluid-gap-min:10;}
+.fluid-gap-max-20{--fluid-gap-max:20;}
+.fluid-gap-x-min-10{--fluid-gap-x-min:10;}
+.fluid-gap-x-max-20{--fluid-gap-x-max:20;}
+.fluid-gap-y-min-10{--fluid-gap-y-min:10;}
+.fluid-gap-y-max-20{--fluid-gap-y-max:20;}
+.fluid-rounded-min-4{--fluid-rounded-min:4;}
+.fluid-rounded-4\/8{--fluid-rounded-min:4;--fluid-rounded-max:8;border-radius:clamp(calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16)), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min, 16) + (var(--fluid-rounded-max, 16) - var(--fluid-rounded-min, 16)) * (var(--fluid-rounded-container, 100vw) - (var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-min-container, 320))) / (var(--fluid-rounded-max-container, 1920) - var(--fluid-rounded-min-container, 320))), calc(var(--fluid-rounded-unit, 1px) * var(--fluid-rounded-max, 16)));}
+.fluid-rounded-max-8{--fluid-rounded-max:8;}
+.fluid-leading-min-4{--fluid-leading-min:4;}
+.fluid-leading-max-8{--fluid-leading-max:8;}
+.fluid-tracking-min-1{--fluid-tracking-min:1;}
+.fluid-tracking-max-4{--fluid-tracking-max:4;}
+.fluid-shadow-min-2{--fluid-shadow-min:2;}
+.fluid-shadow-max-8{--fluid-shadow-max:8;}
+.fluid-ring-min-1{--fluid-ring-min:1;}
+.fluid-ring-max-4{--fluid-ring-max:4;}
+.fluid-ring-offset-min-2{--fluid-ring-offset-min:2;}
+.fluid-ring-offset-max-8{--fluid-ring-offset-max:8;}
+.fluid-translate-min-10{--fluid-translate-min:10;}
+.fluid-translate-max-50{--fluid-translate-max:50;}
+.fluid-translate-x-min-10{--fluid-translate-x-min:10;}
+.fluid-translate-x-max-50{--fluid-translate-x-max:50;}
+.fluid-translate-y-min-10{--fluid-translate-y-min:10;}
+.fluid-translate-y-max-50{--fluid-translate-y-max:50;}
+.fluid-translate-z-min-10{--fluid-translate-z-min:10;}
+.fluid-translate-z-max-50{--fluid-translate-z-max:50;}
+.fluid-\$custom-min-10{--fluid-custom-min:10;}
+.fluid-\$myvar-10\/20{--fluid-myvar-min:10;--fluid-myvar-max:20;--fluid-myvar:clamp(calc(var(--fluid-myvar-unit, 1px) * var(--fluid-myvar-min, 16)), calc(var(--fluid-myvar-unit, 1px) * var(--fluid-myvar-min, 16) + (var(--fluid-myvar-max, 16) - var(--fluid-myvar-min, 16)) * (var(--fluid-myvar-container, 100vw) - (var(--fluid-myvar-unit, 1px) * var(--fluid-myvar-min-container, 320))) / (var(--fluid-myvar-max-container, 1920) - var(--fluid-myvar-min-container, 320))), calc(var(--fluid-myvar-unit, 1px) * var(--fluid-myvar-max, 16)));}
+[fluid~="\$spacing-5\/15"]{--fluid-spacing-min:5;--fluid-spacing-max:15;--fluid-spacing:clamp(calc(var(--fluid-spacing-unit, 1px) * var(--fluid-spacing-min, 16)), calc(var(--fluid-spacing-unit, 1px) * var(--fluid-spacing-min, 16) + (var(--fluid-spacing-max, 16) - var(--fluid-spacing-min, 16)) * (var(--fluid-spacing-container, 100vw) - (var(--fluid-spacing-unit, 1px) * var(--fluid-spacing-min-container, 320))) / (var(--fluid-spacing-max-container, 1920) - var(--fluid-spacing-min-container, 320))), calc(var(--fluid-spacing-unit, 1px) * var(--fluid-spacing-max, 16)));}
+.fluid-\$custom-max-50{--fluid-custom-max:50;}
+.fluid-\$custom{--fluid-custom:clamp(calc(var(--fluid-custom-unit, 1px) * var(--fluid-custom-min, 16)), calc(var(--fluid-custom-unit, 1px) * var(--fluid-custom-min, 16) + (var(--fluid-custom-max, 16) - var(--fluid-custom-min, 16)) * (var(--fluid-custom-container, 100vw) - (var(--fluid-custom-unit, 1px) * var(--fluid-custom-min-container, 320))) / (var(--fluid-custom-max-container, 1920) - var(--fluid-custom-min-container, 320))), calc(var(--fluid-custom-unit, 1px) * var(--fluid-custom-max, 16)));}

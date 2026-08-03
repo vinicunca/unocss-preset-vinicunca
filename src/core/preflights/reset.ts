@@ -480,6 +480,6 @@ Make sure disabled buttons don't get the pointer cursor.
 export const resetPreflight: Preflight = {
   layer: 'preflights',
   getCSS: ({ generator }) => {
-    return compressCSS(resetCSS, generator.config.envMode === 'dev');
+    return compressCSS(resetCSS, generator?.config.envMode === 'dev');
   },
 };

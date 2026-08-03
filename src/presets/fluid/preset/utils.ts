@@ -1,0 +1,97 @@
+export const fluidSizeUtilities: Array<[string, Array<string>]> = [
+  ['text', ['font-size']],
+  ['w', ['width']],
+  ['h', ['height']],
+  ['min-size', ['min-width', 'min-height']],
+  ['max-size', ['max-width', 'max-height']],
+  ['size', ['width', 'height']],
+  ['min-w', ['min-width']],
+  ['min-h', ['min-height']],
+  ['max-w', ['max-width']],
+  ['max-h', ['max-height']],
+  ['my', ['margin-top', 'margin-bottom']],
+  ['mx', ['margin-left', 'margin-right']],
+  ['px', ['padding-left', 'padding-right']],
+  ['py', ['padding-top', 'padding-bottom']],
+  ['pt', ['padding-top']],
+  ['pb', ['padding-bottom']],
+  ['pl', ['padding-left']],
+  ['pr', ['padding-right']],
+  ['mt', ['margin-top']],
+  ['mb', ['margin-bottom']],
+  ['ml', ['margin-left']],
+  ['mr', ['margin-right']],
+  ['top', ['top']],
+  ['bottom', ['bottom']],
+  ['left', ['left']],
+  ['right', ['right']],
+  ['m', ['margin']],
+  ['p', ['padding']],
+  ['t', ['top']],
+  ['b', ['bottom']],
+  ['l', ['left']],
+  ['r', ['right']],
+  ['flex-gap', ['gap']],
+  ['gap', ['gap']],
+  ['gap-x', ['column-gap']],
+  ['flex-gap-x', ['column-gap']],
+  ['gap-y', ['row-gap']],
+  ['flex-gap-y', ['row-gap']],
+  ['rounded', ['border-radius']],
+  ['leading', ['line-height']],
+  ['tracking', ['letter-spacing']],
+  ['shadow', ['box-shadow']],
+  ['ring', ['--un-ring-width']],
+  ['ring-offset', ['--un-ring-offset-width']],
+
+  // You need to use `transform` to apply the `translate` utility
+  ['translate', ['--un-translate-x', '--un-translate-y']],
+  ['translate-x', ['--un-translate-x']],
+  ['translate-y', ['--un-translate-y']],
+  ['translate-z', ['--un-translate-z']],
+
+  // Scroll utilities
+  ['scroll-p', ['scroll-padding']],
+  ['scroll-px', ['scroll-padding-left', 'scroll-padding-right']],
+  ['scroll-py', ['scroll-padding-top', 'scroll-padding-bottom']],
+  ['scroll-pt', ['scroll-padding-top']],
+  ['scroll-pb', ['scroll-padding-bottom']],
+  ['scroll-pl', ['scroll-padding-left']],
+  ['scroll-pr', ['scroll-padding-right']],
+  ['scroll-m', ['scroll-margin']],
+  ['scroll-mx', ['scroll-margin-left', 'scroll-margin-right']],
+  ['scroll-my', ['scroll-margin-top', 'scroll-margin-bottom']],
+  ['scroll-mt', ['scroll-margin-top']],
+  ['scroll-mb', ['scroll-margin-bottom']],
+  ['scroll-ml', ['scroll-margin-left']],
+  ['scroll-mr', ['scroll-margin-right']],
+
+  // Border utilities
+  ['border', ['border-width']],
+  ['border-x', ['border-left-width', 'border-right-width']],
+  ['border-y', ['border-top-width', 'border-bottom-width']],
+  ['border-t', ['border-top-width']],
+  ['border-b', ['border-bottom-width']],
+  ['border-l', ['border-left-width']],
+  ['border-r', ['border-right-width']],
+
+  // Outline utilities
+  ['outline', ['outline-width']],
+  ['outline-offset', ['outline-offset']],
+
+  // Inset utilities (positioning)
+  ['inset', ['top', 'right', 'bottom', 'left']],
+  ['inset-x', ['left', 'right']],
+  ['inset-y', ['top', 'bottom']],
+
+  // Backdrop and filter utilities
+  ['backdrop-blur', ['--un-backdrop-blur']],
+  ['blur', ['--un-blur']],
+
+  // Layout utilities
+  ['basis', ['flex-basis']],
+  ['indent', ['text-indent']],
+
+  // Column utilities (only column-gap, not columns count)
+  ['column-gap', ['column-gap']],
+];

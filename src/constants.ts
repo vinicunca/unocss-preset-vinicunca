@@ -1,9 +1,5 @@
-import type {
-  AnimationOptions,
-  PresetVinicuncaOptions,
-  RequiredFluidOptions,
-  VinicuncaAkarOptions,
-} from './types';
+import type { AnimationOptions, PresetVinicuncaOptions, VinicuncaAkarOptions } from './types';
+import { DEFAULT_FLUID_OPTIONS } from './presets/fluid';
 
 export const DEFAULT_OPTIONS: PresetVinicuncaOptions = {
   extendedTheme: {},
@@ -16,7 +12,6 @@ export const DEFAULT_OPTIONS: PresetVinicuncaOptions = {
       reset: false,
     },
   },
-  wind3: false,
   icons: true,
   webFonts: false,
   typography: false,
@@ -251,17 +246,6 @@ export const DEFAULT_AKAR_OPTIONS: VinicuncaAkarOptions = {
   enableDrawer: true,
 
   enableDynamicBrands: false,
-};
-
-export const DEFAULT_FLUID_OPTIONS: RequiredFluidOptions = {
-  maxWidth: 1440,
-  minWidth: 375,
-  remBase: 16,
-  useRemByDefault: false,
-  extendMaxWidth: null,
-  extendMinWidth: null,
-  ranges: null,
-  commentHelpers: false,
 };
 
 export const DEFAULT_PRESET_OPTIONS: Record<string, any> = {

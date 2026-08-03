@@ -1,0 +1,5 @@
+[flex~="~"]
+[text~="blue"]
+[text~="xl"]
+fluid-gap-x-md
+[text~="fluid-lg"]

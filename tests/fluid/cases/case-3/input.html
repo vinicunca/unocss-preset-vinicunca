@@ -1,0 +1,332 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fluid Sizing Test</title>
+  </head>
+
+  <body>
+    <!-- Basic utilities: test both class and attribute -->
+    <section id="basic-utilities">
+      <div
+        class="fluid-text fluid-text-min-12 fluid-text-max-24 fluid-text-min-container-320 fluid-text-max-container-1920"
+        fluid-text=""
+        fluid-text-min-12=""
+        fluid-text-max-24=""
+        fluid-text-min-container-320=""
+        fluid-text-max-container-1920=""
+      ></div>
+    </section>
+
+    <!-- Font size theme shortcuts -->
+    <section id="font-size-shortcuts">
+      <div class="fluid-text-2xs" fluid-text-2xs=""></div>
+      <div class="fluid-text-xs" fluid-text-xs=""></div>
+      <div class="fluid-text-sm" fluid-text-sm=""></div>
+      <div class="fluid-text-md" fluid-text-md=""></div>
+      <div class="fluid-text-lg" fluid-text-lg=""></div>
+      <div class="fluid-text-xl" fluid-text-xl=""></div>
+      <div class="fluid-text-2xl" fluid-text-2xl=""></div>
+      <div class="fluid-text-3xl" fluid-text-3xl=""></div>
+      <div class="fluid-text-4xl" fluid-text-4xl=""></div>
+      <div class="fluid-text-5xl" fluid-text-5xl=""></div>
+    </section>
+
+    <!-- Direct min/max combinations -->
+    <section id="direct-combinations">
+      <div class="fluid-text-12/16"></div>
+      <div class="fluid-text-14/18"></div>
+      <div class="fluid-text-16/20"></div>
+    </section>
+
+    <!-- Container and unit variations -->
+    <section id="container-unit-variations">
+      <div class="fluid-text fluid-text-base-rem" fluid-text-base-rem=""></div>
+      <div class="fluid-text fluid-text-base-em" fluid-text-base-em=""></div>
+      <div
+        class="fluid-text fluid-text-container"
+        fluid-text-container=""
+      ></div>
+    </section>
+
+    <!-- Basic fluid text (full config) -->
+    <section id="basic-fluid-text">
+      <div
+        class="fluid-text fluid-text-min-12 fluid-text-max-24 fluid-text-min-container-320 fluid-text-max-container-1920"
+        fluid-text="min-12 max-24"
+      ></div>
+    </section>
+
+    <!-- All font size theme shortcuts in one -->
+    <section id="all-font-size-shortcuts">
+      <div
+        class="fluid-text-2xs fluid-text-xs fluid-text-sm fluid-text-md fluid-text-lg fluid-text-xl fluid-text-2xl fluid-text-3xl fluid-text-4xl fluid-text-5xl"
+        text="fluid-2xs fluid-xs fluid-sm fluid-md fluid-lg fluid-xl fluid-2xl fluid-3xl fluid-4xl fluid-5xl"
+      ></div>
+    </section>
+
+    <!-- Sizing utilities -->
+    <section id="sizing-utilities">
+      <div
+        class="fluid-w-min-100 fluid-w-max-300 fluid-h-min-50 fluid-h-max-150"
+        w-min-100=""
+        w-max-300=""
+        h-min-50=""
+        h-max-150=""
+      ></div>
+      <div class="fluid-size-min-100/200" size-min-100="" size-max-200="" />
+      <div
+        class="fluid-min-size-50 fluid-max-size-150"
+        min-size-50=""
+        max-size-150=""
+      ></div>
+      <div
+        class="fluid-min-w-100 fluid-max-w-300 fluid-min-h-50 fluid-max-h-150"
+        min-w-100=""
+        max-w-300=""
+        min-h-50=""
+        max-h-150=""
+      ></div>
+    </section>
+
+    <!-- Margin utilities -->
+    <section id="margin-utilities">
+      <div class="fluid-m-min-10 fluid-m-max-20" m-min-10="" m-max-20=""></div>
+      <div
+        class="fluid-mx-min-10 fluid-mx-max-20"
+        mx-min-10=""
+        mx-max-20=""
+      ></div>
+      <div
+        class="fluid-my-min-10 fluid-my-max-20"
+        my-min-10=""
+        my-max-20=""
+      ></div>
+      <div
+        class="fluid-mt-min-10 fluid-mt-max-20 fluid-mb-min-10 fluid-mb-max-20 fluid-ml-min-10 fluid-ml-max-20 fluid-mr-min-10 fluid-mr-max-20"
+        mt-min-10=""
+        mt-max-20=""
+        mb-min-10=""
+        mb-max-20=""
+        ml-min-10=""
+        ml-max-20=""
+        mr-min-10=""
+        mr-max-20=""
+      ></div>
+    </section>
+
+    <!-- Padding utilities -->
+    <section id="padding-utilities">
+      <div class="f-p-min-10 f-p-max-20" p-min-10="" p-max-20=""></div>
+      <div class="f-px-min-10 f-px-max-20" px-min-10="" px-max-20=""></div>
+      <div class="f-py-min-10 f-py-max-20" py-min-10="" py-max-20=""></div>
+      <div
+        class="fluid-pt-min-10 fluid-pt-max-20 fluid-pb-min-10 fluid-pb-max-20 fluid-pl-min-10 fluid-pl-max-20 fluid-pr-min-10 fluid-pr-max-20"
+        pt-min-10=""
+        pt-max-20=""
+        pb-min-10=""
+        pb-max-20=""
+        pl-min-10=""
+        pl-max-20=""
+        pr-min-10=""
+        pr-max-20=""
+      ></div>
+    </section>
+
+    <!-- Position utilities -->
+    <section id="position-utilities">
+      <div
+        class="fluid-top-min-0 fluid-top-max-100 fluid-bottom-min-0 fluid-bottom-max-100 fluid-left-min-0 fluid-left-max-100 fluid-right-min-0 fluid-right-max-100"
+        top-min-0=""
+        top-max-100=""
+        bottom-min-0=""
+        bottom-max-100=""
+        left-min-0=""
+        left-max-100=""
+        right-min-0=""
+        right-max-100=""
+      ></div>
+      <div
+        class="fluid-t-min-0 fluid-t-max-100 fluid-b-min-0 fluid-b-max-100 fluid-l-min-0 fluid-l-max-100 fluid-r-min-0 fluid-r-max-100"
+        t-min-0=""
+        t-max-100=""
+        b-min-0=""
+        b-max-100=""
+        l-min-0=""
+        l-max-100=""
+        r-min-0=""
+        r-max-100=""
+      ></div>
+    </section>
+
+    <!-- Gap utilities -->
+    <section id="gap-utilities">
+      <div
+        class="fluid-gap-min-10 fluid-gap-max-20"
+        gap-min-10=""
+        gap-max-20=""
+      ></div>
+      <div
+        class="fluid-gap-x-min-10 fluid-gap-x-max-20 fluid-gap-y-min-10 fluid-gap-y-max-20"
+        gap-x-min-10=""
+        gap-x-max-20=""
+        gap-y-min-10=""
+        gap-y-max-20=""
+      ></div>
+    </section>
+
+    <!-- Border radius -->
+    <section id="border-radius">
+      <div
+        class="fluid-rounded-min-4 fluid-rounded-max-8"
+        rounded-min-4=""
+        rounded-max-8=""
+      ></div>
+      <div
+        class="fluid-rounded-2xs fluid-rounded-xs fluid-rounded-sm fluid-rounded-md fluid-rounded-lg fluid-rounded-xl fluid-rounded-2xl"
+        rounded-2xs=""
+        rounded-xs=""
+        rounded-sm=""
+        rounded-md=""
+        rounded-lg=""
+        rounded-xl=""
+        rounded-2xl=""
+      ></div>
+    </section>
+
+    <!-- Line height and letter spacing -->
+    <section id="line-height-letter-spacing">
+      <div
+        class="fluid-leading-min-4 fluid-leading-max-8"
+        leading-min-4=""
+        leading-max-8=""
+      ></div>
+      <div
+        class="fluid-tracking-min-1 fluid-tracking-max-4"
+        tracking-min-1=""
+        tracking-max-4=""
+      ></div>
+    </section>
+
+    <!-- Shadow and ring -->
+    <section id="shadow-ring">
+      <div
+        class="fluid-shadow-min-2 fluid-shadow-max-8"
+        shadow-min-2=""
+        shadow-max-8=""
+      ></div>
+      <div
+        class="fluid-ring-min-1 fluid-ring-max-4 fluid-ring-offset-min-2 fluid-ring-offset-max-8"
+        ring-min-1=""
+        ring-max-4=""
+        ring-offset-min-2=""
+        ring-offset-max-8=""
+      ></div>
+    </section>
+
+    <!-- Transform utilities -->
+    <section id="transform">
+      <div
+        class="fluid-translate-min-10 fluid-translate-max-50"
+        translate-min-10=""
+        translate-max-50=""
+      ></div>
+      <div
+        class="fluid-translate-x-min-10 fluid-translate-x-max-50 fluid-translate-y-min-10 fluid-translate-y-max-50 fluid-translate-z-min-10 fluid-translate-z-max-50"
+        translate-x-min-10=""
+        translate-x-max-50=""
+        translate-y-min-10=""
+        translate-y-max-50=""
+        translate-z-min-10=""
+        translate-z-max-50=""
+      ></div>
+    </section>
+
+    <!-- Unit variations -->
+    <section id="unit-variations">
+      <div class="fluid-text fluid-text-base-rem" text-base-rem=""></div>
+      <div class="fluid-text fluid-text-base-em" text-base-em=""></div>
+      <div class="fluid-text fluid-text-base-vw" text-base-vw=""></div>
+      <div class="fluid-text fluid-text-base-vh" text-base-vh=""></div>
+      <div class="fluid-text fluid-text-base-vmin" text-base-vmin=""></div>
+      <div class="fluid-text fluid-text-base-vmax" text-base-vmax=""></div>
+    </section>
+
+    <!-- Container query width -->
+    <section id="container-query-width">
+      <div class="fluid-text fluid-text-container" text-container=""></div>
+    </section>
+
+    <!-- Theme spacing -->
+    <section id="theme-spacing">
+      <div
+        class="fluid-m-xs fluid-m-sm fluid-m-md fluid-m-lg fluid-m-xl"
+        m-xs=""
+        m-sm=""
+        m-md=""
+        m-lg=""
+        m-xl=""
+      ></div>
+      <div
+        class="fluid-p-xs fluid-p-sm fluid-p-md fluid-p-lg fluid-p-xl"
+        p-xs=""
+        p-sm=""
+        p-md=""
+        p-lg=""
+        p-xl=""
+      ></div>
+      <div
+        class="fluid-gap-xs fluid-gap-sm fluid-gap-md fluid-gap-lg fluid-gap-xl"
+        gap-xs=""
+        gap-sm=""
+        gap-md=""
+        gap-lg=""
+        gap-xl=""
+      ></div>
+    </section>
+
+    <!-- Custom variables -->
+    <section id="custom-variables">
+      <div
+        class="fluid-$custom fluid-$custom-min-10 fluid-$custom-max-50"
+        $custom=""
+        $custom-min-10=""
+        $custom-max-50=""
+      ></div>
+      <div
+        class="fluid-$custom-x fluid-$custom-x-min-0 fluid-$custom-x-max-100 fluid-$custom-y fluid-$custom-y-min-0 fluid-$custom-y-max-100"
+        $custom-x=""
+        $custom-x-min-0=""
+        $custom-x-max-100=""
+        $custom-y=""
+        $custom-y-min-0=""
+        $custom-y-max-100=""
+      ></div>
+      <div class="fluid-$myvar-10/20"></div>
+      <div fluid="$spacing-5/15"></div>
+    </section>
+
+    <!-- Min/Max container overrides -->
+    <section id="container-overrides">
+      <div
+        class="fluid-text fluid-text-min-container-0 fluid-text-max-container-2000"
+        text-min-container-0=""
+        text-max-container-2000=""
+      ></div>
+    </section>
+
+    <!-- Complex combinations -->
+    <section id="complex-combinations">
+      <div
+        class="fluid-text-xl fluid-mt-lg fluid-p-md fluid-rounded-sm fluid-shadow-lg"
+        text-xl=""
+        mt-lg=""
+        p-md=""
+        rounded-sm=""
+        shadow-lg=""
+      ></div>
+      <div
+        class="fluid-text-18/24 fluid-mt-10/20 fluid-p-8/16 fluid-rounded-4/8"
+      ></div>
+    </section>
+  </body>
+</html>

@@ -2,11 +2,11 @@ import type { IconsOptions } from '@unocss/preset-icons';
 import type { ThemeAnimation } from '@unocss/preset-mini';
 import type { TypographyOptions } from '@unocss/preset-typography';
 import type { WebFontsOptions } from '@unocss/preset-web-fonts';
-import type { PresetWind3Options, Theme as ThemeWind3 } from '@unocss/preset-wind3';
 import type { PresetWind4Options, Theme as ThemeWind4 } from '@unocss/preset-wind4';
 import type { TransformerDirectivesOptions } from '@unocss/transformer-directives';
 import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group';
 import type { CSSObject, Preset, SourceCodeTransformer, StaticShortcut } from 'unocss';
+import type { FluidOptions } from './presets/fluid/preset/types';
 import type { UnoPresetScrollbarOption } from './presets/scrollbar';
 import type { TransformerAliasOptions } from './transformer-alias';
 
@@ -73,10 +73,7 @@ export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
   animation?: Record<string, string>;
 }
 
-export type VinicuncaTheme = ThemeWind4 & Omit<
-  ThemeWind3,
-  'container' | 'containers'
->;
+export type VinicuncaTheme = ThemeWind4;
 
 export interface VinicuncaAkarOptions {
   keyframes?: VinicuncaExtends['keyframes'];
@@ -162,15 +159,6 @@ export interface PresetVinicuncaOptions {
    *
    */
   extendedTheme?: VinicuncaExtends;
-
-  /**
-   * Enable the default preset for preset-wind3
-   * Only works when `presets` is not specified
-   *
-   * @about [@unocss/preset-wind3](https://unocss.dev/presets/wind3)
-   * @default false
-   */
-  wind3?: boolean | PresetWind3Options;
 
   /**
    * Enable the wind4 preset
@@ -283,51 +271,5 @@ export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
     };
   };
 };
-
-export interface FluidOptions {
-  /**
-   * Min width in pixels where the fluid layout starts.
-   * @default 375
-   */
-  minWidth?: number;
-  /**
-   * Min width in pixels where the fluid layout starts keeping the proportions of the minWidth.
-   */
-  extendMinWidth?: null | number;
-  /**
-   * Max width in pixels where the fluid layout ends.
-   * @default 1440
-   */
-  maxWidth?: number;
-  /**
-   * Max width in pixels where the fluid layout ends keeping the proportions of the maxWidth.
-   */
-  extendMaxWidth?: null | number;
-  /**
-   * Base font size in pixels.
-   * @default 16
-   */
-  remBase?: number;
-  /**
-   * Whether to use rem by default.
-   * @default false
-   */
-  useRemByDefault?: boolean;
-  /**
-   * A preset with predefined ranges of fluid spacing
-   * @default undefined;
-   */
-  ranges?: null | {
-    [key: string]: [number, number];
-  };
-
-  /**
-   * Whether to add comment helpers to the generated CSS.
-   * @default false
-   */
-  commentHelpers?: boolean;
-}
-
-export type RequiredFluidOptions = Required<FluidOptions>;
 
 export type DeepPartial<T> = { [P in keyof T]: DeepPartial<T[P]> };

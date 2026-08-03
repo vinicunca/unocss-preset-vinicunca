@@ -27,11 +27,6 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
     DEFAULT_OPTIONS,
   ) as Required<PresetVinicuncaOptions>;
 
-  if (optionsWithDefault.wind4 && optionsWithDefault.wind3) {
-    console.warn('wind3 and wind4 are mutually exclusive, only one can be enabled');
-    optionsWithDefault.wind3 = false;
-  }
-
   if (!isString(optionsWithDefault.unColor)) {
     optionsWithDefault.unColor = optionsWithDefault.unColor
       ? '--un-color'

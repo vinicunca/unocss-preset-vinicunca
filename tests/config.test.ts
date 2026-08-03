@@ -48,30 +48,4 @@ describe('config test', () => {
       ],
     );
   });
-
-  it('using wind3', async () => {
-    const uno = await createGenerator({
-      presets: [
-        presetVinicunca({
-          wind3: true,
-          wind4: false,
-        }),
-      ],
-    });
-
-    const presetNames = uno.config.presets.map((pre) => pre.name);
-
-    expect(presetNames).toEqual(
-      [
-        '@unocss/preset-icons',
-        'unocss-preset-vinicunca',
-        '@unocss/preset-wind3',
-        'unocss-preset-fluid',
-        'unocss-preset-animation',
-      ],
-    );
-
-    const { css } = await uno.generate('mt-3');
-    expect(css).toMatchSnapshot();
-  });
 });
