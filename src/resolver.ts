@@ -1,21 +1,17 @@
 /* eslint-disable no-await-in-loop */
-import type { Preset } from 'unocss';
 import type {
   CustomStaticShortcuts,
   PresetVinicuncaOptions,
   ResolvedOptions,
-  VinicuncaAkarOptions,
 } from './types';
 import {
   isBoolean,
-  isObjectType,
   isPlainObject,
   isString,
   mergeDeep,
 } from '@vinicunca/perkakas';
 import { defu } from 'defu';
 import {
-  DEFAULT_AKAR_OPTIONS,
   DEFAULT_OPTIONS,
   DEFAULT_PRESET_OPTIONS,
 } from './constants';
@@ -38,30 +34,7 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const {
     extendedTheme,
     shortcuts,
-    safelist,
   } = resolveExtend(optionsWithDefault);
-
-  const enableAkar = Boolean(options.akar);
-
-  const layers: Preset['layers'] = {};
-
-  if (enableAkar) {
-    layers.akar = 10;
-  }
-
-  const variants: Preset['variants'] = [];
-
-  if (enableAkar) {
-    variants.push(
-      (matcher) => {
-        if (matcher.startsWith('akar:')) {
-          return {
-            matcher: matcher.replace('akar:', 'uno-layer-akar:'),
-          };
-        }
-      },
-    );
-  }
 
   return {
     ...optionsWithDefault,
@@ -71,9 +44,6 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
       presets,
       shortcuts,
       transformers,
-      safelist,
-      layers,
-      variants,
     },
   };
 }
@@ -90,7 +60,6 @@ async function resolvePresets(options: Required<PresetVinicuncaOptions>) {
     typography: import('@unocss/preset-typography').then((mod) => mod.presetTypography),
     scrollbar: import('./presets/scrollbar').then((mod) => mod.presetScrollbar),
     magicCss: import('./presets/magic-css').then((mod) => mod.presetMagicss),
-    akar: import('./presets/akar').then((mod) => mod.presetAkar),
   };
 
   for (const [key, preset] of Object.entries(presetMap)) {
@@ -139,69 +108,14 @@ async function resolveTransformers(options: Required<PresetVinicuncaOptions>) {
 
 export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
   const shortcuts_: CustomStaticShortcuts = [];
-  let {
+  const {
     animation = {},
     keyframes = {},
   } = options.extendedTheme ?? {};
-  const safelist: Array<string> = [];
 
-  /**
-   * If akar is enabled we want to safelist the drawer animations.
-   * The drawer preflight uses these animations but they are not
-   * directly referenced in the code so we need to safelist them
-   * to ensure they are included in the final CSS.
-   */
-  const enableAkar = Boolean(options.akar);
-  let akarOptions = {} as VinicuncaAkarOptions;
-
-  if (enableAkar) {
-    akarOptions = defu(
-      options.akar,
-      DEFAULT_AKAR_OPTIONS,
-    );
-  }
-
-  if (enableAkar && akarOptions.enableDrawer) {
-    animation = mergeDeep(
-      animation,
-      akarOptions.animation ?? {},
-    );
-
-    keyframes = mergeDeep(
-      keyframes,
-      akarOptions.keyframes ?? {},
-    );
-
-    let akarAnimation = akarOptions.animation ?? {};
-    let akarKeyframes = akarOptions.keyframes ?? {};
-
-    if (isObjectType(options.akar)) {
-      akarAnimation = mergeDeep(
-        akarAnimation,
-        options.akar.animation ?? {},
-      );
-
-      akarKeyframes = mergeDeep(
-        akarKeyframes,
-        options.akar.keyframes ?? {},
-      );
-    }
-
-    const animationKeys = Object.keys(akarAnimation);
-    const keyframesKeys = Object.keys(akarKeyframes);
-
-    keyframesKeys.forEach((frameKey) => {
-      if (!animationKeys.includes(frameKey)) {
-        safelist.push(`animate-${frameKey}`);
-      }
-    });
-  }
-
-  // animation
   const { animation: resolvedAnimation, shortcuts } = resolveAnimation(animation);
   shortcuts_.push(...shortcuts);
 
-  // keyframes
   resolvedAnimation.keyframes = {};
 
   for (const key of Object.keys(keyframes)) {
@@ -211,6 +125,5 @@ export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
   return {
     extendedTheme: { animation: resolvedAnimation },
     shortcuts: shortcuts_,
-    safelist,
   };
 }

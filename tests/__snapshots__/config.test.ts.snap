@@ -15,7 +15,6 @@ exports[`config test > base config 1`] = `
 .animate-in{animation:vin-in;animation-name:vin-in;animation-duration:150ms;--vin-enter-opacity:initial;--vin-enter-scale:initial;--vin-enter-rotate:initial;--vin-enter-translate-x:initial;--vin-enter-translate-y:initial;}
 .animate-duration-1000{animation-duration:1000ms;}
 .animate-delay-500{animation-delay:500ms;}
-/* layer: vinicunca */
 .fade-in-0{--vin-enter-opacity:0;}
 .slide-in-top-full{--vin-enter-translate-y:-100%;}"
 `;

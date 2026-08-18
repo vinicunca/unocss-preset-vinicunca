@@ -3,7 +3,6 @@ import type { PresetVinicuncaOptions, VinicuncaTheme } from './types';
 import { defu } from 'defu';
 import { definePreset } from 'unocss';
 import { getPreflights, postprocessWithUnColor } from './core';
-import { PRESET_NAME } from './meta';
 import { resolveOptions } from './resolver';
 
 export type { VinicuncaTheme };
@@ -18,7 +17,7 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
     } = resolvedOptions;
 
     return {
-      name: `unocss-preset-${PRESET_NAME}`,
+      name: 'unocss-preset-vinicunca',
 
       extendTheme: (oriTheme: VinicuncaTheme) => {
         const mergedTheme = defu(
@@ -42,12 +41,6 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
       transformers: meta.transformers,
 
       preflights: getPreflights(resolvedOptions),
-
-      safelist: meta.safelist,
-
-      variants: meta.variants,
-
-      layers: meta.layers,
     };
   },
 );

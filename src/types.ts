@@ -75,39 +75,6 @@ export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
 
 export type VinicuncaTheme = ThemeWind4;
 
-export interface VinicuncaAkarOptions {
-  keyframes?: VinicuncaExtends['keyframes'];
-  animation?: VinicuncaExtends['animation'];
-
-  /**
-   * Define brand colors for Akar
-   *
-   * @see `DEFAULT_AKAR_OPTIONS.brands`
-   */
-  brands?: ThemeWind4['colors'];
-
-  /**
-   * When defining the brand colors, we use the colors from `unocss/preset-wind4` theme by default.
-   * If we want to use custom colors that are not in the preset-wind4 theme, you can enable this option.
-   *
-   * One use case is when we have a static brand color (primary will always be one value)
-   * then we don't need to use this option.
-   * Another use case is when we want the brand colors to be dynamic by using css variables,
-   * then we can enable this option to generate the brand colors dynamically.
-   *
-   * @default false
-   */
-  enableDynamicBrands?: boolean;
-
-  /**
-   * Enable the drawer preflight styles, this is to support the animations
-   * for the drawer component in Akar.
-   *
-   * @default true
-   */
-  enableDrawer?: boolean;
-}
-
 export interface PresetVinicuncaOptions {
   /**
    * Enable preflights
@@ -251,11 +218,6 @@ export interface PresetVinicuncaOptions {
    * Enable transform alias transformer and the options of it
    */
   alias?: boolean | TransformerAliasOptions;
-
-  /**
-   * Enable akar preset
-   */
-  akar?: boolean | VinicuncaAkarOptions;
 }
 
 export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
@@ -263,9 +225,6 @@ export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
     presets: Array<Preset>;
     shortcuts: CustomStaticShortcuts;
     transformers: Array<SourceCodeTransformer>;
-    safelist: Array<string>;
-    layers: Preset['layers'];
-    variants: Preset['variants'];
     extendedTheme: {
       animation: ThemeAnimation;
     };

@@ -3,7 +3,6 @@ import type { Rule } from 'unocss';
 
 import { h } from '@unocss/preset-mini/utils';
 
-import { layerMeta } from '../../meta';
 import { CSS_VARIABLE_PREFIX } from './animation.entity';
 import { handleSlide } from './animation.util';
 
@@ -56,7 +55,7 @@ const spinRules: Array<Rule<Theme>> = [
     ([, deg]) => ({
       [`${CSS_VARIABLE_PREFIX}-enter-rotate`]: h.cssvar.degree(deg || DEFAULT_SPIN_DEGREE),
     }),
-    { autocomplete: 'spin-(in|out)-<percent>', layer: 'animation' },
+    { autocomplete: 'spin-(in|out)-<percent>' },
   ],
   [
     /^spin-out(?:-(.+))?$/,
@@ -132,14 +131,3 @@ export const animationRules: Array<Rule<Theme>> = [
   ...spinRules,
   ...slideRules,
 ];
-
-/**
- * We need to add the layers into the rules.
- * So we need to run this immediately.
- */
-for (const rule of animationRules) {
-  rule[2] = Object.assign(
-    rule[2] || {},
-    layerMeta,
-  );
-}

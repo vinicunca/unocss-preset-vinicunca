@@ -6,6 +6,6 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [
     Vue(),
-    UnoCSS('../unocss.config.ts') as any,
+    UnoCSS('../uno.config.ts') as any,
   ],
 });
