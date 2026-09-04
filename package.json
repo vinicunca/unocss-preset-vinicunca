@@ -2,7 +2,7 @@
   "name": "@vinicunca/unocss-preset",
   "type": "module",
   "version": "2.2.0",
-  "packageManager": "pnpm@11.22.0",
+  "packageManager": "pnpm@11.25.0",
   "description": "Opinionated UnoCSS preset",
   "author": "praburangki<https://github.com/praburangki>",
   "license": "MIT",
