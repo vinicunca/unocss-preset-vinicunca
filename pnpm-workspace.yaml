@@ -1,41 +1,40 @@
 minimumReleaseAge: 0
-
 shellEmulator: true
 
 packages:
   - playground
   - docs
 
-catalog:
-  '@types/node': ^26.4.1
-  '@unocss/preset-icons': 66.9.2
-  '@unocss/preset-mini': 66.9.2
-  '@unocss/preset-typography': 66.9.2
-  '@unocss/preset-web-fonts': 66.9.2
-  '@unocss/preset-wind4': 66.9.2
-  '@unocss/transformer-directives': 66.9.2
-  '@unocss/transformer-variant-group': 66.9.2
-  '@vinicunca/eslint-config': 5.7.0
-  '@vinicunca/perkakas': ^1.16.0
-  '@vitejs/plugin-vue': ^6.0.8
-  bumpp: ^12.3.0
-  culori: ^4.0.2
-  defu: ^6.1.7
-  eslint: ^10.9.1
-  lint-staged: ^17.4.1
-  magic-string: ^1.2.3
-  postcss: ^8.5.28
-  postcss-js: ^5.1.0
-  prettier: ^3.9.6
-  simple-git-hooks: ^2.14.0
-  tsdown: ^0.23.0
-  typescript: ^6.0.3
-  unocss: 66.9.2
-  vite: ^8.2.2
-  vitest: ^5.0.0
-  vue: ^3.5.42
-  vue-tsc: ^3.3.11
-
 allowBuilds:
   esbuild: true
   simple-git-hooks: true
+
+catalog:
+  '@types/node': ^26.6.1
+  '@unocss/preset-icons': 66.10.5
+  '@unocss/preset-mini': 66.10.5
+  '@unocss/preset-typography': 66.10.5
+  '@unocss/preset-web-fonts': 66.10.5
+  '@unocss/preset-wind4': 66.10.5
+  '@unocss/transformer-directives': 66.10.5
+  '@unocss/transformer-variant-group': 66.10.5
+  '@vinicunca/eslint-config': 5.7.1
+  '@vinicunca/perkakas': 1.17.1
+  '@vitejs/plugin-vue': ^6.0.9
+  bumpp: ^12.3.0
+  culori: ^4.0.2
+  defu: ^6.1.7
+  eslint: ^10.10.0
+  lint-staged: ^17.5.1
+  magic-string: ^1.4.1
+  postcss: ^8.5.28
+  postcss-js: ^5.1.0
+  prettier: ^3.9.7
+  simple-git-hooks: ^2.14.0
+  tsdown: ^0.23.0
+  typescript: ^6.0.3
+  unocss: 66.10.5
+  vite: ^8.3.0
+  vitest: ^5.0.1
+  vue: ^3.5.42
+  vue-tsc: ^3.3.11
