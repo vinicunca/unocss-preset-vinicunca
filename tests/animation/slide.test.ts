@@ -365,6 +365,34 @@ describe.concurrent('slide animation', async () => {
     });
   });
 
+  describe('short directions', () => {
+    it('should treat "t", "b", "l", and "r" like the full direction names', async ({ expect }) => {
+      const pairs = [
+        ['slide-in-t', 'slide-in-top'],
+        ['slide-in-b', 'slide-in-bottom'],
+        ['slide-in-l', 'slide-in-left'],
+        ['slide-in-r', 'slide-in-right'],
+        ['slide-in-from-t-50', 'slide-in-from-top-50'],
+        ['slide-out-t', 'slide-out-top'],
+        ['slide-out-b', 'slide-out-bottom'],
+        ['slide-out-l', 'slide-out-left'],
+        ['slide-out-r', 'slide-out-right'],
+        ['slide-out-to-l-50', 'slide-out-to-left-50'],
+      ];
+
+      const results = await Promise.all(
+        pairs.map(([short, full]) => Promise.all([getUno(short), getUno(full)])),
+      );
+
+      results.forEach(([{ css: shortCss }, { css: fullCss }], index) => {
+        const [short, full] = pairs[index];
+
+        expect(shortCss).not.toBe('');
+        expect(shortCss.replace(short, full)).toBe(fullCss);
+      });
+    });
+  });
+
   describe('slide-out', () => {
     describe('misc', () => {
       it(`"should generate "${CSS_VARIABLE_PREFIX}-exit-translate-x" and "-y" css variable and default to "100%"`, async ({ expect }) => {

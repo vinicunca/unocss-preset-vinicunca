@@ -60,7 +60,10 @@ export type CustomStaticShortcuts = Array<CustomStaticShortcut>;
 
 type CssKeyframesRule = Record<string, CSSObject>;
 
-export interface VinicuncaExtends extends Exclude<VinicuncaTheme, 'extend'> {
+/**
+ * Only `keyframes` and `animation` are read. Put other theme tokens on the UnoCSS `theme` option.
+ */
+export interface VinicuncaExtends {
   keyframes?: Record<string, CssKeyframesRule>;
 
   /**
@@ -142,7 +145,7 @@ export interface PresetVinicuncaOptions {
    * Only works when `presets` is not specified
    *
    * @about [@unocss/preset-icons](https://unocss.dev/presets/icons)
-   * @default false
+   * @default true
    */
   icons?: boolean | IconsOptions;
 
@@ -223,7 +226,8 @@ export interface PresetVinicuncaOptions {
 export type ResolvedOptions = Required<PresetVinicuncaOptions> & {
   meta: {
     presets: Array<Preset>;
-    shortcuts: CustomStaticShortcuts;
+    /** Animation keys whose keyframe name differs, mapped to that keyframe name */
+    animationAliases: Record<string, string>;
     transformers: Array<SourceCodeTransformer>;
     extendedTheme: {
       animation: ThemeAnimation;

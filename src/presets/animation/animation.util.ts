@@ -2,6 +2,13 @@ import { h } from '@unocss/preset-mini/utils';
 
 import { DEFAULT_SLIDE_TRANSLATE } from './animation.rule';
 
+const DIRECTION_MAP: Record<string, string> = {
+  t: 'top',
+  b: 'bottom',
+  l: 'left',
+  r: 'right',
+};
+
 export function handleSlide(
   val: string | undefined,
   dir: string | undefined,
@@ -12,7 +19,9 @@ export function handleSlide(
     return [];
   }
 
-  if (!value.startsWith('var(--') && ['left', 'top'].includes(dir ?? '')) {
+  const direction = DIRECTION_MAP[dir ?? ''] ?? dir;
+
+  if (!value.startsWith('var(--') && ['left', 'top'].includes(direction ?? '')) {
     if (value.startsWith('-')) {
       value = value.slice(1);
     } else if (value !== '0') {
@@ -20,5 +29,5 @@ export function handleSlide(
     }
   }
 
-  return [value, dir];
+  return [value, direction];
 }

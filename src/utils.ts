@@ -1,8 +1,7 @@
 import type { ThemeAnimation } from '@unocss/preset-mini';
 import type { CSSObject } from 'unocss';
-import type { CustomStaticShortcuts } from './types';
 
-// name duration timing-function iteration-count
+/** name duration timing-function iteration-count */
 export const RE_ANIMATION = /^([a-z-]+)\s+([0-9.]+m?s?|var\([^)]+\)|[*+])?\s?([a-z-]+(?:\([^)]+\))?|[*+])?\s*([a-z0-9-]+|var\([^)]+\)|[*+])?$/i;
 
 /**
@@ -19,6 +18,9 @@ export const RE_ANIMATION = /^([a-z-]+)\s+([0-9.]+m?s?|var\([^)]+\)|[*+])?\s?([a
  * If you use + as placeholder, it will be replaced with empty string.
  *
  * [name, duration, +, iteration-count]
+ *
+ * Values are stored under the map key. When the key differs from the keyframe name,
+ * the key is returned as an alias so it can reuse the keyframes with its own timing.
  *
  * @example
  *
@@ -38,13 +40,17 @@ export const RE_ANIMATION = /^([a-z-]+)\s+([0-9.]+m?s?|var\([^)]+\)|[*+])?\s?([a
  *     spin: 'infinite',
  *   },
  * }
+ *
+ * { animate: { 'spin-slow': 'spin 3s linear infinite' } }
+ *
+ * Will store the values under `spin-slow` and return the alias `{ 'spin-slow': 'spin' }`.
  */
 export function resolveAnimation(extendAnimation: Record<string, string>) {
   const animation: ThemeAnimation = {};
   const keys: Array<
     Exclude<keyof ThemeAnimation, 'properties'>
   > = ['durations', 'timingFns', 'counts'];
-  const shortcuts: CustomStaticShortcuts = [];
+  const aliases: Record<string, string> = {};
 
   for (const [key_, val_] of Object.entries(extendAnimation)) {
     const match = val_.match(RE_ANIMATION);
@@ -54,7 +60,7 @@ export function resolveAnimation(extendAnimation: Record<string, string>) {
       const values = [duration, timing, count];
 
       if (name !== key_) {
-        shortcuts.push([`animate-${key_}`, `animate-${name}`]);
+        aliases[key_] = name;
       }
 
       for (let i = 0; i < keys.length; i++) {
@@ -66,10 +72,10 @@ export function resolveAnimation(extendAnimation: Record<string, string>) {
           }
 
           if (animation[key]) {
-            animation[key]![name] = values[i] === '+' ? '' : values[i];
+            animation[key]![key_] = values[i] === '+' ? '' : values[i];
           } else {
             animation[key] = {
-              [name]: values[i] === '+' ? '' : values[i],
+              [key_]: values[i] === '+' ? '' : values[i],
             };
           }
         }
@@ -79,7 +85,7 @@ export function resolveAnimation(extendAnimation: Record<string, string>) {
 
   return {
     animation,
-    shortcuts,
+    aliases,
   };
 }
 

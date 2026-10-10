@@ -12,29 +12,29 @@ describe('utils', () => {
   };
 
   it('resolveAnimation', async () => {
-    const { animation, shortcuts } = resolveAnimation(animation_);
+    const { animation, aliases } = resolveAnimation(animation_);
 
-    expect(shortcuts).toHaveLength(1);
+    expect(aliases).toEqual({ 'spin-slow': 'spin' });
     expect(animation).toMatchInlineSnapshot(`
       {
         "counts": {
           "bounce": "3",
           "fade": "3",
           "foo": "3",
-          "spin": "infinite",
+          "spin-slow": "infinite",
         },
         "durations": {
           "bar": "1s",
           "bounce": "2s",
           "fade": "1s",
           "foo": "1s",
-          "spin": "3s",
+          "spin-slow": "3s",
         },
         "timingFns": {
           "bar": "",
           "bounce": "ease-in-out",
           "fade": "ease-in-out",
-          "spin": "linear",
+          "spin-slow": "linear",
         },
       }
     `);

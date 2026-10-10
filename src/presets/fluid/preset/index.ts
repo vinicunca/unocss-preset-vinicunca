@@ -1,4 +1,3 @@
-/* eslint-disable sonar/no-nested-template-literals */
 import type { Preset, Rule } from 'unocss';
 import type { FluidOptions } from './types';
 import { toKebabCase } from '@vinicunca/perkakas';
@@ -6,20 +5,11 @@ import { defu } from 'defu';
 import { DEFAULT_CSS_VAR_VALUE, DEFAULT_FLUID_OPTIONS, FluidUnit } from './constant';
 import { fluidTheme } from './theme';
 
-const UNIT_TO_NUMBER_MAP = {
-  [FluidUnit.px]: '1px',
-  [FluidUnit.rem]: '1rem',
-  [FluidUnit.em]: '1em',
-  [FluidUnit.vw]: '1vw',
-  [FluidUnit.vh]: '1vh',
-  [FluidUnit.vmin]: '1vmin',
-  [FluidUnit.vmax]: '1vmax',
-  [FluidUnit.fr]: '1fr',
-  [FluidUnit.percent]: '1%',
-} as const;
+type FluidUnitKey = keyof typeof FluidUnit;
 
-const units = Object.entries(FluidUnit).map(([key]) => key).join('|');
-const unitToNumber = (unit: keyof typeof UNIT_TO_NUMBER_MAP): string => UNIT_TO_NUMBER_MAP[unit];
+const units = Object.keys(FluidUnit).join('|');
+// Option and utility names use the FluidUnit keys (e.g. `percent`), the CSS value uses the mapped unit (e.g. `%`)
+const unitToNumber = (unit: FluidUnitKey): string => `1${FluidUnit[unit]}`;
 
 // Cache for regex patterns to avoid recompilation
 const regexCache = new Map<string, RegExp>();
@@ -30,11 +20,11 @@ function getRegExp(pattern: string): RegExp {
   return regexCache.get(pattern)!;
 }
 
-// Memoized utilities for getting CSS variable names and expressions
-const cssVarNamesCache = new Map<string, string>();
-const cssVarExpressionsCache = new Map<string, string>();
-
 export class FluidPreset {
+  /** Memoized CSS variable names and expressions; per instance because they depend on the prefix and options */
+  private cssVarNamesCache = new Map<string, string>();
+  private cssVarExpressionsCache = new Map<string, string>();
+
   prefix: string;
   minContainerWidth?: number;
   maxContainerWidth?: number;
@@ -48,7 +38,7 @@ export class FluidPreset {
     this.prefix = opts.prefix;
     this.minContainerWidth = opts.minContainerWidth;
     this.maxContainerWidth = opts.maxContainerWidth;
-    this.baseUnit = UNIT_TO_NUMBER_MAP[opts.defaultBaseUnit as keyof typeof UNIT_TO_NUMBER_MAP];
+    this.baseUnit = unitToNumber(opts.defaultBaseUnit);
     this.expandCSSVariables = !!opts.expandCSSVariables;
 
     // Initialize CSS vars with the current config
@@ -67,8 +57,10 @@ export class FluidPreset {
     };
   }
 
-  // Factory for creating both static utility rules and dynamic CSS variable rules
-  // utilitiesMap needed for CSS vars to auto-apply to matching utility properties
+  /**
+   * Factory for creating both static utility rules and dynamic CSS variable rules
+   * utilitiesMap needed for CSS vars to auto-apply to matching utility properties
+   */
   makeRulesFactory(isCSSVar: boolean = false, utilitiesMap?: Map<string, Array<string>>) {
     return (utility: string, cssProperties: Array<string> = []): Array<Rule<object>> => {
       const rules: Array<Rule<object>> = [];
@@ -131,7 +123,7 @@ export class FluidPreset {
         }, reUtilityBase);
 
         addRule(`${reUtilityBase}-base-(${units})`, ([_, utility, newUnit]) => ({
-          [this.getCSSVarName('unit', utility)]: unitToNumber(newUnit as keyof typeof UNIT_TO_NUMBER_MAP),
+          [this.getCSSVarName('unit', utility)]: unitToNumber(newUnit as FluidUnitKey),
         }));
 
         addRule(`${reUtilityBase}-container`, ([_, utility]) => ({
@@ -163,11 +155,11 @@ export class FluidPreset {
         }, reUtilityBase);
 
         addRule(`${reUtilityBase}-base-(${units})`, ([_, newUnit]) => ({
-          [this.getCSSVarName('unit', utility)]: unitToNumber(newUnit as keyof typeof UNIT_TO_NUMBER_MAP),
+          [this.getCSSVarName('unit', utility)]: unitToNumber(newUnit as FluidUnitKey),
         }), `${reUtilityBase}-base-<unit>`);
 
         addRule(`${reUtilityBase}-container`, () => ({
-          [this.getCSSVarName('container', 'undefined')]: '100cqw',
+          [this.getCSSVarName('container', utility)]: '100cqw',
         }));
       }
 
@@ -175,17 +167,17 @@ export class FluidPreset {
     };
   }
 
-  // Get the CSS variable name for a utility and variable
+  /** Get the CSS variable name for a utility and variable */
   getCSSVarName(variable?: string, utility?: string): string {
     const cacheKey = `${utility || ''}-${variable || ''}`;
-    if (!cssVarNamesCache.has(cacheKey)) {
+    if (!this.cssVarNamesCache.has(cacheKey)) {
       const name = `--${this.prefix}${utility?.replace('$', '')}${variable ? `-${toKebabCase(variable)}` : ''}`;
-      cssVarNamesCache.set(cacheKey, name);
+      this.cssVarNamesCache.set(cacheKey, name);
     }
-    return cssVarNamesCache.get(cacheKey)!;
+    return this.cssVarNamesCache.get(cacheKey)!;
   }
 
-  // Generate fluid CSS for a utility
+  /** Generate fluid CSS for a utility */
   getFluidCSS(
     options: {
       utility: string;
@@ -229,13 +221,13 @@ export class FluidPreset {
       value = `${sizeVar} `;
     } else {
       const calcKey = `fluid-calc-${utility}`;
-      if (!cssVarExpressionsCache.has(calcKey)) {
+      if (!this.cssVarExpressionsCache.has(calcKey)) {
         const fluid = `calc(${unitVar} * ${minSize} + (${maxSize} - ${minSize}) * (${containerVar} - (${unitVar} * ${minSizeC})) / (${maxSizeC} - ${minSizeC}))`;
         const minValue = `calc(${unitVar} * ${minSize})`;
         const maxValue = `calc(${unitVar} * ${maxSize})`;
-        cssVarExpressionsCache.set(calcKey, `clamp(${minValue}, ${fluid}, ${maxValue})`);
+        this.cssVarExpressionsCache.set(calcKey, `clamp(${minValue}, ${fluid}, ${maxValue})`);
       }
-      value = cssVarExpressionsCache.get(calcKey)!;
+      value = this.cssVarExpressionsCache.get(calcKey)!;
     }
 
     properties.forEach((prop) => {
@@ -244,7 +236,7 @@ export class FluidPreset {
     return css;
   }
 
-  // Get both CSS var name and expression
+  /** Get both CSS var name and expression */
   getCSSVars(variable: string, utility?: string): [string, string] {
     return [
       this.getCSSVarName(variable, utility),
@@ -252,23 +244,23 @@ export class FluidPreset {
     ];
   }
 
-  // Get the CSS variable expression
+  /** Get the CSS variable expression */
   getCSSVar(variable: string, utility?: string): string {
     const cacheKey = `var-${utility || ''}-${variable}`;
-    if (!cssVarExpressionsCache.has(cacheKey)) {
+    if (!this.cssVarExpressionsCache.has(cacheKey)) {
       const varName = this.getCSSVarName(variable, utility);
       const defaultVal = this.cssVars[variable]
         ? `, ${this.cssVars[variable]}`
         : '';
-      cssVarExpressionsCache.set(
+      this.cssVarExpressionsCache.set(
         cacheKey,
         `var(${varName}${defaultVal})`,
       );
     }
-    return cssVarExpressionsCache.get(cacheKey)!;
+    return this.cssVarExpressionsCache.get(cacheKey)!;
   }
 
-  // Get shortcuts for the given utilities
+  /** Get shortcuts for the given utilities */
   getShortcuts(
     utilities: Array<string>,
     options: { attributify: boolean; disableTheme: boolean; themeShortcuts?: boolean },

@@ -39,10 +39,9 @@ describe('presetVinicunca theme', () => {
 
     expect(uno_.config.theme.animation).toMatchSnapshot();
     expect(css).toMatchInlineSnapshot(`
-      "/* layer: shortcuts */
-      .animate-wiggle-slow{animation:wiggle 1s ease-in-out infinite;}
-      /* layer: default */
-      @keyframes wiggle{0%, 100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}20%, 30%{transform:rotate(-3deg);}80%{transform:rotate(3deg);}}"
+      "/* layer: default */
+      @keyframes wiggle-slow{0%, 100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}20%, 30%{transform:rotate(-3deg);}80%{transform:rotate(3deg);}}
+      .animate-wiggle-slow{animation:wiggle-slow 1s ease-in-out infinite;}"
     `);
   });
 });
@@ -88,5 +87,37 @@ describe('resolveAnimation', () => {
     const match = k.match(RE_ANIMATION);
     expect(match).not.toBeNull();
     expect(match).toEqual(expect.arrayContaining(result));
+  });
+});
+
+describe('animation aliases', () => {
+  it('gives an alias its own timing without changing the target', async () => {
+    const uno_ = await createGenerator<VinicuncaTheme>({
+      presets: [
+        presetVinicunca({
+          extendedTheme: {
+            keyframes: {
+              wiggle: {
+                '0%, 100%': { transform: 'rotate(-3deg)' },
+                '50%': { transform: 'rotate(3deg)' },
+              },
+            },
+            animation: {
+              'wiggle': 'wiggle 1s linear infinite',
+              'shake': 'wiggle 500ms ease-in-out 2',
+              'spin-slow': 'spin 3s linear infinite',
+            },
+          },
+        }),
+      ],
+    });
+    const { css } = await uno_.generate('animate-wiggle animate-shake animate-spin animate-spin-slow', { preflights: false });
+
+    expect(css).toContain('.animate-wiggle{animation:wiggle 1s linear infinite;}');
+    expect(css).toContain('.animate-shake{animation:shake 500ms ease-in-out 2;}');
+    expect(css).toContain('@keyframes shake{0%, 100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}');
+    expect(css).toContain('.animate-spin{animation:spin 1s linear infinite;}');
+    expect(css).toContain('.animate-spin-slow{animation:spin-slow 3s linear infinite;}');
+    expect(css).toMatch(/@keyframes spin-slow\{/);
   });
 });

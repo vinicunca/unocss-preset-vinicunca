@@ -104,3 +104,38 @@ describe('cases', () => {
     await expect(css).toMatchFileSnapshot(resolve(__dirname, './cases/case-5/output.css'));
   });
 });
+
+describe('fluid units and options', () => {
+  function getCss(code: string, fluid: Record<string, unknown> = {}) {
+    return createGenerator({ presets: [presetVinicunca({ fluid })] })
+      .then((generator) => generator.generate(code, { preflights: false }))
+      .then(({ css }) => css);
+  }
+
+  it('maps the percent base unit to %', async () => {
+    expect(await getCss('fluid-p-base-percent')).toContain('--fluid-p-unit:1%;');
+  });
+
+  it('uses % as the fallback when defaultBaseUnit is percent', async () => {
+    expect(await getCss('fluid-p-10/20', { defaultBaseUnit: 'percent' })).toContain('var(--fluid-p-unit, 1%)');
+  });
+
+  it('sets the container variable that the clamp reads', async () => {
+    const css = await getCss('fluid-p-container');
+    expect(css).toContain('--fluid-p-container:100cqw;');
+    expect(css).not.toContain('undefined');
+  });
+
+  it('keeps generators with different options independent', async () => {
+    const first = await getCss('fluid-p-10/20');
+    const second = await getCss('f-p-10/20', { prefix: 'f-', defaultBaseUnit: 'rem', minContainerWidth: 400 });
+    const third = await getCss('fluid-p-10/20', { defaultBaseUnit: 'em' });
+
+    expect(first).toContain('var(--fluid-p-unit, 1px)');
+    expect(second).toContain('--f-p-min:10;');
+    expect(second).toContain('var(--f-p-unit, 1rem)');
+    expect(second).toContain('var(--f-p-min-container, 400)');
+    expect(second).not.toContain('--fluid-');
+    expect(third).toContain('var(--fluid-p-unit, 1em)');
+  });
+});

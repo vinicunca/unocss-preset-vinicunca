@@ -3,7 +3,6 @@ shellEmulator: true
 
 packages:
   - playground
-  - docs
 
 allowBuilds:
   esbuild: true
@@ -18,7 +17,7 @@ catalog:
   '@unocss/preset-wind4': 66.10.5
   '@unocss/transformer-directives': 66.10.5
   '@unocss/transformer-variant-group': 66.10.5
-  '@vinicunca/eslint-config': 5.7.1
+  '@vinicunca/eslint-config': 6.0.0
   '@vinicunca/perkakas': 1.17.1
   '@vitejs/plugin-vue': ^6.0.9
   bumpp: ^12.3.0

@@ -1,6 +1,6 @@
 import type { FluidOptions } from './types';
 
-// The value of the `unit` CSS variable is a string. e.g. f-mt-rem
+/** The value of the `unit` CSS variable is a string. e.g. f-mt-rem */
 export const FluidUnit = {
   px: 'px',
   rem: 'rem',
@@ -26,5 +26,5 @@ export const DEFAULT_FLUID_OPTIONS: Required<FluidOptions> = {
   commentHelpers: false,
 };
 
-// Default value for CSS vars
+/** Default value for CSS vars */
 export const DEFAULT_CSS_VAR_VALUE = 16 as const;

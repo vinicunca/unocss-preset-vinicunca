@@ -13,13 +13,18 @@ export default vinicuncaESLint(
   {
     rules: {
       'perfectionist/sort-modules': 'off',
-      'sonar/cognitive-complexity': 'off',
-      'sonar/slow-regex': 'off',
-      'sonar/regex-complexity': 'off',
-      'sonar/no-nested-functions': 'off',
+      'sonarjs/cognitive-complexity': 'off',
+      'sonarjs/slow-regex': 'off',
+      'sonarjs/regex-complexity': 'off',
+      'sonarjs/no-nested-functions': 'off',
       'regexp/no-super-linear-backtracking': 'off',
       'regexp/no-misleading-capturing-group': 'off',
       'pnpm/yaml-enforce-settings': 'off',
     },
+  },
+
+  // Snapshot fixtures must match the generator byte for byte; formatting them breaks the tests
+  {
+    ignores: ['tests/fluid/cases/**'],
   },
 );

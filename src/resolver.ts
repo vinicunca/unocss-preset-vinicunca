@@ -1,6 +1,5 @@
 /* eslint-disable no-await-in-loop */
 import type {
-  CustomStaticShortcuts,
   PresetVinicuncaOptions,
   ResolvedOptions,
 } from './types';
@@ -33,16 +32,16 @@ export async function resolveOptions(options: PresetVinicuncaOptions): Promise<R
   const transformers = await resolveTransformers(optionsWithDefault);
   const {
     extendedTheme,
-    shortcuts,
+    animationAliases,
   } = resolveExtend(optionsWithDefault);
 
   return {
     ...optionsWithDefault,
 
     meta: {
+      animationAliases,
       extendedTheme,
       presets,
-      shortcuts,
       transformers,
     },
   };
@@ -107,14 +106,12 @@ async function resolveTransformers(options: Required<PresetVinicuncaOptions>) {
 }
 
 export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
-  const shortcuts_: CustomStaticShortcuts = [];
   const {
     animation = {},
     keyframes = {},
   } = options.extendedTheme ?? {};
 
-  const { animation: resolvedAnimation, shortcuts } = resolveAnimation(animation);
-  shortcuts_.push(...shortcuts);
+  const { animation: resolvedAnimation, aliases } = resolveAnimation(animation);
 
   resolvedAnimation.keyframes = {};
 
@@ -124,6 +121,6 @@ export function resolveExtend(options: Required<PresetVinicuncaOptions>) {
 
   return {
     extendedTheme: { animation: resolvedAnimation },
-    shortcuts: shortcuts_,
+    animationAliases: aliases,
   };
 }

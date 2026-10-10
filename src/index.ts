@@ -1,4 +1,4 @@
-import type { Postprocessor, Shortcut } from 'unocss';
+import type { Postprocessor } from 'unocss';
 import type { PresetVinicuncaOptions, VinicuncaTheme } from './types';
 import { defu } from 'defu';
 import { definePreset } from 'unocss';
@@ -25,12 +25,25 @@ export const presetVinicunca = definePreset<PresetVinicuncaOptions, VinicuncaThe
           oriTheme,
         );
 
-        return mergedTheme;
-      },
+        // Aliases reuse the target keyframes under their own name so they keep their own timing.
+        // Resolved here because built-in keyframes (e.g. `spin`) only exist on the merged theme.
+        // New objects, so the shared theme objects of other presets are never mutated.
+        const keyframes = { ...mergedTheme.animation?.keyframes };
+        const properties = { ...mergedTheme.animation?.properties };
+        for (const [alias, name] of Object.entries(meta.animationAliases)) {
+          if (keyframes[name] && !keyframes[alias]) {
+            keyframes[alias] = keyframes[name];
+          }
+          if (properties[name] && !properties[alias]) {
+            properties[alias] = properties[name];
+          }
+        }
 
-      shortcuts: [
-        ...meta.shortcuts,
-      ] as Array<Shortcut>,
+        return {
+          ...mergedTheme,
+          animation: { ...mergedTheme.animation, keyframes, properties },
+        };
+      },
 
       postprocess: [
         unColor ? postprocessWithUnColor(unColor as string) : undefined,

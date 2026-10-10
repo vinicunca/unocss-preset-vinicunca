@@ -39,6 +39,7 @@ const LAYER_CLASSES = [
   'color-red',
   'animate-in',
   'animate-wiggle-slow',
+  'fluid-p-md',
   'fade-in',
   'spin-in',
   'slide-in-top-full',

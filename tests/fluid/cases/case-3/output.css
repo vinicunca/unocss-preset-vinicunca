@@ -142,7 +142,7 @@
 .fluid-text-base-vmin{--fluid-text-unit:1vmin;}
 .fluid-text-base-vw{--fluid-text-unit:1vw;}
 .fluid-text-container,
-[fluid-text-container=""]{--fluid-undefined-container:100cqw;}
+[fluid-text-container=""]{--fluid-text-container:100cqw;}
 .fluid-w-min-100{--fluid-w-min:100;}
 .fluid-w-max-300{--fluid-w-max:300;}
 .fluid-h-min-50{--fluid-h-min:50;}
