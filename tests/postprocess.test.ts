@@ -19,7 +19,7 @@ describe('postprocess with unColor', () => {
       @property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
       @property --un-bg-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
       /* layer: theme */
-      :root, :host { --colors-red-DEFAULT: oklch(70.4% 0.191 22.216); --colors-blue-DEFAULT: oklch(70.7% 0.165 254.624); }
+      :root, :host { --colors-blue-DEFAULT: oklch(70.7% 0.165 254.624); --colors-red-DEFAULT: oklch(70.4% 0.191 22.216); }
       /* layer: default */
       .text-blue{color:color-mix(in srgb, var(--colors-blue-DEFAULT) var(--un-text-opacity), transparent);}
       .bg-red{background-color:color-mix(in srgb, var(--colors-red-DEFAULT) var(--un-bg-opacity), transparent);}
